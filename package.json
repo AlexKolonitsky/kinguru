@@ -1,7 +1,9 @@
 {
   "name": "kinguru",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "prettier": "^1.16.1"
+  },
   "devDependencies": {},
   "scripts": {}
 }
