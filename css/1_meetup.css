@@ -1,49 +1,58 @@
 @font-face {
   font-family: "Muller Bold";
-  src: url('../fonts/MullerBold.eot');
-  src: url('../fonts/MullerBold.woff') format('woff'), url('../fonts/MullerBold.ttf') format('truetype');
+  src: url("../fonts/MullerBold.eot");
+  src: url("../fonts/MullerBold.woff") format("woff"),
+    url("../fonts/MullerBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller Light";
-  src: url('../fonts/MullerLight.eot');
-  src: url('../fonts/MullerLight.woff') format('woff'), url('../fonts/MullerLight.ttf') format('truetype');
+  src: url("../fonts/MullerLight.eot");
+  src: url("../fonts/MullerLight.woff") format("woff"),
+    url("../fonts/MullerLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller UltraLight";
-  src: url('../fonts/MullerUltraLight.eot');
-  src: url('../fonts/MullerUltraLight.woff') format('woff'), url('../fonts/MullerUltraLight.ttf') format('truetype');
+  src: url("../fonts/MullerUltraLight.eot");
+  src: url("../fonts/MullerUltraLight.woff") format("woff"),
+    url("../fonts/MullerUltraLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller Regular";
-  src: url('../fonts/MullerRegular.eot');
-  src: url('../fonts/MullerRegular.woff') format('woff'), url('../fonts/MullerRegular.ttf') format('truetype');
+  src: url("../fonts/MullerRegular.eot");
+  src: url("../fonts/MullerRegular.woff") format("woff"),
+    url("../fonts/MullerRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller ExtraBold";
-  src: url('../fonts/MullerExtraBold.eot');
-  src: url('../fonts/MullerExtraBold.woff') format('woff'), url('../fonts/MullerExtraBold.ttf') format('truetype');
+  src: url("../fonts/MullerExtraBold.eot");
+  src: url("../fonts/MullerExtraBold.woff") format("woff"),
+    url("../fonts/MullerExtraBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
   color: #fff;
 }
-::-moz-placeholder { /* Firefox 19+ */
+::-moz-placeholder {
+  /* Firefox 19+ */
   color: #fff;
 }
-:-ms-input-placeholder { /* IE 10+ */
+:-ms-input-placeholder {
+  /* IE 10+ */
   color: #fff;
 }
-:-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder {
+  /* Firefox 18- */
   color: #fff;
 }
 
@@ -143,7 +152,9 @@ img::-moz-selection {
   background: transparent;
 }
 
-.fa.fa-plus, .fa.fa-times, .fa.fa-chevron-right {
+.fa.fa-plus,
+.fa.fa-times,
+.fa.fa-chevron-right {
   border: 3px solid #ffd800;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -191,8 +202,9 @@ img::-moz-selection {
   color: #000;
 }
 
-.btn-primary:active, .btn-primary:focus {
-  background-color: #ffea00!important;
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #ffea00 !important;
   color: #000;
 }
 
@@ -205,14 +217,15 @@ img::-moz-selection {
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
-#mainNav.navbar-shrink, #mainNav.darkness {
+#mainNav.navbar-shrink,
+#mainNav.darkness {
   background-color: rgba(0, 0, 0, 0.9);
 }
 #mainNav.navbar-dark .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 #mainNav.navbar-dark .navbar-nav .nav-link {
-  color: rgb(255,255,255);
+  color: rgb(255, 255, 255);
 }
 
 #mainNav.navbar-dark .navbar-toggler {
@@ -225,15 +238,15 @@ img::-moz-selection {
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
   position: absolute;
   content: "";
-  left:16px;
+  left: 16px;
   bottom: 0px;
   width: 57px;
   height: 6px;
   background-color: #ffd800;
 }
 
-
-.navbar-brand img:first-child, .footer-logo img:first-child {
+.navbar-brand img:first-child,
+.footer-logo img:first-child {
   margin-right: 10px;
 }
 
@@ -242,12 +255,13 @@ header.masthead {
   position: relative;
   padding-top: 8rem;
   padding-bottom: 4rem;
-  background: url('../img/parallax-1.png') no-repeat center center, url('../img/main.jpg') no-repeat center center;
+  background: url("../img/parallax-1.png") no-repeat center center,
+    url("../img/main.jpg") no-repeat center center;
   background-attachment: fixed, scroll;
-  -webkit-background-size: contain,cover;
-  -moz-background-size: contain,cover;
-  -o-background-size: contain,cover;
-  background-size: contain,cover;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+  background-size: contain, cover;
 }
 
 header.masthead hr {
@@ -260,9 +274,9 @@ header.masthead p {
   margin-bottom: 4rem;
 }
 
-header.masthead p>span {
+header.masthead p > span {
   font-family: "Muller ExtraBold";
-  color:#ffd800;
+  color: #ffd800;
 }
 
 .stripe {
@@ -270,28 +284,27 @@ header.masthead p>span {
   margin: 42px auto;
 }
 .stripe-path {
-  stroke-width:3px;
-  stroke:#ffd800;
-  fill:none;
+  stroke-width: 3px;
+  stroke: #ffd800;
+  fill: none;
 }
 .stripe-white {
   margin: 0 auto 24px;
   display: block;
 }
 .stripe-white-path {
-  stroke-width:3px;
-  stroke:#fff;
-  fill:none;
+  stroke-width: 3px;
+  stroke: #fff;
+  fill: none;
 }
 
 #task {
-  background: url('../img/parallax-pen.png') no-repeat center center;
+  background: url("../img/parallax-pen.png") no-repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
-
 }
 
 #task .timeplace {
@@ -300,10 +313,8 @@ header.masthead p>span {
 }
 
 #task .row {
-
 }
-#task .row > [class*='col-'] {
-
+#task .row > [class*="col-"] {
 }
 
 .task-box {
@@ -328,14 +339,14 @@ header.masthead p>span {
   box-shadow: 0px 21px 46px 0px rgba(0, 0, 0, 0.07);
 }
 
-.task-box .task-box-inner>p {
+.task-box .task-box-inner > p {
   margin-bottom: 0;
 }
 
-.task-box .task-box-inner>a[role="button"]{
+.task-box .task-box-inner > a[role="button"] {
   display: inline-block;
   font-size: 13px;
-  color:#0a0a0a;
+  color: #0a0a0a;
   font-family: "Muller Bold";
   text-transform: uppercase;
   border-radius: 50px;
@@ -344,13 +355,13 @@ header.masthead p>span {
   right: -15px;
   bottom: 8px;
 }
-.task-box .task-box-inner>a[aria-expanded="true"] {
+.task-box .task-box-inner > a[aria-expanded="true"] {
   display: none;
 }
-.task-box .task-box-inner>a[role="button"]:hover {
+.task-box .task-box-inner > a[role="button"]:hover {
   background-color: #ffd800;
 }
-.task-box .task-box-inner>a[role="button"]:hover .fa {
+.task-box .task-box-inner > a[role="button"]:hover .fa {
   background-color: #fff;
 }
 .task-box .task-box-inner .card.card-body {
@@ -365,7 +376,6 @@ header.masthead p>span {
 }
 .task-box .task-box-inner .card.card-body .fa.fa-users {
   margin-right: 10px;
-
 }
 .task-box .task-box-inner .card.card-body .fa.fa-map-marker {
   margin-right: 17px;
@@ -374,11 +384,11 @@ header.masthead p>span {
   margin-right: 11px;
 }
 
-.task-box .task-box-caption-content  .task-box-inner  {
+.task-box .task-box-caption-content .task-box-inner {
   border: none;
 }
 
-.task-box .task-box-inner .card.card-body  a[role="button"]  {
+.task-box .task-box-inner .card.card-body a[role="button"] {
   position: absolute;
   bottom: 0;
   right: -58px;
@@ -387,7 +397,7 @@ header.masthead p>span {
 .task-box .join {
   display: inline-block;
   margin: 0 auto;
-  width:194px;
+  width: 194px;
   height: 43px;
   line-height: 43px;
   font-size: 13px;
@@ -423,9 +433,9 @@ header.masthead p>span {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
-  -webkit-box-shadow: 0px 13px 21px 0px rgba(0,0,0,0.06);
-  -moz-box-shadow: 0px 13px 21px 0px rgba(0,0,0,0.06);
-  box-shadow: 0px 13px 21px 0px rgba(0,0,0,0.06);
+  -webkit-box-shadow: 0px 13px 21px 0px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0px 13px 21px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 13px 21px 0px rgba(0, 0, 0, 0.06);
 }
 
 .task-box .task-box-caption .task-box-caption-content {
@@ -437,10 +447,10 @@ header.masthead p>span {
 }
 .task-box-caption:after {
   position: absolute;
-  bottom:12px;
+  bottom: 12px;
   right: 12px;
-  content:"\f105";
-  font-family: 'FontAwesome';
+  content: "\f105";
+  font-family: "FontAwesome";
   font-size: 32px;
 }
 
@@ -493,13 +503,12 @@ header.masthead p>span {
 
 #invite {
   color: #fff;
-  background: #2a2a2a url('../img/parallax-mobile.png') no-repeat center 200px;
+  background: #2a2a2a url("../img/parallax-mobile.png") no-repeat center 200px;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
-
 }
 #invite h2 {
   font-size: 37px;
@@ -511,7 +520,8 @@ header.masthead p>span {
   -ms-flex-align: center;
   align-items: center;
 }
-#invite input, #invite select {
+#invite input,
+#invite select {
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
   border-top: 1px solid transparent;
@@ -522,7 +532,10 @@ header.masthead p>span {
   border-width: 1px;
   color: #fff;
 }
-#invite input:hover, #invite input:focus, #invite input:visited, #invite input:active {
+#invite input:hover,
+#invite input:focus,
+#invite input:visited,
+#invite input:active {
   border-color: #ffd800;
 }
 #invite .btn {
@@ -546,17 +559,18 @@ header.masthead p>span {
 #invite form p.input {
   margin-bottom: 80px;
 }
-#invite form p>input, #invite form p>select {
-  padding-top:9px;
+#invite form p > input,
+#invite form p > select {
+  padding-top: 9px;
   padding-bottom: 9px;
 }
-#invite form p>input {
+#invite form p > input {
   padding-left: 4px;
 }
 #invite p.select {
   margin-bottom: 93px;
 }
-#invite p.select select>option {
+#invite p.select select > option {
   background-color: #000;
 }
 #invite p.button {
@@ -566,7 +580,7 @@ header.masthead p>span {
 #work {
   padding-bottom: 0;
   padding-bottom: 85px;
-  background: url('../img/parallax-horn.png') no-repeat center bottom;
+  background: url("../img/parallax-horn.png") no-repeat center bottom;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -589,9 +603,10 @@ header.masthead p>span {
   position: relative;
   z-index: 9;
 }
-.work-box h5, .work-box .work-icon {
+.work-box h5,
+.work-box .work-icon {
   position: relative;
-  z-index:9;
+  z-index: 9;
 }
 
 .work-box h5 {
@@ -610,19 +625,25 @@ header.masthead p>span {
   display: inline-block;
   margin: 10px;
 }
-#btn-speakers, #btn-institution, #btn-visitors {
+#btn-speakers,
+#btn-institution,
+#btn-visitors {
   font-family: "Muller Light";
   font-size: 29px;
   color: #808080;
   position: relative;
 }
-#work #btn-speakers.active, #work #btn-institution.active, #work #btn-visitors.active {
+#work #btn-speakers.active,
+#work #btn-institution.active,
+#work #btn-visitors.active {
   position: relative;
   z-index: 9;
   font-family: "Muller ExtraBold";
   color: #0a0a0a;
 }
-#work #btn-speakers.active::after, #work #btn-institution.active::after, #work #btn-visitors.active::after {
+#work #btn-speakers.active::after,
+#work #btn-institution.active::after,
+#work #btn-visitors.active::after {
   position: absolute;
   bottom: -6px;
   left: -28px;
@@ -632,7 +653,9 @@ header.masthead p>span {
   background-color: #ffd800;
   z-index: -1;
 }
-#work #btn-speakers::before, #work #btn-institution::before, #work #btn-visitors::before {
+#work #btn-speakers::before,
+#work #btn-institution::before,
+#work #btn-visitors::before {
   position: absolute;
   bottom: 1px;
   content: "";
@@ -640,10 +663,14 @@ header.masthead p>span {
   height: 1px;
   background-color: transparent;
 }
-#work #btn-speakers:hover::before, #work #btn-institution:hover::before, #work #btn-visitors:hover::before {
+#work #btn-speakers:hover::before,
+#work #btn-institution:hover::before,
+#work #btn-visitors:hover::before {
   background-color: #808080;
 }
-#work #btn-speakers.active:hover::before, #work #btn-institution.active:hover::before, #work #btn-visitors.active:hover::before {
+#work #btn-speakers.active:hover::before,
+#work #btn-institution.active:hover::before,
+#work #btn-visitors.active:hover::before {
   background-color: transparent;
 }
 
@@ -653,7 +680,7 @@ header.masthead p>span {
 }
 
 #speakers {
-  background: #f5f5f5 url('../img/parallax-2.png') no-repeat center center;
+  background: #f5f5f5 url("../img/parallax-2.png") no-repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -688,13 +715,13 @@ header.masthead p>span {
   right: -20px;
   bottom: 21px;
 }
-.speaker-wrapper .speaker .card.card-body a[role="button"]>img {
+.speaker-wrapper .speaker .card.card-body a[role="button"] > img {
   display: inline-block;
 }
 .speaker-wrapper .speaker a[role="button"] {
   display: inline-block;
   font-size: 13px;
-  color:#0a0a0a;
+  color: #0a0a0a;
   font-family: "Muller Bold";
   text-transform: uppercase;
   border-radius: 50px;
@@ -702,7 +729,7 @@ header.masthead p>span {
   position: absolute;
   right: 15px;
 }
-.speaker-wrapper .speaker>a[aria-expanded="true"] {
+.speaker-wrapper .speaker > a[aria-expanded="true"] {
   display: none;
 }
 .speaker-wrapper .speaker a[role="button"]:hover {
@@ -728,7 +755,7 @@ header.masthead p>span {
 }
 
 #photo-gallery {
-  padding:0;
+  padding: 0;
 }
 .photo {
   display: block;
@@ -736,20 +763,20 @@ header.masthead p>span {
 }
 .photo:hover {
   transform: translateZ(0) scale(1.1);
-  transition: .5s all;
-  -webkit-transition: .5s all;
-  -moz-transition: .5s all;
-  -o-transition: .5s all;
-  -ms-transition: .5s all;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
   z-index: 10;
 }
-.photo:last-child{
-  transform-origin:right center;
+.photo:last-child {
+  transform-origin: right center;
 }
 
 #people {
   position: relative;
-  background: #f7f8f9 url('../img/parallax-glasses.png') no-repeat center 50px;
+  background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -797,7 +824,7 @@ header.masthead p>span {
   display: block;
 }
 #people .owl-carousel .owl-item p {
-  margin:0;
+  margin: 0;
 }
 #people .people-link {
   display: inline-block;
@@ -824,7 +851,7 @@ header.masthead p>span {
 }
 
 #contact {
-  background: #2a2a2a url('../img/parallax-footer.png') no-repeat center center;
+  background: #2a2a2a url("../img/parallax-footer.png") no-repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -907,8 +934,8 @@ footer {
   }
 }
 @media (min-width: 992px) {
-
-  .work-box-bg-img, .media-box-bg-img {
+  .work-box-bg-img,
+  .media-box-bg-img {
     min-height: 346px;
   }
   header.masthead {
@@ -921,7 +948,7 @@ footer {
   #mainNav {
     border-color: transparent;
     background-color: transparent;
-    padding-right: 0!important;
+    padding-right: 0 !important;
   }
   header .container {
     position: relative;
@@ -931,7 +958,9 @@ footer {
     padding: 0.5rem 1rem;
     font-size: 15px;
   }
-  #mainNav.navbar-dark .navbar-nav .nav-link, #mainNav.navbar-dark .navbar-nav .nav-link:focus, #mainNav.navbar-dark .navbar-nav .nav-link:hover {
+  #mainNav.navbar-dark .navbar-nav .nav-link,
+  #mainNav.navbar-dark .navbar-nav .nav-link:focus,
+  #mainNav.navbar-dark .navbar-nav .nav-link:hover {
     color: #fff;
   }
   #mainNav #navbarResponsive .navbar-collapse {
@@ -990,7 +1019,8 @@ footer {
     margin: 0 15px;
     width: 10px;
   }
-  #people .owl-carousel .owl-dots .owl-dot.active:hover, #people .owl-carousel .owl-dots .owl-dot.active:focus {
+  #people .owl-carousel .owl-dots .owl-dot.active:hover,
+  #people .owl-carousel .owl-dots .owl-dot.active:focus {
     outline: none;
   }
   #people .owl-carousel .owl-dots .owl-dot.active span {
@@ -1015,14 +1045,18 @@ footer {
   #contact {
     padding: 50px 0 85px;
   }
-
 }
 /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
 @media only screen and (max-device-width: 1200px) {
   header.masthead {
     background-attachment: scroll, scroll;
   }
-  #invite, #work, #task, #photos, #people, #contact {
+  #invite,
+  #work,
+  #task,
+  #photos,
+  #people,
+  #contact {
     background-attachment: scroll;
   }
 }
