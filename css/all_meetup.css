@@ -1,35 +1,35 @@
 @font-face {
 	font-family: "Muller Bold";
-	src: url('fonts/MullerBold.eot');
-	src: url('fonts/MullerBold.woff') format('woff'), url('fonts/MullerBold.ttf') format('truetype');
+	src: url('../fonts/MullerBold.eot');
+	src: url('../fonts/MullerBold.woff') format('woff'), url('../fonts/MullerBold.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Muller Light";
-	src: url('fonts/MullerLight.eot');
-	src: url('fonts/MullerLight.woff') format('woff'), url('fonts/MullerLight.ttf') format('truetype');
+	src: url('../fonts/MullerLight.eot');
+	src: url('../fonts/MullerLight.woff') format('woff'), url('../fonts/MullerLight.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Muller UltraLight";
-	src: url('fonts/MullerUltraLight.eot');
-	src: url('fonts/MullerUltraLight.woff') format('woff'), url('fonts/MullerUltraLight.ttf') format('truetype');
+	src: url('../fonts/MullerUltraLight.eot');
+	src: url('../fonts/MullerUltraLight.woff') format('woff'), url('../fonts/MullerUltraLight.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Muller Regular";
-	src: url('fonts/MullerRegular.eot');
-	src: url('fonts/MullerRegular.woff') format('woff'), url('fonts/MullerRegular.ttf') format('truetype');
+	src: url('../fonts/MullerRegular.eot');
+	src: url('../fonts/MullerRegular.woff') format('woff'), url('../fonts/MullerRegular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Muller ExtraBold";
-	src: url('fonts/MullerExtraBold.eot');
-	src: url('fonts/MullerExtraBold.woff') format('woff'), url('fonts/MullerExtraBold.ttf') format('truetype');
+	src: url('../fonts/MullerExtraBold.eot');
+	src: url('../fonts/MullerExtraBold.woff') format('woff'), url('../fonts/MullerExtraBold.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -242,7 +242,7 @@ header.masthead {
   position: relative;
   padding-top: 8rem;
   padding-bottom: 4rem;
-  background: url('img/parallax-1.png') no-repeat center center, url('img/main.jpg') no-repeat center center;
+  background: url('../img/parallax-1.png') no-repeat center center, url('../img/main.jpg') no-repeat center center;
   background-attachment: fixed, scroll;
   -webkit-background-size: contain,cover;
   -moz-background-size: contain,cover;
@@ -285,7 +285,7 @@ header.masthead p>span {
 }
 
 #task {
-    background: url('img/parallax-pen.png') no-repeat center center;
+    background: url('../img/parallax-pen.png') no-repeat center center;
     background-attachment: fixed;
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
@@ -493,7 +493,7 @@ header.masthead p>span {
 
 #invite {
 	color: #fff;
-	background: #2a2a2a url('img/parallax-mobile.png') no-repeat center 200px;
+	background: #2a2a2a url('../img/parallax-mobile.png') no-repeat center 200px;
     background-attachment: fixed;
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
@@ -566,7 +566,7 @@ header.masthead p>span {
 #work {
 	padding-bottom: 0;
     padding-bottom: 85px;
-	background: url('img/parallax-horn.png') no-repeat center bottom;
+	background: url('../img/parallax-horn.png') no-repeat center bottom;
     background-attachment: fixed;
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
@@ -653,7 +653,7 @@ header.masthead p>span {
 	}
 
 #speakers {
-    background: #f5f5f5 url('img/parallax-2.png') no-repeat center center;
+    background: #f5f5f5 url('../img/parallax-2.png') no-repeat center center;
     background-attachment: fixed;
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
@@ -749,7 +749,7 @@ header.masthead p>span {
 
 #people {
 	position: relative;
-	background: #f7f8f9 url('img/parallax-glasses.png') no-repeat center 50px;
+	background: #f7f8f9 url('../img/parallax-glasses.png') no-repeat center 50px;
     background-attachment: fixed;
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
@@ -824,7 +824,7 @@ header.masthead p>span {
 		}
 
 #contact {
-	background: #2a2a2a url('img/parallax-footer.png') no-repeat center center;
+	background: #2a2a2a url('../img/parallax-footer.png') no-repeat center center;
     background-attachment: fixed;
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
