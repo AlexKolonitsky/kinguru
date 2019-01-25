@@ -154,7 +154,7 @@ img::-moz-selection {
   height: 39px;
   line-height: 35px;
   text-align: center;
-  color: #0a0a0a;
+  color: #ffffff;
 }
 
 .fa-star {
@@ -188,9 +188,51 @@ img::-moz-selection {
   color: #000;
 }
 
+.btn-join {
+  background-color: #ffd800;
+  border-color: #ffd800;
+  font-size: 20px;
+  height: 50px;
+  line-height: 55px;
+  padding: 0 4em;
+  font-family: "Muller Bold";
+  font-weight: inherit;
+  color: #000;
+}
 
-.fa-search {
+.more {
+  justify-content: flex-end;
+}
+
+
+.fa-search{
   font-size: 1.2em;
+}
+
+.fa-calendar,
+.fa-microphone,
+.fa-clock,
+.fa-map-marker,
+.fa-usd-circle{
+  font-family: "FontAwesome";
+    margin-right: 14px;
+    font-size: 1.2em;
+    color: #ffd800;
+}
+
+.about-meetups {
+  display: inline-block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 6em;
+  line-height: 1.5em;
+}
+
+
+.color-gray {
+  color: #4e555b;
+  font-size: 1.4em;
 }
 
 .btn-primary:hover {
@@ -200,7 +242,7 @@ img::-moz-selection {
 
 .btn-primary:active,
 .btn-primary:focus {
-  background-color: #ffea00 !important;
+  background-color: #ffea00;
   color: #000;
 }
 
@@ -276,12 +318,16 @@ img::-moz-selection {
   padding-top: 12rem;
 }
 
+.event{
+    color: #ffffff;
+}
+
 .event-category {
   background-color: transparent;
   border: 1px solid #fff;
-  font-size: 15px;
+  font-size: 16px;
   height: 40px;
-  line-height: 45px;
+  line-height: 40px;
   padding: 0.7em 1.8em;
   font-family: "Muller Regular";
   font-weight: normal;
@@ -1017,7 +1063,7 @@ footer {
   }
 
   h2 {
-    font-size: 43px;
+    font-size: 35px;
   }
 
   .btn-primary {
