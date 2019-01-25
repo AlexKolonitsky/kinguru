@@ -862,7 +862,7 @@ header.masthead p > span {
   padding: 18px 0 114px;
 }
 #contact a {
-  color: #fff;
+  color: #909090;
   font-size: 14px;
 }
 #contact a:hover {
@@ -884,16 +884,69 @@ header.masthead p > span {
   -ms-flex-align: inherit;
   align-items: inherit;
 }
-#contact .pages p {
-  line-height: 33px;
+
+#contact .btn {
+  background-color: #ffd800;
+  border-color: #ffd800;
+  font-size: 14px;
+  font-family: "Muller Bold";
+  font-weight: inherit;
+  color: #000;
+  padding: 6px 30px;
+  margin-top: 15px;
+}
+
+#contact .btn:hover {
+  background-color: #ffea00;
+}
+
+#contact input {
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid #909090;
+  background-color: transparent;
+  width: 279px;
+  max-width: 100%;
+  color: #fff;
+}
+
+#contact p > input {
+  padding: 9px 0 9px 4px;
+}
+
+#contact input::placeholder {
+  color: #909090;
 }
 
 footer {
   background-color: rgb(17, 18, 31);
   color: rgb(124, 129, 143);
 }
+
 .footer-logo {
-  margin-bottom: 27px;
+  margin-top: -5px;
+  margin-bottom: 31px;
+}
+
+.footer-text {
+  color: #909090;
+}
+
+.footer-section-title {
+  font-family: "Muller Bold";
+  margin-top: 36px;
+  margin-bottom: 23px;
+}
+
+.footer-title-divider {
+  margin-top: 0;
+  margin-bottom: 28px;
+  width: 27px;
+}
+
+.footer-socials-wrapper {
+  margin-top: 30px;
 }
 
 #hidden-content {
@@ -912,12 +965,11 @@ footer {
     padding: 75px 0px 75px 180px;
   }
   .footer-logo img {
-    display: block;
     margin: 0 auto;
   }
   .footer-logo img:first-child {
     margin-bottom: 10px;
-    margin-right: auto;
+    margin-right: 10px;
   }
 }
 @media (min-width: 768px) {
