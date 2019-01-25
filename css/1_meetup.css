@@ -1,58 +1,49 @@
 @font-face {
   font-family: "Muller Bold";
-  src: url("../fonts/MullerBold.eot");
-  src: url("../fonts/MullerBold.woff") format("woff"),
-    url("../fonts/MullerBold.ttf") format("truetype");
+  src: url('../fonts/MullerBold.eot');
+  src: url('../fonts/MullerBold.woff') format('woff'), url('../fonts/MullerBold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller Light";
-  src: url("../fonts/MullerLight.eot");
-  src: url("../fonts/MullerLight.woff") format("woff"),
-    url("../fonts/MullerLight.ttf") format("truetype");
+  src: url('../fonts/MullerLight.eot');
+  src: url('../fonts/MullerLight.woff') format('woff'), url('../fonts/MullerLight.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller UltraLight";
-  src: url("../fonts/MullerUltraLight.eot");
-  src: url("../fonts/MullerUltraLight.woff") format("woff"),
-    url("../fonts/MullerUltraLight.ttf") format("truetype");
+  src: url('../fonts/MullerUltraLight.eot');
+  src: url('../fonts/MullerUltraLight.woff') format('woff'), url('../fonts/MullerUltraLight.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller Regular";
-  src: url("../fonts/MullerRegular.eot");
-  src: url("../fonts/MullerRegular.woff") format("woff"),
-    url("../fonts/MullerRegular.ttf") format("truetype");
+  src: url('../fonts/MullerRegular.eot');
+  src: url('../fonts/MullerRegular.woff') format('woff'), url('../fonts/MullerRegular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller ExtraBold";
-  src: url("../fonts/MullerExtraBold.eot");
-  src: url("../fonts/MullerExtraBold.woff") format("woff"),
-    url("../fonts/MullerExtraBold.ttf") format("truetype");
+  src: url('../fonts/MullerExtraBold.eot');
+  src: url('../fonts/MullerExtraBold.woff') format('woff'), url('../fonts/MullerExtraBold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #fff;
 }
-::-moz-placeholder {
-  /* Firefox 19+ */
+::-moz-placeholder { /* Firefox 19+ */
   color: #fff;
 }
-:-ms-input-placeholder {
-  /* IE 10+ */
+:-ms-input-placeholder { /* IE 10+ */
   color: #fff;
 }
-:-moz-placeholder {
-  /* Firefox 18- */
+:-moz-placeholder { /* Firefox 18- */
   color: #fff;
 }
 
@@ -84,8 +75,8 @@ a {
 }
 
 a:hover {
-  color: #2a8eff;
-  text-decoration: none;
+  color: #000000;
+  text-decoration: underline;
 }
 
 h1,
@@ -103,7 +94,7 @@ h1 {
 }
 h2 {
   font-family: "Muller ExtraBold";
-  color: #0a0a0a;
+  color: #ffffff;
 }
 h3 {
   font-family: "Muller Light";
@@ -197,8 +188,13 @@ img::-moz-selection {
   color: #000;
 }
 
+
+.fa-search {
+  font-size: 1.2em;
+}
+
 .btn-primary:hover {
-  background-color: #ffea00 !important;
+  background-color: #ffea00;
   color: #000;
 }
 
@@ -211,7 +207,7 @@ img::-moz-selection {
 #mainNav {
   padding-top: 13px;
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
-  background-color: transparent;
+  background-color: #ffffff;
   font-family: "Muller Regular";
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -219,16 +215,16 @@ img::-moz-selection {
 }
 #mainNav.navbar-shrink,
 #mainNav.darkness {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #ffffff;
 }
-#mainNav.navbar-dark .navbar-toggler-icon {
+#mainNav.navbar-light .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
-#mainNav.navbar-dark .navbar-nav .nav-link {
-  color: rgb(255, 255, 255);
+#mainNav.navbar-light .navbar-nav .nav-link {
+  color: #000000;
 }
 
-#mainNav.navbar-dark .navbar-toggler {
+#mainNav.navbar-light .navbar-toggler {
   background-color: #ffd800;
 }
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
@@ -245,71 +241,56 @@ img::-moz-selection {
   background-color: #ffd800;
 }
 
+.container-navbar,
+.contactsNavbar{
+  display: flex;
+  justify-content: space-around;
+}
+
+.contactsItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactsItem {
+  font-size: 1em;
+  color: #000000;
+  text-decoration: none;
+}
+
 .navbar-brand img:first-child,
 .footer-logo img:first-child {
   margin-right: 10px;
 }
 
-header.masthead {
-  overflow: hidden;
-  position: relative;
-  padding-top: 8rem;
-  padding-bottom: 4rem;
-  background: url("../img/parallax-1.png") no-repeat center center,
-    url("../img/main.jpg") no-repeat center center;
-  background-attachment: fixed, scroll;
-  -webkit-background-size: contain, cover;
-  -moz-background-size: contain, cover;
-  -o-background-size: contain, cover;
-  background-size: contain, cover;
-}
-
-header.masthead hr {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-header.masthead p {
-  font-weight: 300;
-  margin-bottom: 4rem;
-}
-
-header.masthead p > span {
-  font-family: "Muller ExtraBold";
-  color: #ffd800;
-}
-
-.stripe {
-  display: block;
-  margin: 42px auto;
-}
-.stripe-path {
-  stroke-width: 3px;
-  stroke: #ffd800;
-  fill: none;
-}
-.stripe-white {
-  margin: 0 auto 24px;
-  display: block;
-}
-.stripe-white-path {
-  stroke-width: 3px;
-  stroke: #fff;
-  fill: none;
-}
-
 #task {
-  background: url("../img/parallax-pen.png") no-repeat center center;
-  background-attachment: fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
+    background: #2a2a2a url("../img/main.jpg") no-repeat center center;
+    background-attachment: fixed;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
 }
 
-#task .timeplace {
-  font-size: 12px;
+#task .container {
+  padding-top: 12rem;
+}
+
+.event-category {
+  background-color: transparent;
+  border: 1px solid #fff;
+  font-size: 15px;
+  height: 40px;
+  line-height: 45px;
+  padding: 0.7em 1.8em;
   font-family: "Muller Regular";
+  font-weight: normal;
+  color: #fff;
+  border-radius: 300px;
+}
+
+.event-category:hover{
+  color: #fff;
 }
 
 #task .row {
@@ -374,7 +355,8 @@ header.masthead p > span {
 .task-box .task-box-inner .card.card-body .fa:not(.fa-times) {
   color: #e0e0e0;
 }
-.task-box .task-box-inner .card.card-body .fa.fa-users {
+.task-box .task-box-inner .card.card-body .fa.fa-users,
+.fa-search{
   margin-right: 10px;
 }
 .task-box .task-box-inner .card.card-body .fa.fa-map-marker {
@@ -410,14 +392,6 @@ header.masthead p > span {
 }
 .task-box .join:hover {
   background-color: #ffea00;
-}
-
-.task-box .hour {
-  font-family: "Muller Light";
-  font-size: 13px;
-  color: rgb(174, 180, 188);
-  text-align: center;
-  margin-bottom: 20px;
 }
 
 .task-box .task-box-caption {
@@ -990,7 +964,7 @@ footer {
   .media-box-bg-img {
     min-height: 346px;
   }
-  header.masthead {
+  #task {
     margin-top: 0;
     padding-top: 10rem;
   }
@@ -999,10 +973,10 @@ footer {
   }
   #mainNav {
     border-color: transparent;
-    background-color: transparent;
-    padding-right: 0 !important;
+    background-color: #ffffff;
+    padding-right: 0!important;
   }
-  header .container {
+  #task .container {
     position: relative;
     z-index: 999;
   }
@@ -1010,10 +984,9 @@ footer {
     padding: 0.5rem 1rem;
     font-size: 15px;
   }
-  #mainNav.navbar-dark .navbar-nav .nav-link,
-  #mainNav.navbar-dark .navbar-nav .nav-link:focus,
-  #mainNav.navbar-dark .navbar-nav .nav-link:hover {
-    color: #fff;
+  #mainNav.navbar-light .navbar-nav .nav-link,
+  #mainNav.navbar-light .navbar-nav .nav-link:focus,#mainNav.navbar-dark .navbar-nav .nav-link:hover {
+    color: #000;
   }
   #mainNav #navbarResponsive .navbar-collapse {
     justify-content: flex-end;
@@ -1023,33 +996,35 @@ footer {
     text-decoration: underline;
   }
   #mainNav.navbar-shrink {
-    border-bottom: 1px solid rgba(33, 37, 41, 0.1);
-    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+    background-color: #ffffff;
     z-index: 9999;
   }
+
+  .navbar-btn{
+    justify-content: flex-end;
+  }
+
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
-    color: #fff;
+    color: #000000;
   }
-  header.masthead {
-    height: 100vh;
-    min-height: 650px;
+
+  #task {
+    min-height: 450px;
     padding-top: 0;
     padding-bottom: 0;
   }
-  header.masthead h1 {
-    font-size: 3rem;
-    line-height: 1;
-  }
+
   h2 {
     font-size: 43px;
   }
 
   .btn-primary {
-    width: 337px;
+    width: 140px;
     max-width: 90%;
-    height: 76px;
-    line-height: 80px;
+    height: 50px;
+    line-height: 55px;
     color: #000;
     padding: 0;
   }
@@ -1081,9 +1056,7 @@ footer {
 }
 
 @media (min-width: 1200px) {
-  header.masthead h1 {
-    font-size: 73px;
-  }
+
   .container {
     width: 1000px;
     max-width: 1000px;
@@ -1100,12 +1073,11 @@ footer {
 }
 /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
 @media only screen and (max-device-width: 1200px) {
-  header.masthead {
+  #task {
     background-attachment: scroll, scroll;
   }
   #invite,
   #work,
-  #task,
   #photos,
   #people,
   #contact {
