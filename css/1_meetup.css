@@ -304,7 +304,7 @@ img::-moz-selection {
   position: absolute;
   content: "";
   left: 16px;
-  bottom: 0px;
+  bottom: 0;
   width: 57px;
   height: 6px;
   background-color: #ffd800;
@@ -390,7 +390,7 @@ img::-moz-selection {
   padding: 28px 38px 50px;
   background-color: #fff;
   height: 100%;
-  box-shadow: 0px 21px 46px 0px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 21px 46px 0 rgba(0, 0, 0, 0.07);
 }
 
 .task-box .task-box-inner > p {
@@ -480,9 +480,9 @@ img::-moz-selection {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
-  -webkit-box-shadow: 0px 13px 21px 0px rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 0px 13px 21px 0px rgba(0, 0, 0, 0.06);
-  box-shadow: 0px 13px 21px 0px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: 0 13px 21px 0 rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0 13px 21px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 13px 21px 0 rgba(0, 0, 0, 0.06);
 }
 
 .task-box .task-box-caption .task-box-caption-content {
@@ -1030,11 +1030,18 @@ footer {
   margin-top: 30px;
 }
 
+.rights-section {
+  padding: 18px 0 0 0;
+  background-color: #202020;
+  text-align: center;
+  color: #909090;
+}
+
 #hidden-content {
   display: none;
   background-color: #fff;
   padding: 50px 100px;
-  box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 5px 49px 0 rgba(0, 0, 0, 0.04);
 }
 
 @media (min-width: 576px) {
