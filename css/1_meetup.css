@@ -1,49 +1,58 @@
 @font-face {
   font-family: "Muller Bold";
-  src: url('../fonts/MullerBold.eot');
-  src: url('../fonts/MullerBold.woff') format('woff'), url('../fonts/MullerBold.ttf') format('truetype');
+  src: url("../fonts/MullerBold.eot");
+  src: url("../fonts/MullerBold.woff") format("woff"),
+    url("../fonts/MullerBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller Light";
-  src: url('../fonts/MullerLight.eot');
-  src: url('../fonts/MullerLight.woff') format('woff'), url('../fonts/MullerLight.ttf') format('truetype');
+  src: url("../fonts/MullerLight.eot");
+  src: url("../fonts/MullerLight.woff") format("woff"),
+    url("../fonts/MullerLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller UltraLight";
-  src: url('../fonts/MullerUltraLight.eot');
-  src: url('../fonts/MullerUltraLight.woff') format('woff'), url('../fonts/MullerUltraLight.ttf') format('truetype');
+  src: url("../fonts/MullerUltraLight.eot");
+  src: url("../fonts/MullerUltraLight.woff") format("woff"),
+    url("../fonts/MullerUltraLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller Regular";
-  src: url('../fonts/MullerRegular.eot');
-  src: url('../fonts/MullerRegular.woff') format('woff'), url('../fonts/MullerRegular.ttf') format('truetype');
+  src: url("../fonts/MullerRegular.eot");
+  src: url("../fonts/MullerRegular.woff") format("woff"),
+    url("../fonts/MullerRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller ExtraBold";
-  src: url('../fonts/MullerExtraBold.eot');
-  src: url('../fonts/MullerExtraBold.woff') format('woff'), url('../fonts/MullerExtraBold.ttf') format('truetype');
+  src: url("../fonts/MullerExtraBold.eot");
+  src: url("../fonts/MullerExtraBold.woff") format("woff"),
+    url("../fonts/MullerExtraBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
   color: #fff;
 }
-::-moz-placeholder { /* Firefox 19+ */
+::-moz-placeholder {
+  /* Firefox 19+ */
   color: #fff;
 }
-:-ms-input-placeholder { /* IE 10+ */
+:-ms-input-placeholder {
+  /* IE 10+ */
   color: #fff;
 }
-:-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder {
+  /* Firefox 18- */
   color: #fff;
 }
 
@@ -204,8 +213,7 @@ img::-moz-selection {
   justify-content: flex-end;
 }
 
-
-.fa-search{
+.fa-search {
   font-size: 1.2em;
 }
 
@@ -213,11 +221,31 @@ img::-moz-selection {
 .fa-microphone,
 .fa-clock,
 .fa-map-marker,
-.fa-usd-circle{
+.fa-usd-circle {
   font-family: "FontAwesome";
-    margin-right: 14px;
-    font-size: 1.2em;
-    color: #ffd800;
+  margin-right: 14px;
+  font-size: 1.2em;
+  color: #ffd800;
+}
+
+.section-title {
+  margin-bottom: 25px;
+  color: #0a0a0a;
+}
+
+.section-title-left {
+  text-align: start;
+}
+
+.stripe {
+  display: block;
+  margin: 42px auto;
+}
+
+.stripe-path {
+  stroke-width: 3px;
+  stroke: #ffd800;
+  fill: none;
 }
 
 .about-meetups {
@@ -228,7 +256,6 @@ img::-moz-selection {
   max-height: 6em;
   line-height: 1.5em;
 }
-
 
 .color-gray {
   color: #4e555b;
@@ -284,7 +311,7 @@ img::-moz-selection {
 }
 
 .container-navbar,
-.contactsNavbar{
+.contactsNavbar {
   display: flex;
   justify-content: space-around;
 }
@@ -306,20 +333,20 @@ img::-moz-selection {
 }
 
 #task {
-    background: #2a2a2a url("../img/main.jpg") no-repeat center center;
-    background-attachment: fixed;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
+  background: #2a2a2a url("../img/main.jpg") no-repeat center center;
+  background-attachment: fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
 }
 
 #task .container {
   padding-top: 12rem;
 }
 
-.event{
-    color: #ffffff;
+.event {
+  color: #ffffff;
 }
 
 .event-category {
@@ -335,7 +362,7 @@ img::-moz-selection {
   border-radius: 300px;
 }
 
-.event-category:hover{
+.event-category:hover {
   color: #fff;
 }
 
@@ -402,7 +429,7 @@ img::-moz-selection {
   color: #e0e0e0;
 }
 .task-box .task-box-inner .card.card-body .fa.fa-users,
-.fa-search{
+.fa-search {
   margin-right: 10px;
 }
 .task-box .task-box-inner .card.card-body .fa.fa-map-marker {
@@ -794,7 +821,7 @@ img::-moz-selection {
   transform-origin: right center;
 }
 
-#people {
+#place {
   position: relative;
   background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
   background-attachment: fixed;
@@ -806,23 +833,20 @@ img::-moz-selection {
   z-index: 1;
 }
 
-#people .owl-item {
-  padding: 0 36px;
+#place .owl-item {
   overflow: hidden;
 }
-#people .owl-item-inner {
+#place .owl-item-inner {
   padding: 235px 20px 71px 20px;
-  box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
   min-height: 314px;
-  background-color: #fff;
 }
 
-#people h6 {
+#place h6 {
   font-family: "Muller ExtraBold";
   font-size: 20px;
 }
 
-#people hr {
+#place hr {
   width: 169px;
   height: 2px;
   position: absolute;
@@ -830,23 +854,27 @@ img::-moz-selection {
   top: 100px;
 }
 
-#people .owl-carousel .owl-item img.rounded-circle {
+#place .stripe {
+  margin-top: 20px;
+}
+
+#place .owl-carousel .owl-item img.rounded-circle {
   width: auto;
   position: absolute;
   left: 0;
   top: 45px;
 }
-#people .owl-carousel .owl-item strong {
+#place .owl-carousel .owl-item strong {
   font-family: "Muller Light";
   font-size: 15px;
   margin-top: 47px;
   margin-bottom: 20px;
   display: block;
 }
-#people .owl-carousel .owl-item p {
+#place .owl-carousel .owl-item p {
   margin: 0;
 }
-#people .people-link {
+#place .people-link {
   display: inline-block;
   font-size: 13px;
   color: transparent;
@@ -858,16 +886,49 @@ img::-moz-selection {
   bottom: 32px;
   right: 16px;
 }
-#people .people-link:hover {
+#place .people-link:hover {
   background-color: #ffd800;
   color: #000;
 }
-#people .people-link:hover .fa {
+#place .people-link:hover .fa {
   background-color: #fff;
 }
-#people .people-link img {
-  width: auto;
-  display: inline-block;
+#place img {
+  width: 553px;
+  height: 319px;
+}
+
+#place .button {
+  margin-top: 25px;
+}
+
+#place .fa {
+  color: #dfdfdf;
+  margin-right: 18px;
+  font-size: 20px;
+}
+
+.place-description,
+#place a {
+  display: flex;
+  align-items: flex-end;
+  color: #212529;
+  font-family: "Muller Regular";
+  font-size: 11px;
+}
+
+.place-description-section {
+  padding-left: 70px;
+  padding-top: 92px;
+}
+
+.btn-join-meetup {
+  padding: 0 62px;
+  font-size: 14px;
+}
+
+.btn-join-meetup:hover {
+  background-color: #ffea00;
 }
 
 #contact {
@@ -981,8 +1042,8 @@ footer {
     margin: 0;
     width: 33%;
   }
-  #people .owl-item-inner {
-    padding: 75px 0px 75px 180px;
+  #place .owl-item-inner {
+    padding: 20px 0 0 0;
   }
   .footer-logo img {
     margin: 0 auto;
@@ -1020,7 +1081,7 @@ footer {
   #mainNav {
     border-color: transparent;
     background-color: #ffffff;
-    padding-right: 0!important;
+    padding-right: 0 !important;
   }
   #task .container {
     position: relative;
@@ -1031,7 +1092,8 @@ footer {
     font-size: 15px;
   }
   #mainNav.navbar-light .navbar-nav .nav-link,
-  #mainNav.navbar-light .navbar-nav .nav-link:focus,#mainNav.navbar-dark .navbar-nav .nav-link:hover {
+  #mainNav.navbar-light .navbar-nav .nav-link:focus,
+  #mainNav.navbar-dark .navbar-nav .nav-link:hover {
     color: #000;
   }
   #mainNav #navbarResponsive .navbar-collapse {
@@ -1047,7 +1109,7 @@ footer {
     z-index: 9999;
   }
 
-  .navbar-btn{
+  .navbar-btn {
     justify-content: flex-end;
   }
 
@@ -1075,14 +1137,14 @@ footer {
     padding: 0;
   }
 
-  #people .owl-carousel .owl-dots {
-    margin-top: 50px;
+  #place .owl-carousel .owl-dots {
+    margin-top: 30px;
     text-align: center;
   }
-  #people .owl-carousel .owl-dots .owl-dot {
+  #place .owl-carousel .owl-dots .owl-dot {
     display: inline-block;
   }
-  #people .owl-carousel .owl-dots .owl-dot span {
+  #place .owl-carousel .owl-dots .owl-dot span {
     background: #dae5ea;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -1092,17 +1154,16 @@ footer {
     margin: 0 15px;
     width: 10px;
   }
-  #people .owl-carousel .owl-dots .owl-dot.active:hover,
-  #people .owl-carousel .owl-dots .owl-dot.active:focus {
+  #place .owl-carousel .owl-dots .owl-dot.active:hover,
+  #place .owl-carousel .owl-dots .owl-dot.active:focus {
     outline: none;
   }
-  #people .owl-carousel .owl-dots .owl-dot.active span {
+  #place .owl-carousel .owl-dots .owl-dot.active span {
     background: #ffd800;
   }
 }
 
 @media (min-width: 1200px) {
-
   .container {
     width: 1000px;
     max-width: 1000px;
@@ -1125,7 +1186,7 @@ footer {
   #invite,
   #work,
   #photos,
-  #people,
+  #place,
   #contact {
     background-attachment: scroll;
   }
