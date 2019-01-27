@@ -837,8 +837,6 @@ img::-moz-selection {
   overflow: hidden;
 }
 #place .owl-item-inner {
-  padding: 235px 20px 71px 20px;
-  min-height: 314px;
 }
 
 #place h6 {
@@ -915,8 +913,12 @@ img::-moz-selection {
 }
 
 .place-description-section {
-  padding-left: 70px;
+  padding-left: 60px;
   padding-top: 92px;
+}
+
+.place-section-container {
+  padding: 0;
 }
 
 .btn-join-meetup {
@@ -926,6 +928,31 @@ img::-moz-selection {
 
 .btn-join-meetup:hover {
   background-color: #ffea00;
+}
+
+#place .owl-carousel .owl-dots {
+  margin-top: 30px;
+  text-align: center;
+}
+#place .owl-carousel .owl-dots .owl-dot {
+  display: inline-block;
+}
+#place .owl-carousel .owl-dots .owl-dot span {
+  background: #dae5ea;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  display: block;
+  height: 10px;
+  margin: 0 15px;
+  width: 10px;
+}
+#place .owl-carousel .owl-dots .owl-dot.active:hover,
+#place .owl-carousel .owl-dots .owl-dot.active:focus {
+  outline: none;
+}
+#place .owl-carousel .owl-dots .owl-dot.active span {
+  background: #ffd800;
 }
 
 #contact {
@@ -1169,34 +1196,13 @@ footer {
     padding: 0;
   }
 
-  #place .owl-carousel .owl-dots {
-    margin-top: 30px;
-    text-align: center;
-  }
-  #place .owl-carousel .owl-dots .owl-dot {
-    display: inline-block;
-  }
-  #place .owl-carousel .owl-dots .owl-dot span {
-    background: #dae5ea;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    display: block;
-    height: 10px;
-    margin: 0 15px;
-    width: 10px;
-  }
-  #place .owl-carousel .owl-dots .owl-dot.active:hover,
-  #place .owl-carousel .owl-dots .owl-dot.active:focus {
-    outline: none;
-  }
-  #place .owl-carousel .owl-dots .owl-dot.active span {
-    background: #ffd800;
+  #place img {
+    /*   width: 390px;
+    height: 309px;*/
   }
 
-  #place img {
-    width: 390px;
-    height: 309px;
+  .place-section-container {
+    padding: 0 15px;
   }
 
   .footer-quick-links-wrapper,
@@ -1219,8 +1225,12 @@ footer {
   }
 
   #place img {
-    width: 553px;
-    height: 319px;
+    /* width: 553px;
+    height: 319px;*/
+  }
+
+  .place-description-section {
+    padding-left: 70px;
   }
 }
 
