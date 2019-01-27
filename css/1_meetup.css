@@ -937,7 +937,7 @@ img::-moz-selection {
   background-size: contain;
   color: #fff;
   font-family: "Muller Light";
-  padding: 18px 0 50px 0;
+  padding: 18px 0 25px 0;
 }
 #contact a {
   color: #909090;
@@ -971,7 +971,13 @@ img::-moz-selection {
   font-weight: inherit;
   color: #000;
   padding: 6px 30px;
-  margin-top: 15px;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+.footer-email-input-wrapper input {
+  display: block;
+  margin: 15px auto;
 }
 
 #contact .btn:hover {
@@ -982,9 +988,9 @@ img::-moz-selection {
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
   border-top: 1px solid transparent;
-  border-bottom: 1px solid #909090;
+  border-bottom: 1px solid #575757;
   background-color: transparent;
-  width: 279px;
+  width: 230px;
   max-width: 100%;
   color: #fff;
 }
@@ -1055,6 +1061,15 @@ footer {
   .footer-logo img:first-child {
     margin-bottom: 10px;
     margin-right: 10px;
+  }
+  #contact .btn {
+    margin: 30px 0 0 0;
+  }
+  .footer-email-input-wrapper input {
+    margin: 20px 0 1rem 0;
+  }
+  #contact input {
+    width: 280px;
   }
 }
 /*@media (min-width: 768px) {
@@ -1188,6 +1203,10 @@ footer {
   .footer-email-input-wrapper {
     padding-left: 55px;
   }
+
+  .footer-email-input-wrapper input {
+    margin-top: 0;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1217,7 +1236,7 @@ footer {
     background-size: cover;
   }
   #contact {
-    padding: 50px 0 85px;
+    padding: 50px 0 70px 0;
   }
 }
 /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
