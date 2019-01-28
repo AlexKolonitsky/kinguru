@@ -831,6 +831,7 @@ img::-moz-selection {
   background-size: contain;
   position: relative;
   z-index: 1;
+  padding-bottom: 50px;
 }
 
 #place .owl-item {
@@ -854,6 +855,11 @@ img::-moz-selection {
 
 #place .stripe {
   margin-top: 20px;
+}
+
+#place .owl-carousel .owl-item img {
+  margin: 0 auto 0 auto;
+  width: auto;
 }
 
 #place .owl-carousel .owl-item img.rounded-circle {
@@ -913,12 +919,8 @@ img::-moz-selection {
 }
 
 .place-description-section {
-  padding-left: 60px;
-  padding-top: 92px;
-}
-
-.place-section-container {
-  padding: 0;
+  margin: 50px auto 0 auto;
+  width: auto;
 }
 
 .btn-join-meetup {
@@ -983,12 +985,6 @@ img::-moz-selection {
   -ms-flex-align: center;
   align-items: center;
 }
-/*#contact .row.foter-menu {
-  -webkit-align-items: inherit;
-  -webkit-box-align: inherit;
-  -ms-flex-align: inherit;
-  align-items: inherit;
-}*/
 
 #contact .btn {
   background-color: #ffd800;
@@ -1196,13 +1192,24 @@ footer {
     padding: 0;
   }
 
-  #place img {
-    /*   width: 390px;
-    height: 309px;*/
+  #place {
+    padding-bottom: 85px;
   }
 
-  .place-section-container {
-    padding: 0 15px;
+  #place .owl-carousel .owl-item img {
+    margin: 0 auto 0 auto;
+    width: auto;
+  }
+
+  .place-description-section {
+    padding-left: 60px;
+    margin: auto;
+  }
+
+  .place-info-wrapper {
+    width: 710px;
+    max-width: 710px;
+    margin: auto;
   }
 
   .footer-quick-links-wrapper,
@@ -1224,13 +1231,13 @@ footer {
     padding-left: 15px;
   }
 
-  #place img {
-    /* width: 553px;
-    height: 319px;*/
-  }
-
   .place-description-section {
     padding-left: 70px;
+  }
+
+  .place-info-wrapper {
+    width: 1000px;
+    max-width: 1000px;
   }
 }
 

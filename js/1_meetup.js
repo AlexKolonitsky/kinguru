@@ -21,7 +21,7 @@
   });
 
     $(document).click( function(event){
-      if( $(event.target).closest(".js-scroll-trigger").length ) 
+      if( $(event.target).closest(".js-scroll-trigger").length )
         return;
       $('.navbar-collapse').collapse('hide');
       event.stopPropagation();
@@ -62,30 +62,13 @@
     scale: 0.3,
     distance: '0px'
   }, 300);
-  
+
   // Owl carousel calls
   $('#place-carousel').owlCarousel({
     loop:true,
 	  items:1,
 	  nav:false,
 	  dots:true,
-/*    responsive: {
-      0: {
-        items: 1
-      },
-      480: {
-        items: 1
-      },
-      768: {
-        items: 1
-      },
-      992: {
-        items: 1
-      },
-      1200: {
-        items: 1
-      }
-    }*/
   });
 
   $('#photo-gallery').owlCarousel({
@@ -110,7 +93,7 @@
       }
     }
   });
-   
+
    //Bootstrap tabs
    $('#btn-speakers').tab('show');
 
@@ -124,14 +107,14 @@
    });
 
    $(".collapse").on("show.bs.collapse", function () {
-   
+
   let boxes = $(".task-box").not($(this).parents(".task-box"));
   let parentBox = $(this).parents(".task-box");
 //console.log(boxes,parentBox);
   parentBox.attr("aria-expanded", "true").css("height", "auto");
     boxes.each(function () {
     var $this = $(this);
-    if ( $this.attr("aria-expanded") !== "true") { 
+    if ( $this.attr("aria-expanded") !== "true") {
       $this.height(mh);
       //$this.css("max-height","100%");
       }
@@ -158,15 +141,15 @@
      $("#mainNav").not(".navbar-shrink").toggleClass("darkness");
   });
 
-function update(){ 
+function update(){
     var pos = $(window).scrollTop();
-    $('#task').css('backgroundPosition', '50% ' + Math.round(($('#task').height() - pos) * 0.5) + 'px'); 
-    $('#invite').css('backgroundPosition', '50% ' + Math.round(($('#invite').height() - pos/4+100) *3) + 'px'); 
+    $('#task').css('backgroundPosition', '50% ' + Math.round(($('#task').height() - pos) * 0.5) + 'px');
+    $('#invite').css('backgroundPosition', '50% ' + Math.round(($('#invite').height() - pos/4+100) *3) + 'px');
     $('#work').css('backgroundPosition', '50% ' + Math.round(($('#work').height() - pos/3+300) * 2) + 'px');
     $('#place').css('backgroundPosition', '50% ' + Math.round(($('#place').height() - pos/6 +300) * 0.5) + 'px');
 }
 
-function windowSize(){ 
+function windowSize(){
   if ($(window).width() >= '1200'){
     $(window).bind('scroll', update);
   }
@@ -174,7 +157,7 @@ function windowSize(){
 
 $(window).on('load resize',windowSize);
 
-$("#form_id").submit(function () { 
+$("#form_id").submit(function () {
         var th = $(this);
         $.ajax({
             type: "POST",
