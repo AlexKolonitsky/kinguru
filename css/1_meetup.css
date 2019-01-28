@@ -294,7 +294,9 @@ img::-moz-selection {
 }
 
 #mainNav.navbar-light .navbar-toggler {
-  background-color: #ffd800;
+  background-color: #ffffff;
+    border: none;
+    outline:none;
 }
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
   position: relative;
@@ -303,23 +305,29 @@ img::-moz-selection {
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
   position: absolute;
   content: "";
-  left: 16px;
+  left: 42%;
   bottom: 0;
   width: 57px;
   height: 6px;
   background-color: #ffd800;
 }
 
+.navbar-logo {
+    justify-content: flex-end;
+    display: flex;
+}
+
 .container-navbar,
 .contactsNavbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .contactsItems {
   display: flex;
   flex-direction: column;
 }
+
 
 .contactsItem {
   font-size: 1em;
@@ -333,7 +341,7 @@ img::-moz-selection {
 }
 
 #task {
-  background: #2a2a2a url("../img/main.jpg") no-repeat center center;
+  background: #2a2a2a; /*url("../img/main.jpg") no-repeat center center;*/
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -726,37 +734,85 @@ img::-moz-selection {
   color: rgb(61, 61, 61);
 }
 
-#speakers {
-  background: #f5f5f5 url("../img/parallax-2.png") no-repeat center center;
-  background-attachment: fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
+#people {
+    position: relative;
+    background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
+    background-attachment: fixed;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    position: relative;
+    z-index: 1;
 }
-#speakers .speaker-wrapper {
-  padding: 0 34px;
+
+#people .owl-item {
+    padding: 0 36px;
+    overflow: hidden;
 }
-#speakers .speaker {
-  min-height: 438px;
-  background-color: #fff;
-  padding: 38px 16px;
+#people .owl-item-inner {
+    padding: 50px 0px 75px 100px;
+    box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
+    min-height: 200px;
+    background-color: #fff;
 }
-#speakers .stars {
-  margin-bottom: 17px;
+
+#people h2 {
+    color: #000000;
 }
-#speakers .speaker .rounded-circle {
-  margin-bottom: 42px;
+
+#people h6 {
+    font-family: "Muller ExtraBold";
+    font-size: 20px;
 }
-.speaker-wrapper .speaker .card.card-body {
-  border: none;
-  color: rgb(189, 189, 189);
-  display: inherit;
-  min-height: 121px;
+
+#people .owl-carousel .owl-item img.rounded-circle {
+    width: auto;
+    position: absolute;
+    left: 0;
+    top: 25px;
 }
-.speaker-wrapper .speaker .card.card-body span {
-  color: rgb(61, 61, 61);
+#people .owl-carousel .owl-item strong {
+    font-family: "Muller Light";
+    font-size: 15px;
+    margin-top: 47px;
+    margin-bottom: 20px;
+    display: block;
 }
+#people .owl-carousel .owl-item p {
+    margin: 0;
+}
+#people .people-link {
+    display: inline-block;
+    font-size: 13px;
+    color: transparent;
+    font-family: "Muller Bold";
+    text-transform: uppercase;
+    border-radius: 50px;
+    position: absolute;
+    padding-left: 25px;
+    bottom: 32px;
+    right: 16px;
+}
+#people .people-link:hover {
+    background-color: #ffd800;
+    color: #000;
+}
+#people .people-link:hover .fa {
+    background-color: #fff;
+}
+#people .people-link img {
+    width: auto;
+    display: inline-block;
+}
+
+.people-wrapper {
+  margin: auto;
+  padding: 20px;
+  width: 90%;
+}
+
+
 .speaker-wrapper .speaker .card.card-body a[role="button"] {
   position: absolute;
   right: -20px;
@@ -886,7 +942,8 @@ img::-moz-selection {
   top: 100px;
 }
 
-#place .stripe {
+#place .stripe,
+#people .stripe{
   margin-top: 20px;
 }
 
@@ -1068,13 +1125,20 @@ footer {
 }
 
 @media (min-width: 576px) {
+
   #work .work-btn-wrapper li {
     margin: 0;
     width: 33%;
   }
+
   #place .owl-item-inner {
     padding: 20px 0 0 0;
   }
+
+  #people .owl-item-inner {
+      padding: 50px 0px 75px 120px;
+  }
+
   .footer-logo img {
     margin: 0 auto;
   }
@@ -1119,6 +1183,10 @@ footer {
     font-size: 22px;
   }
 
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
+        left: 75px;
+    }
+
   .work-box-bg-img,
   .media-box-bg-img {
     min-height: 346px;
@@ -1128,7 +1196,7 @@ footer {
     padding-top: 10rem;
   }
   section {
-    padding: 70px 0 95px;
+    padding: 40px 0 20px;
   }
   #mainNav {
     border-color: transparent;
@@ -1189,6 +1257,10 @@ footer {
     padding: 0;
   }
 
+    .people-wrapper{
+        height: 260px;
+    }
+
   #place {
     padding-bottom: 85px;
   }
@@ -1220,6 +1292,19 @@ footer {
 }
 
 @media (min-width: 992px) {
+    .container-navbar,
+    .contactsNavbar {
+        justify-content: space-around;
+    }
+
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
+        left: 16px;
+    }
+
+    .event-item{
+        margin-top: -200px;
+    }
+
   .footer-quick-links-wrapper {
     padding-left: 70px;
   }
@@ -1232,10 +1317,37 @@ footer {
     padding-left: 70px;
   }
 
-  .place-info-wrapper {
-    width: 1000px;
-    max-width: 1000px;
-  }
+    .place-info-wrapper {
+        width: 1000px;
+        max-width: 1000px;
+    }
+
+
+
+    #people .owl-carousel .owl-dots {
+        margin-top: 50px;
+        text-align: center;
+    }
+    #people .owl-carousel .owl-dots .owl-dot {
+        display: inline-block;
+    }
+    #people .owl-carousel .owl-dots .owl-dot span {
+        background: #dae5ea;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        display: block;
+        height: 10px;
+        margin: 0 15px;
+        width: 10px;
+    }
+    #people .owl-carousel .owl-dots .owl-dot.active:hover,
+    #people .owl-carousel .owl-dots .owl-dot.active:focus {
+        outline: none;
+    }
+    #people .owl-carousel .owl-dots .owl-dot.active span {
+        background: #ffd800;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -1262,7 +1374,22 @@ footer {
   #work,
   #photos,
   #place,
+  #people,
   #contact {
     background-attachment: scroll;
   }
+}
+
+@media only screen and (max-width: 430px){
+    section{
+        padding: 20px 0;
+    }
+
+    .people-wrapper {
+        height: 250px;
+    }
+
+    #task .container {
+        padding-top: 110px;
+    }
 }

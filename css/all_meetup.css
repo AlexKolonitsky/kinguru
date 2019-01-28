@@ -802,14 +802,6 @@ header.masthead p > span {
   font-size: 20px;
 }
 
-#people hr {
-  width: 169px;
-  height: 2px;
-  position: absolute;
-  left: 140px;
-  top: 100px;
-}
-
 #people .owl-carousel .owl-item img.rounded-circle {
   width: auto;
   position: absolute;
