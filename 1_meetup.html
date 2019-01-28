@@ -1134,10 +1134,82 @@
       </div>
     </section>
 
-    <section id="numbers">
+    <section id="guests">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4 col-md-12 mb-5 mb-lg-0">
+          <div class="col">
+            <h2 class="section-title">Meetup guests</h2>
+            <svg
+                class="stripe"
+                width="90px"
+                height="10px"
+                viewBox="0 0 142 16"
+                preserveAspectRatio="xMinYMid slice"
+            >
+              <path
+                  class="stripe-path"
+                  d="M0,2 l15.778,13 15.778,-13 15.778,13 15.778,-13 15.778,13 15.778,-13  15.778,13 15.778,-13 15.778,13"
+              />
+            </svg>
+            <div class="owl-carousel" id="guests-carousel">
+              <div class="owl-item-inner">
+                <div class="guest">
+                  <a href="#" target="_blank" title="facebook"
+                    ><img
+                      src="img/speaker-1.jpg"
+                      class="rounded-circle"
+                      alt="Vadim Kalms"
+                    />
+                    <p class="guest-name">Vadim Kalms</p>
+                  </a>
+                </div>
+              </div>
+              <div class="owl-item-inner">
+                <div class="guest">
+                  <a href="#" target="_blank" title="facebook"
+                  ><img
+                      src="img/speaker-1.jpg"
+                      class="rounded-circle"
+                      alt="Vadim Kalms"
+                  />
+                    <p class="guest-name">Olivia Rock</p>
+                  </a>
+                </div>
+              </div>
+              <div class="owl-item-inner">
+                <div class="guest">
+                  <a href="#" target="_blank" title="facebook"
+                  ><img
+                      src="img/speaker-1.jpg"
+                      class="rounded-circle"
+                      alt="Vadim Kalms"
+                  />
+                    <p class="guest-name">Alex Mix</p>
+                  </a>
+                </div>
+              </div>
+              <div class="owl-item-inner">
+                <div class="guest">
+                  <a href="#" target="_blank" title="facebook"
+                  ><img
+                      src="img/speaker-1.jpg"
+                      class="rounded-circle"
+                      alt="Vadim Kalms"
+                  />
+                    <p class="guest-name">Fedor Hi</p>
+                  </a>
+                </div>
+              </div>
+              <div class="owl-item-inner">
+                <div class="guest">
+                  <button title="Add a guest" class="rounded-circle">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--          <div class="col-lg-4 col-md-12 mb-5 mb-lg-0">
             <div class="number-box text-center">
               <span class="sr-contact">50+</span>
               <svg
@@ -1190,87 +1262,63 @@
               </svg>
               <h3>подключенных заведений</h3>
             </div>
-          </div>
+          </div>-->
         </div>
-      </div>
-    </section>
-
-    <section id="photo-gallery" class="owl-carousel">
-      <div>
-        <a class="photo"><img src="img/photo-1.jpg" alt="photo-1"/></a>
-      </div>
-      <div>
-        <a class="photo"><img src="img/photo-2.jpg" alt="photo-1"/></a>
-      </div>
-      <div>
-        <a class="photo"><img src="img/photo-3.jpg" alt="photo-1"/></a>
-      </div>
-      <div>
-        <a class="photo"><img src="img/photo-4.jpg" alt="photo-1"/></a>
-      </div>
-      <div>
-        <a class="photo"><img src="img/photo-5.jpg" alt="photo-1"/></a>
       </div>
     </section>
 
     <section id="place">
-        <h2 class="section-title">Place</h2>
-        <svg
-          class="stripe"
-          width="90px"
-          height="10px"
-          viewBox="0 0 142 16"
-          preserveAspectRatio="xMinYMid slice"
-        >
-          <path
-            class="stripe-path"
-            d="M0,2 l15.778,13 15.778,-13 15.778,13 15.778,-13 15.778,13 15.778,-13  15.778,13 15.778,-13 15.778,13"
-          />
-        </svg>
-        <div class="row place-info-wrapper">
-          <div class="col-lg-7 col-md-7">
-            <div class="owl-carousel" id="place-carousel">
-              <div class="owl-item-inner">
-                <img
-                  src="img/place-picture-1.png"
-                  alt="First picture of place"
-                />
-              </div>
-              <div class="owl-item-inner">
-                <img
-                  src="img/place-picture-1.png"
-                  alt="Second picture of place"
-                />
-              </div>
-              <div class="owl-item-inner">
-                <img
-                  src="img/place-picture-1.png"
-                  alt="Third picture of place"
-                />
-              </div>
+      <h2 class="section-title">Place</h2>
+      <svg
+        class="stripe"
+        width="90px"
+        height="10px"
+        viewBox="0 0 142 16"
+        preserveAspectRatio="xMinYMid slice"
+      >
+        <path
+          class="stripe-path"
+          d="M0,2 l15.778,13 15.778,-13 15.778,13 15.778,-13 15.778,13 15.778,-13  15.778,13 15.778,-13 15.778,13"
+        />
+      </svg>
+      <div class="row place-info-wrapper">
+        <div class="col-lg-7 col-md-7">
+          <div class="owl-carousel" id="place-carousel">
+            <div class="owl-item-inner">
+              <img src="img/place-picture-1.png" alt="First picture of place" />
+            </div>
+            <div class="owl-item-inner">
+              <img
+                src="img/place-picture-1.png"
+                alt="Second picture of place"
+              />
+            </div>
+            <div class="owl-item-inner">
+              <img src="img/place-picture-1.png" alt="Third picture of place" />
             </div>
           </div>
-          <div class="col-lg-5 col-md-5 place-description-section">
-            <h2 class="section-title section-title-left">Cafe Amanda</h2>
-            <p class="place-description">
-              <i class="fa fa-map-marker"></i>18 Brooklyn, NY
-            </p>
-            <p class="place-description">
-              <a href="tel:+13472234410"
-                ><i class="fa fa-mobile"></i>+1 347 223 44 10</a
-              >
-            </p>
-            <p class="button">
-              <button
-                type="submit"
-                class="btn btn-join btn-join-meetup"
-                id="join_meetup_button"
-              >
-                Join meetup
-              </button>
-            </p>
-          </div>
         </div>
+        <div class="col-lg-5 col-md-5 place-description-section">
+          <h2 class="section-title section-title-left">Cafe Amanda</h2>
+          <p class="place-description">
+            <i class="fa fa-map-marker"></i>18 Brooklyn, NY
+          </p>
+          <p class="place-description">
+            <a href="tel:+13472234410"
+              ><i class="fa fa-mobile"></i>+1 347 223 44 10</a
+            >
+          </p>
+          <p class="button">
+            <button
+              type="submit"
+              class="btn btn-join btn-join-meetup"
+              id="join_meetup_button"
+            >
+              Join meetup
+            </button>
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="contact">

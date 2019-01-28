@@ -71,13 +71,12 @@
 	  dots:true,
   });
 
-  $('#photo-gallery').owlCarousel({
-    loop:true,
-    nav:false,
-    dots:false,
+  $('#guests-carousel').owlCarousel({
+    nav: true,
+    dots: false,
     responsive: {
       0: {
-        items: 1
+        items: 2
       },
       480: {
         items: 2
@@ -86,7 +85,7 @@
         items: 3
       },
       992: {
-        items: 4
+        items: 5
       },
       1200: {
         items: 5

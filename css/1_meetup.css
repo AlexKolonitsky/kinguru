@@ -821,6 +821,39 @@ img::-moz-selection {
   transform-origin: right center;
 }
 
+#guests {
+  background-color: #ffd800;
+}
+
+#guests .guest a {
+  text-decoration: none;
+  color: #222;
+}
+
+#guests .guest i {
+  font-size: 27px;
+  color: #222;
+}
+
+#guests .guest button {
+  background-color: #fff;
+}
+
+#guests .owl-carousel .owl-item img {
+  width: 115px;
+  height: 115px;
+  margin: 20px auto;
+}
+
+#guests .guest-name {
+  text-align: center;
+}
+
+#guests .stripe-path {
+  stroke: #fff;
+  margin-top: 20px;
+}
+
 #place {
   position: relative;
   background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
@@ -860,42 +893,6 @@ img::-moz-selection {
 #place .owl-carousel .owl-item img {
   margin: 0 auto 0 auto;
   width: auto;
-}
-
-#place .owl-carousel .owl-item img.rounded-circle {
-  width: auto;
-  position: absolute;
-  left: 0;
-  top: 45px;
-}
-#place .owl-carousel .owl-item strong {
-  font-family: "Muller Light";
-  font-size: 15px;
-  margin-top: 47px;
-  margin-bottom: 20px;
-  display: block;
-}
-#place .owl-carousel .owl-item p {
-  margin: 0;
-}
-#place .people-link {
-  display: inline-block;
-  font-size: 13px;
-  color: transparent;
-  font-family: "Muller Bold";
-  text-transform: uppercase;
-  border-radius: 50px;
-  position: absolute;
-  padding-left: 25px;
-  bottom: 32px;
-  right: 16px;
-}
-#place .people-link:hover {
-  background-color: #ffd800;
-  color: #000;
-}
-#place .people-link:hover .fa {
-  background-color: #fff;
 }
 
 #place .button {
