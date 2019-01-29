@@ -532,10 +532,9 @@ img::-moz-selection {
   outline: none;
 }
 
-
 .svg-calendar,
 .svg-time,
-.svg-price{
+.svg-price {
   margin-right: 10px;
 }
 
@@ -748,8 +747,32 @@ img::-moz-selection {
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
-  position: relative;
   z-index: 1;
+  padding: 55px 0 40px 0;
+}
+
+#people .owl-prev {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 17%;
+  left: -55px;
+  border: 0 solid black;
+}
+
+#people .owl-next {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 17%;
+  right: -50px;
+  border: 0 solid black;
+}
+
+#people .owl-prev i,
+#people .owl-next i {
+  font-size: 60px;
+  color: #dadada;
 }
 
 #people .owl-item {
@@ -815,7 +838,12 @@ img::-moz-selection {
 .people-wrapper {
   margin: auto;
   padding: 20px;
-  width: 90%;
+  width: 86%;
+}
+
+.speaker-name-link {
+  text-decoration: none;
+  color: #0a0a0a;
 }
 
 .speaker-wrapper .speaker .card.card-body a[role="button"] {
@@ -929,7 +957,7 @@ img::-moz-selection {
   height: 100px;
   position: absolute;
   top: 15%;
-  margin-left: -20px;
+  left: -20px;
   border: 0 solid black;
 }
 
@@ -1303,6 +1331,7 @@ footer {
 
   .people-wrapper {
     height: 260px;
+    width: 67%;
   }
 
   #guests {
@@ -1398,6 +1427,10 @@ footer {
   }
   #people .owl-carousel .owl-dots .owl-dot.active span {
     background: #ffd800;
+  }
+
+  .people-wrapper {
+    width: 86%;
   }
 }
 
