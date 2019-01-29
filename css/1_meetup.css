@@ -295,8 +295,8 @@ img::-moz-selection {
 
 #mainNav.navbar-light .navbar-toggler {
   background-color: #ffffff;
-    border: none;
-    outline:none;
+  border: none;
+  outline: none;
 }
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
   position: relative;
@@ -313,8 +313,8 @@ img::-moz-selection {
 }
 
 .navbar-logo {
-    justify-content: flex-end;
-    display: flex;
+  justify-content: flex-end;
+  display: flex;
 }
 
 .container-navbar,
@@ -327,7 +327,6 @@ img::-moz-selection {
   display: flex;
   flex-direction: column;
 }
-
 
 .contactsItem {
   font-size: 1em;
@@ -735,75 +734,75 @@ img::-moz-selection {
 }
 
 #people {
-    position: relative;
-    background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
-    background-attachment: fixed;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
-    position: relative;
-    z-index: 1;
+  position: relative;
+  background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
+  background-attachment: fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  position: relative;
+  z-index: 1;
 }
 
 #people .owl-item {
-    padding: 0 36px;
-    overflow: hidden;
+  padding: 0 36px;
+  overflow: hidden;
 }
 #people .owl-item-inner {
-    padding: 50px 0px 75px 100px;
-    box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
-    min-height: 200px;
-    background-color: #fff;
+  padding: 50px 0px 75px 100px;
+  box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
+  min-height: 200px;
+  background-color: #fff;
 }
 
 #people h2 {
-    color: #000000;
+  color: #000000;
 }
 
 #people h6 {
-    font-family: "Muller ExtraBold";
-    font-size: 20px;
+  font-family: "Muller ExtraBold";
+  font-size: 20px;
 }
 
 #people .owl-carousel .owl-item img.rounded-circle {
-    width: auto;
-    position: absolute;
-    left: 0;
-    top: 25px;
+  width: auto;
+  position: absolute;
+  left: 0;
+  top: 25px;
 }
 #people .owl-carousel .owl-item strong {
-    font-family: "Muller Light";
-    font-size: 15px;
-    margin-top: 47px;
-    margin-bottom: 20px;
-    display: block;
+  font-family: "Muller Light";
+  font-size: 15px;
+  margin-top: 47px;
+  margin-bottom: 20px;
+  display: block;
 }
 #people .owl-carousel .owl-item p {
-    margin: 0;
+  margin: 0;
 }
 #people .people-link {
-    display: inline-block;
-    font-size: 13px;
-    color: transparent;
-    font-family: "Muller Bold";
-    text-transform: uppercase;
-    border-radius: 50px;
-    position: absolute;
-    padding-left: 25px;
-    bottom: 32px;
-    right: 16px;
+  display: inline-block;
+  font-size: 13px;
+  color: transparent;
+  font-family: "Muller Bold";
+  text-transform: uppercase;
+  border-radius: 50px;
+  position: absolute;
+  padding-left: 25px;
+  bottom: 32px;
+  right: 16px;
 }
 #people .people-link:hover {
-    background-color: #ffd800;
-    color: #000;
+  background-color: #ffd800;
+  color: #000;
 }
 #people .people-link:hover .fa {
-    background-color: #fff;
+  background-color: #fff;
 }
 #people .people-link img {
-    width: auto;
-    display: inline-block;
+  width: auto;
+  display: inline-block;
 }
 
 .people-wrapper {
@@ -811,7 +810,6 @@ img::-moz-selection {
   padding: 20px;
   width: 90%;
 }
-
 
 .speaker-wrapper .speaker .card.card-body a[role="button"] {
   position: absolute;
@@ -878,6 +876,8 @@ img::-moz-selection {
 }
 
 #guests {
+  padding-top: 64px;
+  padding-bottom: 38px;
   background-color: #ffd800;
 }
 
@@ -887,12 +887,19 @@ img::-moz-selection {
 }
 
 #guests .guest i {
-  font-size: 27px;
+  border: 3px solid #fff;
+  font-size: 35px;
   color: #222;
 }
 
 #guests .guest button {
   background-color: #fff;
+  width: 87px;
+  height: 87px;
+  border: none;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
 }
 
 #guests .owl-carousel .owl-item img {
@@ -908,6 +915,50 @@ img::-moz-selection {
 #guests .stripe-path {
   stroke: #fff;
   margin-top: 20px;
+}
+
+#guests .owl-prev {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 15%;
+  margin-left: -20px;
+  border: 0 solid black;
+}
+
+#guests .owl-next {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 15%;
+  right: -15px;
+  border: 0 solid black;
+}
+
+#guests .owl-prev i,
+#guests .owl-next i {
+  font-size: 60px;
+  color: #fff;
+}
+
+#guests .owl-carousel .owl-dots .owl-dot.active span {
+  background: #fff;
+}
+
+#guests .owl-carousel .owl-dots .owl-dot span {
+  background: #e0be00;
+}
+
+.btn-add-guest {
+  padding: 0 70px;
+  background-color: #fff;
+  margin: 45px auto 0 auto;
+  display: block;
+}
+
+.btn-add-guest:hover {
+  background-color: #2c2c2c;
+  color: #fff;
 }
 
 #place {
@@ -943,7 +994,7 @@ img::-moz-selection {
 }
 
 #place .stripe,
-#people .stripe{
+#people .stripe {
   margin-top: 20px;
 }
 
@@ -986,14 +1037,14 @@ img::-moz-selection {
   background-color: #ffea00;
 }
 
-#place .owl-carousel .owl-dots {
+.owl-carousel .owl-dots {
   margin-top: 30px;
   text-align: center;
 }
-#place .owl-carousel .owl-dots .owl-dot {
+.owl-carousel .owl-dots .owl-dot {
   display: inline-block;
 }
-#place .owl-carousel .owl-dots .owl-dot span {
+.owl-carousel .owl-dots .owl-dot span {
   background: #dae5ea;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -1003,11 +1054,11 @@ img::-moz-selection {
   margin: 0 15px;
   width: 10px;
 }
-#place .owl-carousel .owl-dots .owl-dot.active:hover,
-#place .owl-carousel .owl-dots .owl-dot.active:focus {
+.owl-carousel .owl-dots .owl-dot.active:hover,
+.owl-carousel .owl-dots .owl-dot.active:focus {
   outline: none;
 }
-#place .owl-carousel .owl-dots .owl-dot.active span {
+.owl-carousel .owl-dots .owl-dot.active span {
   background: #ffd800;
 }
 
@@ -1125,7 +1176,6 @@ footer {
 }
 
 @media (min-width: 576px) {
-
   #work .work-btn-wrapper li {
     margin: 0;
     width: 33%;
@@ -1136,7 +1186,7 @@ footer {
   }
 
   #people .owl-item-inner {
-      padding: 50px 0px 75px 120px;
+    padding: 50px 0px 75px 120px;
   }
 
   .footer-logo img {
@@ -1156,19 +1206,6 @@ footer {
     width: 280px;
   }
 }
-/*@media (min-width: 768px) {
-  header.masthead p {
-    font-size: 25px;
-    font-family: "Muller Light";
-    padding: 0 6em;
-  }
-  .task-box .task-box-caption .task-box-caption-content .project-category {
-    font-size: 16px;
-  }
-  .task-box .task-box-caption .task-box-caption-content .project-name {
-    font-size: 22px;
-  }
-}*/
 
 @media (min-width: 768px) {
   header.masthead p {
@@ -1183,9 +1220,9 @@ footer {
     font-size: 22px;
   }
 
-    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
-        left: 75px;
-    }
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
+    left: 75px;
+  }
 
   .work-box-bg-img,
   .media-box-bg-img {
@@ -1257,9 +1294,18 @@ footer {
     padding: 0;
   }
 
-    .people-wrapper{
-        height: 260px;
-    }
+  .people-wrapper {
+    height: 260px;
+  }
+
+  #guests {
+    padding-bottom: 120px;
+  }
+
+  #guests .guest button {
+    width: 115px;
+    height: 115px;
+  }
 
   #place {
     padding-bottom: 85px;
@@ -1292,18 +1338,18 @@ footer {
 }
 
 @media (min-width: 992px) {
-    .container-navbar,
-    .contactsNavbar {
-        justify-content: space-around;
-    }
+  .container-navbar,
+  .contactsNavbar {
+    justify-content: space-around;
+  }
 
-    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
-        left: 16px;
-    }
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
+    left: 16px;
+  }
 
-    .event-item{
-        margin-top: -200px;
-    }
+  .event-item {
+    margin-top: -200px;
+  }
 
   .footer-quick-links-wrapper {
     padding-left: 70px;
@@ -1317,37 +1363,35 @@ footer {
     padding-left: 70px;
   }
 
-    .place-info-wrapper {
-        width: 1000px;
-        max-width: 1000px;
-    }
+  .place-info-wrapper {
+    width: 1000px;
+    max-width: 1000px;
+  }
 
-
-
-    #people .owl-carousel .owl-dots {
-        margin-top: 50px;
-        text-align: center;
-    }
-    #people .owl-carousel .owl-dots .owl-dot {
-        display: inline-block;
-    }
-    #people .owl-carousel .owl-dots .owl-dot span {
-        background: #dae5ea;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-        display: block;
-        height: 10px;
-        margin: 0 15px;
-        width: 10px;
-    }
-    #people .owl-carousel .owl-dots .owl-dot.active:hover,
-    #people .owl-carousel .owl-dots .owl-dot.active:focus {
-        outline: none;
-    }
-    #people .owl-carousel .owl-dots .owl-dot.active span {
-        background: #ffd800;
-    }
+  #people .owl-carousel .owl-dots {
+    margin-top: 50px;
+    text-align: center;
+  }
+  #people .owl-carousel .owl-dots .owl-dot {
+    display: inline-block;
+  }
+  #people .owl-carousel .owl-dots .owl-dot span {
+    background: #dae5ea;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    display: block;
+    height: 10px;
+    margin: 0 15px;
+    width: 10px;
+  }
+  #people .owl-carousel .owl-dots .owl-dot.active:hover,
+  #people .owl-carousel .owl-dots .owl-dot.active:focus {
+    outline: none;
+  }
+  #people .owl-carousel .owl-dots .owl-dot.active span {
+    background: #ffd800;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1365,6 +1409,7 @@ footer {
     padding: 50px 0 70px 0;
   }
 }
+
 /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
 @media only screen and (max-device-width: 1200px) {
   #task {
@@ -1380,16 +1425,16 @@ footer {
   }
 }
 
-@media only screen and (max-width: 430px){
-    section{
-        padding: 20px 0;
-    }
+@media only screen and (max-width: 430px) {
+  section {
+    padding: 20px 0;
+  }
 
-    .people-wrapper {
-        height: 250px;
-    }
+  .people-wrapper {
+    height: 250px;
+  }
 
-    #task .container {
-        padding-top: 110px;
-    }
+  #task .container {
+    padding-top: 110px;
+  }
 }

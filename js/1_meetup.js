@@ -95,9 +95,11 @@
 	  dots:true,
   });
 
-  $('#guests-carousel').owlCarousel({
+  var guestsCarousel = $('#guests-carousel').owlCarousel({
     nav: true,
-    dots: false,
+    dots: true,
+    margin: 20,
+    navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     responsive: {
       0: {
         items: 2
@@ -116,6 +118,17 @@
       }
     }
   });
+
+// hide nav arrows or dots and remove Add guest button of #guests-carousel according to resolution
+  if ($(window).width() < 745) {
+    // $('#guests .button.add-guest-btn-wrapper').toggle();
+    guestsCarousel.trigger('remove.owl.carousel', [4]).trigger('refresh.owl.carousel');
+    $('#guests-carousel .owl-next').hide();
+    $('#guests-carousel .owl-prev').hide();
+  } else {
+    $('#guests .button.add-guest-btn-wrapper').hide();
+    $('#guests-carousel .owl-dots').hide();
+  }
 
    //Bootstrap tabs
    $('#btn-speakers').tab('show');
