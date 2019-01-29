@@ -68,7 +68,31 @@
     loop:true,
     dots:false,
     nav:true,
-    navText : ["<svg src='/img/arrow_big_right-1.svg'>","<svg src='/img/arrow_big_right-2.svg'>"],
+    navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+    responsive: {
+      0: {
+        items: 1
+      },
+      480: {
+        items: 1
+      },
+      768: {
+        items: 1
+      },
+      992: {
+        items: 2
+      },
+      1200: {
+        items: 2
+      }
+    }
+  });
+
+  $('#comment-carousel').owlCarousel({
+    loop:true,
+    dots:false,
+    nav:true,
+    navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
     responsive: {
       0: {
         items: 1
@@ -169,7 +193,7 @@ function update(){
     var pos = $(window).scrollTop();
     $('#task').css('backgroundPosition', '50% ' + Math.round(($('#task').height() - pos) * 0.5) + 'px'); 
     $('#people').css('backgroundPosition', '50% ' + Math.round(($('#people').height() - pos/4+100) *3) + 'px');
-    $('#work').css('backgroundPosition', '50% ' + Math.round(($('#work').height() - pos/3+300) * 2) + 'px');
+    $('#guests').css('backgroundPosition', '50% ' + Math.round(($('#guests').height() - pos/3+300) * 2) + 'px');
     $('#place').css('backgroundPosition', '50% ' + Math.round(($('#place').height() - pos/6 +300) * 0.5) + 'px');
 }
 

@@ -209,6 +209,20 @@ img::-moz-selection {
   color: #000;
 }
 
+.btn-rate {
+  background-color: #ffd800;
+  border-color: #ffd800;
+  font-size: 18px;
+  height: 50px;
+  line-height: 55px;
+  padding: 0 2em;
+  font-family: "Muller Bold";
+  font-weight: inherit;
+  color: #000;
+}
+
+
+
 .more {
   justify-content: flex-end;
 }
@@ -248,13 +262,24 @@ img::-moz-selection {
   fill: none;
 }
 
-.about-meetups {
+.about-meetups,
+.comment-text{
   display: inline-block;
   text-overflow: ellipsis;
   word-wrap: break-word;
   overflow: hidden;
-  max-height: 6em;
+  max-height: 5.8em;
   line-height: 1.5em;
+  font-family: "Muller Regular"
+}
+
+.comment-text,
+.comment-time{
+  font-size: 0.7em;
+}
+
+.comment-time {
+  margin: 0;
 }
 
 .color-gray {
@@ -326,6 +351,7 @@ img::-moz-selection {
 .contactsItems {
   display: flex;
   flex-direction: column;
+  font-size: 0.85rem;
 }
 
 
@@ -533,8 +559,9 @@ img::-moz-selection {
   outline: none;
 }
 
-.svg-calendar {
-  fill:#ffd800;
+.svg-calendar,
+.svg-time
+.svg-price{
   margin-right: 10px;
 }
 
@@ -756,7 +783,7 @@ img::-moz-selection {
   overflow: hidden;
 }
 #people .owl-item-inner {
-  padding: 50px 0px 75px 100px;
+  padding: 50px 0px 60px 100px;
   box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
   min-height: 200px;
   background-color: #fff;
@@ -813,8 +840,66 @@ img::-moz-selection {
 
 .people-wrapper {
   margin: auto;
-  padding: 20px;
+  padding: 15px;
   width: 90%;
+}
+
+#comment {
+  background: #2a2a2a url(../img/parallax-footer.png) no-repeat center center;
+  background-attachment: fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  color: #fff;
+  font-family: "Muller Light";
+  padding: 40px 0 40px 0;
+}
+
+#comment .owl-item {
+  padding: 0 36px;
+  overflow: hidden;
+}
+#comment .owl-item-inner {
+  padding: 10px;
+  box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
+  min-height: 180px;
+  background-color: #2a2a2a;
+  border: 1px solid #909090;
+}
+
+#comment h6 {
+  font-family: "Muller Bold";
+  font-size: 15px;
+  margin: auto auto auto 0;
+}
+
+#comment .owl-carousel .owl-item img {
+  width: 50px;
+  height: 50px;
+
+}
+
+#comment .people-link img {
+  width: auto;
+  display: inline-block;
+}
+
+.comment-wrapper {
+  margin: auto;
+  padding: 15px;
+  width: 90%;
+}
+
+#comment .star {
+  margin: auto;
+}
+
+#comment hr {
+  max-width: 180px;
+  border-width: 2px;
+  border-color: #ffd800;
+  margin: -10px auto 20px 10px;
 }
 
 
@@ -901,10 +986,10 @@ img::-moz-selection {
 }
 
 #guests .owl-carousel .owl-item img {
-  width: 115px;
-  height: 115px;
-  margin: 20px auto;
-}
+   width: 115px;
+   height: 115px;
+   margin: 20px auto;
+ }
 
 #guests .guest-name {
   text-align: center;
@@ -948,7 +1033,8 @@ img::-moz-selection {
 }
 
 #place .stripe,
-#people .stripe{
+#people .stripe,
+#comment .stripe{
   margin-top: 20px;
 }
 
@@ -1141,7 +1227,11 @@ footer {
   }
 
   #people .owl-item-inner {
-    padding: 50px 0px 75px 120px;
+    padding: 50px 0px 60px 120px;
+  }
+
+  #comment .owl-item-inner {
+    padding: 15px;
   }
 
   .footer-logo img {
@@ -1190,6 +1280,11 @@ footer {
 
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
     left: 75px;
+  }
+
+  #comment .owl-item-inner {
+    width: 70%;
+    margin: auto;
   }
 
   .work-box-bg-img,
@@ -1262,7 +1357,8 @@ footer {
     padding: 0;
   }
 
-  .people-wrapper{
+  .people-wrapper,
+  .comment-wrapper{
     height: 260px;
   }
 
@@ -1327,32 +1423,12 @@ footer {
     max-width: 1000px;
   }
 
+  #comment .owl-item-inner {
+    width: 100%;
+    margin: auto;
+  }
 
 
-  #people .owl-carousel .owl-dots {
-    margin-top: 50px;
-    text-align: center;
-  }
-  #people .owl-carousel .owl-dots .owl-dot {
-    display: inline-block;
-  }
-  #people .owl-carousel .owl-dots .owl-dot span {
-    background: #dae5ea;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    display: block;
-    height: 10px;
-    margin: 0 15px;
-    width: 10px;
-  }
-  #people .owl-carousel .owl-dots .owl-dot.active:hover,
-  #people .owl-carousel .owl-dots .owl-dot.active:focus {
-    outline: none;
-  }
-  #people .owl-carousel .owl-dots .owl-dot.active span {
-    background: #ffd800;
-  }
 }
 
 @media (min-width: 1200px) {
@@ -1397,4 +1473,15 @@ footer {
   #task .container {
     padding-top: 110px;
   }
+
+  #comment .star {
+    margin-top: 10px;
+  }
+
+  #comment hr{
+    margin-top: -40px;
+    margin-bottom: 50px;
+  }
 }
+
+

@@ -533,8 +533,10 @@ img::-moz-selection {
   outline: none;
 }
 
-.svg-calendar {
-  fill:#ffd800;
+
+.svg-calendar,
+.svg-time,
+.svg-price{
   margin-right: 10px;
 }
 
