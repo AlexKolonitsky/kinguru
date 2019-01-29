@@ -2,7 +2,7 @@
   font-family: "Muller Bold";
   src: url("../fonts/MullerBold.eot");
   src: url("../fonts/MullerBold.woff") format("woff"),
-    url("../fonts/MullerBold.ttf") format("truetype");
+  url("../fonts/MullerBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -10,7 +10,7 @@
   font-family: "Muller Light";
   src: url("../fonts/MullerLight.eot");
   src: url("../fonts/MullerLight.woff") format("woff"),
-    url("../fonts/MullerLight.ttf") format("truetype");
+  url("../fonts/MullerLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -18,7 +18,7 @@
   font-family: "Muller UltraLight";
   src: url("../fonts/MullerUltraLight.eot");
   src: url("../fonts/MullerUltraLight.woff") format("woff"),
-    url("../fonts/MullerUltraLight.ttf") format("truetype");
+  url("../fonts/MullerUltraLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -26,7 +26,7 @@
   font-family: "Muller Regular";
   src: url("../fonts/MullerRegular.eot");
   src: url("../fonts/MullerRegular.woff") format("woff"),
-    url("../fonts/MullerRegular.ttf") format("truetype");
+  url("../fonts/MullerRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -34,7 +34,7 @@
   font-family: "Muller ExtraBold";
   src: url("../fonts/MullerExtraBold.eot");
   src: url("../fonts/MullerExtraBold.woff") format("woff"),
-    url("../fonts/MullerExtraBold.ttf") format("truetype");
+  url("../fonts/MullerExtraBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -295,8 +295,8 @@ img::-moz-selection {
 
 #mainNav.navbar-light .navbar-toggler {
   background-color: #ffffff;
-    border: none;
-    outline:none;
+  border: none;
+  outline:none;
 }
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
   position: relative;
@@ -313,8 +313,8 @@ img::-moz-selection {
 }
 
 .navbar-logo {
-    justify-content: flex-end;
-    display: flex;
+  justify-content: flex-end;
+  display: flex;
 }
 
 .container-navbar,
@@ -740,75 +740,75 @@ img::-moz-selection {
 }
 
 #people {
-    position: relative;
-    background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
-    background-attachment: fixed;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
-    position: relative;
-    z-index: 1;
+  position: relative;
+  background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
+  background-attachment: fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  position: relative;
+  z-index: 1;
 }
 
 #people .owl-item {
-    padding: 0 36px;
-    overflow: hidden;
+  padding: 0 36px;
+  overflow: hidden;
 }
 #people .owl-item-inner {
-    padding: 50px 0px 75px 100px;
-    box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
-    min-height: 200px;
-    background-color: #fff;
+  padding: 50px 0px 75px 100px;
+  box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
+  min-height: 200px;
+  background-color: #fff;
 }
 
 #people h2 {
-    color: #000000;
+  color: #000000;
 }
 
 #people h6 {
-    font-family: "Muller ExtraBold";
-    font-size: 20px;
+  font-family: "Muller ExtraBold";
+  font-size: 20px;
 }
 
 #people .owl-carousel .owl-item img.rounded-circle {
-    width: auto;
-    position: absolute;
-    left: 0;
-    top: 25px;
+  width: auto;
+  position: absolute;
+  left: 0;
+  top: 25px;
 }
 #people .owl-carousel .owl-item strong {
-    font-family: "Muller Light";
-    font-size: 15px;
-    margin-top: 47px;
-    margin-bottom: 20px;
-    display: block;
+  font-family: "Muller Light";
+  font-size: 15px;
+  margin-top: 47px;
+  margin-bottom: 20px;
+  display: block;
 }
 #people .owl-carousel .owl-item p {
-    margin: 0;
+  margin: 0;
 }
 #people .people-link {
-    display: inline-block;
-    font-size: 13px;
-    color: transparent;
-    font-family: "Muller Bold";
-    text-transform: uppercase;
-    border-radius: 50px;
-    position: absolute;
-    padding-left: 25px;
-    bottom: 32px;
-    right: 16px;
+  display: inline-block;
+  font-size: 13px;
+  color: transparent;
+  font-family: "Muller Bold";
+  text-transform: uppercase;
+  border-radius: 50px;
+  position: absolute;
+  padding-left: 25px;
+  bottom: 32px;
+  right: 16px;
 }
 #people .people-link:hover {
-    background-color: #ffd800;
-    color: #000;
+  background-color: #ffd800;
+  color: #000;
 }
 #people .people-link:hover .fa {
-    background-color: #fff;
+  background-color: #fff;
 }
 #people .people-link img {
-    width: auto;
-    display: inline-block;
+  width: auto;
+  display: inline-block;
 }
 
 .people-wrapper {
@@ -1141,7 +1141,7 @@ footer {
   }
 
   #people .owl-item-inner {
-      padding: 50px 0px 75px 120px;
+    padding: 50px 0px 75px 120px;
   }
 
   .footer-logo img {
@@ -1188,9 +1188,9 @@ footer {
     font-size: 22px;
   }
 
-    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
-        left: 75px;
-    }
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
+    left: 75px;
+  }
 
   .work-box-bg-img,
   .media-box-bg-img {
@@ -1262,9 +1262,9 @@ footer {
     padding: 0;
   }
 
-    .people-wrapper{
-        height: 260px;
-    }
+  .people-wrapper{
+    height: 260px;
+  }
 
   #place {
     padding-bottom: 85px;
@@ -1297,18 +1297,18 @@ footer {
 }
 
 @media (min-width: 992px) {
-    .container-navbar,
-    .contactsNavbar {
-        justify-content: space-around;
-    }
+  .container-navbar,
+  .contactsNavbar {
+    justify-content: space-around;
+  }
 
-    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
-        left: 16px;
-    }
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
+    left: 16px;
+  }
 
-    .event-item{
-        margin-top: -200px;
-    }
+  .event-item{
+    margin-top: -200px;
+  }
 
   .footer-quick-links-wrapper {
     padding-left: 70px;
@@ -1322,37 +1322,37 @@ footer {
     padding-left: 70px;
   }
 
-    .place-info-wrapper {
-        width: 1000px;
-        max-width: 1000px;
-    }
+  .place-info-wrapper {
+    width: 1000px;
+    max-width: 1000px;
+  }
 
 
 
-    #people .owl-carousel .owl-dots {
-        margin-top: 50px;
-        text-align: center;
-    }
-    #people .owl-carousel .owl-dots .owl-dot {
-        display: inline-block;
-    }
-    #people .owl-carousel .owl-dots .owl-dot span {
-        background: #dae5ea;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-        display: block;
-        height: 10px;
-        margin: 0 15px;
-        width: 10px;
-    }
-    #people .owl-carousel .owl-dots .owl-dot.active:hover,
-    #people .owl-carousel .owl-dots .owl-dot.active:focus {
-        outline: none;
-    }
-    #people .owl-carousel .owl-dots .owl-dot.active span {
-        background: #ffd800;
-    }
+  #people .owl-carousel .owl-dots {
+    margin-top: 50px;
+    text-align: center;
+  }
+  #people .owl-carousel .owl-dots .owl-dot {
+    display: inline-block;
+  }
+  #people .owl-carousel .owl-dots .owl-dot span {
+    background: #dae5ea;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    display: block;
+    height: 10px;
+    margin: 0 15px;
+    width: 10px;
+  }
+  #people .owl-carousel .owl-dots .owl-dot.active:hover,
+  #people .owl-carousel .owl-dots .owl-dot.active:focus {
+    outline: none;
+  }
+  #people .owl-carousel .owl-dots .owl-dot.active span {
+    background: #ffd800;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1386,15 +1386,15 @@ footer {
 }
 
 @media only screen and (max-width: 430px){
-    section{
-        padding: 20px 0;
-    }
+  section{
+    padding: 20px 0;
+  }
 
-    .people-wrapper {
-        height: 250px;
-    }
+  .people-wrapper {
+    height: 250px;
+  }
 
-    #task .container {
-        padding-top: 110px;
-    }
+  #task .container {
+    padding-top: 110px;
+  }
 }
