@@ -338,7 +338,7 @@ img::-moz-selection {
 }
 
 .navbar-logo {
-  justify-content: flex-end;
+  justify-content: space-between;
   display: flex;
 }
 
@@ -354,6 +354,10 @@ img::-moz-selection {
   font-size: 0.85rem;
 }
 
+.dropdown-menu .fa{
+  color: rgb(95, 112, 135);
+  margin-right: 10px;
+}
 
 .contactsItem {
   font-size: 1em;
@@ -364,6 +368,21 @@ img::-moz-selection {
 .navbar-brand img:first-child,
 .footer-logo img:first-child {
   margin-right: 10px;
+}
+
+.dropdown-toggle::after{
+  display:none;
+}
+
+.dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+.user-name{
+  font-family: "Muller Bold";
+  font-size: 0.8em;
+  margin-bottom:0;
 }
 
 #task {
@@ -1481,6 +1500,11 @@ footer {
   #comment hr{
     margin-top: -40px;
     margin-bottom: 50px;
+  }
+
+  .navbar-logo img{
+    width: 20%;
+    height: auto;
   }
 }
 
