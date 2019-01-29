@@ -81,11 +81,11 @@
   // Owl carousel calls
   $("#people-carousel").owlCarousel({
     loop: true,
-    dots: false,
+    dots: true,
     nav: true,
     navText: [
-      "<i class='fa fa-chevron-left'></i>",
-      "<i class='fa fa-chevron-right'></i>"
+      '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+      '<i class="fa fa-angle-right" aria-hidden="true"></i>'
     ],
     responsive: {
       0: {
@@ -108,11 +108,11 @@
 
   $("#comment-carousel").owlCarousel({
     loop: true,
-    dots: false,
+    dots: true,
     nav: true,
     navText: [
-      "<i class='fa fa-chevron-left'></i>",
-      "<i class='fa fa-chevron-right'></i>"
+      '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+      '<i class="fa fa-angle-right" aria-hidden="true"></i>'
     ],
     responsive: {
       0: {
@@ -140,13 +140,17 @@
     dots: true
   });
 
-  $("#photo-gallery").owlCarousel({
-    loop: true,
-    nav: false,
-    dots: false,
+  var guestsCarousel = $("#guests-carousel").owlCarousel({
+    nav: true,
+    dots: true,
+    margin: 20,
+    navText: [
+      '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+      '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+    ],
     responsive: {
       0: {
-        items: 1
+        items: 2
       },
       480: {
         items: 2
@@ -155,13 +159,33 @@
         items: 3
       },
       992: {
-        items: 4
+        items: 5
       },
       1200: {
         items: 5
       }
     }
   });
+
+  // hide nav arrows or dots and remove Add guest button of #guests-carousel, #people-carousel and
+  // #comment-carousel according to resolution
+  if ($(window).width() < 745) {
+    // $('#guests .button.add-guest-btn-wrapper').toggle();
+    guestsCarousel
+      .trigger("remove.owl.carousel", [4])
+      .trigger("refresh.owl.carousel");
+    $("#guests-carousel .owl-next").hide();
+    $("#guests-carousel .owl-prev").hide();
+    $("#people-carousel .owl-next").hide();
+    $("#people-carousel .owl-prev").hide();
+    $("#comment-carousel .owl-next").hide();
+    $("#comment-carousel .owl-prev").hide();
+  } else {
+    $("#guests .button.add-guest-btn-wrapper").hide();
+    $("#guests-carousel .owl-dots").hide();
+    $("#people-carousel .owl-dots").hide();
+    $("#comment-carousel .owl-dots").hide();
+  }
 
   //Bootstrap tabs
   $("#btn-speakers").tab("show");

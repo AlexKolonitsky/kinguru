@@ -782,6 +782,14 @@ img::-moz-selection {
   color: rgb(61, 61, 61);
 }
 
+.owl-prev,
+.owl-next {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  border: 0 solid black;
+}
+
 #people {
   position: relative;
   background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
@@ -795,21 +803,13 @@ img::-moz-selection {
 }
 
 #people .owl-prev {
-  width: 15px;
-  height: 100px;
-  position: absolute;
   top: 17%;
   left: -55px;
-  border: 0 solid black;
 }
 
 #people .owl-next {
-  width: 15px;
-  height: 100px;
-  position: absolute;
   top: 17%;
   right: -50px;
-  border: 0 solid black;
 }
 
 #people .owl-prev i,
@@ -1010,6 +1010,22 @@ img::-moz-selection {
   transform-origin: right center;
 }
 
+#comment .owl-prev {
+  top: 18%;
+  left: -35px;
+}
+
+#comment .owl-next {
+  top: 18%;
+  right: -30px;
+}
+
+#comment .owl-prev i,
+#comment .owl-next i {
+  font-size: 60px;
+  color: #565656;
+}
+
 #guests {
   padding-top: 64px;
   padding-bottom: 38px;
@@ -1053,21 +1069,13 @@ img::-moz-selection {
 }
 
 #guests .owl-prev {
-  width: 15px;
-  height: 100px;
-  position: absolute;
   top: 15%;
   left: -20px;
-  border: 0 solid black;
 }
 
 #guests .owl-next {
-  width: 15px;
-  height: 100px;
-  position: absolute;
   top: 15%;
   right: -15px;
-  border: 0 solid black;
 }
 
 #guests .owl-prev i,
