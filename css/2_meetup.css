@@ -2,7 +2,7 @@
   font-family: "Muller Bold";
   src: url("../fonts/MullerBold.eot");
   src: url("../fonts/MullerBold.woff") format("woff"),
-  url("../fonts/MullerBold.ttf") format("truetype");
+    url("../fonts/MullerBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -10,7 +10,7 @@
   font-family: "Muller Light";
   src: url("../fonts/MullerLight.eot");
   src: url("../fonts/MullerLight.woff") format("woff"),
-  url("../fonts/MullerLight.ttf") format("truetype");
+    url("../fonts/MullerLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -18,7 +18,7 @@
   font-family: "Muller UltraLight";
   src: url("../fonts/MullerUltraLight.eot");
   src: url("../fonts/MullerUltraLight.woff") format("woff"),
-  url("../fonts/MullerUltraLight.ttf") format("truetype");
+    url("../fonts/MullerUltraLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -26,7 +26,7 @@
   font-family: "Muller Regular";
   src: url("../fonts/MullerRegular.eot");
   src: url("../fonts/MullerRegular.woff") format("woff"),
-  url("../fonts/MullerRegular.ttf") format("truetype");
+    url("../fonts/MullerRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -34,7 +34,7 @@
   font-family: "Muller ExtraBold";
   src: url("../fonts/MullerExtraBold.eot");
   src: url("../fonts/MullerExtraBold.woff") format("woff"),
-  url("../fonts/MullerExtraBold.ttf") format("truetype");
+    url("../fonts/MullerExtraBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -221,8 +221,6 @@ img::-moz-selection {
   color: #000;
 }
 
-
-
 .more {
   justify-content: flex-end;
 }
@@ -263,18 +261,18 @@ img::-moz-selection {
 }
 
 .about-meetups,
-.comment-text{
+.comment-text {
   display: inline-block;
   text-overflow: ellipsis;
   word-wrap: break-word;
   overflow: hidden;
   max-height: 5.8em;
   line-height: 1.5em;
-  font-family: "Muller Regular"
+  font-family: "Muller Regular";
 }
 
 .comment-text,
-.comment-time{
+.comment-time {
   font-size: 0.7em;
 }
 
@@ -321,7 +319,7 @@ img::-moz-selection {
 #mainNav.navbar-light .navbar-toggler {
   background-color: #ffffff;
   border: none;
-  outline:none;
+  outline: none;
 }
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
   position: relative;
@@ -354,7 +352,7 @@ img::-moz-selection {
   font-size: 0.85rem;
 }
 
-.dropdown-menu .fa{
+.dropdown-menu .fa {
   color: rgb(95, 112, 135);
   margin-right: 10px;
 }
@@ -370,8 +368,8 @@ img::-moz-selection {
   margin-right: 10px;
 }
 
-.dropdown-toggle::after{
-  display:none;
+.dropdown-toggle::after {
+  display: none;
 }
 
 .dropdown-menu {
@@ -379,10 +377,10 @@ img::-moz-selection {
   left: auto;
 }
 
-.user-name{
+.user-name {
   font-family: "Muller Bold";
   font-size: 0.8em;
-  margin-bottom:0;
+  margin-bottom: 0;
 }
 
 #task {
@@ -579,8 +577,7 @@ img::-moz-selection {
 }
 
 .svg-calendar,
-.svg-time
-.svg-price{
+.svg-time .svg-price {
   margin-right: 10px;
 }
 
@@ -896,7 +893,6 @@ img::-moz-selection {
 #comment .owl-carousel .owl-item img {
   width: 50px;
   height: 50px;
-
 }
 
 #comment .people-link img {
@@ -920,7 +916,6 @@ img::-moz-selection {
   border-color: #ffd800;
   margin: -10px auto 20px 10px;
 }
-
 
 .speaker-wrapper .speaker .card.card-body a[role="button"] {
   position: absolute;
@@ -1005,10 +1000,10 @@ img::-moz-selection {
 }
 
 #guests .owl-carousel .owl-item img {
-   width: 115px;
-   height: 115px;
-   margin: 20px auto;
- }
+  width: 115px;
+  height: 115px;
+  margin: 20px auto;
+}
 
 #guests .guest-name {
   text-align: center;
@@ -1053,7 +1048,7 @@ img::-moz-selection {
 
 #place .stripe,
 #people .stripe,
-#comment .stripe{
+#comment .stripe {
   margin-top: 20px;
 }
 
@@ -1235,7 +1230,6 @@ footer {
 }
 
 @media (min-width: 576px) {
-
   #work .work-btn-wrapper li {
     margin: 0;
     width: 33%;
@@ -1377,7 +1371,7 @@ footer {
   }
 
   .people-wrapper,
-  .comment-wrapper{
+  .comment-wrapper {
     height: 260px;
   }
 
@@ -1421,7 +1415,7 @@ footer {
     left: 16px;
   }
 
-  .event-item{
+  .event-item {
     margin-top: -200px;
   }
 
@@ -1446,8 +1440,6 @@ footer {
     width: 100%;
     margin: auto;
   }
-
-
 }
 
 @media (min-width: 1200px) {
@@ -1480,8 +1472,8 @@ footer {
   }
 }
 
-@media only screen and (max-width: 430px){
-  section{
+@media only screen and (max-width: 430px) {
+  section {
     padding: 20px 0;
   }
 
@@ -1497,15 +1489,13 @@ footer {
     margin-top: 10px;
   }
 
-  #comment hr{
+  #comment hr {
     margin-top: -40px;
     margin-bottom: 50px;
   }
 
-  .navbar-logo img{
+  .navbar-logo img {
     width: 20%;
     height: auto;
   }
 }
-
-
