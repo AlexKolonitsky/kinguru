@@ -209,7 +209,8 @@ img::-moz-selection {
   color: #000;
 }
 
-.btn-rate {
+.btn-rate,
+.btn-create-meetup {
   background-color: #ffd800;
   border-color: #ffd800;
   font-size: 18px;
@@ -219,6 +220,24 @@ img::-moz-selection {
   font-family: "Muller Bold";
   font-weight: inherit;
   color: #000;
+}
+
+.btn-create-meetup {
+  padding: 0 50px;
+  margin-top: -50px;
+  z-index: 2;
+  background-color: #fff;
+  font-size: 20px;
+}
+
+.btn-join:hover,
+.btn-rate:hover {
+  background-color: #ffea00;
+}
+
+.btn-create-meetup:hover {
+  background-color: #2c2c2c;
+  color: #fff;
 }
 
 .more {
@@ -1177,10 +1196,6 @@ img::-moz-selection {
   font-size: 14px;
 }
 
-.btn-join-meetup:hover {
-  background-color: #ffea00;
-}
-
 .owl-carousel .owl-dots {
   margin-top: 30px;
   text-align: center;
@@ -1245,6 +1260,12 @@ img::-moz-selection {
   padding: 6px 30px;
   display: block;
   margin: 20px auto 0 auto;
+}
+
+.create-meetup-section {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background-color: #ffd800;
 }
 
 .footer-email-input-wrapper input {

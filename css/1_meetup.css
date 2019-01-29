@@ -209,6 +209,10 @@ img::-moz-selection {
   color: #000;
 }
 
+.btn-join:hover {
+  background-color: #ffea00;
+}
+
 .more {
   justify-content: flex-end;
 }
@@ -1067,10 +1071,6 @@ img::-moz-selection {
 .btn-join-meetup {
   padding: 0 68px;
   font-size: 14px;
-}
-
-.btn-join-meetup:hover {
-  background-color: #ffea00;
 }
 
 .owl-carousel .owl-dots {
