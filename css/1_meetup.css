@@ -974,26 +974,6 @@ img::-moz-selection {
   font-size: 60px;
 }
 
-#photo-gallery {
-  padding: 0;
-}
-.photo {
-  display: block;
-  transform: translateZ(0);
-}
-.photo:hover {
-  transform: translateZ(0) scale(1.1);
-  transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
-  -ms-transition: 0.5s all;
-  z-index: 10;
-}
-.photo:last-child {
-  transform-origin: right center;
-}
-
 #guests {
   padding-top: 64px;
   padding-bottom: 38px;

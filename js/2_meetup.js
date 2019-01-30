@@ -139,6 +139,29 @@
     }
   });
 
+  $('#photo-gallery').owlCarousel({
+    loop:true,
+    nav:false,
+    dots:false,
+    responsive: {
+      0: {
+        items: 1
+      },
+      480: {
+        items: 2
+      },
+      768: {
+        items: 3
+      },
+      992: {
+        items: 4
+      },
+      1200: {
+        items: 5
+      }
+    }
+  });
+
   $("#place-carousel").owlCarousel({
     loop: true,
     items: 1,
