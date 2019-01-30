@@ -416,7 +416,7 @@ img::-moz-selection {
 }
 
 #task {
-  background: #2a2a2a; /*url("../img/main.jpg") no-repeat center center;*/
+  background: #2a2a2a url("../img/parallax-4.png") repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -428,6 +428,11 @@ img::-moz-selection {
 #task .container {
   padding-top: 7rem;
   padding-bottom: 0px;
+}
+
+.btn-default {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .event {
@@ -827,14 +832,14 @@ img::-moz-selection {
 
 #people {
   position: relative;
-  background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
+  background: #f7f8f9 url("../img/parallax-6.png") repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
+  position: relative;
   z-index: 1;
-  padding: 55px 0 40px 0;
 }
 
 #people .owl-prev {
@@ -977,7 +982,13 @@ img::-moz-selection {
 #guests {
   padding-top: 64px;
   padding-bottom: 38px;
-  background-color: #ffd800;
+  background: #ffd800 url("../img/parallax-6.png") repeat center center;
+  background-attachment: fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  z-index: 1;
 }
 
 #guests .guest a {
@@ -1067,7 +1078,7 @@ img::-moz-selection {
 
 #place {
   position: relative;
-  background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
+  background: #f7f8f9 url("../img/parallax-6.png") repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
