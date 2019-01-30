@@ -435,6 +435,13 @@ img::-moz-selection {
   color: #000000;
 }
 
+#task .dots-button {
+  width: 93%;
+  height: 93%;
+  background-color: #f1f1f1;
+  color: #848484;
+}
+
 .event {
   color: #ffffff;
 }
