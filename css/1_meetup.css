@@ -426,7 +426,8 @@ img::-moz-selection {
 }
 
 #task .container {
-  padding-top: 12rem;
+  padding-top: 7rem;
+  padding-bottom: 0px;
 }
 
 .event {
@@ -1290,6 +1291,10 @@ footer {
 }
 
 @media (min-width: 576px) {
+  #task {
+    padding-bottom: 50px;
+  }
+
   #work .work-btn-wrapper li {
     margin: 0;
     width: 33%;
@@ -1342,10 +1347,6 @@ footer {
   .media-box-bg-img {
     min-height: 346px;
   }
-  #task {
-    margin-top: 0;
-    padding-top: 10rem;
-  }
   section {
     padding: 40px 0 20px;
   }
@@ -1356,6 +1357,8 @@ footer {
   }
   #task .container {
     position: relative;
+    padding-top: 12rem;
+    padding-bottom: 83px;
     z-index: 999;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
