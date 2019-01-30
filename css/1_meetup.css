@@ -816,6 +816,14 @@ img::-moz-selection {
   color: rgb(61, 61, 61);
 }
 
+.owl-prev,
+.owl-next {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  border: 0 solid black;
+}
+
 #people {
   position: relative;
   background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
@@ -829,21 +837,13 @@ img::-moz-selection {
 }
 
 #people .owl-prev {
-  width: 15px;
-  height: 100px;
-  position: absolute;
-  top: 17%;
+  top: 19%;
   left: -55px;
-  border: 0 solid black;
 }
 
 #people .owl-next {
-  width: 15px;
-  height: 100px;
-  position: absolute;
-  top: 17%;
+  top: 19%;
   right: -50px;
-  border: 0 solid black;
 }
 
 #people .owl-prev i,
