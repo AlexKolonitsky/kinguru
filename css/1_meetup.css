@@ -422,6 +422,7 @@ img::-moz-selection {
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
+  overflow-x: hidden;
 }
 
 #task .container {
@@ -1092,9 +1093,9 @@ img::-moz-selection {
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
-  position: relative;
   z-index: 1;
   padding-bottom: 50px;
+  overflow-x: hidden;
 }
 
 #place .owl-item {
