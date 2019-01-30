@@ -347,7 +347,7 @@ img::-moz-selection {
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
   position: absolute;
   content: "";
-  left: 42%;
+  left: 46%;
   bottom: 0;
   width: 57px;
   height: 6px;
@@ -596,7 +596,8 @@ img::-moz-selection {
 }
 
 .svg-calendar,
-.svg-time .svg-price {
+.svg-time,
+.svg-price {
   margin-right: 10px;
 }
 
@@ -1386,7 +1387,7 @@ footer {
   }
 
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
-    left: 75px;
+    right: -10px;
   }
 
   #comment .owl-item-inner {
@@ -1632,7 +1633,11 @@ footer {
   }
 
   .navbar-logo img {
-    width: 20%;
+    width: 40%;
     height: auto;
+  }
+
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
+    left: 42%;
   }
 }

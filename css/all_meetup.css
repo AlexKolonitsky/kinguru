@@ -2,7 +2,7 @@
   font-family: "Muller Bold";
   src: url("../fonts/MullerBold.eot");
   src: url("../fonts/MullerBold.woff") format("woff"),
-    url("../fonts/MullerBold.ttf") format("truetype");
+  url("../fonts/MullerBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -10,7 +10,7 @@
   font-family: "Muller Light";
   src: url("../fonts/MullerLight.eot");
   src: url("../fonts/MullerLight.woff") format("woff"),
-    url("../fonts/MullerLight.ttf") format("truetype");
+  url("../fonts/MullerLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -18,7 +18,7 @@
   font-family: "Muller UltraLight";
   src: url("../fonts/MullerUltraLight.eot");
   src: url("../fonts/MullerUltraLight.woff") format("woff"),
-    url("../fonts/MullerUltraLight.ttf") format("truetype");
+  url("../fonts/MullerUltraLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -26,7 +26,7 @@
   font-family: "Muller Regular";
   src: url("../fonts/MullerRegular.eot");
   src: url("../fonts/MullerRegular.woff") format("woff"),
-    url("../fonts/MullerRegular.ttf") format("truetype");
+  url("../fonts/MullerRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -34,7 +34,7 @@
   font-family: "Muller ExtraBold";
   src: url("../fonts/MullerExtraBold.eot");
   src: url("../fonts/MullerExtraBold.woff") format("woff"),
-    url("../fonts/MullerExtraBold.ttf") format("truetype");
+  url("../fonts/MullerExtraBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -84,8 +84,8 @@ a {
 }
 
 a:hover {
-  color: #2a8eff;
-  text-decoration: none;
+  color: #000000;
+  text-decoration: underline;
 }
 
 h1,
@@ -103,7 +103,7 @@ h1 {
 }
 h2 {
   font-family: "Muller ExtraBold";
-  color: #0a0a0a;
+  color: #ffffff;
 }
 h3 {
   font-family: "Muller Light";
@@ -113,6 +113,7 @@ h4 {
   font-family: "Muller ExtraBold";
   font-size: 19px;
   margin-bottom: 6px;
+  color: #000000;
 }
 h5 {
   font-family: "Muller Bold";
@@ -163,7 +164,7 @@ img::-moz-selection {
   height: 39px;
   line-height: 35px;
   text-align: center;
-  color: #0a0a0a;
+  color: #ffffff;
 }
 
 .fa-star {
@@ -197,21 +198,143 @@ img::-moz-selection {
   color: #000;
 }
 
+.btn-free {
+  background-color: #ffffff;
+  border:1px solid #e0e0e0;
+  font-size: 0.8em;
+  height: 30px;
+  line-height: 32px;
+  padding: 0 1.5em;
+  font-family: "Muller Bold";
+  color: #000;
+  margin: 10px 25px;
+}
+
+.btn-search{
+  background-color: #ffd800;
+  border-color: #ffd800;
+  font-size: 18px;
+  height: 40px;
+  line-height: 45px;
+  padding: 0 2em;
+  font-family: "Muller Bold";
+  font-weight: inherit;
+  color: #000;
+}
+
+.btn-create-meetup {
+  padding: 15px 50px;
+  z-index: 2;
+  background-color: #fff;
+  font-size: 20px;
+}
+
+.btn-join:hover,
+.btn-search:hover {
+  background-color: #ffea00;
+}
+
+.btn-create-meetup:hover {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+.more {
+  justify-content: flex-end;
+}
+
+.fa-search {
+  font-size: 1.2em;
+}
+
+.fa-gratipay {
+  font-size: 2em;
+  margin: 10px 25px;
+  color: #e0e0e0;
+}
+
+.section-title {
+  margin-bottom: 25px;
+  color: #0a0a0a;
+}
+
+.section-title-left {
+  text-align: start;
+}
+
+.stripe {
+  display: block;
+  margin: 42px auto;
+}
+
+.stripe-path {
+  stroke-width: 3px;
+  stroke: #ffd800;
+  fill: none;
+}
+
+.form-group {
+  color: #ffffff;
+}
+
+label{
+  margin: auto 0;
+}
+
+.btn-link,
+.btn-link:hover,
+.btn-link:active{
+  color:#ffffff;
+  cursor: pointer;
+  text-decoration:none;
+  border:none;
+  border-bottom: 1px solid #ffffff;
+}
+
+option {
+  color: #4e555b;
+}
+
+.about-meetups,
+.comment-text {
+  display: inline-block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 5.8em;
+  line-height: 1.5em;
+  font-family: "Muller Regular";
+}
+
+.comment-text,
+.comment-time {
+  font-size: 0.7em;
+}
+
+.comment-time {
+  margin: 0;
+}
+
+.color-gray {
+  color: #4e555b;
+  font-size: 1.4em;
+}
+
 .btn-primary:hover {
-  background-color: #ffea00 !important;
+  background-color: #ffea00;
   color: #000;
 }
 
 .btn-primary:active,
 .btn-primary:focus {
-  background-color: #ffea00 !important;
+  background-color: #ffea00;
   color: #000;
 }
 
 #mainNav {
   padding-top: 13px;
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
-  background-color: transparent;
+  background-color: #ffffff;
   font-family: "Muller Regular";
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -219,17 +342,19 @@ img::-moz-selection {
 }
 #mainNav.navbar-shrink,
 #mainNav.darkness {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #ffffff;
 }
-#mainNav.navbar-dark .navbar-toggler-icon {
+#mainNav.navbar-light .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
-#mainNav.navbar-dark .navbar-nav .nav-link {
-  color: rgb(255, 255, 255);
+#mainNav.navbar-light .navbar-nav .nav-link {
+  color: #000000;
 }
 
-#mainNav.navbar-dark .navbar-toggler {
-  background-color: #ffd800;
+#mainNav.navbar-light .navbar-toggler {
+  background-color: #ffffff;
+  border: none;
+  outline: none;
 }
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
   position: relative;
@@ -238,11 +363,39 @@ img::-moz-selection {
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
   position: absolute;
   content: "";
-  left: 16px;
-  bottom: 0px;
+  left: 46%;
+  bottom: 0;
   width: 57px;
   height: 6px;
   background-color: #ffd800;
+}
+
+.navbar-logo {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.container-navbar,
+.contactsNavbar {
+  display: flex;
+  justify-content: center;
+}
+
+.contactsItems {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+}
+
+.dropdown-menu .fa {
+  color: rgb(95, 112, 135);
+  margin-right: 10px;
+}
+
+.contactsItem {
+  font-size: 1em;
+  color: #000000;
+  text-decoration: none;
 }
 
 .navbar-brand img:first-child,
@@ -250,56 +403,23 @@ img::-moz-selection {
   margin-right: 10px;
 }
 
-header.masthead {
-  overflow: hidden;
-  position: relative;
-  padding-top: 8rem;
-  padding-bottom: 4rem;
-  background: url("../img/parallax-1.png") no-repeat center center,
-    url("../img/main.jpg") no-repeat center center;
-  background-attachment: fixed, scroll;
-  -webkit-background-size: contain, cover;
-  -moz-background-size: contain, cover;
-  -o-background-size: contain, cover;
-  background-size: contain, cover;
+.dropdown-toggle::after {
+  display: none;
 }
 
-header.masthead hr {
-  margin-top: 30px;
-  margin-bottom: 30px;
+.dropdown-menu {
+  right: 0;
+  left: auto;
 }
 
-header.masthead p {
-  font-weight: 300;
-  margin-bottom: 4rem;
-}
-
-header.masthead p > span {
-  font-family: "Muller ExtraBold";
-  color: #ffd800;
-}
-
-.stripe {
-  display: block;
-  margin: 42px auto;
-}
-.stripe-path {
-  stroke-width: 3px;
-  stroke: #ffd800;
-  fill: none;
-}
-.stripe-white {
-  margin: 0 auto 24px;
-  display: block;
-}
-.stripe-white-path {
-  stroke-width: 3px;
-  stroke: #fff;
-  fill: none;
+.user-name {
+  font-family: "Muller Bold";
+  font-size: 0.8em;
+  margin-bottom: 0;
 }
 
 #task {
-  background: url("../img/parallax-pen.png") no-repeat center center;
+  background: #2a2a2a; /*url("../img/main.jpg") no-repeat center center;*/
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -307,14 +427,50 @@ header.masthead p > span {
   background-size: contain;
 }
 
-#task .timeplace {
-  font-size: 12px;
+#task .container {
+  padding-top: 10rem;
+}
+
+.task-title {
+  margin: 70px auto;
+}
+
+.event {
+  color: #ffffff;
+}
+
+.event-category {
+  background-color: transparent;
+  border: 1px solid #fff;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0.7em 1.8em;
   font-family: "Muller Regular";
+  font-weight: normal;
+  color: #fff;
+  border-radius: 300px;
+}
+
+.event-category:hover {
+  color: #fff;
 }
 
 #task .row {
 }
 #task .row > [class*="col-"] {
+}
+
+#all_meetups {
+  background-color: #ffffff;
+}
+
+#recent_meeting {
+  background-color: #f5f5f5;
+}
+
+#recent_meeting h2 {
+  color: #000000;
 }
 
 .task-box {
@@ -330,13 +486,17 @@ header.masthead p > span {
 .task-box img {
   max-width: 100%;
   max-height: 188px;
+  background-color: #ffffff;
 }
 
 .task-box .task-box-inner {
-  padding: 28px 38px 50px;
   background-color: #fff;
   height: 100%;
-  box-shadow: 0px 21px 46px 0px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 21px 46px 0 rgba(0, 0, 0, 0.07);
+}
+
+.task-box .task-box-inner .task-box-inner_desc {
+  padding: 25px;
 }
 
 .task-box .task-box-inner > p {
@@ -366,22 +526,29 @@ header.masthead p > span {
 }
 .task-box .task-box-inner .card.card-body {
   border: none;
-  padding: 50px 0 0 0;
+  padding: 0;
 }
 .task-box .task-box-inner .card.card-body p {
-  font-family: "Muller Bold";
+  font-family: "Muller Regular";
+  font-size: 0.8em;
+  color: #000000;
 }
 .task-box .task-box-inner .card.card-body .fa:not(.fa-times) {
   color: #e0e0e0;
 }
-.task-box .task-box-inner .card.card-body .fa.fa-users {
+.task-box .task-box-inner .card.card-body .fa.fa-users,
+.fa-search {
   margin-right: 10px;
 }
-.task-box .task-box-inner .card.card-body .fa.fa-map-marker {
+.task-box .task-box-inner .card.card-body .fa.fa-map-marker,
+.task-box .task-box-inner .card.card-body .fa.fa-microphone,
+.task-box .task-box-inner .card.card-body .fa.fa-user{
+  margin-left: 2px;
   margin-right: 17px;
 }
 .task-box .task-box-inner .card.card-body .fa.fa-commenting {
-  margin-right: 11px;
+  margin-left: 2px;
+  margin-right: 13px;
 }
 
 .task-box .task-box-caption-content .task-box-inner {
@@ -412,14 +579,6 @@ header.masthead p > span {
   background-color: #ffea00;
 }
 
-.task-box .hour {
-  font-family: "Muller Light";
-  font-size: 13px;
-  color: rgb(174, 180, 188);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .task-box .task-box-caption {
   position: absolute;
   bottom: 0;
@@ -433,9 +592,9 @@ header.masthead p > span {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
-  -webkit-box-shadow: 0px 13px 21px 0px rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 0px 13px 21px 0px rgba(0, 0, 0, 0.06);
-  box-shadow: 0px 13px 21px 0px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: 0 13px 21px 0 rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0 13px 21px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 13px 21px 0 rgba(0, 0, 0, 0.06);
 }
 
 .task-box .task-box-caption .task-box-caption-content {
@@ -478,200 +637,10 @@ header.masthead p > span {
   outline: none;
 }
 
-#create-event {
-  width: 100%;
-  display: inline-block;
-  background-color: #ccc;
-  text-align: center;
-  padding: 19px;
-}
-#create-event .fa.fa-plus {
-  color: #ffd800;
-  font-size: 100px;
-  border: inherit;
-  line-height: inherit;
-  border-radius: inherit;
-  width: inherit;
-  height: inherit;
-}
-#create-event:hover .fa.fa-plus {
-  color: #ffea00;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-#invite {
-  color: #fff;
-  background: #2a2a2a url("../img/parallax-mobile.png") no-repeat center 200px;
-  background-attachment: fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-}
-#invite h2 {
-  font-size: 37px;
-  color: #fff;
-}
-#invite .row {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-#invite input,
-#invite select {
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid #ffd800;
-  background-color: transparent;
-  width: 372px;
-  max-width: 100%;
-  border-width: 1px;
-  color: #fff;
-}
-#invite input:hover,
-#invite input:focus,
-#invite input:visited,
-#invite input:active {
-  border-color: #ffd800;
-}
-#invite .btn {
-  background-color: #ffd800;
-  border-color: #ffd800;
-  font-size: 20px;
-  font-family: "Muller Bold";
-  font-weight: inherit;
-  color: #000;
-  padding: 12px 46px;
-}
-
-#invite .btn:hover {
-  background-color: #ffea00;
-}
-
-#invite img {
-  margin-top: 37px;
-  margin-bottom: 50px;
-}
-#invite form p.input {
-  margin-bottom: 80px;
-}
-#invite form p > input,
-#invite form p > select {
-  padding-top: 9px;
-  padding-bottom: 9px;
-}
-#invite form p > input {
-  padding-left: 4px;
-}
-#invite p.select {
-  margin-bottom: 93px;
-}
-#invite p.select select > option {
-  background-color: #000;
-}
-#invite p.button {
-  text-align: center;
-}
-
-#work {
-  padding-bottom: 0;
-  padding-bottom: 85px;
-  background: url("../img/parallax-horn.png") no-repeat center bottom;
-  background-attachment: fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  position: relative;
-  z-index: 9;
-}
-#work h2 {
-  margin-bottom: 42px;
-}
-#work .tab-pane {
-  min-height: 215px;
-}
-
-.work-box {
-  width: 230px;
-  margin: 0 auto;
-  font-size: 15px;
-  position: relative;
-  z-index: 9;
-}
-.work-box h5,
-.work-box .work-icon {
-  position: relative;
-  z-index: 9;
-}
-
-.work-box h5 {
-  margin-bottom: 10px;
-}
-
-.work-box .work-icon {
-  margin-bottom: 18px;
-}
-
-#work .work-btn-wrapper {
-  margin-bottom: 53px;
-  display: block;
-}
-#work .work-btn-wrapper li {
-  display: inline-block;
-  margin: 10px;
-}
-#btn-speakers,
-#btn-institution,
-#btn-visitors {
-  font-family: "Muller Light";
-  font-size: 29px;
-  color: #808080;
-  position: relative;
-}
-#work #btn-speakers.active,
-#work #btn-institution.active,
-#work #btn-visitors.active {
-  position: relative;
-  z-index: 9;
-  font-family: "Muller ExtraBold";
-  color: #0a0a0a;
-}
-#work #btn-speakers.active::after,
-#work #btn-institution.active::after,
-#work #btn-visitors.active::after {
-  position: absolute;
-  bottom: -6px;
-  left: -28px;
-  content: "";
-  width: 158px;
-  height: 20px;
-  background-color: #ffd800;
-  z-index: -1;
-}
-#work #btn-speakers::before,
-#work #btn-institution::before,
-#work #btn-visitors::before {
-  position: absolute;
-  bottom: 1px;
-  content: "";
-  width: 100%;
-  height: 1px;
-  background-color: transparent;
-}
-#work #btn-speakers:hover::before,
-#work #btn-institution:hover::before,
-#work #btn-visitors:hover::before {
-  background-color: #808080;
-}
-#work #btn-speakers.active:hover::before,
-#work #btn-institution.active:hover::before,
-#work #btn-visitors.active:hover::before {
-  background-color: transparent;
+.svg-calendar,
+.svg-time,
+.svg-price {
+  margin-right: 10px;
 }
 
 #pane-speakers p {
@@ -679,167 +648,65 @@ header.masthead p > span {
   color: rgb(61, 61, 61);
 }
 
-#speakers {
-  background: #f5f5f5 url("../img/parallax-2.png") no-repeat center center;
-  background-attachment: fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-}
-#speakers .speaker-wrapper {
-  padding: 0 34px;
-}
-#speakers .speaker {
-  min-height: 438px;
-  background-color: #fff;
-  padding: 38px 16px;
-}
-#speakers .stars {
-  margin-bottom: 17px;
-}
-#speakers .speaker .rounded-circle {
-  margin-bottom: 42px;
-}
-.speaker-wrapper .speaker .card.card-body {
-  border: none;
-  color: rgb(189, 189, 189);
-  display: inherit;
-  min-height: 121px;
-}
-.speaker-wrapper .speaker .card.card-body span {
-  color: rgb(61, 61, 61);
-}
-.speaker-wrapper .speaker .card.card-body a[role="button"] {
+.owl-prev,
+.owl-next {
+  width: 15px;
+  height: 100px;
   position: absolute;
-  right: -20px;
-  bottom: 21px;
+  border: 0 solid black;
 }
-.speaker-wrapper .speaker .card.card-body a[role="button"] > img {
+
+
+#comment hr {
+  max-width: 180px;
+  border-width: 2px;
+  border-color: #ffd800;
+  margin: -10px auto 20px 10px;
+}
+
+#all_meetups .gray-separator,
+#recent_meeting .gray-separator{
+  max-width: 100%;
+  border-width: 1px;
+  color:#e0e0e0;
+  border-color: #e0e0e0;
+  margin: 5px 0;
+}
+
+#task .stripe,
+#recent_meeting .stripe{
+  margin-top: 20px;
+}
+
+
+.btn-join-meetup {
+  padding: 0 68px;
+  font-size: 14px;
+}
+
+.owl-carousel .owl-dots {
+  margin-top: 30px;
+  text-align: center;
+}
+.owl-carousel .owl-dots .owl-dot {
   display: inline-block;
 }
-.speaker-wrapper .speaker a[role="button"] {
-  display: inline-block;
-  font-size: 13px;
-  color: #0a0a0a;
-  font-family: "Muller Bold";
-  text-transform: uppercase;
-  border-radius: 50px;
-  padding-left: 25px;
-  position: absolute;
-  right: 15px;
-}
-.speaker-wrapper .speaker > a[aria-expanded="true"] {
-  display: none;
-}
-.speaker-wrapper .speaker a[role="button"]:hover {
-  background-color: #ffd800;
-}
-.speaker-wrapper .speaker a[role="button"]:hover .fa {
-  background-color: #fff;
-}
-
-#numbers {
-  background-color: #ffd800;
-  color: #000;
-  padding: 45px 0 32px;
-}
-
-.number-box {
-  position: relative;
-}
-
-#numbers span {
-  font-family: "Muller Bold";
-  font-size: 60px;
-}
-
-#photo-gallery {
-  padding: 0;
-}
-.photo {
+.owl-carousel .owl-dots .owl-dot span {
+  background: #dae5ea;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
   display: block;
-  transform: translateZ(0);
+  height: 10px;
+  margin: 0 15px;
+  width: 10px;
 }
-.photo:hover {
-  transform: translateZ(0) scale(1.1);
-  transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
-  -ms-transition: 0.5s all;
-  z-index: 10;
+.owl-carousel .owl-dots .owl-dot.active:hover,
+.owl-carousel .owl-dots .owl-dot.active:focus {
+  outline: none;
 }
-.photo:last-child {
-  transform-origin: right center;
-}
-
-#people {
-  position: relative;
-  background: #f7f8f9 url("../img/parallax-glasses.png") no-repeat center 50px;
-  background-attachment: fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  position: relative;
-  z-index: 1;
-}
-
-#people .owl-item {
-  padding: 0 36px;
-  overflow: hidden;
-}
-#people .owl-item-inner {
-  padding: 235px 20px 71px 20px;
-  box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
-  min-height: 314px;
-  background-color: #fff;
-}
-
-#people h6 {
-  font-family: "Muller ExtraBold";
-  font-size: 20px;
-}
-
-#people .owl-carousel .owl-item img.rounded-circle {
-  width: auto;
-  position: absolute;
-  left: 0;
-  top: 45px;
-}
-#people .owl-carousel .owl-item strong {
-  font-family: "Muller Light";
-  font-size: 15px;
-  margin-top: 47px;
-  margin-bottom: 20px;
-  display: block;
-}
-#people .owl-carousel .owl-item p {
-  margin: 0;
-}
-#people .people-link {
-  display: inline-block;
-  font-size: 13px;
-  color: transparent;
-  font-family: "Muller Bold";
-  text-transform: uppercase;
-  border-radius: 50px;
-  position: absolute;
-  padding-left: 25px;
-  bottom: 32px;
-  right: 16px;
-}
-#people .people-link:hover {
-  background-color: #ffd800;
-  color: #000;
-}
-#people .people-link:hover .fa {
-  background-color: #fff;
-}
-#people .people-link img {
-  width: auto;
-  display: inline-block;
+.owl-carousel .owl-dots .owl-dot.active span {
+  background: #ffd800;
 }
 
 #contact {
@@ -851,10 +718,10 @@ header.masthead p > span {
   background-size: contain;
   color: #fff;
   font-family: "Muller Light";
-  padding: 18px 0 114px;
+  padding: 18px 0 25px 0;
 }
 #contact a {
-  color: #fff;
+  color: #909090;
   font-size: 14px;
 }
 #contact a:hover {
@@ -870,29 +737,94 @@ header.masthead p > span {
   -ms-flex-align: center;
   align-items: center;
 }
-#contact .row.foter-menu {
-  -webkit-align-items: inherit;
-  -webkit-box-align: inherit;
-  -ms-flex-align: inherit;
-  align-items: inherit;
+
+#contact .btn {
+  background-color: #ffd800;
+  border-color: #ffd800;
+  font-size: 14px;
+  font-family: "Muller Bold";
+  font-weight: inherit;
+  color: #000;
+  padding: 6px 30px;
+  display: block;
+  margin: 20px auto 0 auto;
 }
-#contact .pages p {
-  line-height: 33px;
+
+.create-meetup-section {
+  padding: 35px 0;
+  background-color: #ffd800;
+}
+
+.footer-email-input-wrapper input {
+  display: block;
+  margin: 15px auto;
+}
+
+#contact .btn:hover {
+  background-color: #ffea00;
+}
+
+#contact input {
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid #575757;
+  background-color: transparent;
+  width: 230px;
+  max-width: 100%;
+  color: #fff;
+}
+
+#contact p > input {
+  padding: 9px 0 9px 4px;
+}
+
+#contact input::placeholder {
+  color: #909090;
 }
 
 footer {
   background-color: rgb(17, 18, 31);
   color: rgb(124, 129, 143);
 }
+
 .footer-logo {
-  margin-bottom: 27px;
+  margin-top: 19px;
+  margin-bottom: 31px;
+}
+
+.footer-text {
+  color: #909090;
+}
+
+.footer-quick-link {
+  margin-bottom: 5px;
+}
+
+.footer-section-title {
+  font-family: "Muller Bold";
+  margin-top: 36px;
+  margin-bottom: 15px;
+}
+
+.footer-title-divider {
+  margin-top: 0;
+  margin-bottom: 20px;
+  width: 27px;
+}
+
+.rights-section {
+  padding: 18px 0 0 0;
+  background-color: #202020;
+  text-align: center;
+  color: #909090;
 }
 
 #hidden-content {
   display: none;
   background-color: #fff;
   padding: 50px 100px;
-  box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 5px 49px 0 rgba(0, 0, 0, 0.04);
 }
 
 @media (min-width: 576px) {
@@ -900,18 +832,33 @@ footer {
     margin: 0;
     width: 33%;
   }
-  #people .owl-item-inner {
-    padding: 75px 0px 75px 180px;
+
+  #place .owl-item-inner {
+    padding: 20px 0 0 0;
   }
+
+  #people .owl-item-inner {
+    padding: 50px 0px 75px 120px;
+  }
+
   .footer-logo img {
-    display: block;
     margin: 0 auto;
   }
   .footer-logo img:first-child {
     margin-bottom: 10px;
-    margin-right: auto;
+    margin-right: 10px;
+  }
+  #contact .btn {
+    margin: 30px 0 0 0;
+  }
+  .footer-email-input-wrapper input {
+    margin: 20px 0 1rem 0;
+  }
+  #contact input {
+    width: 280px;
   }
 }
+
 @media (min-width: 768px) {
   header.masthead p {
     font-size: 25px;
@@ -924,25 +871,38 @@ footer {
   .task-box .task-box-caption .task-box-caption-content .project-name {
     font-size: 22px;
   }
-}
-@media (min-width: 992px) {
+
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
+    right: -10px;
+  }
+
+  #comment .owl-item-inner {
+    width: 70%;
+    margin: auto;
+  }
+
   .work-box-bg-img,
   .media-box-bg-img {
     min-height: 346px;
   }
-  header.masthead {
+  #task {
     margin-top: 0;
     padding-top: 10rem;
   }
+
+  #task p{
+    color: #ffffff;
+  }
+
   section {
-    padding: 70px 0 95px;
+    padding: 40px 0 20px;
   }
   #mainNav {
     border-color: transparent;
-    background-color: transparent;
+    background-color: #ffffff;
     padding-right: 0 !important;
   }
-  header .container {
+  #task .container {
     position: relative;
     z-index: 999;
   }
@@ -950,10 +910,10 @@ footer {
     padding: 0.5rem 1rem;
     font-size: 15px;
   }
-  #mainNav.navbar-dark .navbar-nav .nav-link,
-  #mainNav.navbar-dark .navbar-nav .nav-link:focus,
+  #mainNav.navbar-light .navbar-nav .nav-link,
+  #mainNav.navbar-light .navbar-nav .nav-link:focus,
   #mainNav.navbar-dark .navbar-nav .nav-link:hover {
-    color: #fff;
+    color: #000;
   }
   #mainNav #navbarResponsive .navbar-collapse {
     justify-content: flex-end;
@@ -963,35 +923,116 @@ footer {
     text-decoration: underline;
   }
   #mainNav.navbar-shrink {
-    border-bottom: 1px solid rgba(33, 37, 41, 0.1);
-    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+    background-color: #ffffff;
     z-index: 9999;
   }
+
+  .navbar-btn {
+    justify-content: flex-end;
+  }
+
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
-    color: #fff;
+    color: #000000;
   }
-  header.masthead {
-    height: 100vh;
-    min-height: 650px;
+
+  #task {
+    min-height: 450px;
     padding-top: 0;
     padding-bottom: 0;
   }
-  header.masthead h1 {
-    font-size: 3rem;
-    line-height: 1;
-  }
+
   h2 {
-    font-size: 43px;
+    font-size: 35px;
   }
 
   .btn-primary {
-    width: 337px;
+    width: 140px;
     max-width: 90%;
-    height: 76px;
-    line-height: 80px;
+    height: 50px;
+    line-height: 55px;
     color: #000;
     padding: 0;
+  }
+
+  .people-wrapper {
+    height: 260px;
+    width: 67%;
+  }
+
+  #guests {
+    padding-bottom: 120px;
+  }
+
+  #guests .guest button {
+    width: 115px;
+    height: 115px;
+  }
+
+  .comment-wrapper {
+    height: 260px;
+  }
+
+  #place {
+    padding-bottom: 85px;
+  }
+
+  #place .owl-carousel .owl-item img {
+    margin: 0 auto 0 auto;
+    width: auto;
+  }
+
+  .place-description-section {
+    padding-left: 60px;
+    margin: auto;
+  }
+
+  .place-info-wrapper {
+    width: 710px;
+    max-width: 710px;
+    margin: auto;
+  }
+
+  .footer-quick-links-wrapper,
+  .footer-email-input-wrapper {
+    padding-left: 55px;
+  }
+
+  .footer-email-input-wrapper input {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-navbar,
+  .contactsNavbar {
+    justify-content: space-around;
+  }
+
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
+    left: 16px;
+  }
+
+  .event-item {
+    margin-top: -200px;
+  }
+
+  .footer-quick-links-wrapper {
+    padding-left: 70px;
+  }
+
+  .footer-email-input-wrapper {
+    padding-left: 15px;
+  }
+
+  .place-description-section {
+    padding-left: 70px;
+  }
+
+  .place-info-wrapper {
+    width: 1000px;
+    max-width: 1000px;
   }
 
   #people .owl-carousel .owl-dots {
@@ -1018,12 +1059,18 @@ footer {
   #people .owl-carousel .owl-dots .owl-dot.active span {
     background: #ffd800;
   }
+
+  .people-wrapper {
+    width: 86%;
+  }
+
+  #comment .owl-item-inner {
+    width: 100%;
+    margin: auto;
+  }
 }
 
 @media (min-width: 1200px) {
-  header.masthead h1 {
-    font-size: 73px;
-  }
   .container {
     width: 1000px;
     max-width: 1000px;
@@ -1035,20 +1082,53 @@ footer {
     background-size: cover;
   }
   #contact {
-    padding: 50px 0 85px;
+    padding: 50px 0 70px 0;
   }
 }
+
 /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
 @media only screen and (max-device-width: 1200px) {
-  header.masthead {
+  #task {
     background-attachment: scroll, scroll;
   }
   #invite,
   #work,
-  #task,
   #photos,
+  #place,
   #people,
   #contact {
     background-attachment: scroll;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  section {
+    padding: 20px 0;
+  }
+
+  .people-wrapper {
+    height: 250px;
+  }
+
+  #task .container {
+    padding-top: 110px;
+  }
+
+  #comment .star {
+    margin-top: 10px;
+  }
+
+  #comment hr {
+    margin-top: -40px;
+    margin-bottom: 50px;
+  }
+
+  .navbar-logo img {
+    width: 40%;
+    height: auto;
+  }
+
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
+    left: 42%;
   }
 }
