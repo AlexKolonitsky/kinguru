@@ -2,7 +2,7 @@
   font-family: "Muller Bold";
   src: url("../fonts/MullerBold.eot");
   src: url("../fonts/MullerBold.woff") format("woff"),
-  url("../fonts/MullerBold.ttf") format("truetype");
+    url("../fonts/MullerBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -10,7 +10,7 @@
   font-family: "Muller Light";
   src: url("../fonts/MullerLight.eot");
   src: url("../fonts/MullerLight.woff") format("woff"),
-  url("../fonts/MullerLight.ttf") format("truetype");
+    url("../fonts/MullerLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -18,7 +18,7 @@
   font-family: "Muller UltraLight";
   src: url("../fonts/MullerUltraLight.eot");
   src: url("../fonts/MullerUltraLight.woff") format("woff"),
-  url("../fonts/MullerUltraLight.ttf") format("truetype");
+    url("../fonts/MullerUltraLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -26,7 +26,7 @@
   font-family: "Muller Regular";
   src: url("../fonts/MullerRegular.eot");
   src: url("../fonts/MullerRegular.woff") format("woff"),
-  url("../fonts/MullerRegular.ttf") format("truetype");
+    url("../fonts/MullerRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -34,7 +34,7 @@
   font-family: "Muller ExtraBold";
   src: url("../fonts/MullerExtraBold.eot");
   src: url("../fonts/MullerExtraBold.woff") format("woff"),
-  url("../fonts/MullerExtraBold.ttf") format("truetype");
+    url("../fonts/MullerExtraBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -200,7 +200,7 @@ img::-moz-selection {
 
 .btn-free {
   background-color: #ffffff;
-  border:1px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
   font-size: 0.8em;
   height: 30px;
   line-height: 32px;
@@ -210,7 +210,7 @@ img::-moz-selection {
   margin: 10px 25px;
 }
 
-.btn-search{
+.btn-search {
   background-color: #ffd800;
   border-color: #ffd800;
   font-size: 18px;
@@ -277,17 +277,17 @@ img::-moz-selection {
   color: #ffffff;
 }
 
-label{
+label {
   margin: auto 0;
 }
 
 .btn-link,
 .btn-link:hover,
-.btn-link:active{
-  color:#ffffff;
+.btn-link:active {
+  color: #ffffff;
   cursor: pointer;
-  text-decoration:none;
-  border:none;
+  text-decoration: none;
+  border: none;
   border-bottom: 1px solid #ffffff;
 }
 
@@ -370,7 +370,6 @@ option {
   background-color: #ffd800;
 }
 
-
 #nav-icon1 {
   padding: 0;
   margin: 0;
@@ -384,14 +383,14 @@ option {
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   cursor: pointer;
 }
 
-#nav-icon1 span{
+#nav-icon1 span {
   display: block;
   position: absolute;
   height: 5px;
@@ -404,10 +403,10 @@ option {
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  -moz-transition: .25s ease-in-out;
-  -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 #nav-icon1 span:nth-child(1) {
@@ -442,7 +441,6 @@ option {
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
-
 
 .navbar-logo {
   justify-content: flex-end;
@@ -493,12 +491,14 @@ option {
 }
 
 #task {
-  background: #2a2a2a; /*url("../img/main.jpg") no-repeat center center;*/
-  background-attachment: fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
+  background: url("../img/parallax-6-dark.png") repeat center center,
+    url("../img/main-dark.png") no-repeat center 0;
+  background-attachment: fixed, scroll;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+  background-size: contain, cover;
+  overflow-x: hidden;
 }
 
 #task .container {
@@ -536,11 +536,25 @@ option {
 }
 
 #all_meetups {
-  background-color: #ffffff;
+  background: #ffffff url("../img/parallax-6.png") repeat center center;
+  background-attachment: fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
+
+.search-button-wrapper {
+  margin: 35px auto;
 }
 
 #recent_meeting {
-  background-color: #f5f5f5;
+  background: #f5f5f5 url("../img/parallax-6.png") repeat center center;
+  background-attachment: fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
 }
 
 #recent_meeting h2 {
@@ -616,7 +630,7 @@ option {
 }
 .task-box .task-box-inner .card.card-body .fa.fa-map-marker,
 .task-box .task-box-inner .card.card-body .fa.fa-microphone,
-.task-box .task-box-inner .card.card-body .fa.fa-user{
+.task-box .task-box-inner .card.card-body .fa.fa-user {
   margin-left: 2px;
   margin-right: 17px;
 }
@@ -730,7 +744,6 @@ option {
   border: 0 solid black;
 }
 
-
 #comment hr {
   max-width: 180px;
   border-width: 2px;
@@ -739,19 +752,18 @@ option {
 }
 
 #all_meetups .gray-separator,
-#recent_meeting .gray-separator{
+#recent_meeting .gray-separator {
   max-width: 100%;
   border-width: 1px;
-  color:#e0e0e0;
+  color: #e0e0e0;
   border-color: #e0e0e0;
   margin: 5px 0;
 }
 
 #task .stripe,
-#recent_meeting .stripe{
+#recent_meeting .stripe {
   margin-top: 20px;
 }
-
 
 .btn-join-meetup {
   padding: 0 68px;
@@ -911,10 +923,6 @@ footer {
     padding: 20px 0 0 0;
   }
 
-  #people .owl-item-inner {
-    padding: 50px 0px 75px 120px;
-  }
-
   .footer-logo img {
     margin: 0 auto;
   }
@@ -964,7 +972,7 @@ footer {
     padding-top: 10rem;
   }
 
-  #task p{
+  #task p {
     color: #ffffff;
   }
 
@@ -1030,11 +1038,6 @@ footer {
     padding: 0;
   }
 
-  .people-wrapper {
-    height: 260px;
-    width: 67%;
-  }
-
   #guests {
     padding-bottom: 120px;
   }
@@ -1084,6 +1087,10 @@ footer {
     justify-content: space-around;
   }
 
+  .search-button-wrapper {
+    margin: 0;
+  }
+
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
     left: 16px;
   }
@@ -1107,35 +1114,6 @@ footer {
   .place-info-wrapper {
     width: 1000px;
     max-width: 1000px;
-  }
-
-  #people .owl-carousel .owl-dots {
-    margin-top: 50px;
-    text-align: center;
-  }
-  #people .owl-carousel .owl-dots .owl-dot {
-    display: inline-block;
-  }
-  #people .owl-carousel .owl-dots .owl-dot span {
-    background: #dae5ea;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    display: block;
-    height: 10px;
-    margin: 0 15px;
-    width: 10px;
-  }
-  #people .owl-carousel .owl-dots .owl-dot.active:hover,
-  #people .owl-carousel .owl-dots .owl-dot.active:focus {
-    outline: none;
-  }
-  #people .owl-carousel .owl-dots .owl-dot.active span {
-    background: #ffd800;
-  }
-
-  .people-wrapper {
-    width: 86%;
   }
 
   #comment .owl-item-inner {
@@ -1166,10 +1144,9 @@ footer {
     background-attachment: scroll, scroll;
   }
   #invite,
-  #work,
-  #photos,
+  #all_meetups,
+  #recent_meeting,
   #place,
-  #people,
   #contact {
     background-attachment: scroll;
   }
@@ -1178,10 +1155,6 @@ footer {
 @media only screen and (max-width: 430px) {
   section {
     padding: 20px 0;
-  }
-
-  .people-wrapper {
-    height: 250px;
   }
 
   #task .container {

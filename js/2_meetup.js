@@ -53,9 +53,9 @@
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
 
-  $(document).ready(function(){
-    $('#nav-icon1').click(function(){
-      $(this).toggleClass('open');
+  $(document).ready(function() {
+    $("#nav-icon1").click(function() {
+      $(this).toggleClass("open");
     });
   });
 
@@ -139,10 +139,10 @@
     }
   });
 
-  $('#photo-gallery').owlCarousel({
-    loop:true,
-    nav:false,
-    dots:false,
+  $("#photo-gallery").owlCarousel({
+    loop: true,
+    nav: false,
+    dots: false,
     responsive: {
       0: {
         items: 1
@@ -263,13 +263,17 @@
 
   function update() {
     var pos = $(window).scrollTop();
-    $("#task").css(
+    /*    $("#task").css(
       "backgroundPosition",
       "50% " + Math.round(($("#task").height() - pos) * 0.5) + "px"
-    );
+    );*/
     $("#people").css(
       "backgroundPosition",
       "50% " + Math.round(($("#people").height() - pos / 4 + 100) * 3) + "px"
+    );
+    $("#comment").css(
+      "backgroundPosition",
+      "50% " + Math.round(($("#comment").height() - pos / 4 + 100) * 3) + "px"
     );
     $("#guests").css(
       "backgroundPosition",

@@ -53,9 +53,9 @@
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
 
-  $(document).ready(function(){
-    $('#nav-icon1').click(function(){
-      $(this).toggleClass('open');
+  $(document).ready(function() {
+    $("#nav-icon1").click(function() {
+      $(this).toggleClass("open");
     });
   });
 
@@ -210,9 +210,9 @@
 
   function update() {
     var pos = $(window).scrollTop();
-    $("#task").css(
+    $("#guests").css(
       "backgroundPosition",
-      "50% " + Math.round(($("#task").height() - pos) * 0.5) + "px"
+      "50% " + Math.round(($("#guests").height() - pos) * 0.5) + "px"
     );
     $("#people").css(
       "backgroundPosition",

@@ -2,7 +2,7 @@
   font-family: "Muller Bold";
   src: url("../fonts/MullerBold.eot");
   src: url("../fonts/MullerBold.woff") format("woff"),
-  url("../fonts/MullerBold.ttf") format("truetype");
+    url("../fonts/MullerBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -10,7 +10,7 @@
   font-family: "Muller Light";
   src: url("../fonts/MullerLight.eot");
   src: url("../fonts/MullerLight.woff") format("woff"),
-  url("../fonts/MullerLight.ttf") format("truetype");
+    url("../fonts/MullerLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -18,7 +18,7 @@
   font-family: "Muller UltraLight";
   src: url("../fonts/MullerUltraLight.eot");
   src: url("../fonts/MullerUltraLight.woff") format("woff"),
-  url("../fonts/MullerUltraLight.ttf") format("truetype");
+    url("../fonts/MullerUltraLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -26,7 +26,7 @@
   font-family: "Muller Regular";
   src: url("../fonts/MullerRegular.eot");
   src: url("../fonts/MullerRegular.woff") format("woff"),
-  url("../fonts/MullerRegular.ttf") format("truetype");
+    url("../fonts/MullerRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -34,7 +34,7 @@
   font-family: "Muller ExtraBold";
   src: url("../fonts/MullerExtraBold.eot");
   src: url("../fonts/MullerExtraBold.woff") format("woff"),
-  url("../fonts/MullerExtraBold.ttf") format("truetype");
+    url("../fonts/MullerExtraBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -68,13 +68,13 @@ body {
 }
 
 /* Form Style */
-.form-horizontal{
+.form-horizontal {
   background: #fff;
   padding-bottom: 20px;
   text-align: center;
   margin-top: 45%;
 }
-.form-horizontal .heading{
+.form-horizontal .heading {
   display: block;
   font-size: 25px;
   padding: 20px 0;
@@ -95,17 +95,17 @@ body {
 .item {
   width: 10%;
   height: 0;
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   margin-top: 18px;
 }
 
 hr {
   height: 0;
-  border-bottom: 1px solid rgba(0,0,0,.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.item:nth-child(3n+1){
+.item:nth-child(3n + 1) {
   width: 10%;
   height: 42px;
   border-radius: 50%;
@@ -128,7 +128,7 @@ hr {
 .rate-number {
   font-family: "Muller ExtraBold";
   font-size: 1em;
-  margin-top: 10px ;
+  margin-top: 10px;
 }
 
 .fa-star {
@@ -136,15 +136,15 @@ hr {
   margin: 10px;
 }
 
-.yellow{
+.yellow {
   color: #ffd800;
 }
 
 .gray {
-  color: rgba(0,0,0,.1);
+  color: rgba(0, 0, 0, 0.1);
 }
 
-.form-horizontal .form-group{
+.form-horizontal .form-group {
   padding: 0 40px;
   margin: 0 0 25px 0;
   position: relative;
@@ -163,6 +163,11 @@ hr {
   color: #000;
 }
 
+.btn-send:hover {
+  background-color: #ffea00;
+  color: #000;
+}
+
 .close {
   position: absolute;
   right: 35px;
@@ -174,10 +179,11 @@ hr {
 .close:hover {
   opacity: 1;
 }
-.close:before, .close:after {
+.close:before,
+.close:after {
   position: absolute;
   left: 15px;
-  content: ' ';
+  content: " ";
   height: 20px;
   width: 2px;
   background-color: #333;

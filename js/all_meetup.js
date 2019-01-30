@@ -53,9 +53,9 @@
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
 
-  $(document).ready(function(){
-    $('#nav-icon1').click(function(){
-      $(this).toggleClass('open');
+  $(document).ready(function() {
+    $("#nav-icon1").click(function() {
+      $(this).toggleClass("open");
     });
   });
 
@@ -240,21 +240,21 @@
 
   function update() {
     var pos = $(window).scrollTop();
-    $("#task").css(
+    $("#all_meetups").css(
       "backgroundPosition",
-      "50% " + Math.round(($("#task").height() - pos) * 0.5) + "px"
+      "50% " +
+        Math.round(($("#all_meetups").height() - pos / 4 + 100) * 3) +
+        "px"
     );
-    $("#people").css(
+    $("#recent_meeting").css(
       "backgroundPosition",
-      "50% " + Math.round(($("#people").height() - pos / 4 + 100) * 3) + "px"
+      "50% " +
+        Math.round(($("#recent_meeting").height() - pos / 3 + 300) * 2) +
+        "px"
     );
-    $("#guests").css(
+    $("#contact").css(
       "backgroundPosition",
-      "50% " + Math.round(($("#guests").height() - pos / 3 + 300) * 2) + "px"
-    );
-    $("#place").css(
-      "backgroundPosition",
-      "50% " + Math.round(($("#place").height() - pos / 6 + 300) * 0.5) + "px"
+      "50% " + Math.round(($("#contact").height() - pos / 6 + 300) * 0.5) + "px"
     );
   }
 

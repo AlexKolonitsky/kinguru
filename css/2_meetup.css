@@ -366,14 +366,14 @@ img::-moz-selection {
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   cursor: pointer;
 }
 
-#nav-icon1 span{
+#nav-icon1 span {
   display: block;
   position: absolute;
   height: 5px;
@@ -386,10 +386,10 @@ img::-moz-selection {
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  -moz-transition: .25s ease-in-out;
-  -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 #nav-icon1 span:nth-child(1) {
@@ -474,12 +474,13 @@ img::-moz-selection {
 }
 
 #task {
-  background: #2a2a2a url("../img/parallax-4.png") repeat center center;
-  background-attachment: fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
+  background: url("../img/parallax-6-dark.png") repeat center center,
+    url("../img/main-dark.png") no-repeat center 0;
+  background-attachment: fixed, scroll;
+  -webkit-background-size: contain, cover;
+  -moz-background-size: contain, cover;
+  -o-background-size: contain, cover;
+  background-size: contain, cover;
   overflow-x: hidden;
 }
 
@@ -903,7 +904,6 @@ img::-moz-selection {
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
-  position: relative;
   z-index: 1;
 }
 
@@ -995,7 +995,7 @@ img::-moz-selection {
 }
 
 #comment {
-  background: #2a2a2a url(../img/parallax-footer.png) repeat center center;
+  background: #2a2a2a url(../img/parallax-6-dark.png) repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -1102,6 +1102,7 @@ img::-moz-selection {
 }
 
 #photo-gallery {
+  margin-bottom: -8px;
   padding: 0;
 }
 .photo {
@@ -1705,11 +1706,10 @@ footer {
     background-attachment: scroll, scroll;
   }
   #invite,
-  #work,
-  #photos,
+  #guests,
+  #comment,
   #place,
-  #people,
-  #contact {
+  #people {
     background-attachment: scroll;
   }
 }
