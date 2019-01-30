@@ -53,6 +53,12 @@
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
 
+  $(document).ready(function(){
+    $('#nav-icon1').click(function(){
+      $(this).toggleClass('open');
+    });
+  });
+
   // Scroll reveal calls
   window.sr = ScrollReveal();
   sr.reveal(
