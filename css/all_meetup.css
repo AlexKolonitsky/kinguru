@@ -939,7 +939,7 @@ footer {
 }
 
 
-@media (min-width: 431px) and (max-width: 760px) {
+@media (min-width: 431px) and (max-width: 767px) {
   .navbar {
     padding: 5px;
   }

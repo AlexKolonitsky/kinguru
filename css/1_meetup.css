@@ -908,7 +908,7 @@ footer {
   box-shadow: 0 5px 49px 0 rgba(0, 0, 0, 0.04);
 }
 
-@media (min-width: 431px) and (max-width: 760px) {
+@media (min-width: 431px) and (max-width: 767px) {
   .navbar {
     padding: 5px;
   }
@@ -925,6 +925,10 @@ footer {
   .navbar-brand img:last-child {
     width: 80px;
     height: auto;
+  }
+
+  .navbar-logo {
+    justify-content: space-between;
   }
 
   .navbar .row {
@@ -978,6 +982,10 @@ footer {
 
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
     left: 75px;
+  }
+
+  .navbar-logo {
+    justify-content: space-between;
   }
 
   .work-box-bg-img,
@@ -1214,5 +1222,9 @@ footer {
   .navbar-brand img:last-child {
     width: 80px;
     height: auto;
+  }
+
+  #navbarResponsive {
+    margin: 0 auto;
   }
 }
