@@ -279,6 +279,12 @@ img::-moz-selection {
   transition: all 0.2s;
 }
 
+#mainNav.navbar-light .navbar-toggler {
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+}
+
 #mainNav.navbar-light .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -286,11 +292,6 @@ img::-moz-selection {
   color: #000000;
 }
 
-#mainNav.navbar-light .navbar-toggler {
-  background-color: #ffffff;
-  border: none;
-  outline: none;
-}
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
   position: relative;
 }
@@ -1148,6 +1149,10 @@ footer {
 }
 
 @media only screen and (max-width: 430px) {
+  .navbar {
+    padding: 0;
+  }
+
   section {
     padding: 20px 0;
   }

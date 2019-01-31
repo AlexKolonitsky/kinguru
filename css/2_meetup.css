@@ -1227,6 +1227,10 @@ img::-moz-selection {
 }
 
 @media only screen and (max-width: 430px) {
+  .navbar {
+    padding: 0;
+  }
+
   section {
     padding: 20px 0;
   }

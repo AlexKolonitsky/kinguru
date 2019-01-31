@@ -1125,6 +1125,10 @@ footer {
 }
 
 @media only screen and (max-width: 430px) {
+  .navbar {
+    padding: 0;
+  }
+
   section {
     padding: 20px 0;
   }
@@ -1135,6 +1139,11 @@ footer {
 
   .navbar-logo img {
     width: 40%;
+    height: auto;
+  }
+
+  .navbar-brand img:last-child {
+    width: 80px;
     height: auto;
   }
 
