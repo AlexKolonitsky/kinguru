@@ -913,6 +913,36 @@ footer {
   box-shadow: 0 5px 49px 0 rgba(0, 0, 0, 0.04);
 }
 
+.page-link {
+  padding: 10px 15px;
+  border-radius: 50%;
+  margin: 0 10px;
+  border: none;
+  color: #000000;
+  font-size: 0.9em;
+}
+
+.page-link:hover,
+.page-link:active{
+  color: #000000;
+  background-color: #ffea00;
+  border: none;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link,
+.page-item:first-child .page-link:hover,
+.page-item:last-child .page-link:hover,
+.page-item:first-child .page-link:active,
+.page-item:last-child .page-link:active{
+  font-size: 1em;
+  color: #909090;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+
 @media (min-width: 576px) {
   #work .work-btn-wrapper li {
     margin: 0;
@@ -1038,39 +1068,6 @@ footer {
     padding: 0;
   }
 
-  #guests {
-    padding-bottom: 120px;
-  }
-
-  #guests .guest button {
-    width: 115px;
-    height: 115px;
-  }
-
-  .comment-wrapper {
-    height: 260px;
-  }
-
-  #place {
-    padding-bottom: 85px;
-  }
-
-  #place .owl-carousel .owl-item img {
-    margin: 0 auto 0 auto;
-    width: auto;
-  }
-
-  .place-description-section {
-    padding-left: 60px;
-    margin: auto;
-  }
-
-  .place-info-wrapper {
-    width: 710px;
-    max-width: 710px;
-    margin: auto;
-  }
-
   .footer-quick-links-wrapper,
   .footer-email-input-wrapper {
     padding-left: 55px;
@@ -1107,19 +1104,6 @@ footer {
     padding-left: 15px;
   }
 
-  .place-description-section {
-    padding-left: 70px;
-  }
-
-  .place-info-wrapper {
-    width: 1000px;
-    max-width: 1000px;
-  }
-
-  #comment .owl-item-inner {
-    width: 100%;
-    margin: auto;
-  }
 }
 
 @media (min-width: 1200px) {
@@ -1127,12 +1111,7 @@ footer {
     width: 1000px;
     max-width: 1000px;
   }
-  #work {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
+
   #contact {
     padding: 50px 0 70px 0;
   }
@@ -1159,15 +1138,6 @@ footer {
 
   #task .container {
     padding-top: 110px;
-  }
-
-  #comment .star {
-    margin-top: 10px;
-  }
-
-  #comment hr {
-    margin-top: -40px;
-    margin-bottom: 50px;
   }
 
   .navbar-logo img {
