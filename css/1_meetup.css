@@ -900,13 +900,6 @@ footer {
   color: #909090;
 }
 
-#hidden-content {
-  display: none;
-  background-color: #fff;
-  padding: 50px 100px;
-  box-shadow: 0 5px 49px 0 rgba(0, 0, 0, 0.04);
-}
-
 @media (min-width: 576px) {
   #task {
     padding-bottom: 50px;
