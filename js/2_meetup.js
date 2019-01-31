@@ -148,16 +148,16 @@
         items: 1
       },
       480: {
-        items: 2
-      },
-      768: {
         items: 3
       },
+      768: {
+        items: 5
+      },
       992: {
-        items: 4
+        items: 6
       },
       1200: {
-        items: 5
+        items: 9
       }
     }
   });

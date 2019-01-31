@@ -1004,6 +1004,7 @@ img::-moz-selection {
   color: #fff;
   font-family: "Muller Light";
   padding: 40px 0 40px 0;
+  z-index: 1;
 }
 
 #comment .owl-item {
@@ -1110,13 +1111,14 @@ img::-moz-selection {
   transform: translateZ(0);
 }
 .photo:hover {
+  display: block;
   transform: translateZ(0) scale(1.1);
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
   -o-transition: 0.5s all;
   -ms-transition: 0.5s all;
-  z-index: 10;
+  z-index: 100;
 }
 .photo:last-child {
   transform-origin: right center;
