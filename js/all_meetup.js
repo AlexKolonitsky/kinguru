@@ -23,12 +23,15 @@
     }
   });
 
-  // Closes responsive menu when a scroll trigger link is clicked
+  // Closes responsive menu and change burger icon when a scroll trigger link is clicked or click
+  // outside
   $(".js-scroll-trigger").click(function() {
     $(".navbar-collapse").collapse("hide");
+    $("#nav-icon1").toggleClass("open");
   });
 
   $(document).click(function(event) {
+    if($("#navbarResponsive").hasClass("show")) $("#nav-icon1").toggleClass("open");
     if ($(event.target).closest(".js-scroll-trigger").length) return;
     $(".navbar-collapse").collapse("hide");
     event.stopPropagation();
@@ -54,8 +57,8 @@
   $(window).scroll(navbarCollapse);
 
   $(document).ready(function() {
-    $("#nav-icon1").click(function() {
-      $(this).toggleClass("open");
+    $("#burger-menu-button").click(function() {
+      $("#nav-icon1").toggleClass("open");
     });
   });
 
