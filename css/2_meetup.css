@@ -1294,6 +1294,18 @@ img::-moz-selection {
     width: 80px;
     height: auto;
   }
+
+  #people .owl-carousel .owl-item img.rounded-circle{
+    top: 0;
+    left: 32%;
+    width: 100px;
+    height: auto;
+  }
+
+  #people .owl-item-inner{
+    padding: 100px 0px 10px 0px;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 321px) {
@@ -1307,7 +1319,7 @@ img::-moz-selection {
   }
 
   #people .owl-item-inner{
-    padding: 10px 0 20px 70px;
+    padding: 100px 0 20px 0;
   }
 
   #people .owl-item{
@@ -1322,6 +1334,10 @@ img::-moz-selection {
   #people .owl-item-inner p,
   #people .owl-item-inner .fa-star{
     font-size: 0.8em;
+  }
+
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after{
+    left: 40%;
   }
 }
 

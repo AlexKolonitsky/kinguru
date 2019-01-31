@@ -1217,6 +1217,19 @@ footer {
   #navbarResponsive {
     margin: 0 auto;
   }
+
+  #people .owl-carousel .owl-item img.rounded-circle{
+    top: 0;
+    left: 32%;
+    width: 100px;
+    height: auto;
+  }
+
+  #people .owl-item-inner{
+    padding: 100px 0px 10px 0px;
+    text-align: center;
+  }
+
 }
 
 @media only screen and (max-width: 321px) {
@@ -1225,12 +1238,13 @@ footer {
   }
 
   #people .owl-carousel .owl-item img.rounded-circle{
+    left: 30%;
     width: 80px;
     height: auto;
   }
 
   #people .owl-item-inner{
-    padding: 10px 0 20px 70px;
+    padding: 100px 0 20px 0;
   }
 
   #people .owl-item{
@@ -1247,7 +1261,7 @@ footer {
     font-size: 0.8em;
   }
 
-  #nav-icon1{
-    margin-right: 10px;
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after{
+    left: 40%;
   }
 }
