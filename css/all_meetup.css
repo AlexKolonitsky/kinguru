@@ -343,10 +343,7 @@ option {
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
-#mainNav.navbar-shrink,
-#mainNav.darkness {
-  background-color: #ffffff;
-}
+
 #mainNav.navbar-light .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -1060,19 +1057,9 @@ footer {
   #mainNav .navbar-nav > li.nav-item > a.nav-link:not(.active):hover {
     text-decoration: underline;
   }
-  #mainNav.navbar-shrink {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.9);
-    background-color: #ffffff;
-    z-index: 9999;
-  }
 
   .navbar-btn {
     justify-content: flex-end;
-  }
-
-  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
-  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
-    color: #000000;
   }
 
   #task {

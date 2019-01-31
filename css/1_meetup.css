@@ -1022,19 +1022,9 @@ footer {
   #mainNav .navbar-nav > li.nav-item > a.nav-link:not(.active):hover {
     text-decoration: underline;
   }
-  #mainNav.navbar-shrink {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.9);
-    background-color: #ffffff;
-    z-index: 9999;
-  }
 
   .navbar-btn {
     justify-content: flex-end;
-  }
-
-  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
-  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
-    color: #000000;
   }
 
   #task {

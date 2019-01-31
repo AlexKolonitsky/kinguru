@@ -314,10 +314,6 @@ img::-moz-selection {
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
-#mainNav.navbar-shrink,
-#mainNav.darkness {
-  background-color: #ffffff;
-}
 
 #mainNav.navbar-light .navbar-nav .nav-link {
   color: #000000;
@@ -1096,16 +1092,6 @@ img::-moz-selection {
 
   #mainNav .navbar-nav > li.nav-item > a.nav-link:not(.active):hover {
     text-decoration: underline;
-  }
-  #mainNav.navbar-shrink {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.9);
-    background-color: #ffffff;
-    z-index: 9999;
-  }
-
-  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
-  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
-    color: #000000;
   }
 
   #task {

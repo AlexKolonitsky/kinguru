@@ -43,49 +43,11 @@
     offset: 110
   });
 
-  // Collapse Navbar
-  var navbarCollapse = function() {
-    if ($("#mainNav").offset().top > 100) {
-      $("#mainNav").addClass("navbar-shrink");
-    } else {
-      $("#mainNav").removeClass("navbar-shrink");
-    }
-  };
-  // Collapse now if page is not at top
-  navbarCollapse();
-  // Collapse the navbar when page is scrolled
-  $(window).scroll(navbarCollapse);
-
   $(document).ready(function() {
     $("#burger-menu-button").click(function() {
       $("#nav-icon1").toggleClass("open");
     });
   });
-
-  // Scroll reveal calls
-  window.sr = ScrollReveal();
-  sr.reveal(
-    ".sr-icons",
-    {
-      duration: 600,
-      scale: 0.3,
-      distance: "0px"
-    },
-    200
-  );
-  sr.reveal(".sr-button", {
-    duration: 1000,
-    delay: 200
-  });
-  sr.reveal(
-    ".sr-contact",
-    {
-      duration: 600,
-      scale: 0.3,
-      distance: "0px"
-    },
-    300
-  );
 
   // Owl carousel calls
   $("#people-carousel").owlCarousel({
@@ -179,7 +141,6 @@
   // hide nav arrows or dots and remove Add guest button of #guests-carousel, #people-carousel and
   // #comment-carousel according to resolution
   if ($(window).width() < 745) {
-    // $('#guests .button.add-guest-btn-wrapper').toggle();
     guestsCarousel
       .trigger("remove.owl.carousel", [4])
       .trigger("refresh.owl.carousel");
@@ -196,51 +157,6 @@
     $("#comment-carousel .owl-dots").hide();
   }
 
-  //Bootstrap tabs
-  $("#btn-speakers").tab("show");
-
-  var mh = 0;
-  $(".task-box").each(function() {
-    var h_block = $(this).height();
-    if (h_block > mh) {
-      mh = h_block;
-      console.log(mh);
-    }
-  });
-
-  $(".collapse").on("show.bs.collapse", function() {
-    let boxes = $(".task-box").not($(this).parents(".task-box"));
-    let parentBox = $(this).parents(".task-box");
-    //console.log(boxes,parentBox);
-    parentBox.attr("aria-expanded", "true").css("height", "auto");
-    boxes.each(function() {
-      var $this = $(this);
-      if ($this.attr("aria-expanded") !== "true") {
-        $this.height(mh);
-        //$this.css("max-height","100%");
-      }
-    });
-  });
-  $(".collapse").on("hide.bs.collapse", function() {
-    let parentBox = $(this).parents(".task-box");
-    parentBox.attr("aria-expanded", "false").height(mh);
-    let boxes = $(".task-box").not($(this).parents(".task-box"));
-    //console.log(boxes,parentBox);
-    boxes.each(function() {
-      if ($(this).height() > mh) {
-        $(this).css("height", "auto");
-      } else {
-        $(this).height(mh);
-      }
-    });
-  });
-
-  $(".navbar-toggler").click(function() {
-    $("#mainNav")
-      .not(".navbar-shrink")
-      .toggleClass("darkness");
-  });
-
   function update() {
     var pos = $(window).scrollTop();
     $("#all_meetups").css(
@@ -255,10 +171,6 @@
         Math.round(($("#recent_meeting").height() - pos / 3 + 300) * 2) +
         "px"
     );
-    $("#contact").css(
-      "backgroundPosition",
-      "50% " + Math.round(($("#contact").height() - pos / 6 + 300) * 0.5) + "px"
-    );
   }
 
   function windowSize() {
@@ -269,28 +181,4 @@
 
   $(window).on("load resize", windowSize);
 
-  $("#form_id").submit(function() {
-    var th = $(this);
-    $.ajax({
-      type: "POST",
-      url: "contact.php", //Change
-      data: th.serialize()
-    }).done(function() {
-      // код после успешной отправки формы
-      $.fancybox.open({
-        src: "#hidden-content",
-        type: "inline",
-        opts: {
-          afterShow: function(instance, current) {
-            $("#hidden-content")
-              .fadeIn()
-              .delay(2000)
-              .fadeOut();
-            $.fancybox.close();
-          }
-        }
-      });
-    });
-    return false;
-  });
 })(jQuery); // End of use strict
