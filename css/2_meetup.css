@@ -1256,4 +1256,14 @@ img::-moz-selection {
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
     left: 42%;
   }
+
+  .navbar-brand img:first-child {
+    width: 50px;
+    height: auto;
+  }
+  .navbar-brand img:last-child {
+    width: 80px;
+    height: auto;
+  }
 }
+
