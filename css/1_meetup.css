@@ -1228,3 +1228,36 @@ footer {
     margin: 0 auto;
   }
 }
+
+@media only screen and (max-width: 321px) {
+  .btn-join{
+    padding: 0 2em;
+  }
+
+  #people .owl-carousel .owl-item img.rounded-circle{
+    width: 80px;
+    height: auto;
+  }
+
+  #people .owl-item-inner{
+    padding: 10px 0 20px 70px;
+  }
+
+  #people .owl-item{
+    padding: 0 16px;
+  }
+
+  #people .owl-item-inner{
+    min-height: 150px;
+  }
+
+  .speaker-name-link,
+  #people .owl-item-inner p,
+  #people .owl-item-inner .fa-star{
+    font-size: 0.8em;
+  }
+
+  #nav-icon1{
+    margin-right: 10px;
+  }
+}
