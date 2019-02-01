@@ -751,8 +751,7 @@ option {
   margin: -10px auto 20px 10px;
 }
 
-#all_meetups .gray-separator,
-#recent_meeting .gray-separator {
+.gray-separator{
   max-width: 100%;
   border-width: 1px;
   color: #e0e0e0;

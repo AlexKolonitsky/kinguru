@@ -299,7 +299,7 @@ img::-moz-selection {
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
   position: absolute;
   content: "";
-  left: 42%;
+  left: 46%;
   bottom: 0;
   width: 57px;
   height: 6px;
@@ -381,6 +381,14 @@ img::-moz-selection {
 .navbar-logo {
   justify-content: flex-end;
   display: flex;
+}
+
+.gray-separator {
+  max-width: 100%;
+  border-width: 1px;
+  color: #e0e0e0;
+  border-color: #e0e0e0;
+  margin: 5px 0;
 }
 
 .container-navbar,
@@ -981,7 +989,7 @@ footer {
   }
 
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:after {
-    left: 75px;
+    right: -15px;
   }
 
   .navbar-logo {

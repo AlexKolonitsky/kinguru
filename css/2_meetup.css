@@ -412,6 +412,14 @@ img::-moz-selection {
   display: flex;
 }
 
+.gray-separator {
+  max-width: 100%;
+  border-width: 1px;
+  color: #e0e0e0;
+  border-color: #e0e0e0;
+  margin: 5px 0;
+}
+
 .container-navbar,
 .contactsNavbar {
   display: flex;
