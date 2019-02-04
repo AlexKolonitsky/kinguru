@@ -881,6 +881,18 @@ img::-moz-selection {
   margin: -10px auto 20px 10px;
 }
 
+speaker-name-link_comment {
+  text-decoration: none;
+  color: #000000;
+}
+
+.speaker-name-link_comment:hover,
+.speaker-name-link_comment:active,
+.speaker-name-link_comment:visited {
+  text-decoration: underline;
+  color: #000000;
+}
+
 #task a[role="button"] {
   text-decoration: none;
   display: inline-block;
@@ -928,6 +940,43 @@ img::-moz-selection {
 }
 .photo:last-child {
   transform-origin: right center;
+}
+
+.image {
+  cursor: zoom-in;
+}
+
+.popup {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  text-align: center;
+}
+
+.popup_bg {
+  background: rgba(0,0,0,0.4);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+}
+
+.popup_img {
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 600px;
+  width: auto;
+  pointer-events: none;
 }
 
 #comment .owl-prev {

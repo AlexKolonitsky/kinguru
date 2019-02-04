@@ -57,6 +57,25 @@
     });
   });
 
+  // zoom-in photo
+  $(document).ready(function(){
+    $(".image").click(function(){
+      var img = $(this);
+      var src= img.attr('src');
+      $("body").append("<div class='popup'>" +
+        "<div class='popup_bg'>" +
+        "<img src ='"+src+"' class='popup_img' />" +
+        "</div>");
+      $(".popup").fadeIn(200);
+      $(".popup_bg").click(function(){
+        $(".popup").fadeOut(200);
+        setTimeout(function(){
+          $(".popup").remove();
+        }, 200);
+      });
+    });
+  });
+
   // Closes responsive menu and change burger icon when a scroll trigger link is clicked or click
   // outside
   $(".js-scroll-trigger").click(function() {
