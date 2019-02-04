@@ -49,6 +49,19 @@
     });
   });
 
+  // hide/show bnt
+  $(document).ready(function(){
+    $(".hide").hide();
+    $(".show").click(function(){
+      $(".hide").show();
+      $(".show").hide();
+    });
+    $(".hide").click(function(){
+      $(".hide").hide();
+      $(".show").show();
+    });
+  });
+
   // Owl carousel calls
   $("#people-carousel").owlCarousel({
     loop: true,

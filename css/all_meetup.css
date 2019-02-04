@@ -253,6 +253,16 @@ img::-moz-selection {
   color: #e0e0e0;
 }
 
+.liked {
+  background: #ffffff;
+  color: #fb0512;
+}
+
+.unlike {
+  background: #ffffff;
+  color: #e0e0e0;
+}
+
 .section-title {
   margin-bottom: 25px;
   color: #0a0a0a;
@@ -933,7 +943,6 @@ footer {
   outline: none;
   cursor: pointer;
 }
-
 
 @media (min-width: 431px) and (max-width: 767px) {
   .navbar {

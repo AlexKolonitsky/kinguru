@@ -37,6 +37,19 @@
     event.stopPropagation();
   });
 
+  // LikeBTN
+  $(document).ready(function(){
+    $('.fa-heart').on('click', function(){
+      if($(this).hasClass('liked')){
+        $(this).removeClass('liked');
+        $(this).addClass('unlike');
+      } else {
+        $(this).removeClass('unlike');
+        $(this).addClass('liked');
+      }
+    })
+  });
+
   // Activate scrollspy to add active class to navbar items on scroll
   $("body").scrollspy({
     target: "#mainNav",

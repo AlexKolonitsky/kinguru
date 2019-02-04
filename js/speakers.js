@@ -31,6 +31,32 @@
     });
   });
 
+  // LikeBTN
+  $(document).ready(function(){
+    $('.fa-heart').on('click', function(){
+      if($(this).hasClass('liked')){
+        $(this).removeClass('liked');
+        $(this).addClass('unlike');
+      } else {
+        $(this).removeClass('unlike');
+        $(this).addClass('liked');
+      }
+    })
+  });
+
+  // hide/show bnt
+  $(document).ready(function(){
+    $(".hide").hide();
+    $(".show").click(function(){
+      $(".hide").show();
+      $(".show").hide();
+    });
+    $(".hide").click(function(){
+      $(".hide").hide();
+      $(".show").show();
+    });
+  });
+
   // Closes responsive menu and change burger icon when a scroll trigger link is clicked or click
   // outside
   $(".js-scroll-trigger").click(function() {
@@ -120,17 +146,17 @@
       0: {
         items: 1
       },
-      480: {
-        items: 3
+      425: {
+        items: 2
       },
       768: {
-        items: 5
+        items: 4
       },
       992: {
         items: 6
       },
       1200: {
-        items: 9
+        items: 8
       }
     }
   });

@@ -152,7 +152,8 @@ img::-moz-selection {
   background: transparent;
 }
 
-.fa.fa-plus {
+.fa.fa-plus,
+.fa.fa-minus{
   border: 3px solid #ffd800;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -280,7 +281,16 @@ img::-moz-selection {
   fill: none;
 }
 
-.about-meetups,
+.about-meetups {
+  display: inline-block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  mix-height: 5.8em;
+  line-height: 1.5em;
+  font-family: "Muller Regular";
+}
+
 .comment-text {
   display: inline-block;
   text-overflow: ellipsis;
@@ -595,6 +605,19 @@ img::-moz-selection {
   text-decoration: none;
   color: #0a0a0a;
 }
+
+.speaker-name-link_task {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.speaker-name-link_task:hover,
+.speaker-name-link_task:active,
+.speaker-name-link_task:visited {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
 
 #comment {
   background: #2a2a2a url(../img/parallax-6-dark.png) repeat center center;

@@ -152,7 +152,8 @@ img::-moz-selection {
   background: transparent;
 }
 
-.fa.fa-plus {
+.fa.fa-plus,
+.fa.fa-minus {
   border: 3px solid #ffd800;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -267,6 +268,16 @@ img::-moz-selection {
   color: #e0e0e0;
 }
 
+.liked {
+  background: #ffffff;
+  color: #fb0512;
+}
+
+.unlike {
+  background: #ffffff;
+  color: #e0e0e0;
+}
+
 #task .fa-mobile {
   font-size: 2em;
   margin-left: 4px;
@@ -310,7 +321,16 @@ img::-moz-selection {
   fill: none;
 }
 
-.about-meetups,
+.about-meetups {
+  display: inline-block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  min-height: 5.8em;
+  line-height: 1.5em;
+  font-family: "Muller Regular";
+}
+
 .comment-text {
   display: inline-block;
   text-overflow: ellipsis;
