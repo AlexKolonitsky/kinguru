@@ -24,11 +24,7 @@
 
 html {
   height: 100%;
-  /*Image only BG fallback*/
-
-  /*background = gradient + image pattern combo*/
-  background:
-      linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+  background: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -37,7 +33,7 @@ body {
 /*form styles*/
 #msform {
   width: 500px;
-  margin: 50px auto;
+  margin: 400px auto;
   text-align: center;
   position: relative;
   background-color: #ffffff;
@@ -52,16 +48,15 @@ body {
   box-sizing: border-box;
   width: 100%;
   margin-top: -3px;
-
-  /*stacking fieldsets above each other*/
   position: relative;
 }
-/*Hide all except first fieldset*/
+
 #msform fieldset:not(:first-of-type) {
   display: none;
 }
 /*inputs*/
-#msform input, #msform textarea {
+#msform input,
+#msform textarea {
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -76,13 +71,15 @@ body {
 #msform .action-button {
   width: 100px;
   background: #ffd800;
-  font-weight: bold;
-  color: white;
+  font-size: 12px;
+  font-family: "Muller Bold" ;
+  color: #000000;
   border: 0 none;
   border-radius: 300px;
   cursor: pointer;
   padding: 10px 5px;
   margin: 10px 5px;
+  text-transform: uppercase;
 }
 #msform .action-button:hover, #msform .action-button:focus {
   box-shadow: 0 0 0 2px white, 0 0 0 3px #ffd800;
@@ -135,7 +132,7 @@ body {
   font-size: 12px;
   color: #333;
   background: #ffffff;
-  border: 2px solid #868e96;
+  border: 2px solid #ccc;
   border-radius: 50%;
   margin: 0 auto 5px auto;
 }
@@ -145,7 +142,7 @@ body {
   content: '';
   width: 74%;
   height: 2px;
-  background: #868e96;
+  background: #ccc;
   position: absolute;
   left: -37%;
   top: 15px; /*put it behind the numbers*/
@@ -165,3 +162,78 @@ body {
 #progressbar li.active:after {
   background-color: #ffd800;
 }
+
+/*Rating stars*/
+
+
+.reviewStars-input input:checked~label,
+.reviewStars-input label,
+.reviewStars-input label:hover,
+.reviewStars-input label:hover~label{
+  background: url('http://positivecrash.com/wp-content/uploads/ico-s71a7fdede6.png') no-repeat;
+  outline: none;
+}
+
+.reviewStars-input {
+  width: 80%;
+  overflow: hidden;
+  *zoom: 1;
+  position: relative;
+  float: left;
+  margin: 10px;
+}
+
+.reviewStars-input input {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  width: 43px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+.reviewStars-input input:checked ~ label {
+  background-position: 0 -40px;
+  height: 40px;
+  width: 43px;
+}
+
+.reviewStars-input label {
+  background-position: 0 0;
+  height: 40px;
+  width: 43px;
+  float: right;
+  cursor: pointer;
+  margin-right: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.reviewStars-input label:hover,
+.reviewStars-input label:hover~label {
+  background-position: 0 -40px;
+  height: 40px;
+  width: 43px;
+}
+
+.reviewStars-input .star-0 {
+  left: 0;
+}
+
+.reviewStars-input .star-1 {
+  left: 53px;
+}
+
+.reviewStars-input .star-2 {
+  left: 106px;
+}
+
+.reviewStars-input .star-3 {
+  left: 159px;
+}
+
+.reviewStars-input .star-4 {
+  left: 212px;
+}
+
