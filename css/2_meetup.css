@@ -551,11 +551,13 @@ img::-moz-selection {
 #people .owl-prev {
   top: 19%;
   left: -55px;
+  outline: none;
 }
 
 #people .owl-next {
   top: 19%;
   right: -50px;
+  outline: none;
 }
 
 #people .owl-prev i,
@@ -763,17 +765,20 @@ img::-moz-selection {
 #comment .owl-prev {
   top: 18%;
   left: -35px;
+  outline: none;
 }
 
 #comment .owl-next {
   top: 18%;
   right: -30px;
+  outline: none;
 }
 
 #comment .owl-prev i,
 #comment .owl-next i {
   font-size: 60px;
   color: #565656;
+  outline: none;
 }
 
 #guests {
@@ -832,17 +837,20 @@ img::-moz-selection {
 #guests .owl-prev {
   top: 15%;
   left: -20px;
+  outline: none;
 }
 
 #guests .owl-next {
   top: 15%;
   right: -15px;
+  outline: none;
 }
 
 #guests .owl-prev i,
 #guests .owl-next i {
   font-size: 60px;
   color: #fff;
+  outline: none;
 }
 
 #guests .owl-carousel .owl-dots .owl-dot.active span {
@@ -930,6 +938,7 @@ img::-moz-selection {
 
 .owl-carousel .owl-dots .owl-dot {
   display: inline-block;
+  outline: none;
 }
 
 .owl-carousel .owl-dots .owl-dot span {
@@ -1548,4 +1557,43 @@ img::-moz-selection {
 
 #progressbar li.active:after {
   background-color: #ffd800;
+}
+
+#modal_form {
+  border-radius: 5px;
+  border: none;
+  background: #fff;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -260px;
+  display: none;
+  opacity: 0;
+  z-index: 5;
+  padding: 20px 10px;
+}
+#modal_form #modal_close {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: block;
+}
+
+#overlay {
+  z-index:3;
+  position:fixed;
+  background-color:#000;
+  opacity:0.8;
+  -moz-opacity:0.8;
+  filter:alpha(opacity=80);
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  cursor:pointer;
+  display:none;
 }

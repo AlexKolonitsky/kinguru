@@ -33,7 +33,7 @@ body {
 /*form styles*/
 #msform {
   width: 500px;
-  margin: 400px auto;
+  margin: 10px 0 0 0;
   text-align: center;
   position: relative;
   background-color: #ffffff;
