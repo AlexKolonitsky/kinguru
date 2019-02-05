@@ -1,28 +1,4 @@
 @font-face {
-  font-family: "Muller Bold";
-  src: url("../fonts/MullerBold.eot");
-  src: url("../fonts/MullerBold.woff") format("woff"),
-    url("../fonts/MullerBold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Muller Light";
-  src: url("../fonts/MullerLight.eot");
-  src: url("../fonts/MullerLight.woff") format("woff"),
-    url("../fonts/MullerLight.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Muller UltraLight";
-  src: url("../fonts/MullerUltraLight.eot");
-  src: url("../fonts/MullerUltraLight.woff") format("woff"),
-    url("../fonts/MullerUltraLight.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
   font-family: "Muller Regular";
   src: url("../fonts/MullerRegular.eot");
   src: url("../fonts/MullerRegular.woff") format("woff"),
@@ -30,167 +6,162 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
-  font-family: "Muller ExtraBold";
-  src: url("../fonts/MullerExtraBold.eot");
-  src: url("../fonts/MullerExtraBold.woff") format("woff"),
-    url("../fonts/MullerExtraBold.ttf") format("truetype");
+  font-family: "Muller Bold";
+  src: url("../fonts/MullerBold.eot");
+  src: url("../fonts/MullerBold.woff") format("woff"),
+  url("../fonts/MullerBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
-  color: #fff;
-}
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #fff;
-}
-:-ms-input-placeholder {
-  /* IE 10+ */
-  color: #fff;
-}
-:-moz-placeholder {
-  /* Firefox 18- */
-  color: #fff;
-}
+  /*border-color: #ffd800;*/
 
-body,
+/*---new style-----*/
+
+* {margin: 0; padding: 0;}
+
 html {
-  width: 100%;
   height: 100%;
+  /*Image only BG fallback*/
+
+  /*background = gradient + image pattern combo*/
+  background:
+      linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
 }
 
 body {
   font-family: "Muller Regular";
-  background-color: #1d2124;
 }
-
-/* Form Style */
-.form-horizontal {
-  background: #fff;
-  padding-bottom: 20px;
+/*form styles*/
+#msform {
+  width: 500px;
+  margin: 50px auto;
   text-align: center;
-  margin-top: 45%;
+  position: relative;
+  background-color: #ffffff;
+  padding-top: 20px;
+  border-radius: 3px;
 }
-.form-horizontal .heading {
-  display: block;
-  font-size: 25px;
-  padding: 20px 0;
-  font-family: "Muller ExtraBold";
-}
-
-.container {
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 3px;
+  padding: 30px;
+  box-sizing: border-box;
   width: 100%;
+  margin-top: -3px;
+
+  /*stacking fieldsets above each other*/
+  position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+  display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #2C3E50;
+  font-size: 13px;
 }
 
-.container-items {
-  width: 80%;
-  margin: auto;
-  display: flex;
-  flex-space: none;
+/*buttons*/
+#msform .action-button {
+  width: 100px;
+  background: #ffd800;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 300px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
 }
-
-.item {
-  width: 10%;
-  height: 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  margin-top: 18px;
+#msform .action-button:hover, #msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #ffd800;
+  outline: none;
 }
-
-hr {
-  height: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.item:nth-child(3n + 1) {
-  width: 10%;
-  height: 42px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  margin: 0 auto 0 auto;
-}
-
-.filled {
-  border-color: #ffd800;
-}
-
-.item-titles {
-  width: 90%;
+/*headings*/
+ {
   margin: 10px auto;
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8em;
+  font-family: "Muller Bold";
 }
 
-.rate-number {
-  font-family: "Muller ExtraBold";
-  font-size: 1em;
-  margin-top: 10px;
+.fs-title,
+.form-title{
+  font-size: 20px;
+  color: #000000;
+  margin: 20px auto;
+  font-family: "Muller Bold";
+}
+.fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+/*progressbar*/
+
+#progressbar {
+  padding: 10px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+  color: #000000;
 }
 
-.fa-star {
-  font-size: 4em;
-  margin: 10px;
-}
-
-.yellow {
-  color: #ffd800;
-}
-
-.gray {
-  color: rgba(0, 0, 0, 0.1);
-}
-
-.form-horizontal .form-group {
-  padding: 0 40px;
-  margin: 0 0 25px 0;
+#progressbar li {
+  list-style-type: none;
+  color: #000000;
+  font-size: 11px;
+  width: 25%;
+  float: left;
   position: relative;
 }
 
-.btn-send {
-  background-color: #ffd800;
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  line-height: 30px;
+  display: block;
+  font-size: 12px;
+  color: #333;
+  background: #ffffff;
+  border: 2px solid #868e96;
+  border-radius: 50%;
+  margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+
+#progressbar li:after {
+  content: '';
+  width: 74%;
+  height: 2px;
+  background: #868e96;
+  position: absolute;
+  left: -37%;
+  top: 15px; /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+  /*connector not needed before the first step*/
+  content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before{
   border-color: #ffd800;
-  border-radius: 300px;
-  font-size: 18px;
-  height: 50px;
-  line-height: 55px;
-  padding: 0 3em;
-  font-family: "Muller Bold";
-  font-weight: inherit;
-  color: #000;
+  color: #000000;
 }
 
-.btn-send:hover {
-  background-color: #ffea00;
-  color: #000;
-}
-
-.close {
-  position: absolute;
-  right: 35px;
-  top: 38%;
-  width: 20px;
-  height: 20px;
-  opacity: 0.3;
-}
-.close:hover {
-  opacity: 1;
-}
-.close:before,
-.close:after {
-  position: absolute;
-  left: 15px;
-  content: " ";
-  height: 20px;
-  width: 2px;
-  background-color: #333;
-}
-.close:before {
-  transform: rotate(45deg);
-}
-.close:after {
-  transform: rotate(-45deg);
+#progressbar li.active:after {
+  background-color: #ffd800;
 }
