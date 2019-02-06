@@ -320,6 +320,7 @@
   $(function () {
     $("#includedContent").load('rating.html');
     $('#footer').load('footer.html');
+    $('#header').load('header.html');
   });
 
 
