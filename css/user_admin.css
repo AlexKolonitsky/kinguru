@@ -122,14 +122,18 @@
   padding: 15px 0 15px 20px;
 }
 
-.sidebar-nav li a {
+.side a{
   color: #999999;
   display: block;
   text-decoration: none;
 }
 
-.sidebar-nav li a:hover,
-.sidebar-nav li.active {
+.side a:hover {
+  text-decoration: none;
+}
+
+#spy .sidebar-nav li:hover,
+#spy .sidebar-nav li.active {
   color: #000000;
   font-family: "Muller Bold";
   background-color: #ffd800;
@@ -208,6 +212,14 @@ option:first-child {
   color: #5a5a5a;
 }
 
+textarea {
+  outline: none;
+  -moz-appearance: none;
+  border: 1px solid #999;
+  resize: none;
+  width: 90%;
+}
+
 .pers-flex {
   display: flex;
   align-items: center;
@@ -222,4 +234,12 @@ option:first-child {
 .sett-btn {
   padding: 0 !important;
   width: 275px;
+}
+
+.well legend{
+  margin-top: 50px;
+}
+
+#pers_info {
+  margin-top: 0px;
 }

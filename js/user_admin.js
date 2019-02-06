@@ -36,18 +36,15 @@
     });
   });
 
-
-  // LikeBTN
   $(document).ready(function(){
-    $('.side').on('click', function(){
-      if($(this).hasClass('active')){
+    $(".side").click(function(){
+      $('.side').each(function () {
         $(this).removeClass('active');
-        $(this).addClass('unactive');
-      } else {
-        $(this).removeClass('unactive');
-        $(this).addClass('active');
-      }
-    })
+      });
+    $(this).addClass('active');
+    });
   });
+
+  $('textarea').autoResize();
 
 })(jQuery); // End of use strict
