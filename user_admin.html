@@ -64,36 +64,6 @@
 
 <div id="header"></div>
 
-<section id="photo-gallery" class="owl-carousel">
-  <div>
-    <a class="photo"><img class="image" src="img/photo-1.jpg" alt="photo-1"/></a>
-  </div>
-  <div>
-    <a class="photo"><img class="image" src="img/photo-2.jpg" alt="photo-1"/></a>
-  </div>
-  <div>
-    <a class="photo"><img class="image" src="img/photo-3.jpg" alt="photo-1"/></a>
-  </div>
-  <div>
-    <a class="photo"><img class="image" src="img/photo-4.jpg" alt="photo-1"/></a>
-  </div>
-  <div>
-    <a class="photo"><img class="image" src="img/photo-5.jpg" alt="photo-1"/></a>
-  </div>
-  <div>
-    <a class="photo"><img class="image" src="img/photo-1.jpg" alt="photo-1"/></a>
-  </div>
-  <div>
-    <a class="photo"><img class="image" src="img/photo-2.jpg" alt="photo-1"/></a>
-  </div>
-  <div>
-    <a class="photo"><img class="image" src="img/photo-3.jpg" alt="photo-1"/></a>
-  </div>
-  <div>
-    <a class="photo"><img class="image" src="img/photo-4.jpg" alt="photo-1"/></a>
-  </div>
-</section>
-
 <section id="tab-title">
   <div class="container">
     <ul id="myTab" class="nav nav-tabs">
@@ -328,6 +298,36 @@
                 <div class="col-md-12 well">
                   <legend id="pers_photo" class="">Photo</legend>
                   <p>Share yor goals</p>
+                  <section id="photo-gallery" class="owl-carousel">
+                    <div>
+                      <a class="photo"><img class="image" src="img/photo-1.jpg" alt="photo-1"/></a>
+                    </div>
+                    <div>
+                      <a class="photo"><img class="image" src="img/photo-2.jpg" alt="photo-1"/></a>
+                    </div>
+                    <div>
+                      <a class="photo"><img class="image" src="img/photo-3.jpg" alt="photo-1"/></a>
+                    </div>
+                    <div>
+                      <a class="photo"><img class="image" src="img/photo-4.jpg" alt="photo-1"/></a>
+                    </div>
+                    <div>
+                      <a class="photo"><img class="image" src="img/photo-5.jpg" alt="photo-1"/></a>
+                    </div>
+                    <div>
+                      <a class="photo"><img class="image" src="img/photo-1.jpg" alt="photo-1"/></a>
+                    </div>
+                    <div>
+                      <a class="photo"><img class="image" src="img/photo-2.jpg" alt="photo-1"/></a>
+                    </div>
+                    <div>
+                      <a class="photo"><img class="image" src="img/photo-3.jpg" alt="photo-1"/></a>
+                    </div>
+                    <div>
+                      <a class="photo"><img class="image" src="img/photo-4.jpg" alt="photo-1"/></a>
+                    </div>
+                  </section>
+
                 </div>
               </div>
             </div>
@@ -362,58 +362,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/user_admin.js "></script>
-<script>
-  var yearSelect = document.querySelector('#year');
-  var monthSelect = document.querySelector('#month');
-  var daySelect = document.querySelector('#day');
-
-  populateDays(monthSelect.value);
-  populateYears();
-
-  function populateDays(month) {
-
-    while(daySelect.firstChild){
-      daySelect.removeChild(daySelect.firstChild);
-    }
-
-    var dayNum;
-
-    if(month === 'January' || month === 'March' || month === 'May' || month === 'July' || month === 'August' || month === 'October' || month === 'December') {
-      dayNum = 31;
-    } else if(month === 'April' || month === 'June' || month === 'September' || month === 'November') {
-      dayNum = 30;
-    } else {
-
-      var year = yearSelect.value;
-      var leap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-      dayNum = leap ? 29 : 28;
-    }
-
-    for(i = 1; i <= dayNum; i++) {
-      var option = document.createElement('option');
-      option.textContent = i;
-      daySelect.appendChild(option);
-    }
-  }
-
-  function populateYears() {
-    var date = new Date();
-    var year = date.getFullYear();
-
-    for(var i = 0; i <= 100; i++) {
-      var option = document.createElement('option');
-      option.textContent = year-i;
-      yearSelect.appendChild(option);
-    }
-  }
-
-  yearSelect.onchange = function() {
-    populateDays(monthSelect.value);
-  }
-
-  monthSelect.onchange = function() {
-    populateDays(monthSelect.value);
-  }
-</script>
+<script src="js/data.js"></script>
 </body>
 </html>

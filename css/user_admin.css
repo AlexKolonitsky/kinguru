@@ -1,6 +1,7 @@
 #tab-title {
   position: relative;
   background-color: #ffffff;
+  padding-top: 150px;
 }
 
 #tab-title .nav-tabs{
@@ -66,8 +67,8 @@
 }
 
 .sidebar-nav {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 200px;
   width: 200px;
   list-style: none;
   margin: 0;
