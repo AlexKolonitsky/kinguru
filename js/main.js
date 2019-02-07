@@ -323,5 +323,11 @@
     $('#header').load('header.html');
   });
 
+  $(function(){
+    $('#myTab a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+  });
 
 })(jQuery);
