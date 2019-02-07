@@ -48,3 +48,4 @@
   $('textarea').autoResize();
 
 })(jQuery); // End of use strict
+

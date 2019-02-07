@@ -1,44 +1,3 @@
-@font-face {
-  font-family: "Muller Bold";
-  src: url("../fonts/MullerBold.eot");
-  src: url("../fonts/MullerBold.woff") format("woff"),
-    url("../fonts/MullerBold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Muller Light";
-  src: url("../fonts/MullerLight.eot");
-  src: url("../fonts/MullerLight.woff") format("woff"),
-    url("../fonts/MullerLight.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Muller UltraLight";
-  src: url("../fonts/MullerUltraLight.eot");
-  src: url("../fonts/MullerUltraLight.woff") format("woff"),
-    url("../fonts/MullerUltraLight.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Muller Regular";
-  src: url("../fonts/MullerRegular.eot");
-  src: url("../fonts/MullerRegular.woff") format("woff"),
-    url("../fonts/MullerRegular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Muller ExtraBold";
-  src: url("../fonts/MullerExtraBold.eot");
-  src: url("../fonts/MullerExtraBold.woff") format("woff"),
-    url("../fonts/MullerExtraBold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 #tab-title {
   position: relative;
   background-color: #ffffff;
@@ -178,26 +137,35 @@ select{
 }
 
 select {
-  padding: 0.5em 3.5em 0.5em 1em;
+  padding: 0.5em 2.5em 0.5em 1em;
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image:
 
-      linear-gradient(45deg, transparent 50%, gray 50%),
-      linear-gradient(135deg, gray 50%, transparent 50%);
+      linear-gradient(45deg, transparent 50%, #bebed2 50%),
+      linear-gradient(135deg, #bebed2 50%, transparent 50%);
   background-position:
 
-      calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 18px) calc(1em + 2px),
       calc(100% - 10px) calc(1em + 2px);
   background-size:
-      10px 10px,
-      10px 10px;
+      8px 8px,
+      8px 8px;
   background-repeat: no-repeat;
 }
 
 input:focus,
 select:focus {
   border-bottom:2px solid #ffd800;
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+
 }
 
 p:before {
@@ -242,4 +210,8 @@ textarea {
 
 #pers_info {
   margin-top: 0px;
+}
+
+.fallbackDatePicker {
+  margin-left: 3px;
 }
