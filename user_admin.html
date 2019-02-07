@@ -80,10 +80,10 @@
     <div class="tab-content">
       <div id="panel1" class="tab-pane fade in active">
         <div class="row">
-          <div class="col-lg-3 col-md-3 col-12">
+          <div class="col-lg-3 col-md-3 col-12" id="menu">
             <div id="wrapper" data-spy="scroll" data-target="#spy" class="">
               <!-- Sidebar -->
-              <div id="sidebar-wrapper" class="">
+              <div id="sidebar-wrapper" class="fixed d-md-inline-block d-none d-lg-inline-block">
                 <nav id="spy">
                   <ul class="sidebar-nav nav">
                     <li class="side">
@@ -112,9 +112,9 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-9 col-md-9 col-12">
+          <div class="col-lg-9 col-md-8 col-12 ml-md-5">
             <div class="row">
-              <div class="col-md-12 well">
+              <div class="col-md-9 well">
                 <legend id="pers_info" class="">Personal information</legend>
                 <input name="myFile" type="file" id="file" class="input_file">
                 <label for="file"><img src="img/speaker-1.jpg" class="img-fluid rounded-circle mx-auto"></label>
@@ -347,7 +347,7 @@
   </div>
 </section>
 
-<div id="footer"></div>
+<footer id="footer"></footer>
 
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

@@ -975,6 +975,7 @@ img::-moz-selection {
   color: #fff;
   font-family: "Muller Light";
   padding: 18px 0 25px 0;
+  z-index: 2;
 }
 #contact a {
   color: #909090;
@@ -1242,6 +1243,12 @@ img::-moz-selection {
   .footer-email-input-wrapper input {
     margin-top: 0;
   }
+
+  .rights-section,
+  #contact {
+    z-index: 1030;
+    position: relative;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1315,6 +1322,8 @@ img::-moz-selection {
     width: 1000px;
     max-width: 1000px;
   }
+
+
 
   #contact {
     padding: 50px 0 70px 0;
