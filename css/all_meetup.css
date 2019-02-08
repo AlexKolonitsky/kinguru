@@ -121,6 +121,15 @@ label {
   border-bottom: 1px solid #ffffff;
 }
 
+.form-control:focus {
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+}
+
 option {
   color: #ffffff;
   background: #2c2c2c;
