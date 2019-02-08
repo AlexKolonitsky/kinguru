@@ -1067,6 +1067,8 @@ img::-moz-selection {
   color: #909090;
 }
 
+
+
 @media (min-width: 431px) and (max-width: 767px) {
   .navbar {
     padding: 5px;
@@ -1570,7 +1572,7 @@ img::-moz-selection {
   display: none;
   opacity: 0;
   z-index: 5;
-  padding: 20px 10px;
+  padding: 20px 0px;
 }
 #modal_form #modal_close {
   width: 21px;
