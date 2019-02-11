@@ -88,9 +88,10 @@
   font-size: 2em;
   margin: 10px 25px;
   color: #e0e0e0;
+  cursor: pointer;
 }
 
-.liked {
+.like {
   background: #ffffff;
   color: #fb0512;
 }
