@@ -4,7 +4,6 @@ const _ = require('lodash');
 const RequestHandlers = require('./../../common/RequestHandler');
 const utils = require('../../common/securityAssert');
 const validator = require('./../../common/validate');
-
 const ERRORS_CODE = utils.ERRORS_CODE;
 
 const {
