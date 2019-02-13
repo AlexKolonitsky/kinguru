@@ -1,21 +1,27 @@
 'use strict';
 
-const { Meetups } = require('./../index');
+const _ = require('lodash');
+const { Meetups,  Speakers } = require('./../index');
+
+/**
+ * @returns {Promise<any>}
+ */
 
 class MeetupDao {
 
-  getMeetups(limit = 20, offset = 0) {
+  getAllMeetups(limit = 20, offset = 0) {
 
     return Meetups.findAll({
       limit,
-      offset
+      offset,
+      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date'],
+      include: [{
+        model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
+        through: { attributes: [] }
+      }],
     })
-      .then(meetups => {
-        return meetups
-      })
-
+      .then(allMeetups => Promise.resolve({ allMeetups }))
   }
-
 }
 
 module.exports = MeetupDao;
