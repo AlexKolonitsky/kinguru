@@ -323,6 +323,7 @@
     $('#header').load('header.html');
   });
 
+
   $(function(){
     $('#myTab a').click(function (e) {
       e.preventDefault()
@@ -330,4 +331,20 @@
     });
   });
 
+  $(document).ready(function(){
+    setTimeout(function(){
+      $('.onload-click').click();
+    },);
+  });
+
 })(jQuery);
+
+var like = function (element) {
+  if(element.classList.contains('unlike')) {
+    element.classList.remove('unlike');
+    element.classList.add('like');
+  }else {
+    element.classList.remove('like');
+    element.classList.add('unlike');
+  }
+}

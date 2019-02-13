@@ -1,0 +1,14 @@
+{
+  "preset": "airbnb",
+  "disallowMultipleLineBreaks": true,
+  "disallowTrailingWhitespace": true,
+  "maximumLineLength": {
+    "value": 150,
+    "allExcept": ["comments"]
+  },
+  "requirePaddingNewLinesAfterUseStrict": true,
+  "requireShorthandArrowFunctions": true,
+  "validateLineBreaks": "CRLF",
+  "excludeFiles": [
+  ]
+}
