@@ -1,11 +1,11 @@
 'use strict';
 
-const GetAllMeetups = require('./GetMeetups');
+const GetAllMeetups = require('./GetAllMeetups');
 
 /**
  * @type {{
  *
- * GetMeetups: GetMeetups
+ * GetMeetups: GetAllMeetups
  * }}
  *
  */

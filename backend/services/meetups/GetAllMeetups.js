@@ -38,7 +38,7 @@ class GetAllMeetups extends RequestHandlers {
 
   methodAction(request) {
 
-    let { limit, offset } = request.query;
+    let { limit, offset, location, type } = request.query;
 
     if (!isNaN(parseInt(offset))) {
       offset = parseInt(offset);
@@ -47,7 +47,8 @@ class GetAllMeetups extends RequestHandlers {
     if (!isNaN(parseInt(limit))) {
       limit = parseInt(limit);
     }
-    return MeetupsDaoHandler.getAllMeetups(limit, offset)
+
+    return MeetupsDaoHandler.getAllMeetups(limit, offset, location, type)
   }
 
 
