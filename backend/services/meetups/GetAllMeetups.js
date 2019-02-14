@@ -11,7 +11,7 @@ const { MeetupsDaoHandler } = require('../../dao/handlers');
  * @extends RequestHandlers
  */
 
-class GetMeetups extends RequestHandlers {
+class GetAllMeetups extends RequestHandlers {
 
   /**
    * @function validate - validate incoming body.limit and offset params
@@ -38,7 +38,7 @@ class GetMeetups extends RequestHandlers {
 
   methodAction(request) {
 
-    let { limit, offset } = request.query;
+    let { limit, offset, location, type } = request.query;
 
     if (!isNaN(parseInt(offset))) {
       offset = parseInt(offset);
@@ -48,12 +48,11 @@ class GetMeetups extends RequestHandlers {
       limit = parseInt(limit);
     }
 
-    return MeetupsDaoHandler.getMeetups(limit, offset)
-
+    return MeetupsDaoHandler.getAllMeetups(limit, offset, location, type)
   }
 
 
 }
 
 
-module.exports = GetMeetups;
+module.exports = GetAllMeetups;

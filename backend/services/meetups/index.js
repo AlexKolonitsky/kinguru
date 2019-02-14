@@ -1,15 +1,15 @@
 'use strict';
 
-const GetMeetups = require('./GetMeetups');
+const GetAllMeetups = require('./GetAllMeetups');
 
 /**
  * @type {{
  *
- * GetMeetups: GetMeetups
+ * GetMeetups: GetAllMeetups
  * }}
  *
  */
 
 module.exports = {
-  GetMeetups: new GetMeetups(),
+  GetAllMeetups: new GetAllMeetups(),
 };
