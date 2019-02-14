@@ -6,8 +6,8 @@ const validator = require('./../../common/validate');
 const { MeetupsDaoHandler } = require('../../dao/handlers');
 
 /**
- * Is used for registration user - User is added to db, but can't log in without confirmation
- * @class RegistrationUser
+ * Is used for getting for all meetups
+ * @class GetAllMeetups
  * @extends RequestHandlers
  */
 
@@ -20,12 +20,12 @@ class GetAllMeetups extends RequestHandlers {
    * @param {Object} request
    * @returns {Array.<string|undefined>}
    */
-  validate(request) {
-    return _.flatten([
-      validator.fieldExist('limit', request.query.limit),
-      validator.fieldExist('offset', request.query.offset),
-    ]);
-  }
+  // validate(request) {
+  //   return _.flatten([
+  //     validator.fieldExist('limit', request.query.limit),
+  //     validator.fieldExist('offset', request.query.offset),
+  //   ]);
+  // }
 
   /**
    * @function methodAction - get books ids and its title and cover via attachments, ordered by isFreeBook field = 1 at first priority \

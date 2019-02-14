@@ -17,7 +17,8 @@ router.post('/user/register', (req, res, next) => users.RegistrationUser.process
  */
 
 const meetups = require('./services/meetups/index');
-router.get('/meetups',(req, res, next) =>meetups.GetAllMeetups.process(req, res, next));
+router.get('/meetups',(req, res, next) => meetups.GetAllMeetups.process(req, res, next));
+router.get('/meetup/:id',(req, res, next) => meetups.GetCurrentMeetup.process(req,res, next));
 
 
 /**
