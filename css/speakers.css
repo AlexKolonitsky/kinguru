@@ -262,19 +262,19 @@ img::-moz-selection {
   color: #ffd800;
 }
 
-.fa-heart {
+.fa.fa-heart {
   font-size: 2em;
   margin: 10px 25px;
   color: #e0e0e0;
   cursor: pointer;
 }
 
-.like {
+.fa.like {
   background: #ffffff;
   color: #fb0512;
 }
 
-.unlike {
+.fa.unlike {
   background: #ffffff;
   color: #e0e0e0;
 }
