@@ -14,8 +14,17 @@ const utils = require('../../common/securityAssert')
 
 class GetCurrentMeetup extends RequestHandlers {
 
+  /**
+   * @function validate incoming meetup id
+   * @public
+   * @override
+   * @param request
+   * @returns {string}
+   */
   validate(request) {
-    validator.validatePositiveNumber('id', request.params.id)
+    return [
+      validator.fieldExist('id', request.params.id),
+    ];
   }
 
 

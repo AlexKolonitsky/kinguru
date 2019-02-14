@@ -13,19 +13,6 @@ const { MeetupsDaoHandler } = require('../../dao/handlers');
 
 class GetAllMeetups extends RequestHandlers {
 
-  /**
-   * @function validate - validate incoming body.limit and offset params
-   * @public
-   * @override
-   * @param {Object} request
-   * @returns {Array.<string|undefined>}
-   */
-  // validate(request) {
-  //   return _.flatten([
-  //     validator.fieldExist('limit', request.query.limit),
-  //     validator.fieldExist('offset', request.query.offset),
-  //   ]);
-  // }
 
   /**
    * @function methodAction - get books ids and its title and cover via attachments, ordered by isFreeBook field = 1 at first priority \
