@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta
+    name="keywords"
+    content="тематический столик, мероприятие, бронирование"
+  />
+  <meta
+    name="description"
+    content="Сообщество людей, открытых для встреч и знакомств"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="img/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="img/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="img/favicon-16x16.png"
+  />
+  <link rel="manifest" href="img/site.webmanifest"/>
+  <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5"/>
+  <meta name="msapplication-TileColor" content="#da532c"/>
+  <meta name="theme-color" content="#ffffff"/>
+
+  <meta property="og:image" content=""/>
+  <meta property="og:title" content="KINGURU - для тех кто ценит общение!"/>
+  <meta
+    property="og:description"
+    content="Сообщество людей, открытых для встреч и знакомств"
+  />
+  <title>KINGURU - для тех кто ценит общение!</title>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.min.css"/>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css"
+  />
+  <link href="css/user_admin.css" rel="stylesheet"/>
+  <link href="css/main.css" rel="stylesheet"/>
+</head>
+
+<body id="page-top">
+
+<div id="header"></div>
+
+<section id="tab-title">
+  <div class="container">
+    <ul id="myTab" class="nav nav-tabs">
+      <li><a class="onload-click" href="#panel1" data-toggle="tab">Your information</a></li>
+      <li><a href="#panel2" data-toggle="tab">Meetups</a></li>
+      <li><a href="#panel3" data-toggle="tab">Setting</a></li>
+      <li><a href="#panel4" data-toggle="tab">Notification</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="tabs">
+  <div class="container">
+    <div class="tab-content">
+      <div id="panel1" class="tab-pane fade in active">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-12" id="menu">
+            <div id="wrapper" data-spy="scroll" data-target="#spy" class="">
+              <!-- Sidebar -->
+              <div id="sidebar-wrapper" class="fixed d-md-inline-block d-none d-lg-inline-block">
+                <nav id="spy">
+                  <ul class="sidebar-nav nav">
+                    <li class="side">
+                      <a href="#pers_info" data-scroll="" class="">Personal information</a>
+                    </li>
+                    <li class="side">
+                      <a href="#pers_interest" data-scroll="" class="">Competenies and interests</a>
+                    </li>
+                    <li class="side">
+                      <a href="#pers_connection" data-scroll="" class="">Social connection</a>
+                    </li>
+                    <li class="side">
+                      <a href="#pers_news" data-scroll="" class="">Newsletters preference</a>
+                    </li>
+                    <li class="side">
+                      <a href="#pers_card" data-scroll="" class="">Credit cards</a>
+                    </li>
+                    <li class="side">
+                      <a href="#pers_pass" data-scroll="" class="">Password</a>
+                    </li>
+                    <li class="side">
+                      <a href="#pers_photo" data-scroll="" class="">Photo</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-8 col-12">
+            <div class="row">
+              <div class="col-md-9 well">
+                <legend id="pers_info" class="">Personal information</legend>
+                <input name="myFile" type="file" id="file" class="input_file">
+                <label for="file"><img src="img/speaker-1.jpg" class="img-fluid rounded-circle mx-auto"></label>
+                <div class="row">
+                  <p type="Title*" class="col-lg-8 col-12">
+                    <select>
+                      <option value="">Select title</option>
+                      <option value="Mrs">Mrs</option>
+                      <option value="Ms">Ms</option>
+                      <option value="Mr">Mr</option>
+                    </select>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="First name*" class="col-lg-8 col-12">
+                    <input name="fname" type="text" required/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Country*" class="col-lg-8 col-12">
+                    <input name='country' type="text" required/>
+                  </p>
+                  <p type="City" class="col-lg-4 col-12">
+                    <input name='city' type="text"/>
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Address" class="col-lg-8 col-12">
+                    <input name='address' type="text"/>
+                  </p>
+                  <p type="Zip code" class="col-lg-4 col-12">
+                    <input name='z-code' type="number"/>
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Birthday*" class="col-lg-8 col-12">
+                  <div class="fallbackDatePicker row">
+                    <div class="col-3">
+                      <select id="day" name="day" >
+                      </select>
+                    </div>
+                    <div class="col-5">
+                      <select id="month" name="month">
+                        <option selected>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                      </select>
+                    </div>
+                    <div class="col-4">
+                      <select id="year" name="year" >
+                      </select>
+                    </div>
+                  </div>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Phone number*" class="col-lg-8 col-12">
+                    <input name="phone" type="number" value="" required/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Email*" class="col-lg-8 col-12">
+                    <input name="email" type="email" value="" required/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="About me" class="col-12">
+                    <textarea placeholder="About me" rows="5" wrap="off"></textarea>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-12 well">
+                <legend id="pers_interest" class="">Competenies and interests</legend>
+                <div class="row">
+                  <p type="Occupation" class="col-lg-8 col-12">
+                    <input name="occupation" type="text"/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Company" class="col-lg-8 col-12">
+                    <input name="company" type="text"/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Expertise" class="col-lg-8 col-12">
+                    <input name="expertise" type="search"/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Interest" class="col-lg-8 col-12">
+                    <input name="interest" type="search"/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-12 well">
+                <legend id="pers_connection" class="">Social connection</legend>
+                <div class="row">
+                  <p type="Linked in" class="col-lg-8 col-12">
+                    <input name="linked" type="text"/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Facebook" class="col-lg-8 col-12">
+                    <input name="facebook" type="text"/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Instagram" class="col-lg-8 col-12">
+                    <input name="insta" type="text"/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Website" class="col-lg-8 col-12">
+                    <input name="website" type="text"/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-12 well">
+                <legend id="pers_news" class="">Newsletters preference</legend>
+                <p>Recommendations sent straight to your inbox. Don't worry, we won't send spam!</p>
+                <div class="row">
+                  <p type="Your email" class="col-lg-7 col-12">
+                    <input name="email" type="email"/>
+                  </p>
+                  <div class="col-lg-5 col-12 event-join right-btn">
+                    <button href="#" class="mt-lg-5 mt-0 btn-join btn sett-btn">Subscribe</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 well">
+              <legend id="pers_card" class="">Credit cards</legend>
+              <p>We'll autofill your details and make it easier for you payment for tickets to events and additional
+                service through kinguru.com. You payment details are stored securely</p>
+              <div class="event-join right-btn">
+                <button href="#" class="btn-join btn sett-btn">Add a card</button>
+              </div>
+            </div>
+            <div class="col-md-12 well">
+              <legend id="pers_pass" class="">Password</legend>
+              <p> Want to change your password? Just click the button below and we'll send you an email with a link to reset it</p>
+              <div class="event-join right-btn">
+                <button href="#" class="btn-join btn sett-btn">change password</button>
+              </div>
+            </div>
+            <div class="col-md-12 well">
+              <legend id="pers_photo" class="">Photo</legend>
+              <p>Share yor goals</p>
+              <section id="photo-gallery" class="owl-carousel">
+                <div>
+                  <a class="photo"><img class="image" src="img/photo-1.jpg" alt="photo-1"/></a>
+                </div>
+                <div>
+                  <a class="photo"><img class="image" src="img/photo-2.jpg" alt="photo-1"/></a>
+                </div>
+                <div>
+                  <a class="photo"><img class="image" src="img/photo-3.jpg" alt="photo-1"/></a>
+                </div>
+                <div>
+                  <a class="photo"><img class="image" src="img/photo-4.jpg" alt="photo-1"/></a>
+                </div>
+                <div>
+                  <a class="photo"><img class="image" src="img/photo-5.jpg" alt="photo-1"/></a>
+                </div>
+                <div>
+                  <a class="photo"><img class="image" src="img/photo-1.jpg" alt="photo-1"/></a>
+                </div>
+                <div>
+                  <a class="photo"><img class="image" src="img/photo-2.jpg" alt="photo-1"/></a>
+                </div>
+                <div>
+                  <a class="photo"><img class="image" src="img/photo-3.jpg" alt="photo-1"/></a>
+                </div>
+                <div>
+                  <a class="photo"><img class="image" src="img/photo-4.jpg" alt="photo-1"/></a>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="panel2" class="tab-pane fade">
+        <h3>Chris speaken meetups</h3>
+        <p>Содержимое 2 панели...</p>
+      </div>
+      <div id="panel3" class="tab-pane fade">
+        <h3>Past meetups</h3>
+        <p>Содержимое 3 панели...</p>
+      </div>
+      <div id="panel4" class="tab-pane fade">
+        <h3>Past meetups</h3>
+        <p>Содержимое 4 панели...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer"></footer>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+<script src="vendor/owl-carousel/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/user_admin.js "></script>
+<script src="js/data.js"></script>
+</body>
+</html>

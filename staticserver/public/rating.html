@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta
+    name="keywords"
+    content="тематический столик, мероприятие, бронирование"
+  />
+  <meta
+    name="description"
+    content="Сообщество людей, открытых для встреч и знакомств"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="img/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="img/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="img/favicon-16x16.png"
+  />
+  <link rel="manifest" href="img/site.webmanifest"/>
+  <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5"/>
+  <meta name="msapplication-TileColor" content="#da532c"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <meta property="og:image" content=""/>
+  <meta property="og:title" content="KINGURU - для тех кто ценит общение!"/>
+  <meta
+    property="og:description"
+    content="Сообщество людей, открытых для встреч и знакомств"
+  />
+  <title>KINGURU - для тех кто ценит общение!</title>
+  <link
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous"
+  />
+  <link href="css/rating.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+<form id="msform">
+  <h2 class="form-title">Share your impressions!</h2>
+  <ul id="progressbar">
+    <li class="active">Rate meetup</li>
+    <li>Rate speaker</li>
+    <li>Rate place</li>
+    <li>Add a comment</li>
+  </ul>
+  <fieldset>
+    <hr class="gray-separator"/>
+    <h3 class="fs-title">Rate meetup</h3>
+    <div class="reviewStars-input">
+      <input class="star-4" id="rate-meetup_star-4" type="radio" name="reviewStars"/>
+      <label title="gorgeous" for="rate-meetup_star-4"></label>
+
+      <input class="star-3" id="rate-meetup_star-3" type="radio" name="reviewStars"/>
+      <label title="good" for="rate-meetup_star-3"></label>
+
+      <input class="star-2" id="rate-meetup_star-2" type="radio" name="reviewStars"/>
+      <label title="regular" for="rate-meetup_star-2"></label>
+
+      <input class="star-1" id="rate-meetup_star-1" type="radio" name="reviewStars"/>
+      <label title="poor" for="rate-meetup_star-1"></label>
+
+      <input class="star-0" id="rate-meetup_star-0" type="radio" name="reviewStars"/>
+      <label title="bad" for="rate-meetup_star-0"></label>
+    </div>
+    <input type="button" name="next" class="next action-button" value="Next"/>
+  </fieldset>
+  <fieldset>
+    <hr class="gray-separator"/>
+    <h3 class="fs-title">Rate speaker</h3>
+    <div class="reviewStars-input">
+      <input class="star-4" id="rate-speaker_star-4" type="radio" name="reviewStars"/>
+      <label title="gorgeous" for="rate-speaker_star-4"></label>
+
+      <input class="star-3" id="rate-speaker_star-3" type="radio" name="reviewStars"/>
+      <label title="good" for="rate-speaker_star-3"></label>
+
+      <input class="star-2" id="rate-speaker_star-2" type="radio" name="reviewStars"/>
+      <label title="regular" for="rate-speaker_star-2"></label>
+
+      <input class="star-1" id="rate-speaker_star-1" type="radio" name="reviewStars"/>
+      <label title="poor" for="rate-speaker_star-1"></label>
+
+      <input class="star-0" id="rate-speaker_star-0" type="radio" name="reviewStars"/>
+      <label title="bad" for="rate-speaker_star-0"></label>
+    </div>
+    <input type="button" name="previous" class="previous action-button" value="Previous"/>
+    <input type="button" name="next" class="next action-button" value="Next"/>
+  </fieldset>
+  <fieldset>
+    <hr class="gray-separator"/>
+    <h3 class="fs-title">Rate place</h3>
+    <div class="reviewStars-input">
+      <input class="star-4" id="rate-place_star-4" type="radio" name="reviewStars"/>
+      <label title="gorgeous" for="rate-place_star-4"></label>
+
+      <input class="star-3" id="rate-place_star-3" type="radio" name="reviewStars"/>
+      <label title="good" for="rate-place_star-3"></label>
+
+      <input class="star-2" id="rate-place_star-2" type="radio" name="reviewStars"/>
+      <label title="regular" for="rate-place_star-2"></label>
+
+      <input class="star-1" id="rate-place_star-1" type="radio" name="reviewStars"/>
+      <label title="poor" for="rate-place_star-1"></label>
+
+      <input class="star-0" id="rate-place_star-0" type="radio" name="reviewStars"/>
+      <label title="bad" for="rate-place_star-0"></label>
+    </div>
+    <input type="button" name="previous" class="previous action-button" value="Previous"/>
+    <input type="button" name="next" class="next action-button" value="Next"/>
+  </fieldset>
+  <fieldset>
+    <hr class="gray-separator"/>
+    <h3 class="fs-title">Add a comment</h3>
+    <textarea name="comment" placeholder="Leave your comment"></textarea>
+    <input type="button" name="previous" class="previous action-button" value="Previous"/>
+    <input type="submit" name="send" class="submit action-button" value="Submit"/>
+  </fieldset>
+</form>
+
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="js/rating.js"></script>
+</body>
+</html>
