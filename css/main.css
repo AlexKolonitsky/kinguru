@@ -1,40 +1,40 @@
 @font-face {
   font-family: "Muller Bold";
-  src: url("../fonts/MullerBold.eot");
-  src: url("../fonts/MullerBold.woff") format("woff"),
-    url("../fonts/MullerBold.ttf") format("truetype");
+  src: url("../../fonts/MullerBold.eot");
+  src: url("../../fonts/MullerBold.woff") format("woff"),
+    url("../../fonts/MullerBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller Light";
-  src: url("../fonts/MullerLight.eot");
-  src: url("../fonts/MullerLight.woff") format("woff"),
-    url("../fonts/MullerLight.ttf") format("truetype");
+  src: url("../../fonts/MullerLight.eot");
+  src: url("../../fonts/MullerLight.woff") format("woff"),
+    url("../../fonts/MullerLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller UltraLight";
-  src: url("../fonts/MullerUltraLight.eot");
-  src: url("../fonts/MullerUltraLight.woff") format("woff"),
-    url("../fonts/MullerUltraLight.ttf") format("truetype");
+  src: url("../../fonts/MullerUltraLight.eot");
+  src: url("../../fonts/MullerUltraLight.woff") format("woff"),
+    url("../../fonts/MullerUltraLight.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller Regular";
-  src: url("../fonts/MullerRegular.eot");
-  src: url("../fonts/MullerRegular.woff") format("woff"),
-    url("../fonts/MullerRegular.ttf") format("truetype");
+  src: url("../../fonts/MullerRegular.eot");
+  src: url("../../fonts/MullerRegular.woff") format("woff"),
+    url("../../fonts/MullerRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Muller ExtraBold";
-  src: url("../fonts/MullerExtraBold.eot");
-  src: url("../fonts/MullerExtraBold.woff") format("woff"),
-    url("../fonts/MullerExtraBold.ttf") format("truetype");
+  src: url("../../fonts/MullerExtraBold.eot");
+  src: url("../../fonts/MullerExtraBold.woff") format("woff"),
+    url("../../fonts/MullerExtraBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -473,8 +473,8 @@ img::-moz-selection {
 }
 
 #task {
-  background: url("../img/parallax-6-dark.png") repeat center center,
-    url("../img/main-dark.png") no-repeat center 0;
+  background: url("../../img/parallax-6-dark.png") repeat center center,
+    url("../../img/main-dark.png") no-repeat center 0;
   background-attachment: fixed, scroll;
   -webkit-background-size: contain, cover;
   -moz-background-size: contain, cover;
@@ -537,7 +537,7 @@ img::-moz-selection {
 
 #people {
   position: relative;
-  background: #f7f8f9 url("../img/parallax-6.png") repeat center center;
+  background: #f7f8f9 url("../../img/parallax-6.png") repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -620,7 +620,7 @@ img::-moz-selection {
 
 
 #comment {
-  background: #2a2a2a url(../img/parallax-6-dark.png) repeat center center;
+  background: #2a2a2a url(../../img/parallax-6-dark.png) repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -821,7 +821,7 @@ img::-moz-selection {
 #guests {
   padding-top: 64px;
   padding-bottom: 38px;
-  background: #ffd800 url("../img/parallax-6.png") repeat center center;
+  background: #ffd800 url("../../img/parallax-6.png") repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -918,7 +918,7 @@ img::-moz-selection {
 
 #place {
   position: relative;
-  background: #f7f8f9 url("../img/parallax-6.png") repeat center center;
+  background: #f7f8f9 url("../../img/parallax-6.png") repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -1005,7 +1005,7 @@ img::-moz-selection {
 }
 
 #contact {
-  background: #2a2a2a url("../img/parallax-footer.png") no-repeat center center;
+  background: #2a2a2a url("../../img/parallax-footer.png") no-repeat center center;
   background-attachment: fixed;
   -webkit-background-size: contain;
   -moz-background-size: contain;
