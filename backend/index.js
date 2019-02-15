@@ -6,7 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const errorHandler = require('errorhandler');
 require('dotenv').config();
-const PORT = process.env.PORT;
+const PORT = 80;
 const router = require('./router');
 
 const app = express();
