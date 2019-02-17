@@ -40,10 +40,10 @@ app.use((err, req, res, next) => {
 
 });
 
+if (require.main === module){ 
+  app.listen(PORT, () => {
+    console.log(`Local server run on port ${PORT}`)
+  });
+}
 
-app.listen(PORT, () => {
-  console.log(`Local server run on port ${PORT}`)
-});
-
-
-
+module.exports = app;
