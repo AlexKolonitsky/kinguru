@@ -1,1 +1,1 @@
-node PORT=80 production.js
+sudo node PORT=80 production.js
