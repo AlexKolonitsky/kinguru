@@ -116,10 +116,10 @@ class MeetupDao {
       Meetups.findOrCreate({
         where: {
           title,
-          type
+          type,
+          location,
         },
         defaults: {
-          location,
           isFree,
           date
         }
