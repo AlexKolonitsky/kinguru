@@ -1,8 +1,10 @@
 'use strict';
 
 const _ = require('lodash');
-const { Meetups, Speakers } = require('./../index');
+const { Meetups, Speakers, MeetupsSpeakers } = require('./../index');
 const utils = require('./../../common/securityAssert');
+const sequelize = require('../../common/sequelize');
+const zeroIndex = 0;
 const firstIndex = 1;
 
 /**
@@ -105,15 +107,46 @@ class MeetupDao {
     })
   }
 
-  createMeetup(type, title, location, isFree, date) {
+  createMeetup(type, title, location, isFree, date, speakers) {
 
-    return Meetups.findOrCreate({ where: { type: type, location: location , date: date, title:title, isFree:isFree } })
-      .then(meetup => {
-        if (meetup[firstIndex] === false) {
-          return Promise.reject(utils.responseError(422, `Meetup has created`))
+    let name = _.map(speakers, 'name');
+    let surname = _.map(speakers, 'surname');
+
+    return Promise.all([
+      Meetups.findOrCreate({
+        where: {
+          title,
+          type
+        },
+        defaults: {
+          location,
+          isFree,
+          date
         }
-        return Promise.resolve(meetup)
+      }),
+
+      Speakers.findAll({
+        where: {
+          name,
+          surname
+        }
       })
+    ])
+      .then(result => {
+        let meetup = result[zeroIndex][zeroIndex];
+        let speakers = result[firstIndex];
+        let speakerIds = _.map(speakers, 'id');
+
+        return MeetupsSpeakers.findOrCreate({
+          where: {
+            meetupId: meetup.id,
+            speakerId: speakerIds
+          }
+        })
+          .then(() => {
+            return this.getCurrentMeetup(meetup.id)
+          })
+      });
   }
 }
 
