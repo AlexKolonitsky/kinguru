@@ -66,11 +66,26 @@
     opacity: 1;
 }
 
+.menu_content{
+    border-right: 1px solid #dadada;
+}
+
+.ui-timepicker-am,
+.ui-timepicker-pm{
+    list-style-type: none;
+}
+
+.ui-timepicker-list {
+    background-color: white;
+    padding: 0 45px;
+    margin: 0;
+}
+
 .speakers {
-    width: auto;
+  width: auto;
 }
 .bike-open {
-    display: none;
+  display: none;
 }
 
 .boat-open {
