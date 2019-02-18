@@ -3,6 +3,7 @@
 const _ = require('lodash');
 const { Meetups, Speakers } = require('./../index');
 const utils = require('./../../common/securityAssert');
+const firstIndex = 1;
 
 /**
  * @description dashboard all meetups and search
@@ -28,10 +29,10 @@ class MeetupDao {
         }
       })
         .then(allMeetups => {
-          if (!allMeetups[0]) {
-            return Promise.reject(utils.responseError(404, `Meetup with ${type} in ${location} not found`))
-          }
-           return  Promise.resolve({ allMeetups })
+            if (!allMeetups[0]) {
+              return Promise.reject(utils.responseError(404, `Meetup with ${type} in ${location} not found`))
+            }
+            return Promise.resolve({ allMeetups })
           }
         )
     }
@@ -102,6 +103,17 @@ class MeetupDao {
         id: meetupId
       }
     })
+  }
+
+  createMeetup(type, title, location, isFree, date) {
+
+    return Meetups.findOrCreate({ where: { type: type, location: location , date: date, title:title, isFree:isFree } })
+      .then(meetup => {
+        if (meetup[firstIndex] === false) {
+          return Promise.reject(utils.responseError(422, `Meetup has created`))
+        }
+        return Promise.resolve(meetup)
+      })
   }
 }
 

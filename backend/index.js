@@ -3,12 +3,12 @@
 const fs = require('path');
 const path = require('path');
 const express = require('express');
+const https = require('https');
 const bodyParser = require('body-parser');
 const errorHandler = require('errorhandler');
 require('dotenv').config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 80;
 const router = require('./router');
-
 const app = express();
 
 app.use(bodyParser.json());
@@ -22,9 +22,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use('/', router);
 
-app.use('/', express.static(path.join(__dirname, '../frontend')));
+if (process.env.NODE_ENV === 'development') {
+  app.use('/', router);
+} else {
+  app.use('/', express.static(path.join(__dirname, '../frontend')));
+}
 
 app.use((err, req, res, next) => {
 
@@ -40,10 +43,10 @@ app.use((err, req, res, next) => {
 
 });
 
+if (require.main === module){ 
+  app.listen(PORT, () => {
+    console.log(`Local server run on port ${PORT}`)
+  });
+}
 
-app.listen(PORT, () => {
-  console.log(`Local server run on port ${PORT}`)
-});
-
-
-
+module.exports = app;
