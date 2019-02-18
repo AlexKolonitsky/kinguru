@@ -13,7 +13,6 @@ const { MeetupsDaoHandler } = require('../../dao/handlers');
 
 class GetAllMeetups extends RequestHandlers {
 
-
   /**
    * @function methodAction - get books ids and its title and cover via attachments, ordered by isFreeBook field = 1 at first priority \
    * and last publication data;
