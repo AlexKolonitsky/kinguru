@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta
+    name="keywords"
+    content="тематический столик, мероприятие, бронирование"
+  />
+  <meta
+    name="description"
+    content="Сообщество людей, открытых для встреч и знакомств"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="img/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="img/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="img/favicon-16x16.png"
+  />
+  <link rel="manifest" href="img/site.webmanifest"/>
+  <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5"/>
+  <meta name="msapplication-TileColor" content="#da532c"/>
+  <meta name="theme-color" content="#ffffff"/>
+
+  <meta property="og:image" content=""/>
+  <meta property="og:title" content="KINGURU - для тех кто ценит общение!"/>
+  <meta
+    property="og:description"
+    content="Сообщество людей, открытых для встреч и знакомств"
+  />
+  <title>KINGURU - для тех кто ценит общение!</title>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.min.css"/>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css"
+  />
+  <link href="css/user_admin.css" rel="stylesheet"/>
+  <link href="css/main.css" rel="stylesheet"/>
+  <link href="css/new_table.css" rel="stylesheet"/>
+</head>
+
+<body id="page-top">
+
+<div id="header"></div>
+
+<section id="tab-title">
+  <div class="container">
+    <ul id="myTab" class="nav nav-tabs">
+      <li><a class="onload-click" href="#panel1" data-toggle="tab">Your information</a></li>
+      <li><a href="#panel2" data-toggle="tab">Meetups</a></li>
+      <li><a href="#panel3" data-toggle="tab">Setting</a></li>
+      <li><a href="#panel4" data-toggle="tab">Notification</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="tabs">
+  <div class="container">
+    <div class="tab-content">
+      <div id="panel1" class="tab-pane fade in active">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-12" id="menu">
+            <div id="wrapper" data-spy="scroll" data-target="#spy" class="">
+              <!-- Sidebar -->
+              <div id="sidebar-wrapper" class="fixed d-md-inline-block d-none d-lg-inline-block">
+                <nav id="spy">
+                  <ul class="sidebar-nav nav">
+                    <li class="side">
+                      <a href="#table_about" data-scroll="" class="">About meeting</a>
+                    </li>
+                    <li class="side">
+                      <a href="#table_speakers" data-scroll="" class="">Speakers</a>
+                    </li>
+                    <li class="side">
+                      <a href="#table_guests" data-scroll="" class="">Guests</a>
+                    </li>
+                    <li class="side">
+                      <a href="#table_date" data-scroll="" class="">Date and place</a>
+                    </li>
+                    <li class="side">
+                      <a href="#table_cost" data-scroll="" class="">Cost</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-8 col-12">
+            <div class="row">
+              <h1>Start a new table</h1>
+              <div class="col-md-9 well">
+                <legend id="table_about" class="">About meeting</legend>
+                <div class="row">
+                  <p type="Title of the meeting?" class="col-lg-8 col-12">
+                    <input name="title_meeting" type="text" required/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="What's it about??" class="col-lg-8 col-12">
+                    <input name="about" type="text" required/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Tags" class="col-lg-8 col-12">
+                    <input name="tags" type="text" required/>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+                <div class="row">
+                  <p type="Meeting poster?" class="col-lg-8 col-12">
+                    <input name="myFile" type="file" id="file" class="input_file">
+                    <label for="file"><img src="img/speaker-1.jpg" class="img-fluid rounded-circle mx-auto"></label>
+                  </p>
+                  <p class="col-lg-4 col-0">
+                  </p>
+                </div>
+
+              </div>
+              <div class="col-md-12 well">
+                <legend id="speakers" class="">Speakers</legend>
+                <div class="checkbox-label">
+                  <p>With speaker?</p>
+                  <input class="input-switch" id="switch2" type="checkbox" name="switch" checked="checked" />
+                  <label for="switch2">
+                    <span class="switch-label off">Off</span>
+                    <span class="switch-label on">Yes</span>
+                    <span class="grip"></span>
+                  </label>
+                </div>
+
+              </div>
+              <div class="col-md-12 well">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="panel2" class="tab-pane fade">
+        <h3>Chris speaken meetups</h3>
+        <p>Содержимое 2 панели...</p>
+      </div>
+      <div id="panel3" class="tab-pane fade">
+        <h3>Past meetups</h3>
+        <p>Содержимое 3 панели...</p>
+      </div>
+      <div id="panel4" class="tab-pane fade">
+        <h3>Past meetups</h3>
+        <p>Содержимое 4 панели...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer"></footer>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+<script src="vendor/owl-carousel/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/user_admin.js "></script>
+<script src="js/data.js"></script>
+</body>
+</html>
