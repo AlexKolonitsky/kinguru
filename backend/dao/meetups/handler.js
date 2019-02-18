@@ -3,6 +3,7 @@
 const _ = require('lodash');
 const { Meetups, Speakers } = require('./../index');
 const utils = require('./../../common/securityAssert');
+const sequelize = require('../../common/sequelize');
 const firstIndex = 1;
 
 /**
@@ -107,12 +108,12 @@ class MeetupDao {
 
   createMeetup(type, title, location, isFree, date) {
 
-    return Meetups.findOrCreate({ where: { type: type, location: location , date: date, title:title, isFree:isFree } })
-      .then(meetup => {
-        if (meetup[firstIndex] === false) {
-          return Promise.reject(utils.responseError(422, `Meetup has created`))
+    return Meetups.findOrCreate({ where: { title, type }, defaults: { location, isFree, date } })
+      .spread((meetup, created) => {
+        if (created) {
+          return Promise.resolve(meetup)
         }
-        return Promise.resolve(meetup)
+        return Promise.reject(utils.responseError(422, `Meetup has already created`))
       })
   }
 }
