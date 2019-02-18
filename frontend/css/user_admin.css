@@ -120,7 +120,7 @@
   z-index: -1;
 }
 
-label{
+.load_file{
   border-radius: 50%;
   cursor:pointer;
   width: 50%;

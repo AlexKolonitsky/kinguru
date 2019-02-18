@@ -127,7 +127,7 @@
                 <div class="row">
                   <p type="Meeting poster?" class="col-lg-8 col-12">
                     <input name="myFile" type="file" id="file" class="input_file">
-                    <label for="file"><img src="img/speaker-1.jpg" class="img-fluid rounded-circle mx-auto"></label>
+                    <label class="load_file" for="file"><img src="img/speaker-1.jpg" class="img-fluid rounded-circle mx-auto"></label>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
@@ -135,9 +135,9 @@
 
               </div>
               <div class="col-md-12 well">
-                <legend id="speakers" class="">Speakers</legend>
+                <legend id="table_speakers" class="">Speakers</legend>
                 <div class="checkbox-label">
-                  <p>With speaker?</p>
+                  <p class="">With speaker?</p>
                   <input class="input-switch input_field" id="switch2" type="checkbox" name="switch" checked="checked" />
                   <label for="switch2">
                     <span class="switch-label off">Off</span>
@@ -185,8 +185,43 @@
                     </p>
                   </div>
                 </div>
-
               </div>
+
+              <div class="col-md-12 well">
+                <legend id="table_guests" class="">Guests</legend>
+                <div class="row radio-toolbar-1">
+                  <p class="col-lg-3 col-12">Who's invited?</p>
+                  <div class="col-lg-4 col-12 my-auto">
+                    <input type="radio" id="radio1" name="radios-one" value="all" checked/>
+                    <label for="radio1" class="text-center ">Open for everyone</label>
+                  </div>
+                  <div class="col-lg-4 col-12 my-auto">
+                    <input type="radio" id="radio2" name="radios-one"value="false"/>
+                    <label for="radio2" class="text-center ">Just my guests</label>
+                  </div>
+                </div>
+                <div class="row radio-toolbar-2">
+                  <p class="col-lg-2 col-12">Size</p>
+                  <div class="col-lg-2 col-4 my-auto">
+                    <input type="radio" id="radio3" name="radios-two" value="all" checked/>
+                    <label for="radio3" class="text-center ">1-8</label>
+                  </div>
+                  <div class="col-lg-2 col-4 my-auto">
+                    <input type="radio" id="radio4" name="radios-two"value="false"/>
+                    <label for="radio4" class="text-center ">8-16</label>
+                  </div>
+                  <div class="col-lg-2 col-4 my-auto">
+                    <input type="radio" id="radio5" name="radios-two" value="all" />
+                    <label for="radio5" class="text-center ">16-24</label>
+                  </div>
+                  <div class="col-lg-2 col-4 my-auto">
+                    <input type="radio" id="radio6" name="radios-two"value="false"/>
+                    <label for="radio6" class="text-center ">more</label>
+                  </div>
+                  <input class="col-lg-2 col-4" type="number" id="guest_number"/>
+                </div>
+              </div>
+
               <div class="col-md-12 well">
                 <legend id="table_date" class="">Date and time</legend>
                 <div class="row">
