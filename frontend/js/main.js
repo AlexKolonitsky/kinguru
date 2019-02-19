@@ -350,6 +350,15 @@
     },);
   });
 
+  $(function() {
+    $('.time').timepicker({
+      dynamic: false,
+      dropdown: true,
+      scrollbar: true,
+      format: 'HH:mm'
+    });
+  });
+
 })(jQuery);
 
 var like = function (element) {

@@ -117,10 +117,10 @@
               <div class="col-md-9 well">
                 <legend id="pers_info" class="">Personal information</legend>
                 <input name="myFile" type="file" id="file" class="input_file">
-                <label for="file"><img src="img/speaker-1.jpg" class="img-fluid rounded-circle mx-auto"></label>
+                <label class="load_file" for="file"><img src="img/speaker-1.jpg" class="img-fluid rounded-circle mx-auto"></label>
                 <div class="row">
                   <p type="Title*" class="col-lg-8 col-12">
-                    <select>
+                    <select class="select_field">
                       <option value="">Select title</option>
                       <option value="Mrs">Mrs</option>
                       <option value="Ms">Ms</option>
@@ -132,36 +132,36 @@
                 </div>
                 <div class="row">
                   <p type="First name*" class="col-lg-8 col-12">
-                    <input name="fname" type="text" required/>
+                    <input class="input_field" name="fname" type="text" required/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
                 </div>
                 <div class="row">
                   <p type="Country*" class="col-lg-8 col-12">
-                    <input name='country' type="text" required/>
+                    <input class="input_field" name='country' type="text" required/>
                   </p>
                   <p type="City" class="col-lg-4 col-12">
-                    <input name='city' type="text"/>
+                    <input class="input_field" name='city' type="text"/>
                   </p>
                 </div>
                 <div class="row">
                   <p type="Address" class="col-lg-8 col-12">
-                    <input name='address' type="text"/>
+                    <input class="input_field" name='address' type="text"/>
                   </p>
                   <p type="Zip code" class="col-lg-4 col-12">
-                    <input name='z-code' type="number"/>
+                    <input class="input_field" name='z-code' type="number"/>
                   </p>
                 </div>
                 <div class="row">
                   <p type="Birthday*" class="col-lg-8 col-12">
                   <div class="fallbackDatePicker row">
                     <div class="col-3">
-                      <select id="day" name="day" >
+                      <select id="day" class="select_field" name="day" >
                       </select>
                     </div>
                     <div class="col-5">
-                      <select id="month" name="month">
+                      <select id="month" class="select_field" name="month">
                         <option selected>January</option>
                         <option>February</option>
                         <option>March</option>
@@ -177,7 +177,7 @@
                       </select>
                     </div>
                     <div class="col-4">
-                      <select id="year" name="year" >
+                      <select id="year" class="select_field" name="year" >
                       </select>
                     </div>
                   </div>
@@ -187,14 +187,14 @@
                 </div>
                 <div class="row">
                   <p type="Phone number*" class="col-lg-8 col-12">
-                    <input name="phone" type="number" value="" required/>
+                    <input name="phone" class="input_field" type="number" value="" required/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
                 </div>
                 <div class="row">
                   <p type="Email*" class="col-lg-8 col-12">
-                    <input name="email" type="email" value="" required/>
+                    <input name="email" class="input_field" type="email" value="" required/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
@@ -209,28 +209,28 @@
                 <legend id="pers_interest" class="">Competenies and interests</legend>
                 <div class="row">
                   <p type="Occupation" class="col-lg-8 col-12">
-                    <input name="occupation" type="text"/>
+                    <input class="input_field" name="occupation" type="text"/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
                 </div>
                 <div class="row">
                   <p type="Company" class="col-lg-8 col-12">
-                    <input name="company" type="text"/>
+                    <input class="input_field" name="company" type="text"/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
                 </div>
                 <div class="row">
                   <p type="Expertise" class="col-lg-8 col-12">
-                    <input name="expertise" type="search"/>
+                    <input class="input_field" name="expertise" type="search"/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
                 </div>
                 <div class="row">
                   <p type="Interest" class="col-lg-8 col-12">
-                    <input name="interest" type="search"/>
+                    <input class="input_field" name="interest" type="search"/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
@@ -240,28 +240,28 @@
                 <legend id="pers_connection" class="">Social connection</legend>
                 <div class="row">
                   <p type="Linked in" class="col-lg-8 col-12">
-                    <input name="linked" type="text"/>
+                    <input class="input_field" name="linked" type="text"/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
                 </div>
                 <div class="row">
                   <p type="Facebook" class="col-lg-8 col-12">
-                    <input name="facebook" type="text"/>
+                    <input class="input_field" name="facebook" type="text"/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
                 </div>
                 <div class="row">
                   <p type="Instagram" class="col-lg-8 col-12">
-                    <input name="insta" type="text"/>
+                    <input class="input_field" name="insta" type="text"/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
                 </div>
                 <div class="row">
                   <p type="Website" class="col-lg-8 col-12">
-                    <input name="website" type="text"/>
+                    <input class="input_field" name="website" type="text"/>
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
@@ -272,7 +272,7 @@
                 <p>Recommendations sent straight to your inbox. Don't worry, we won't send spam!</p>
                 <div class="row">
                   <p type="Your email" class="col-lg-7 col-12">
-                    <input name="email" type="email"/>
+                    <input class="input_field" name="email" type="email"/>
                   </p>
                   <div class="col-lg-5 col-12 event-join right-btn">
                     <button href="#" class="mt-lg-5 mt-0 btn-join btn sett-btn">Subscribe</button>

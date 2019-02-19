@@ -10,7 +10,9 @@
     });
   });
 
-  $('textarea').autoResize();
+  $(document).ready(function(){
+    $('textarea').autoResize();
+  });
 
   $(document).ready(function(){
     $("#spy").on("click","a", function (event) {

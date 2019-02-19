@@ -66,14 +66,47 @@
     opacity: 1;
 }
 
+.menu_content{
+    border-right: 1px solid #dadada;
+}
+
+.ui-timepicker-am,
+.ui-timepicker-pm{
+    list-style-type: none;
+}
+
+.ui-timepicker-list {
+    background-color: white;
+    padding: 0 45px;
+    margin: 0;
+}
+
 .speakers {
-    width: auto;
+  width: auto;
 }
 .bike-open {
-    display: none;
+  display: none;
 }
 
 .boat-open {
     display: none;
 }
 
+.radio-toolbar-1 input,
+.radio-toolbar-2 input{
+  display: none;
+}
+
+.radio-toolbar-1 label,
+.radio-toolbar-2 label{
+  display: inline-block;
+  border: 1px solid #dadada;
+  padding: 0.5em 1.5em;
+  border-radius: 300px;
+  background-color: white;
+}
+
+.radio-toolbar-1 input[type="radio"]:checked + label,
+.radio-toolbar-2 input[type="radio"]:checked + label{
+  background-color: #ffd539;
+}
