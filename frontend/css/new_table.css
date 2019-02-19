@@ -36,9 +36,10 @@
 .input-switch + label span.switch-label {
     position: absolute;
     display: inline-block;
-    top: 7px;
-    left: 50px;
+    top: 8px;
+    left: 45px;
     width: 56px;
+    font-size: 21px;
     overflow: hidden;
     text-align: center;
     -webkit-transition: opacity 0.5s;
@@ -47,11 +48,21 @@
 .input-switch + label span.switch-label.on {
     left: 2px;
     opacity: 0;
+    font-size: 21px;
 }
 
 .input-switch:checked + label {
     background-color: #ffd539;
     color: #ffffff;
+}
+
+.disable-radio {
+    color: grey;
+    cursor: default!important;
+}
+
+.label-speaker {
+    cursor: pointer;
 }
 
 .input-switch:checked + label span.grip {
@@ -66,3 +77,127 @@
     opacity: 1;
 }
 
+.menu_content{
+    border-right: 1px solid #dadada;
+}
+
+.ui-timepicker-am,
+.ui-timepicker-pm{
+    list-style-type: none;
+}
+
+.ui-timepicker-list {
+    background-color: white;
+    padding: 0 45px;
+    margin: 0;
+}
+
+.speakers {
+  width: auto;
+}
+
+.radio-speaker {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 0 0;
+}
+
+.radio-content {
+    margin: 10px 0;
+}
+
+.speakers {
+    display: none;
+}
+
+.speakers + label:before {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    content: "\2713";
+    color: transparent;
+    display: inline-block;
+    border: 1px solid grey;
+    font-size: 20px;
+    line-height: 22px;
+    margin: -5px 5px 0 0;
+    text-align: center;
+    vertical-align: middle;
+    transition: color ease .3s;
+}
+
+.speakers:checked + label:before {
+    color: #ffd539;
+}
+
+.bike-open {
+  display: none;
+}
+
+.boat-open {
+    display: none;
+}
+
+.radio-toolbar-1 input,
+.radio-toolbar-2 input{
+  display: none;
+}
+
+.radio-toolbar-1 label,
+.radio-toolbar-2 label{
+  display: inline-block;
+  border: 1px solid #dadada;
+  padding: 0.5em 1.5em;
+  border-radius: 300px;
+  background-color: white;
+}
+
+.radio-toolbar-1 input[type="radio"]:checked + label,
+.radio-toolbar-2 input[type="radio"]:checked + label{
+  background-color: #ffd539;
+}
+
+.guest-number {
+    display: flex!important;
+}
+
+.size-more {
+    display: flex!important;
+    align-items: center;
+}
+
+.more {
+    height: 40px!important;
+}
+.guest-num {
+    margin-left: 20px;
+}
+
+.guest-num:before {
+    margin: 0!important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.cost-content {
+    display: flex;
+    height: 110px;
+}
+
+.prise-value {
+    padding-top: 40px;
+    font-weight: bold;
+}
+
+.price-open {
+    margin-left: 50px;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
