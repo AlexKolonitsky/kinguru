@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     surname: {
       type: DataTypes.STRING(45),
       allowNull: false,
+    },
+
+    email: {
+      type: DataTypes.STRING(100),
     }
   }, {
     tableName: 'Speakers',

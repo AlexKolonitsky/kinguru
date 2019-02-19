@@ -27,10 +27,10 @@ let upload = multer({
     s3,
     bucket: 'kinguru-images',
     acl: 'public-read',
-    metadata: function (req, file, cb) {
+    metadata:(req, file, cb) => {
       cb(null, {fieldName: file.fieldname});
     },
-    key: function (req, file, cb) {
+    key: (req, file, cb) => {
       cb(null, Date.now() + '-' + file.originalname);
     },
   }),

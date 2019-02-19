@@ -2,7 +2,6 @@
 
 const _ = require('lodash');
 const RequestHandlers = require('./../../common/RequestHandler');
-const validator = require('./../../common/validate');
 const { MeetupsDaoHandler } = require('../../dao/handlers');
 
 /**
@@ -14,8 +13,7 @@ const { MeetupsDaoHandler } = require('../../dao/handlers');
 class GetAllMeetups extends RequestHandlers {
 
   /**
-   * @function methodAction - get books ids and its title and cover via attachments, ordered by isFreeBook field = 1 at first priority \
-   * and last publication data;
+   * @function methodAction - get all meetups
    * if offset or limit null or undefined - they will be ignore by sequelize
    * if search parameter provide - searching occurs in 2 steps: by books fields, then by categories and tags fields
    * @param {Object} request
