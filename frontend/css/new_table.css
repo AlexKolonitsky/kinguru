@@ -201,3 +201,32 @@ input::-webkit-inner-spin-button {
     justify-content: center;
     margin: 50px 0;
 }
+
+.load_poster {
+  width: 100%;
+  min-height: 250px;
+  border-radius: 5px;
+  cursor:pointer;
+  background-color: #dadada;
+  color: #999999;
+}
+
+.fa-image {
+  font-size: 6em;
+  padding-bottom: 5px;
+}
+
+.add_poster {
+  display: block;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  margin-top: 70px;
+  font-family: "Muller ExtraBold";
+}
+
+.load_poster:hover {
+  background-color: #ffd539;
+  color: #ffffff;
+}
+
