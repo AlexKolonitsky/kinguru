@@ -22,8 +22,10 @@ router.get('/meetup/:id', (req, res, next) => meetups.GetCurrentMeetup.process(r
 router.post('/new/meetup', upload.single('meetupImage'), (req, res, next) => meetups.CreateMeetup.process(req, res, next));
 
 /**
- * @description Files endpoints
+ * @description Speakers endpoints
  */
 
+const speakers = require('./services/speakers/index');
+router.post('/new/speaker', (req, res, next) => speakers.AddSpeaker.process(req, res, next));
 
 module.exports = router;

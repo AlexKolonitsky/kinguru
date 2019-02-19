@@ -106,7 +106,7 @@ class MeetupDao {
     })
   }
 
-  createMeetup(type, title, location, isFree, date, speakers, file) {
+  createMeetup(type, title, location, isFree, date, speakers, meetupImage) {
 
     let name = _.map(speakers, 'name');
     let surname = _.map(speakers, 'surname');
@@ -121,7 +121,7 @@ class MeetupDao {
         defaults: {
           isFree,
           date,
-          coverSource: file.location,
+          coverSource: meetupImage.location,
         }
       }),
 
