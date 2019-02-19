@@ -2,8 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const upload = multer();
+const upload = require('./common/multer');
+
 /**
  * @description Users endpoints
  */
@@ -17,19 +17,13 @@ router.post('/user/register', (req, res, next) => users.RegistrationUser.process
  */
 
 const meetups = require('./services/meetups/index');
-router.get('/meetups',(req, res, next) => meetups.GetAllMeetups.process(req, res, next));
-router.get('/meetup/:id',(req, res, next) => meetups.GetCurrentMeetup.process(req,res, next));
-router.post('/new/meetup', (req, res, next) => meetups.CreateMeetup.process(req, res, next));
-
+router.get('/meetups', (req, res, next) => meetups.GetAllMeetups.process(req, res, next));
+router.get('/meetup/:id', (req, res, next) => meetups.GetCurrentMeetup.process(req, res, next));
+router.post('/new/meetup', upload.single('meetupImage'), (req, res, next) => meetups.CreateMeetup.process(req, res, next));
 
 /**
  * @description Files endpoints
  */
 
-const file = require('./services/files');
-router.post('/file/upload', upload.fields([
-  { name: 'cover', maxCount: 1 },
-]), (req, res, next) => file.UploadFile.process(req, res, next));
-router.delete('/file/upload/:fileId', (req, res, next) => file.DeleteFile.process(req, res, next));
 
 module.exports = router;

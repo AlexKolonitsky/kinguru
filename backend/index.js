@@ -8,11 +8,13 @@ const bodyParser = require('body-parser');
 const errorHandler = require('errorhandler');
 require('dotenv').config();
 const PORT = process.env.PORT || 80;
+const cors = require('cors');
 const router = require('./router');
 const app = express();
 
 app.use(bodyParser.json());
 app.use(errorHandler());
+app.use(cors());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');

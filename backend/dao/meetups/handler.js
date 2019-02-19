@@ -3,7 +3,6 @@
 const _ = require('lodash');
 const { Meetups, Speakers, MeetupsSpeakers } = require('./../index');
 const utils = require('./../../common/securityAssert');
-const sequelize = require('../../common/sequelize');
 const zeroIndex = 0;
 const firstIndex = 1;
 
@@ -20,7 +19,7 @@ class MeetupDao {
       return Meetups.findAll({
         limit,
         offset,
-        attributes: ['id', 'type', 'title', 'location', 'isFree', 'date'],
+        attributes: ['id', 'type', 'title', 'location', 'isFree', 'coverSource'],
         include: [{
           model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
           through: { attributes: [] }
@@ -43,7 +42,7 @@ class MeetupDao {
       return Meetups.findAll({
         limit,
         offset,
-        attributes: ['id', 'type', 'title', 'location', 'isFree', 'date'],
+        attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
         include: [{
           model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
           through: { attributes: [] }
@@ -64,7 +63,7 @@ class MeetupDao {
       return Meetups.findAll({
         limit,
         offset,
-        attributes: ['id', 'type', 'title', 'location', 'isFree', 'date'],
+        attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
         include: [{
           model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
           through: { attributes: [] }
@@ -84,7 +83,7 @@ class MeetupDao {
     return Meetups.findAll({
       limit,
       offset,
-      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date'],
+      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: { attributes: [] }
@@ -96,7 +95,7 @@ class MeetupDao {
   getCurrentMeetup(meetupId) {
 
     return Meetups.findOne({
-      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date'],
+      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: { attributes: [] }
@@ -107,7 +106,7 @@ class MeetupDao {
     })
   }
 
-  createMeetup(type, title, location, isFree, date, speakers) {
+  createMeetup(type, title, location, isFree, date, speakers, file) {
 
     let name = _.map(speakers, 'name');
     let surname = _.map(speakers, 'surname');
@@ -121,7 +120,8 @@ class MeetupDao {
         },
         defaults: {
           isFree,
-          date
+          date,
+          coverSource: file.location,
         }
       }),
 

@@ -16,8 +16,10 @@ class CreateMeetup extends RequestHandlers {
   methodAction(request) {
 
     let { type, title, location, isFree, date, speakers} = request.body;
+    let file = request.file;
+    console.log(file);
 
-    return MeetupsDaoHandler.createMeetup(type, title, location, isFree, date, speakers)
+    return MeetupsDaoHandler.createMeetup(type, title, location, isFree, date, speakers, file)
   }
 
 
