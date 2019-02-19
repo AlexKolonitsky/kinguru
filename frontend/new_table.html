@@ -218,7 +218,7 @@
               </div>
             </div>
             <div class="row radio-toolbar-2">
-              <p class="col-lg-2 col-12">Size</p>
+              <p class="col-lg-3 col-4">Size</p>
               <div class="col-lg-2 col-4 my-auto">
                 <input type="radio" id="radio3" name="radios-two" value="all" checked/>
                 <label for="radio3" class="text-center">1-8</label>
@@ -237,6 +237,48 @@
                 <p type="Guest number" class="guest-num">
                   <input type="number" min="25" class="input_field guest-number js-a" disabled>
                 </p>
+              </div>
+            </div>
+            <div class="row">
+              <p class="col-lg-3 col-4">Invite</p>
+              <div class="col-lg-2 col-4 my-auto invite_guest">
+                <a href="#">
+                  <img src="img/speaker-1.jpg" class="invite_guest-photo img-fluid rounded-circle px-3" alt="">
+                  <p class="invite_guest-name">Alex Mix</p>
+                </a>
+              </div>
+              <div class="col-lg-2 col-4 my-auto invite_guest">
+                <a href="#">
+                  <img src="img/speaker-2.jpg" class="invite_guest-photo img-fluid rounded-circle px-3" alt="">
+                  <p class="invite_guest-name">Fedor Hi</p>
+                </a>
+              </div>
+              <div class="col-lg-2 col-4 my-auto invite_guest">
+                <a href="#">
+                  <img src="img/speaker-3.jpg" class="invite_guest-photo img-fluid rounded-circle px-3" alt="">
+                  <p class="invite_guest-name">Olivian Rock</p>
+                </a>
+              </div>
+              <div class="col-lg-2 col-4 invite_guest">
+                <div class="dropdown">
+                  <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                  <div class="dropdown-menu add_guest" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">
+                      <div class="row">
+                      <div class="col-2  my-auto">
+                        <i class="fa fa-search"></i>
+                      </div>
+                      <div class="col-10">
+                        <input class="input_field" type="search" placeholder="Find">
+                      </div>
+                      </div>
+                    </a>
+                    <a class="dropdown-item" href="#">item</a>
+                    <a class="dropdown-item" href="#">item</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -341,19 +383,10 @@
 
 <footer id="footer"></footer>
 
-<script>
-  function myMap() {
-    var mapProp = {
-      center: new google.maps.LatLng(51.508742, -0.120850),
-      zoom: 5,
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-  }
-</script>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 
 <script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="vendor/scrollreveal/scrollreveal.min.js"></script>

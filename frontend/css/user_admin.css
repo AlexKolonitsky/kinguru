@@ -96,6 +96,7 @@
 }
 
 #spy .sidebar-nav li:hover,
+#spy .sidebar-nav li:checked,
 #spy .sidebar-nav li.active {
   color: #000000;
   font-family: "Muller Bold";

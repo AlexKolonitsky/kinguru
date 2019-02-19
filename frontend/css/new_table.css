@@ -1,3 +1,12 @@
+.table_content {
+  margin-top: 150px;
+  padding-left: 40px;
+}
+
+.table_content h1 {
+  padding-left:15px;
+}
+
 .checkbox-label {
     display: flex;
     align-items: center;
@@ -147,14 +156,22 @@
 .radio-toolbar-2 label{
   display: inline-block;
   border: 1px solid #dadada;
-  padding: 0.5em 1.5em;
+  padding: 0.5em 2.5em;
   border-radius: 300px;
   background-color: white;
+  color: #dadada;
+  font-size: 0.8em;
+}
+
+.radio-toolbar-2 label {
+  padding: 0.5em 1.5em;
 }
 
 .radio-toolbar-1 input[type="radio"]:checked + label,
 .radio-toolbar-2 input[type="radio"]:checked + label{
   background-color: #ffd539;
+  border: 1px solid #ffd539;
+  color: #000000;
 }
 
 .guest-number {
@@ -167,7 +184,7 @@
 }
 
 .more {
-    height: 40px!important;
+    height: 35px!important;
 }
 .guest-num {
     margin-left: 20px;
@@ -228,5 +245,42 @@ input::-webkit-inner-spin-button {
 .load_poster:hover {
   background-color: #ffd539;
   color: #ffffff;
+}
+
+.invite_guest a{
+  color: black;
+  text-align: center;
+}
+
+.invite_guest-name{
+  margin-top: -10px;
+  font-size: 0.8em;
+}
+
+.invite_guest .fa.fa-plus {
+  width: 65px;
+  height: 65px;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 3;
+}
+
+#table_about .input_field {
+  background-color: transparent;
+}
+
+.input_field::-webkit-input-placeholder {
+  color: #bebed2;
+}
+
+.add_guest {
+  width: 200px;
+  font-size: 0.8em;
+  z-index:1;
+}
+
+.add_guest .dropdown-item {
+  margin: 0;
 }
 
