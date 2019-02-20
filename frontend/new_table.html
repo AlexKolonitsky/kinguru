@@ -210,11 +210,11 @@
               <p class="col-lg-3 col-12">Who's invited?</p>
               <div class="col-lg-4 col-12 my-auto">
                 <input type="radio" id="radio1" name="radios-one" value="all" checked/>
-                <label for="radio1" class="text-center ">Open for everyone</label>
+                <label for="radio1" class="text-center pointer">Open for everyone</label>
               </div>
               <div class="col-lg-4 col-12 my-auto">
                 <input type="radio" id="radio2" name="radios-one" value="false"/>
-                <label for="radio2" class="text-center ">Just my guests</label>
+                <label for="radio2" class="text-center pointer">Just my guests</label>
               </div>
             </div>
             <div class="row radio-toolbar-2">
@@ -225,15 +225,15 @@
               </div>
               <div class="col-lg-2 col-4 my-auto">
                 <input type="radio" id="radio4" name="radios-two" value="false"/>
-                <label for="radio4" class="text-center">8-16</label>
+                <label for="radio4" class="text-center pointer">8-16</label>
               </div>
               <div class="col-lg-2 col-4 my-auto">
                 <input type="radio" id="radio5" name="radios-two" value="all"/>
-                <label for="radio5" class="text-center">16-24</label>
+                <label for="radio5" class="text-center pointer">16-24</label>
               </div>
               <div class="col-lg-2 col-4 my-auto size-more">
                 <input class="radio-more" type="radio" id="radio6" name="radios-two" value="false" data-class="js-a"/>
-                <label for="radio6" class="text-center more">more</label>
+                <label for="radio6" class="text-center more pointer">more</label>
                 <p type="Guest number" class="guest-num">
                   <input type="number" min="25" class="input_field guest-number js-a" disabled>
                 </p>
@@ -348,7 +348,7 @@
               <p class="col-lg-5 col-0">
               </p>
             </div>
-            <div id="googleMap" style="width:100%;height:400px;"></div>
+            <div id="map" style="width:100%;height:400px;"></div>
           </div>
           <div class="col-md-12 well">
             <legend id="table_cost" class="">Cost</legend>
@@ -383,7 +383,6 @@
 
 <footer id="footer"></footer>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -397,5 +396,6 @@
 <script src="js/user_admin.js "></script>
 <script src="js/new_table.js "></script>
 <script src="js/data.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXFqmqsAuHyK-GCF5HDrMqu5WULRpFN-8&callback=initMap" type="text/javascript"></script>
 </body>
 </html>
