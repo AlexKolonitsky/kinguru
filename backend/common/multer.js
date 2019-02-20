@@ -3,7 +3,7 @@
 const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
-const size = 1024*1024*5;
+const size = 1024 * 1024 * 5;
 require('dotenv').config();
 
 aws.config.update({
@@ -28,8 +28,9 @@ let upload = multer({
     s3,
     bucket: 'kinguru-images',
     acl: 'public-read',
-    metadata:(req, file, cb) => {
-      cb(null, {fieldName: file.fieldname});
+    contentType: multerS3.AUTO_CONTENT_TYPE,
+    metadata: (req, file, cb) => {
+      cb(null, { fieldName: file.fieldname });
     },
     key: (req, file, cb) => {
       cb(null, Date.now() + '-' + file.originalname);
