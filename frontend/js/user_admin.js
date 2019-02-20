@@ -11,10 +11,6 @@
   });
 
   $(document).ready(function(){
-    $('textarea').autoResize();
-  });
-
-  $(document).ready(function(){
     $("#spy").on("click","a", function (event) {
       event.preventDefault();
       var id  = $(this).attr('href'),
