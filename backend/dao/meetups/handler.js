@@ -15,139 +15,96 @@ class MeetupDao {
 
   getAllMeetups(limit = 12, offset = 0, location, type) {
 
-    if (type && location) {
-      return Meetups.findAll({
-        limit,
-        offset,
-        attributes: ['id', 'type', 'title', 'location', 'isFree', 'coverSource'],
-        include: [{
-          model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
-          through: { attributes: [] }
-        }],
-        where: {
-          type,
-          location
-        }
-      })
-        .then(allMeetups => {
-            if (!allMeetups[0]) {
-              return Promise.reject(utils.responseError(404, `Meetup with ${type} in ${location} not found`))
-            }
-            return Promise.resolve({ allMeetups })
-          }
-        )
-    }
+    let filter = {};
 
     if (location) {
-      return Meetups.findAll({
-        limit,
-        offset,
-        attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
-        include: [{
-          model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
-          through: { attributes: [] }
-        }],
-        where: {
-          location,
-        }
-      })
-        .then(allMeetups => {
-          if (!allMeetups[0]) {
-            return Promise.reject(utils.responseError(404, `Meetup in ${location} not found`))
-          }
-          return Promise.resolve({ allMeetups })
-        })
+      filter.location = location;
     }
 
     if (type) {
-      return Meetups.findAll({
-        limit,
-        offset,
-        attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
-        include: [{
-          model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
-          through: { attributes: [] }
-        }],
-        where: {
-          type,
-        }
-      })
-        .then(allMeetups => {
-          if (!allMeetups[0]) {
-            return Promise.reject(utils.responseError(404, `Meetup ${type} not found`))
-          }
-          return Promise.resolve({ allMeetups })
-        })
+      filter.type = type;
     }
 
     return Meetups.findAll({
       limit,
       offset,
-      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
+      attributes: ['id', 'type', 'title', 'location', 'isFree', 'coverSource', ],
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: { attributes: [] }
       }],
+      where: filter
     })
-      .then(allMeetups => Promise.resolve({ allMeetups }))
-  }
-
-  getCurrentMeetup(meetupId) {
-
-    return Meetups.findOne({
-      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
-      include: [{
-        model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
-        through: { attributes: [] }
-      }],
-      where: {
-        id: meetupId
-      }
-    })
-  }
-
-  createMeetup(type, title, location, isFree, date, speakers, meetupImage) {
-
-    let name = _.map(speakers, 'name');
-    let surname = _.map(speakers, 'surname');
-
-    return Promise.all([
-      Meetups.findOrCreate({
-        where: {
-          title,
-          type,
-          location,
-        },
-        defaults: {
-          isFree,
-          date,
-          coverSource: meetupImage.location,
+      .then(allMeetups => {
+          if (!allMeetups[0]) {
+            return Promise.reject(utils.responseError(404, `Meetup with ${type} in ${location} not found`))
+          }
+          return Promise.resolve({ allMeetups })
         }
-      }),
+      );
+  }
 
-      Speakers.findAll({
+    getCurrentMeetup(meetupId)
+    {
+
+      return Meetups.findOne({
+        attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource', 'key'],
+        include: [{
+          model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
+          through: { attributes: [] }
+        }],
         where: {
-          name,
-          surname
+          id: meetupId
         }
       })
-    ])
-      .then(result => {
-        let meetup = result[zeroIndex][zeroIndex];
-        let speakers = result[firstIndex];
-        let speakerIds = _.map(speakers, 'id');
+    }
 
-        return MeetupsSpeakers.findOrCreate({
+    createMeetup(type, title, location, isFree, date, speakers, awsUrl, awsKey)
+    {
+
+      let name = _.map(speakers, 'name');
+      let surname = _.map(speakers, 'surname');
+
+      return Promise.all([
+        Meetups.findOrCreate({
           where: {
-            meetupId: meetup.id,
-            speakerId: speakerIds
+            title,
+            type,
+            location,
+          },
+          defaults: {
+            isFree,
+            date,
+            coverSource: awsUrl,
+            key: awsKey
+          }
+        }),
+
+        Speakers.findAll({
+          where: {
+            name,
+            surname
           }
         })
-          .then(() => {
-            return this.getCurrentMeetup(meetup.id)
-          })
-      });
-  }
-}
+      ])
+        .then(result => {
+          let meetup = result[zeroIndex][zeroIndex];
+          let speakers = result[firstIndex];
+          let speakerIds = _.map(speakers, 'id');
 
-module.exports = MeetupDao;
+          return MeetupsSpeakers.findOrCreate({
+            where: {
+              meetupId: meetup.id,
+              speakerId: speakerIds
+            }
+          })
+            .then(() => {
+              return this.getCurrentMeetup(meetup.id)
+            })
+        });
+    }
+  }
+
+  module
+.
+  exports = MeetupDao;

@@ -3,6 +3,7 @@
 const GetAllMeetups = require('./GetAllMeetups');
 const GetCurrentMeetup = require('./GetCurrentMeetup');
 const CreateMeetup = require('./CreateMeetup');
+const RemoveMeetup = require('./RemoveMeetup');
 
 /**
  * @type {{
@@ -17,4 +18,5 @@ module.exports = {
   GetAllMeetups: new GetAllMeetups(),
   GetCurrentMeetup: new GetCurrentMeetup(),
   CreateMeetup: new CreateMeetup(),
+  RemoveMeetup: new RemoveMeetup(),
 };

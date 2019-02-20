@@ -45,7 +45,11 @@ module.exports = (sequelize, DataTypes) => {
 
     coverSource: {
       type: DataTypes.TEXT,
-    }
+    },
+
+    key: {
+      type: DataTypes.TEXT,
+    },
 
   }, {
     tableName: 'Meetups',
