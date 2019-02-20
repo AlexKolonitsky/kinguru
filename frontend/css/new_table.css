@@ -24,6 +24,7 @@
     line-height: 25px;
     text-align: left;
     -webkit-transition: background-color 0.5s;
+    cursor: pointer;
 }
 
 .input-switch {
@@ -93,12 +94,16 @@
 .ui-timepicker-am,
 .ui-timepicker-pm{
     list-style-type: none;
+    width: 100%;
 }
 
 .ui-timepicker-list {
     background-color: white;
     padding: 0 45px;
     margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    cursor: pointer;
 }
 
 .speakers {
@@ -277,10 +282,13 @@ input::-webkit-inner-spin-button {
 .add_guest {
   width: 200px;
   font-size: 0.8em;
-  z-index:1;
+  z-index: 1;
 }
 
 .add_guest .dropdown-item {
   margin: 0;
 }
 
+.pointer {
+    cursor: pointer;
+}
