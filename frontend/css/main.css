@@ -1107,6 +1107,49 @@ img::-moz-selection {
   color: #909090;
 }
 
+#tab-title {
+  position: relative;
+  background-color: #ffffff;
+}
+
+#tab-title .nav-tabs{
+  border: none;
+}
+
+#tab-title .nav-tabs li{
+  margin: 0 auto;
+}
+
+#tab-title .nav-tabs li>a{
+  color: #000000;
+  font-size: 1.2em;
+}
+
+#tab-title .nav-tabs .show{
+  position: relative;
+  color: #000000;
+  font-family: "Muller ExtraBold";
+  text-decoration: none;
+}
+
+#tab-title .nav-tabs > li > a.show:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 36px;
+  width: 60px;
+  height: 8px;
+  margin: 0 auto;
+  background-color: #ffd800;
+}
+
+
+#tabs {
+  position: relative;
+  background-color: #f7f8f9;
+}
+
 
 
 @media (min-width: 431px) and (max-width: 767px) {

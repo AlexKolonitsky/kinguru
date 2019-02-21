@@ -1,43 +1,5 @@
 #tab-title {
-  position: relative;
-  background-color: #ffffff;
   padding-top: 150px;
-}
-
-#tab-title .nav-tabs{
-  border: none;
-}
-
-#tab-title .nav-tabs li{
-  margin: 0 auto;
-}
-
-#tab-title .nav-tabs li>a{
-  color: #000000;
-  font-size: 1.2em;
-}
-
-#tab-title .nav-tabs .show{
-  position: relative;
-  color: #000000;
-  font-family: "Muller ExtraBold";
-  text-decoration: none;
-}
-
-#tab-title .nav-tabs > li > a.show:after {
-  position: absolute;
-  content: "";
-  left: 30%;
-  top: 36px;
-  width: 50px;
-  height: 8px;
-  background-color: #ffd800;
-}
-
-
-#tabs {
-  position: relative;
-  background-color: #f7f8f9;
 }
 
 /*--------------sidebar-styles-------------*/
