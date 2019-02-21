@@ -91,7 +91,34 @@ class MeetupDao {
           })
       });
   }
+
+  getFilter() {
+
+    return Meetups.findAll({})
+      .then(meetups => {
+        let filterLocations = _.map(meetups, 'location');
+        let filterTypes = _.map(meetups, 'type');
+
+        let filterLocation = {};
+
+        for (let i = 0; i < filterLocations.length; i++) {
+          let city = filterLocations[i];
+          filterLocation[city] = true;
+        }
+        let Locations = Object.keys(filterLocation);
+
+        let filterType = {};
+
+        for (let i = 0; i < filterTypes.length; i++) {
+          let type = filterTypes[i];
+          filterType[type] = true;
+        }
+
+        let Types = Object.keys(filterType);
+
+        return ({ Locations, Types })
+      })
+  }
 }
 
-module
-  .exports = MeetupDao;
+module.exports = MeetupDao;

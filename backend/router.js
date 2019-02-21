@@ -22,6 +22,7 @@ router.get('/meetups', (req, res, next) => meetups.GetAllMeetups.process(req, re
 router.get('/meetup/:id', (req, res, next) => meetups.GetCurrentMeetup.process(req, res, next));
 router.post('/new/meetup', upload.single('image'), (req, res, next) => meetups.CreateMeetup.process(req, res, next));
 router.delete('/meetup/:id', (req,res, next) => meetups.RemoveMeetup.process(req,res, next));
+router.get('/filter/meetup', (req, res, next) => meetups.GetFilter.process(req, res, next));
 
 /**
  * @description Speakers endpoints
