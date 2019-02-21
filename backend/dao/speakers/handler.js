@@ -14,7 +14,7 @@ class SpeakersDao {
     return Promise.all(_.map(ids, id => this.getSpeaker(id)))
   }
 
-  addSpeaker (name, surname, email,) {
+  addSpeaker(email, name, surname, awsUrl, awsKey) {
 
     return Speakers.findOrCreate({
       where: {
@@ -23,17 +23,21 @@ class SpeakersDao {
       },
       defaults: {
         email,
+        coverSource: awsUrl,
+        key: awsKey
       }
     })
       .spread((speaker, created) => {
-        console.log(speaker);
         if (created) {
-            return Promise.reject(utils.responseError(410, `Speaker has already  created`))
+          return this.getSpeaker(speaker.id)
         }
-        return this.getSpeaker(speaker.id)
+        return Promise.reject(utils.responseError(410, `Speaker has already  created`))
+
       })
 
   }
+
+
 
 }
 
