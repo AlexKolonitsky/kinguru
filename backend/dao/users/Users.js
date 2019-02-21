@@ -4,7 +4,7 @@ const _ = require('lodash');
 
 module.exports = (sequelize, DataTypes) => {
 
-  const Users = sequelize.define('Users', {
+  const Users = sequelize.define('users', {
 
     id: {
       type: DataTypes.INTEGER,
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   }, {
-    tableName: 'Users',
+    tableName: 'users',
     timestamps: true,
   });
 
