@@ -1,6 +1,7 @@
 'use strict';
 
 const AddSpeaker = require('./AddSpeaker');
+const RemoveSpeaker = require('./RemoveSpeaker');
 
 
 /**
@@ -11,4 +12,5 @@ const AddSpeaker = require('./AddSpeaker');
 
 module.exports = {
   AddSpeaker: new AddSpeaker(),
+  RemoveSpeaker: new RemoveSpeaker,
 };
