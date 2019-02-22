@@ -24,7 +24,7 @@ class SpeakersDao {
       defaults: {
         email,
         coverSource: awsUrl,
-        key: awsKey
+        coverKey: awsKey
       }
     })
       .spread((speaker, created) => {

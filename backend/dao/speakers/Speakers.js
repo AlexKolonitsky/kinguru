@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
       },
 
-      key: {
+      coverKey: {
         type: DataTypes.TEXT,
       },
     },

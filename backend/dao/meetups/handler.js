@@ -64,7 +64,7 @@ class MeetupDao {
           isFree,
           date,
           coverSource: awsUrl,
-          key: awsKey
+          coverKey: awsKey
         }
       }),
 
