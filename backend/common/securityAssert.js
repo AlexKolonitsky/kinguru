@@ -49,7 +49,7 @@ function getJwtToken(userInfo) {
  * @returns {string}
  */
 function encrypt(value) {
-  let cipher = crypto.createCipheriv('aes-256-cbc', new Buffer(SECURITY.ENCRYPTION_KEY), new Buffer(SECURITY.SALT, 'hex'));
+  let cipher = crypto.createCipheriv('aes-256-cbc',  Buffer.from(SECURITY.ENCRYPTION_KEY),  Buffer.from(SECURITY.SALT, 'hex'));
   let encrypted = cipher.update(value);
 
   return Buffer.concat([encrypted, cipher.final()]).toString('hex');
