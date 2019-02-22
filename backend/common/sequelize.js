@@ -6,7 +6,7 @@ const DEFAULT_MYSQL_CONFIG = {
   connectionLimit: 100,
   host: '127.0.0.1',
   user: 'root',
-  password: '497832sd',
+  password: 'root',
   database: 'Kinguru',
 };
 
