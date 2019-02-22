@@ -19,7 +19,6 @@ const { Users } = require('./../index');
 class UsersDao {
 
   createUser(userInfo) {
-    console.log(userInfo);
 
     let email = utils.encrypt(userInfo.email);
 
