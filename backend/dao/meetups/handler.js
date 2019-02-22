@@ -15,21 +15,23 @@ class MeetupDao {
 
   getAllMeetups(limit = 12, offset = 0, filter = {}) {
 
-    return Meetups.findAll({
+    return Meetups.findAndCountAll({
       limit,
       offset,
-      attributes: ['id', 'type', 'title', 'location', 'isFree', 'coverSource',],
+      attributes: ['id', 'type', 'title', 'location', 'isFree', 'coverSource', 'date'],
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: { attributes: [] }
       }],
       where: filter
     })
-      .then(allMeetups => {
-          if (!allMeetups[0]) {
+      .then(meetups => {
+          let count = meetups.count;
+          let allMeetups = meetups.rows;
+          if (allMeetups.length === 0) {
             return Promise.reject(utils.responseError(404, `Meetup with type: ${filter.type} or  location: ${filter.location} not found`))
           }
-          return Promise.resolve({ allMeetups })
+          return Promise.resolve({ allMeetups, count })
         }
       );
   }
@@ -37,7 +39,7 @@ class MeetupDao {
   getCurrentMeetup(meetupId) {
 
     return Meetups.findOne({
-      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource', 'key'],
+      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource', 'coverKey'],
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: { attributes: [] }
