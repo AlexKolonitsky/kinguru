@@ -35,6 +35,17 @@ class UsersDao {
       });
   }
 
+  findEmailAndPassword(email, password){
+
+    let emailcrypt = utils.encrypt(email);
+    console.log(emailcrypt);
+
+    return Users.findOne({where:{email}})
+      .then(user => console.log(user))
+
+
+  }
+
 }
 
 module.exports = UsersDao;
