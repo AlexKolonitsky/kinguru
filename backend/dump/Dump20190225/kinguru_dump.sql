@@ -19,7 +19,7 @@
 -- Table structure for table `media`
 --
 
-DROP DATABASE [IF EXISTS] kinguru;
+DROP DATABASE IF EXISTS kinguru;
 
 CREATE DATABASE kinguru;
 
