@@ -46,6 +46,12 @@ class UsersDao {
         password: hashPassword,
       }
     })
+      .then(user => {
+        if (user) {
+          return _.pick(user, ['id', 'username', 'surname'])
+        }
+        return Promise.reject({code: ERRORS_CODE.NOT_FOUND})
+      })
 
   }
 
