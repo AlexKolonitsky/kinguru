@@ -22,7 +22,8 @@ class GetAllMeetups extends RequestHandlers {
 
   methodAction(request) {
 
-    let { limit, offset, location, type } = request.query;
+    let { limit, offset, location, type, isRecent } = request.body;
+    console.log(isRecent);
 
     let filter = {};
 
@@ -42,7 +43,7 @@ class GetAllMeetups extends RequestHandlers {
       limit = parseInt(limit);
     }
 
-    return MeetupsDaoHandler.getAllMeetups(limit, offset, filter)
+    return MeetupsDaoHandler.getAllMeetups(limit, offset, filter, isRecent)
   }
 
 

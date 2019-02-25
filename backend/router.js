@@ -19,7 +19,7 @@ router.post('/user/login', (req, res, next) => users.LoginUser.process(req, res,
  */
 
 const meetups = require('./services/meetups/index');
-router.get('/meetups', (req, res, next) => meetups.GetAllMeetups.process(req, res, next));
+router.post('/meetups', (req, res, next) => meetups.GetAllMeetups.process(req, res, next));
 router.get('/meetup/:id', (req, res, next) => meetups.GetCurrentMeetup.process(req, res, next));
 router.post('/new/meetup', upload.single('image'), (req, res, next) => meetups.CreateMeetup.process(req, res, next));
 router.delete('/meetup/:id', (req,res, next) => meetups.RemoveMeetup.process(req,res, next));
