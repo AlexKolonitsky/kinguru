@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true,
   });
 
-  Meetups.associate= models =>{
+  Meetups.associate = models => {
 
     Meetups.belongsToMany(models.Speakers, {
       as: 'speakers',
