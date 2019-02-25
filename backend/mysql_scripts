@@ -1,0 +1,46 @@
+use Kinguru;
+CREATE TABLE IF NOT EXISTS Kinguru.Meetups (
+id INT AUTO_INCREMENT PRIMARY KEY ,
+title VARCHAR(45) NOT NULL,
+type VARCHAR(45) NOT NULL,
+location VARCHAR(45) NOT NULL,
+isFree TINYINT,
+date DATE NOT NULL,
+coverSource TEXT,
+coverkey TEXT
+);
+
+CREATE TABLE parent (
+    id INT NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE=INNODB;
+
+CREATE TABLE child (
+    id INT,
+    parent_id INT,
+    INDEX par_ind (parent_id),
+    FOREIGN KEY (parent_id)
+        REFERENCES parent(id)
+        ON DELETE CASCADE
+
+
+use Kinguru;
+CREATE TABLE IF NOT EXISTS Kinguru.MeetupsSpeakers (
+id INT AUTO_INCREMENT PRIMARY KEY ,
+meetupId INT
+speakerId INT
+FOREIGN KEY (meetupId)
+    REFERENCES Kinguru.Meetups(id)
+FOREIGN KEY (speakerId)
+    REFERENCES Kinguru.Meetups(id)
+);
+
+use Kinguru;
+CREATE TABLE IF NOT EXISTS Kinguru.Speakers (
+id INT AUTO_INCREMENT PRIMARY KEY ,
+name VARCHAR(45) NOT NULL,
+surname VARCHAR(45) NOT NULL,
+email VARCHAR(100),
+coverSource TEXT,
+key TEXT
+);

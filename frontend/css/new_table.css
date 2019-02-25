@@ -258,8 +258,9 @@ input::-webkit-inner-spin-button {
 }
 
 .invite_guest-name{
-  margin-top: -10px;
+  margin-top: -15px;
   font-size: 0.8em;
+  margin-bottom: 0;
 }
 
 .invite_guest .fa.fa-plus {
@@ -291,4 +292,43 @@ input::-webkit-inner-spin-button {
 
 .pointer {
     cursor: pointer;
+}
+
+.invite {
+  padding: 10px 0;
+}
+
+@media only screen and (max-device-width: 769px) {
+  .table_content {
+    margin-top: 100px;
+    padding-left: 50px;
+  }
+
+  .menu_content {
+    border: none;
+  }
+
+  .invite_guest .fa.fa-plus {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .input-switch + label{
+    width: 150px;
+  }
+}
+
+@media only screen and (max-device-width: 426px) {
+  .table_content {
+    margin-top: 50px;
+    padding-left: 10px;
+  }
+
+  .input-switch + label{
+    width: 170px;
+  }
 }

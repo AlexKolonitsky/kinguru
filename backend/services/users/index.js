@@ -1,6 +1,7 @@
 'use strict';
 
 const RegistrationUser = require('./RegistrationUser');
+const LoginUser = require('./LoginUser');
 
 /**
  * @type {{
@@ -11,4 +12,5 @@ const RegistrationUser = require('./RegistrationUser');
 
 module.exports = {
   RegistrationUser: new RegistrationUser(),
+  LoginUser: new LoginUser(),
 };

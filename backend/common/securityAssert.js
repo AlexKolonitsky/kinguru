@@ -8,9 +8,9 @@ const ONE_DAY = 86400;
 const SECURITY = {
   PASSWORD_SECRET: 'NXDK8cmEX9bj8Tq29pM2PdRf',
   JWT_SECRET: 'kinguru',
-  TOKEN_EXPIRE_TIME:  ONE_DAY,
-  ENCRYPTION_KEY: 'Wn4jauf6TtEaYsGNHMBgp8xG',
-  SALT: 'rThUW8rTzSFZDRHK6Ygdv62U',
+  TOKEN_EXPIRE_TIME: ONE_DAY,
+  ENCRYPTION_KEY: '61XT%vG8h8BO5Wy5CXV7F$+W2daII9WV',
+  SALT: 'e2bed9a5c4369e16d2c35f4d875da462',
 };
 
 const ERRORS_CODE = {
@@ -33,6 +33,7 @@ function hashPassword(password) {
     .update(password)
     .digest('hex');
 }
+
 /**
  * @function getJwtToken - return encrypted user's info in jwt format: Bearer ...
  * @param {Object} userInfo
@@ -41,13 +42,14 @@ function hashPassword(password) {
 function getJwtToken(userInfo) {
   return `Bearer ${jwt.sign({ user: userInfo }, SECURITY.JWT_SECRET, { expiresIn: SECURITY.TOKEN_EXPIRE_TIME })}`;
 }
+
 /**
  * @function encrypt - is using for encrypting incoming string, e.g. email
  * @param {string} value
  * @returns {string}
  */
 function encrypt(value) {
-  let cipher = crypto.createCipheriv('aes-256-cbc',  Buffer.alloc(SECURITY.ENCRYPTION_KEY), Buffer.alloc(SECURITY.SALT, 'hex'));
+  let cipher = crypto.createCipheriv('aes-256-cbc',  Buffer.from(SECURITY.ENCRYPTION_KEY),  Buffer.from(SECURITY.SALT, 'hex'));
   let encrypted = cipher.update(value);
 
   return Buffer.concat([encrypted, cipher.final()]).toString('hex');

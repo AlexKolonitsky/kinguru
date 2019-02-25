@@ -13,89 +13,33 @@ const firstIndex = 1;
 
 class MeetupDao {
 
-  getAllMeetups(limit = 12, offset = 0, location, type) {
+  getAllMeetups(limit = 12, offset = 0, filter = {}) {
 
-    if (type && location) {
-      return Meetups.findAll({
-        limit,
-        offset,
-        attributes: ['id', 'type', 'title', 'location', 'isFree', 'coverSource'],
-        include: [{
-          model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
-          through: { attributes: [] }
-        }],
-        where: {
-          type,
-          location
-        }
-      })
-        .then(allMeetups => {
-            if (!allMeetups[0]) {
-              return Promise.reject(utils.responseError(404, `Meetup with ${type} in ${location} not found`))
-            }
-            return Promise.resolve({ allMeetups })
-          }
-        )
-    }
-
-    if (location) {
-      return Meetups.findAll({
-        limit,
-        offset,
-        attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
-        include: [{
-          model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
-          through: { attributes: [] }
-        }],
-        where: {
-          location,
-        }
-      })
-        .then(allMeetups => {
-          if (!allMeetups[0]) {
-            return Promise.reject(utils.responseError(404, `Meetup in ${location} not found`))
-          }
-          return Promise.resolve({ allMeetups })
-        })
-    }
-
-    if (type) {
-      return Meetups.findAll({
-        limit,
-        offset,
-        attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
-        include: [{
-          model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
-          through: { attributes: [] }
-        }],
-        where: {
-          type,
-        }
-      })
-        .then(allMeetups => {
-          if (!allMeetups[0]) {
-            return Promise.reject(utils.responseError(404, `Meetup ${type} not found`))
-          }
-          return Promise.resolve({ allMeetups })
-        })
-    }
-
-    return Meetups.findAll({
+    return Meetups.findAndCountAll({
       limit,
       offset,
-      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
+      attributes: ['id', 'type', 'title', 'location', 'isFree', 'coverSource', 'date'],
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: { attributes: [] }
       }],
+      where: filter
     })
-      .then(allMeetups => Promise.resolve({ allMeetups }))
+      .then(meetups => {
+          let count = meetups.count;
+          let allMeetups = meetups.rows;
+          if (allMeetups.length === 0) {
+            return Promise.reject(utils.responseError(404, `Meetup with type: ${filter.type} or  location: ${filter.location} not found`))
+          }
+          return Promise.resolve({ allMeetups, count })
+        }
+      );
   }
 
   getCurrentMeetup(meetupId) {
 
     return Meetups.findOne({
-      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource'],
+      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource', 'coverKey'],
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: { attributes: [] }
@@ -106,7 +50,7 @@ class MeetupDao {
     })
   }
 
-  createMeetup(type, title, location, isFree, date, speakers, meetupImage) {
+  createMeetup(type, title, location, isFree, date, speakers, awsUrl, awsKey) {
 
     let name = _.map(speakers, 'name');
     let surname = _.map(speakers, 'surname');
@@ -121,7 +65,8 @@ class MeetupDao {
         defaults: {
           isFree,
           date,
-          coverSource: meetupImage.location,
+          coverSource: awsUrl,
+          coverKey: awsKey
         }
       }),
 
@@ -147,6 +92,34 @@ class MeetupDao {
             return this.getCurrentMeetup(meetup.id)
           })
       });
+  }
+
+  getFilter() {
+
+    return Meetups.findAll({})
+      .then(meetups => {
+        let filterLocations = _.map(meetups, 'location');
+        let filterTypes = _.map(meetups, 'type');
+
+        let filterLocation = {};
+
+        for (let i = 0; i < filterLocations.length; i++) {
+          let city = filterLocations[i];
+          filterLocation[city] = true;
+        }
+        let Locations = Object.keys(filterLocation);
+
+        let filterType = {};
+
+        for (let i = 0; i < filterTypes.length; i++) {
+          let type = filterTypes[i];
+          filterType[type] = true;
+        }
+
+        let Types = Object.keys(filterType);
+
+        return ({ Locations, Types })
+      })
   }
 }
 
