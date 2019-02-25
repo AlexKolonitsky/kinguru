@@ -85,7 +85,6 @@
     });
   });
 
-
   $("#people-carousel").owlCarousel({
     loop: true,
     dots: true,
@@ -162,8 +161,6 @@
       }
     }
   });
-
-
 
   $("#place-carousel").owlCarousel({
     loop: true,
@@ -369,4 +366,4 @@ var like = function (element) {
     element.classList.remove('like');
     element.classList.add('unlike');
   }
-}
+};
