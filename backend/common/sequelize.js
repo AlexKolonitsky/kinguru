@@ -5,10 +5,10 @@ require('dotenv').config();
 
 const DEFAULT_MYSQL_CONFIG = {
   connectionLimit: 100,
-  host: '127.0.0.1',
+  host: process.env.HOST,
   user: process.env.USER,
   password: process.env.PASSWORD,
-  database: 'Kinguru',
+  database: process.env.DATABASE,
 };
 
 const sequelize = new Sequelize(
