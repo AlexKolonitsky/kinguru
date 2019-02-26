@@ -54,7 +54,7 @@ class MeetupDao {
     })
   }
 
-  createMeetup(type, title, location, isFree, date, speakers, awsUrl, awsKey) {
+  createMeetup(type, title, location, isFree, date, speakers, coverSource, coverKey) {
 
     let name = _.map(speakers, 'name');
     let surname = _.map(speakers, 'surname');
@@ -69,8 +69,8 @@ class MeetupDao {
         defaults: {
           isFree,
           date,
-          coverSource: awsUrl,
-          coverKey: awsKey
+          coverSource,
+          coverKey,
         }
       }),
 
