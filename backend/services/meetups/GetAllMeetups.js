@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const RequestHandlers = require('./../../common/RequestHandler');
-const { MeetupsDaoHandler } = require('../../dao/handlers');
+const {MeetupsDaoHandler} = require('../../dao/handlers');
 
 /**
  * Is used for getting for all meetups
@@ -22,8 +22,7 @@ class GetAllMeetups extends RequestHandlers {
 
   methodAction(request) {
 
-    let { limit, offset, location, type, isRecent } = request.body;
-    console.log(isRecent);
+    let {limit, offset, location, type, isRecent} = request.body;
 
     let filter = {};
 
