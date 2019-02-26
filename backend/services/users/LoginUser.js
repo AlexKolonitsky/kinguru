@@ -24,8 +24,8 @@ class LoginUser extends RequestHandler {
 
     return UsersDaoHandler.findEmailAndPassword(email, password)
       .then(user => {
-        response.header('Authorization', utils.getJwtToken(user));
-        return Promise.resolve(user)
+        const token = utils.getJwtToken(user).split(' ')[1];
+        return Promise.resolve({user, token})
       })
       .catch(err => {
         if(err.code === ERRORS_CODE.NOT_FOUND){
