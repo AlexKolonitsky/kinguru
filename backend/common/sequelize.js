@@ -1,12 +1,13 @@
 'use strict';
 
 const Sequelize = require('sequelize');
+require('dotenv').config();
 
 const DEFAULT_MYSQL_CONFIG = {
   connectionLimit: 100,
   host: '127.0.0.1',
-  user: 'root',
-  password: 'root',
+  user: process.env.USER,
+  password: process.env.PASSWORD,
   database: 'Kinguru',
 };
 
