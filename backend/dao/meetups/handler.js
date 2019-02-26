@@ -18,7 +18,7 @@ class MeetupDao {
     return Meetups.findAndCountAll({
       limit,
       offset,
-      attributes: ['id', 'type', 'title', 'location', 'isFree', 'coverSource', 'date'],
+      attributes: ['id', 'type', 'title', 'location', 'description', 'maxGuest', 'guest', 'rate', 'cost', 'coverSource', 'date'],
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: {attributes: []}
@@ -54,7 +54,7 @@ class MeetupDao {
     })
   }
 
-  createMeetup(type, title, location, isFree, date, speakers, coverSource, coverKey) {
+  createMeetup(type, title, location, date, speakers, coverSource, coverKey) {
 
     let name = _.map(speakers, 'name');
     let surname = _.map(speakers, 'surname');
@@ -67,7 +67,6 @@ class MeetupDao {
           location,
         },
         defaults: {
-          isFree,
           date,
           coverSource,
           coverKey,

@@ -22,13 +22,29 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 
+    description: {
+      type: DataTypes.TEXT,
+    },
+
+    maxGuest: {
+      type: DataTypes.INTEGER,
+    },
+
+    guest: {
+      type: DataTypes.INTEGER,
+    },
+
+    rate: {
+      type: DataTypes.INTEGER,
+    },
+
     location: {
       type: DataTypes.STRING(45),
       allowNull: false,
     },
 
-    isFree: {
-      type: DataTypes.BOOLEAN,
+    cost: {
+      type: DataTypes.INTEGER,
     },
 
     createdAt: {
