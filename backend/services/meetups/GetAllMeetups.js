@@ -22,16 +22,12 @@ class GetAllMeetups extends RequestHandlers {
 
   methodAction(request) {
 
-    let {limit, offset, location, type, isRecent} = request.body;
+    let {limit, offset, location,  isRecent} = request.body;
 
     let filter = {};
 
     if (location) {
       filter.location = location;
-    }
-
-    if (type) {
-      filter.type = type;
     }
 
     if (!isNaN(parseInt(offset))) {

@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const {Meetups, Speakers, MeetupsSpeakers} = require('./../index');
+const {Meetups, Speakers, MeetupsSpeakers, Tags} = require('./../index');
 const utils = require('./../../common/securityAssert');
 const zeroIndex = 0;
 const firstIndex = 1;
@@ -18,11 +18,16 @@ class MeetupDao {
     return Meetups.findAndCountAll({
       limit,
       offset,
-      attributes: ['id', 'type', 'title', 'location', 'description', 'maxGuest', 'guest', 'rate', 'cost', 'coverSource', 'date'],
+      attributes: ['id', 'title', 'location', 'description', 'maxGuest', 'guest', 'rate', 'cost', 'coverSource', 'date'],
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: {attributes: []}
-      }],
+      },
+        {
+          model: Tags, as: 'tags', attributes: ['name'],
+          through: {attributes: []}
+        }],
+
       where: filter,
     })
       .then(meetups => {
@@ -43,7 +48,7 @@ class MeetupDao {
   getCurrentMeetup(meetupId) {
 
     return Meetups.findOne({
-      attributes: ['id', 'type', 'title', 'location', 'isFree', 'date', 'coverSource', 'coverKey'],
+      attributes: ['id', 'title', 'location', 'isFree', 'date', 'coverSource', 'coverKey'],
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: {attributes: []}

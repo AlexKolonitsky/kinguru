@@ -78,6 +78,12 @@ module.exports = (sequelize, DataTypes) => {
       as: 'speakers',
       through: models.MeetupsSpeakers,
       foreignKey: 'meetupId',
+    });
+
+    Meetups.belongsToMany(models.Tags, {
+      as: 'tags',
+      through: models.MeetupsTags,
+      foreignKey: 'meetupId',
     })
 
   };
