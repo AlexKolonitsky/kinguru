@@ -14,8 +14,8 @@ const firstIndex = 1;
 class MeetupDao {
 
   getAllMeetups(limit = 12, offset = 0, filter = {}, isRecent = false) {
-
     return Meetups.findAndCountAll({
+
       limit,
       offset,
       attributes: ['id', 'type', 'title', 'location', 'description', 'maxGuest', 'guest', 'rate', 'cost', 'coverSource', 'date'],

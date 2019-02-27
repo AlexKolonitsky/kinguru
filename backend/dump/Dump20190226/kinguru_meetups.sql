@@ -22,7 +22,7 @@
 DROP TABLE IF EXISTS `meetups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `meetups` (
+CREATE TABLE `Meetups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) NOT NULL,
   `title` varchar(45) NOT NULL,
@@ -46,10 +46,10 @@ CREATE TABLE `meetups` (
 -- Dumping data for table `meetups`
 --
 
-LOCK TABLES `meetups` WRITE;
-/*!40000 ALTER TABLE `meetups` DISABLE KEYS */;
-INSERT INTO `meetups` VALUES (5,'Javascript','Angular',NULL,0,0,0,'Gomel',0,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(6,'Javascript','ReactJs',NULL,0,0,0,'Brest',0,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(7,'Management','Scrum',NULL,0,0,0,'Minsk',1,NULL,NULL,'2019-12-05 14:00:00',NULL,NULL),(8,'Java','Spring',NULL,0,0,0,'Vitebsk',1,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(9,'Javascript','ReactJs',NULL,0,0,0,'Vitebsk',0,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(10,'Management','Scrum',NULL,0,0,0,'Minsk',1,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(11,'Java','Spring',NULL,0,0,0,'Minsk',1,NULL,NULL,'2019-01-05 14:00:00',NULL,NULL),(12,'Javascript','Nodejs',NULL,0,0,0,'Gomel',1,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(13,'Javascript','ReactJs',NULL,0,0,0,'Brest',1,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(14,'Management','Scrum',NULL,0,0,0,'Vitebsk',1,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(206,'Java','Meetup',NULL,0,0,0,'Kiev',1,'2019-02-22 12:13:18','2019-02-22 12:13:18','2019-03-05 00:00:00','https://kinguru-images.s3.eu-west-1.amazonaws.com/1550837597552-event-6.jpg','1550837597552-event-6.jpg');
-/*!40000 ALTER TABLE `meetups` ENABLE KEYS */;
+LOCK TABLES `Meetups` WRITE;
+/*!40000 ALTER TABLE `Meetups` DISABLE KEYS */;
+INSERT INTO `Meetups` VALUES (5,'Javascript','Angular',NULL,0,0,0,'Gomel',0,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(6,'Javascript','ReactJs',NULL,0,0,0,'Brest',0,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(7,'Management','Scrum',NULL,0,0,0,'Minsk',1,NULL,NULL,'2019-12-05 14:00:00',NULL,NULL),(8,'Java','Spring',NULL,0,0,0,'Vitebsk',1,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(9,'Javascript','ReactJs',NULL,0,0,0,'Vitebsk',0,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(10,'Management','Scrum',NULL,0,0,0,'Minsk',1,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(11,'Java','Spring',NULL,0,0,0,'Minsk',1,NULL,NULL,'2019-01-05 14:00:00',NULL,NULL),(12,'Javascript','Nodejs',NULL,0,0,0,'Gomel',1,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(13,'Javascript','ReactJs',NULL,0,0,0,'Brest',1,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(14,'Management','Scrum',NULL,0,0,0,'Vitebsk',1,NULL,NULL,'2019-05-05 14:00:00',NULL,NULL),(206,'Java','Meetup',NULL,0,0,0,'Kiev',1,'2019-02-22 12:13:18','2019-02-22 12:13:18','2019-03-05 00:00:00','https://kinguru-images.s3.eu-west-1.amazonaws.com/1550837597552-event-6.jpg','1550837597552-event-6.jpg');
+/*!40000 ALTER TABLE `Meetups` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
