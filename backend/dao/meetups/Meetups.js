@@ -17,11 +17,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 
-    type: {
-      type: DataTypes.STRING(45),
-      allowNull: false,
-    },
-
     description: {
       type: DataTypes.TEXT,
     },
@@ -77,6 +72,12 @@ module.exports = (sequelize, DataTypes) => {
     Meetups.belongsToMany(models.Speakers, {
       as: 'speakers',
       through: models.MeetupsSpeakers,
+      foreignKey: 'meetupId',
+    });
+
+    Meetups.belongsToMany(models.Tags, {
+      as: 'tags',
+      through: models.MeetupsTags,
       foreignKey: 'meetupId',
     })
 
