@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const {Meetups, Speakers, MeetupsSpeakers, Tags} = require('./../index');
+const {Meetups, Speakers, MeetupsSpeakers, Tags, MeetupsTags} = require('./../index');
 const utils = require('./../../common/securityAssert');
 const zeroIndex = 0;
 const firstIndex = 1;
@@ -13,36 +13,46 @@ const firstIndex = 1;
 
 class MeetupDao {
 
-  getAllMeetups(limit = 12, offset = 0, filter = {}, isRecent = false) {
+  getAllMeetups(limit = 12, offset = 0, filter = {}, tags = [], isRecent = false) {
 
-    return Meetups.findAndCountAll({
-      limit,
-      offset,
-      attributes: ['id', 'title', 'location', 'description', 'maxGuest', 'guest', 'rate', 'cost', 'coverSource', 'date'],
-      include: [{
-        model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
-        through: {attributes: []}
-      },
-        {
-          model: Tags, as: 'tags', attributes: ['id', 'name'],
-          through: {attributes: []}
-        }],
-
-      where: filter,
+    return MeetupsTags.findAll({
+      where: {
+        tagId: tags
+      }
     })
-      .then(meetups => {
-          let count = meetups.count;
-          let filteredMeetups = meetups.rows;
-          if (filteredMeetups.length === 0) {
-            return Promise.reject(utils.responseError(404, `Meetup with type: ${filter.type} or  location: ${filter.location} not found`))
-          }
-          if (isRecent) {
-            filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.date).getTime() < new Date().getTime());
-            return Promise.resolve({filteredMeetups})
-          }
-          return Promise.resolve({filteredMeetups, count})
-        }
-      );
+      .then(meetupsTags => {
+        filter.id = _.map(meetupsTags, 'meetupId');
+        return Meetups.findAndCountAll({
+          limit,
+          offset,
+          attributes: ['id', 'title', 'location', 'description', 'maxGuest', 'guest', 'rate', 'cost', 'coverSource', 'date'],
+          include: [
+            {
+              model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
+              through: {attributes: []}
+            },
+            {
+              model: Tags, as: 'tags', attributes: ['id', 'name'],
+              through: {attributes: []}
+            }],
+
+          where: filter,
+        })
+          .then(meetupsResponse => {
+            const meetups = meetupsResponse.rows;
+            let filteredMeetups = meetups;
+            let meetupsCount = meetupsResponse.count;
+            console.log(meetupsCount);
+            if (filteredMeetups.length === 0) {
+              return Promise.reject(utils.responseError(404, `Meetup with location: ${filter.location} or  with: id ${filter.id} not found`))
+            }
+            if (isRecent) {
+              filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.date).getTime() < new Date().getTime());
+              return Promise.resolve({filteredMeetups})
+            }
+            return Promise.resolve({filteredMeetups, meetupsCount})
+          })
+      });
   }
 
   getCurrentMeetup(meetupId) {
