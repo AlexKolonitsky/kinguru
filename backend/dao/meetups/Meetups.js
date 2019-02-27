@@ -17,9 +17,20 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 
-    type: {
-      type: DataTypes.STRING(45),
-      allowNull: false,
+    description: {
+      type: DataTypes.TEXT,
+    },
+
+    maxGuest: {
+      type: DataTypes.INTEGER,
+    },
+
+    guest: {
+      type: DataTypes.INTEGER,
+    },
+
+    rate: {
+      type: DataTypes.INTEGER,
     },
 
     location: {
@@ -27,8 +38,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 
-    isFree: {
-      type: DataTypes.BOOLEAN,
+    cost: {
+      type: DataTypes.INTEGER,
     },
 
     createdAt: {
@@ -56,11 +67,17 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true,
   });
 
-  Meetups.associate= models =>{
+  Meetups.associate = models => {
 
     Meetups.belongsToMany(models.Speakers, {
       as: 'speakers',
       through: models.MeetupsSpeakers,
+      foreignKey: 'meetupId',
+    });
+
+    Meetups.belongsToMany(models.Tags, {
+      as: 'tags',
+      through: models.MeetupsTags,
       foreignKey: 'meetupId',
     })
 

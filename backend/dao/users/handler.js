@@ -35,14 +35,23 @@ class UsersDao {
       });
   }
 
-  findEmailAndPassword(email, password){
+  findEmailAndPassword(email, password) {
 
     let emailcrypt = utils.encrypt(email);
-    console.log(emailcrypt);
+    let hashPassword = utils.hashPassword(password);
 
-    return Users.findOne({where:{email}})
-      .then(user => console.log(user))
-
+    return Users.findOne({
+      where: {
+        email: emailcrypt,
+        password: hashPassword,
+      }
+    })
+      .then(user => {
+        if (user) {
+          return _.pick(user, ['id', 'username', 'surname'])
+        }
+        return Promise.reject({code: ERRORS_CODE.NOT_FOUND})
+      })
 
   }
 

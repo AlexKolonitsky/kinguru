@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const RequestHandlers = require('./../../common/RequestHandler');
-const { MeetupsDaoHandler } = require('../../dao/handlers');
+const {MeetupsDaoHandler} = require('../../dao/handlers');
 
 /**
  * Is used for getting for all meetups
@@ -22,16 +22,12 @@ class GetAllMeetups extends RequestHandlers {
 
   methodAction(request) {
 
-    let { limit, offset, location, type } = request.query;
+    let {limit, offset, location, tags,  isRecent} = request.body;
 
     let filter = {};
 
     if (location) {
       filter.location = location;
-    }
-
-    if (type) {
-      filter.type = type;
     }
 
     if (!isNaN(parseInt(offset))) {
@@ -42,7 +38,7 @@ class GetAllMeetups extends RequestHandlers {
       limit = parseInt(limit);
     }
 
-    return MeetupsDaoHandler.getAllMeetups(limit, offset, filter)
+    return MeetupsDaoHandler.getAllMeetups(limit, offset, filter, tags, isRecent)
   }
 
 
