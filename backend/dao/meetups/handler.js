@@ -24,7 +24,7 @@ class MeetupDao {
         through: {attributes: []}
       },
         {
-          model: Tags, as: 'tags', attributes: ['name'],
+          model: Tags, as: 'tags', attributes: ['id', 'name'],
           through: {attributes: []}
         }],
 
@@ -103,30 +103,24 @@ class MeetupDao {
   }
 
   getFilter() {
+    return Promise.all([
+      Meetups.findAll({}),
 
-    return Meetups.findAll({})
-      .then(meetups => {
+      Tags.findAll({})
+    ])
+      .then(result => {
+        let meetups = result[zeroIndex];
+        let tags = result[firstIndex];
         let filterLocations = _.map(meetups, 'location');
-        let filterTypes = _.map(meetups, 'type');
+        let Tags = _.map(tags, 'name');
 
         let filterLocation = {};
-
         for (let i = 0; i < filterLocations.length; i++) {
           let city = filterLocations[i];
           filterLocation[city] = true;
         }
         let Locations = Object.keys(filterLocation);
-
-        let filterType = {};
-
-        for (let i = 0; i < filterTypes.length; i++) {
-          let type = filterTypes[i];
-          filterType[type] = true;
-        }
-
-        let Types = Object.keys(filterType);
-
-        return ({Locations, Types})
+        return ({Locations, Tags})
       })
   }
 }
