@@ -80,6 +80,7 @@ module.exports = (sequelize, DataTypes) => {
 
     city: {
       type: DataTypes.TEXT,
+      allowNull: false,
     },
 
     metro: {

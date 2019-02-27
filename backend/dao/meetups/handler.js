@@ -127,7 +127,7 @@ class MeetupDao {
       .then(result => {
         let meetups = result[zeroIndex];
         let tags = result[firstIndex];
-        let filterLocations = _.map(meetups, 'location');
+        let filterLocations = _.map(meetups, 'city');
         let Tags = _.map(tags, 'name');
 
         let filterLocation = {};
