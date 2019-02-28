@@ -5,6 +5,13 @@ const {Meetups, Speakers, MeetupsSpeakers, Tags, MeetupsTags} = require('./../in
 const utils = require('./../../common/securityAssert');
 const zeroIndex = 0;
 const firstIndex = 1;
+const secondIndex = 2;
+const meetupAttributes = [
+  'id', 'title', 'description', 'isOpen', 'maxGuestsCount', 'guestsCount',
+  'rate', 'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
+  'country', 'city', 'metro', 'typePlace'
+];
+
 
 /**
  * @description dashboard all meetups and search
@@ -28,11 +35,7 @@ class MeetupDao {
         return Meetups.findAndCountAll({
           limit,
           offset,
-          attributes: [
-            'id', 'title', 'description', 'isOpen', 'maxGuestsCount', 'guestsCount',
-            'rate', 'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
-            'country', 'city', 'metro', 'typePlace'
-          ],
+          attributes: meetupAttributes,
           include: [
             {
               model: Speakers, as: 'speakers', attributes: ['id', 'name', 'surname'],
@@ -64,7 +67,7 @@ class MeetupDao {
   getCurrentMeetup(meetupId) {
 
     return Meetups.findOne({
-      attributes: ['id', 'title', 'location', 'isFree', 'date', 'coverSource', 'coverKey'],
+      attributes: meetupAttributes,
       include: [{
         model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
         through: {attributes: []}
@@ -75,25 +78,30 @@ class MeetupDao {
     })
   }
 
-  createMeetup(type, title, location, date, speakers, coverSource, coverKey) {
-
-    let name = _.map(speakers, 'name');
-    let surname = _.map(speakers, 'surname');
+  createMeetup(meetup) {
+    meetup.tags = meetup.tags.split(',');
+    console.log(meetup);
+    let name = _.map(meetup.speakers, 'name');
+    let surname = _.map(meetup.speakers, 'surname');
 
     return Promise.all([
       Meetups.findOrCreate({
         where: {
-          title,
-          type,
-          location,
+          title: meetup.title,
+          city: meetup.city,
         },
         defaults: {
-          date,
-          coverSource,
-          coverKey,
+          starDate: meetup.startDate,
+          endDate: meetup.endDate,
+          coverSource: meetup.coverSource,
+          coverKey: meetup.coverKey,
         }
       }),
-
+      Tags.findOrCreate({
+        where: {
+          name: meetup.tags
+        }
+      }),
       Speakers.findAll({
         where: {
           name,
@@ -101,10 +109,12 @@ class MeetupDao {
         }
       })
     ])
-      .then(result => {
-        let meetup = result[zeroIndex][zeroIndex];
-        let speakers = result[firstIndex];
+      .then(response => {
+        let meetup = response[zeroIndex][zeroIndex];
+        let tags = response[firstIndex];
+        let speakers = response[secondIndex];
         let speakerIds = _.map(speakers, 'id');
+        let tagIds = _.map(tags, 'id');
 
         return MeetupsSpeakers.findOrCreate({
           where: {
@@ -113,7 +123,13 @@ class MeetupDao {
           }
         })
           .then(() => {
-            return this.getCurrentMeetup(meetup.id)
+            return MeetupsTags.findOrCreate({
+              meetupId: meetup.id,
+              tagId: tagIds
+            })
+              .then(() => {
+                return this.getCurrentMeetup(meetup.id);
+              })
           })
       });
   }
