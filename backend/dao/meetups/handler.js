@@ -125,10 +125,13 @@ class MeetupDao {
       Tags.findAll({})
     ])
       .then(result => {
-        let meetups = result[zeroIndex];
-        let tags = result[firstIndex];
-        let filterLocations = _.map(meetups, 'city');
-        let Tags = _.map(tags, 'name');
+        let filterLocations = _.map(result[zeroIndex], 'city');
+        let Tags = result[firstIndex].map(tag => {
+          return {
+            id: tag.id,
+            name: tag.name
+          }
+        });
 
         let filterLocation = {};
         for (let i = 0; i < filterLocations.length; i++) {

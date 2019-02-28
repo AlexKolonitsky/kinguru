@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     isOpen: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BOOLEAN,
     },
 
     maxGuestsCount: {
