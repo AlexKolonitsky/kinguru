@@ -16,12 +16,10 @@ $(function () {
     if (isDisabled) {
       $('.label-speaker').removeClass('disable-radio');
       $('.speakers').prop('disabled', false);
-      console.log('ne');
       return;
     }
     $('.label-speaker').addClass('disable-radio');
     $('.speakers').prop('disabled', true);
-    console.log('da');
   });
 
   $(":radio").on("click", function () {

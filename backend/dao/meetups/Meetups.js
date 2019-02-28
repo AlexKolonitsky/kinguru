@@ -21,21 +21,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
 
-    maxGuest: {
+    isOpen: {
       type: DataTypes.INTEGER,
     },
 
-    guest: {
+    maxGuestsCount: {
+      type: DataTypes.INTEGER,
+    },
+
+    guestsCount: {
       type: DataTypes.INTEGER,
     },
 
     rate: {
       type: DataTypes.INTEGER,
-    },
-
-    location: {
-      type: DataTypes.STRING(45),
-      allowNull: false,
     },
 
     cost: {
@@ -49,9 +48,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
 
-    date: {
+    startDate: {
       type: DataTypes.DATE,
       allowNull: false,
+    },
+
+    endDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+
+    socialLink: {
+      type: DataTypes.TEXT,
     },
 
     coverSource: {
@@ -59,6 +67,27 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     coverKey: {
+      type: DataTypes.TEXT,
+    },
+
+    commentsCount: {
+      type: DataTypes.TEXT,
+    },
+
+    country: {
+      type: DataTypes.TEXT,
+    },
+
+    city: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+
+    metro: {
+      type: DataTypes.TEXT,
+    },
+
+    typePlace: {
       type: DataTypes.TEXT,
     },
 

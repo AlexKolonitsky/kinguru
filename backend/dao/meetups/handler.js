@@ -22,13 +22,20 @@ class MeetupDao {
     })
       .then(meetupsTags => {
         filter.id = _.map(meetupsTags, 'meetupId');
+        if (tags.length === 0) {
+          delete filter.id;
+        }
         return Meetups.findAndCountAll({
           limit,
           offset,
-          attributes: ['id', 'title', 'location', 'description', 'maxGuest', 'guest', 'rate', 'cost', 'coverSource', 'date'],
+          attributes: [
+            'id', 'title', 'description', 'isOpen', 'maxGuestsCount', 'guestsCount',
+            'rate', 'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
+            'country', 'city', 'metro', 'typePlace'
+          ],
           include: [
             {
-              model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
+              model: Speakers, as: 'speakers', attributes: ['id', 'name', 'surname'],
               through: {attributes: []}
             },
             {
@@ -42,7 +49,6 @@ class MeetupDao {
             const meetups = meetupsResponse.rows;
             let filteredMeetups = meetups;
             let meetupsCount = meetupsResponse.count;
-            console.log(meetupsCount);
             if (filteredMeetups.length === 0) {
               return Promise.reject(utils.responseError(404, `Meetup with location: ${filter.location} or  with: id ${filter.id} not found`))
             }
