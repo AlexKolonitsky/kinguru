@@ -68,12 +68,12 @@
         "<img src ='" + src + "' class='popup_img' />" +
         "</div>" +
         "<div class='prv_b'>" +
-        "<i class='fa fa-angle-left' aria-hidden='true'>"+"</i>"+
+        "<i class='fa fa-angle-left' aria-hidden='true'>" + "</i>" +
         "</div>" +
         "<div class='nxt_b'>" +
-        "<i class='fa fa-angle-right' aria-hidden='true'>"+"</i>"+
-        "</div>"+
-        "</div>"+
+        "<i class='fa fa-angle-right' aria-hidden='true'>" + "</i>" +
+        "</div>" +
+        "</div>" +
         "</div>");
       $(".popup").fadeIn(200);
       $(".popup_bg").click(function () {
@@ -334,20 +334,20 @@
   });
 
 
-  $(function(){
+  $(function () {
     $('#myTab a').click(function (e) {
       e.preventDefault()
       $(this).tab('show')
     });
   });
 
-  $(document).ready(function(){
-    setTimeout(function(){
+  $(document).ready(function () {
+    setTimeout(function () {
       $('.onload-click').click();
     },);
   });
 
-  $(function() {
+  $(function () {
     $('.time').timepicker({
       dynamic: false,
       dropdown: true,
@@ -359,10 +359,10 @@
 })(jQuery);
 
 var like = function (element) {
-  if(element.classList.contains('unlike')) {
+  if (element.classList.contains('unlike')) {
     element.classList.remove('unlike');
     element.classList.add('like');
-  }else {
+  } else {
     element.classList.remove('like');
     element.classList.add('unlike');
   }

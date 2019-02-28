@@ -72,20 +72,19 @@
             >Find meetings in your city:
           </label>
           <div class="col-lg-3">
-            <select id="meet" class="form-control btn-link">
-              <option>New York</option>
-              <option>Minsk</option>
-              <option>London</option>
+            <select id="meet" class="form-control btn-link filter-location">
+              <option hidden  selected value></option>
             </select>
           </div>
           <div class="col-lg-3">
-            <select class="form-control btn-link">
-              <option>Select object</option>
-              <option>Management</option>
-              <option>Fishing</option>
+            <select class="form-control btn-link filter-tags">
+              <option hidden  selected value></option>
             </select>
           </div>
           <div class="text-center search-button-wrapper">
+            <button class="btn reset">
+              <img class="reset-img" src="img/reset.png">
+            </button>
             <button href="#" class="btn-search btn">Search</button>
           </div>
         </div>
@@ -103,14 +102,9 @@
     <section id="paginations">
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
+          <li class="page-item pagination-list">
             <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
           </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">4</a></li>
-          <li class="page-item"><a class="page-link" href="#">5</a></li>
           <li class="page-item">
             <a class="page-link" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
           </li>

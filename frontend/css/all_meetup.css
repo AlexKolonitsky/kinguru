@@ -451,3 +451,12 @@ option {
     margin: 0;
   }
 }
+
+.reset {
+  margin: 0!important;
+  background-color: #ffd800;
+}
+
+.reset-img {
+  width: 14px;
+}
