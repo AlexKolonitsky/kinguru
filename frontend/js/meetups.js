@@ -1,4 +1,3 @@
-const filter = {limit: 3};
 $.ajax({
   url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/meetups',
   method: 'POST',
@@ -11,32 +10,46 @@ $.ajax({
     showRecentMeetups(jsondata.filteredMeetups);
   }
 });
+function postAllMeetup (object, state){
+  $.ajax({
+    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/meetups',
+    method: 'POST',
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(object),
+    success: state,
+  });
+};
 
-$.ajax({
-  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/meetups',
-  method: 'POST',
-  dataType: "json",
-  contentType: "application/json; charset=utf-8",
-  data: JSON.stringify(
-    {
-      limit: 12,
-      offset: 13
-    },
+window.addEventListener("load",function(){
+   let enitionState = isEnitionState(true);
+   let object = {limit: 12, offset: 0};
+  postAllMeetup(object, enitionState);
 
-  ),
-  /* etc */
-  success: function (jsondata) {
-    showAllMeetups(jsondata.filteredMeetups);
-    paginationPage(jsondata.meetupsCount);
-  }
 });
+
+function isEnitionState(isState) {
+  if(isState == true){
+    let a = function (jsondata) {
+      showAllMeetups(jsondata.filteredMeetups);
+      paginationPage(jsondata.meetupsCount);
+    };
+    return a;
+  } else {
+    let removeChild = $('.meetup-list').empty();
+    let b = function (jsondata) {
+      removeChild;
+      showAllMeetups(jsondata.filteredMeetups);
+    };
+    return b;
+  }
+};
 
 $.ajax({
   url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/filter/meetup',
   method: 'GET',
   dataType: "json",
   contentType: "application/json; charset=utf-8",
-  /* etc */
   success: function (jsondata) {
     filterLocationMeetup(jsondata.Locations);
     filterTagsMeetup(jsondata.Tags);
@@ -95,7 +108,6 @@ function showRecentMeetups(recentMeetups) {
 
 function showAllMeetups(allMeetups) {
   let meetupListAllMeetups = ``;
-
   allMeetups.forEach(meetup => {
     let allMeetupContent =
       `<div class="col-lg-4 col-sm-6 col-12 mb-5 child-meetup">` +
@@ -157,11 +169,9 @@ function showAllMeetups(allMeetups) {
 
 function filterLocationMeetup(allLocationFilter) {
   let filterList = ``;
-
   allLocationFilter.forEach(city => {
     let countFilter =
       `<option>${city}</option>`;
-
     filterList += countFilter;
   });
   $('.filter-location').append(filterList);
@@ -169,11 +179,9 @@ function filterLocationMeetup(allLocationFilter) {
 
 function filterTagsMeetup(allTagsFilter) {
   let filterList = ``;
-
   allTagsFilter.forEach(tag => {
     let countFilter =
       `<option value="${tag.id}">${tag.name}</option>`;
-
     filterList += countFilter;
   });
   $('.filter-tags').append(filterList);
@@ -182,29 +190,11 @@ function filterTagsMeetup(allTagsFilter) {
 $('.btn-search').on('click', function () {
   let location = $(".filter-location option:selected").val();
   let tagId = $(".filter-tags option:selected").val();
-  let removeChild = $('.meetup-list').empty();
   let search = {};
-  if(location){
-    search.city = location;
-  };
-  if(tagId) {
-    search.tags = [tagId];
-  };
-
-  console.log(search);
-
-  $.ajax({
-    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/meetups',
-    method: 'POST',
-    dataType: "json",
-    contentType: "application/json; charset=utf-8",
-    data: JSON.stringify(search),
-    success: function (jsondata) {
-      console.log(jsondata);
-      removeChild;
-      showAllMeetups(jsondata.filteredMeetups);
-    }
-  });
+  let enitionState = isEnitionState(false);
+  if (location) {search.city = location;};
+  if (tagId) {search.tags = [tagId];};
+  postAllMeetup(search, enitionState);
 });
 
 
@@ -215,22 +205,44 @@ $(".reset").on('click', function () {
 });
 
 function paginationPage(allList) {
-  let etimList = '';
-
   allList = Math.ceil(allList / 12);
-    for (var i = 0; i < allList; i++) {
-      etimList += `<li class="page-item"><a class="page-link" href="" onclick="findWithAttr">${i + 1}</a></li>`;
-    }
-  $('.pagination-list').after(etimList);
-    console.log(findWithAttr);
-};
+  let currentIndex = 0;
+  let li = null;
+  const pagination = $(`.pagination`);
+  const prevButton =
+    $(`<li class="page-item pagination-list">` +
+      `<a class="page-link" tabindex="-1"><i class="fa fa-angle-left" aria-hidden="true"></i></a>` +
+    `</li>`);
+  const nextButton =
+    $(`<li class="page-item pagination-list">` +
+      `<a class="page-link" tabindex="-1"><i class="fa fa-angle-right" aria-hidden="true"></i></a>` +
+    `</li>`);
+  prevButton.click(toPrevPage);
+  pagination.append(prevButton);
+  for (let i = 0; i < allList; i++) {
+    li = $(`<li class="page-item item-number"><a class="page-link">${i + 1}</a></li>`);
+    li.click(() => {
+      currentIndex = i;
+      console.log(currentIndex);
+    });
+    pagination.append(li);
+  }
+  $('.page-item').on('click', function () {
+    let enitionState = isEnitionState(false);
+    currentIndex = (currentIndex * 12);
+    let object = {limit: 12, offset: currentIndex};
+    postAllMeetup(object, enitionState);
+  });
+  nextButton.click(toNextPage);
+  pagination.append(nextButton);
 
-(function () {
-  var divs = document.querySelectorAll(".page-item"),
-    len = divs.length,
-    i = 0;
-  for (; divs[i].setAttribute("onclick", "clval(" + i + ")"), ++i < len;);
-  clval = function (e) {
-    alert(e);
-  };
-}());
+  function toNextPage() {
+    currentIndex += 1;
+    console.log(`INDEEX`, currentIndex);
+  }
+
+  function toPrevPage() {
+    currentIndex -= 1;
+    console.log(`INDEEX`, currentIndex);
+  }
+};
