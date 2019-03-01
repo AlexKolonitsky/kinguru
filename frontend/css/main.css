@@ -160,10 +160,6 @@ img::-moz-selection {
   text-align: center;
 }
 
-.fa-star {
-  margin: 0 3px;
-  font-size: 16px;
-}
 .yellow {
   color: #ffd800;
 }
@@ -600,6 +596,20 @@ img::-moz-selection {
   margin: auto;
   padding: 20px;
   width: 86%;
+}
+
+#people .progress-star{
+  width: 100%;
+  position: absolute;
+}
+
+#people .progress-star .fa-star {
+  color: transparent;
+}
+
+#people .progress {
+  width: 45%;
+  position: relative;
 }
 
 .speaker-name-link {
@@ -1410,6 +1420,10 @@ img::-moz-selection {
 
   #contact {
     padding: 50px 0 70px 0;
+  }
+  .fa-star {
+    margin: 0 2px;
+    font-size: 18px;
   }
 }
 
