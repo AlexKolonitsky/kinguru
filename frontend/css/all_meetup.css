@@ -54,14 +54,16 @@
 
 .btn-free {
   background-color: #ffffff;
-  border: 1px solid #e0e0e0 !important;
+  border: 1px solid #e0e0e0;
   font-size: 0.8em;
   height: 30px;
   line-height: 32px;
-  padding: 0 1.5em;
+  padding: 0em 0.5em;
   font-family: "Muller Bold";
   color: #000;
-  margin: 10px 25px;
+  margin: 0px 25px;
+  text-align: center;
+  border-radius: 300px;
 }
 
 .btn-search {
@@ -86,7 +88,7 @@
 
 .fa-heart {
   font-size: 2em;
-  margin: 10px 25px;
+  margin: 0px 25px;
   color: #e0e0e0;
   cursor: pointer;
 }
@@ -191,6 +193,7 @@ option {
 
 .task-box .task-box-inner .task-box-inner_desc {
   padding: 25px;
+  height: 80%;
 }
 
 .task-box .task-box-inner > p {

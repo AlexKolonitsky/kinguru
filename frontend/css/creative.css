@@ -197,6 +197,11 @@ img::-moz-selection {
 	color: #000;
 }
 
+.btn-all-events {
+  color: blue;
+  text-decoration: underline;
+}
+
 #mainNav {
   padding-top: 13px;
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
