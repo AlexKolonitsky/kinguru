@@ -152,7 +152,7 @@ function showAllMeetups(allMeetups) {
       `<hr class="gray-separator" />` +
       `<div class="row">` +
       `<div class="col-6 text-left">` +
-      `<a href="#" class="btn-free btn">Free</a>` +
+      `<div class="btn-free">Free</div>` +
       `</div>` +
       `<div class="col-6 text-right">` +
       `<i class="fa fa-heart unlike" aria-hidden="true" onclick="like(this)"></i>` +

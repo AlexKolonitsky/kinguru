@@ -317,7 +317,7 @@ input::-webkit-inner-spin-button {
     z-index: 3;
   }
 
-  .input-switch + label{
+  #switch1 + label{
     width: 150px;
   }
 }
@@ -328,7 +328,7 @@ input::-webkit-inner-spin-button {
     padding-left: 10px;
   }
 
-  .input-switch + label{
+  #switch1 + label{
     width: 170px;
   }
 }
