@@ -2,7 +2,7 @@ FROM dmitryshevkun/base:base_1804_npm
 
 run mkdir -p /app
 WORKDIR /app
-COPY ./backend/* /app
+COPY ./backend/* /app/
 
 run npm i
 
