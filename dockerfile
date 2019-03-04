@@ -4,6 +4,7 @@ run mkdir -p /app
 WORKDIR /app
 COPY ./backend/* /app/
 
+run ls
 run npm i
 
 EXPOSE 3010
