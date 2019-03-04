@@ -9,4 +9,4 @@ run npm i
 
 EXPOSE 3010
 
-run pm2 index.js
+run pm2 start index.js
