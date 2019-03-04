@@ -1,8 +1,8 @@
 FROM dmitryshevkun/base:base_1804_npm
 
-run sudo mkdir -p /app
-run sudo git clone https://github.com/AlexKolonitsky/kinguru
-run sudo cp -r kinguru/backend/* app/
+run mkdir -p /app
+run git clone https://github.com/AlexKolonitsky/kinguru
+run cp -r kinguru/backend/* app/
 
 WORKDIR /app
 
