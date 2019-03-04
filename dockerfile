@@ -6,7 +6,7 @@ run sudo cp -r kinguru/backend/* app/
 
 WORKDIR /app
 
-run sudo npm i
+run npm i
 
 EXPOSE 3010
 
