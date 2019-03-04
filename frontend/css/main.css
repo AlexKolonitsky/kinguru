@@ -600,15 +600,18 @@ img::-moz-selection {
 
 #people .progress-star{
   width: 100%;
+  height: 100%;
   position: absolute;
 }
 
-#people .progress-star .fa-star {
-  color: transparent;
+#people .progress-star-item {
+  width: 100%;
+  height: 100%;
 }
 
 #people .progress {
-  width: 45%;
+  width: 50%;
+  height: 18px;
   position: relative;
 }
 
@@ -1406,6 +1409,10 @@ img::-moz-selection {
     width: 86%;
   }
 
+  #people .progress {
+    height: 17px;
+  }
+
   #comment .owl-item-inner {
     width: 100%;
     margin: auto;
@@ -1425,6 +1432,9 @@ img::-moz-selection {
     margin: 0 2px;
     font-size: 18px;
   }
+  #people .progress {
+    height: 18px;
+  }
 }
 
 @media only screen and (max-device-width: 1200px) {
@@ -1442,6 +1452,10 @@ img::-moz-selection {
 @media only screen and (max-width: 430px) {
   .navbar {
     padding: 0;
+  }
+
+  .progress {
+    margin: 0 auto;
   }
 
   section {
