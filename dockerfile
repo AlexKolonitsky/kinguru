@@ -1,4 +1,4 @@
-FROM base_1804_npm
+FROM dmitryshevkun/base:base_1804_npm
 
 run sudo mkdir -p /app
 run sudo git clone https://github.com/AlexKolonitsky/kinguru
