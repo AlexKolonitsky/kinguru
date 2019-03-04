@@ -1,10 +1,8 @@
 FROM dmitryshevkun/base:base_1804_npm
 
 run mkdir -p /app
-run git clone https://github.com/AlexKolonitsky/kinguru
-run cp -r kinguru/backend/* app/
-
 WORKDIR /app
+COPY ./backend/* /app
 
 run npm i
 
