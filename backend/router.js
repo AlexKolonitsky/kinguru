@@ -31,6 +31,7 @@ router.get('/filter/meetup', (req, res, next) => meetups.GetFilter.process(req, 
 
 const speakers = require('./services/speakers/index');
 router.post('/new/speaker', upload.single('image'),(req, res, next) => speakers.AddSpeaker.process(req, res, next));
+router.get('/speakers', (req, res, next) => speakers.GetAllSpeakers.process(req, res, next));
 router.delete('/speaker/:id', (req,res, next) => speakers.RemoveSpeaker.process(req, res, next));
 
 module.exports = router;

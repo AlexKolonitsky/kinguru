@@ -14,6 +14,10 @@ class SpeakersDao {
     return Promise.all(_.map(ids, id => this.getSpeaker(id)))
   }
 
+  getAllSpeakers() {
+    return Speakers.findAll({})
+  }
+
   addSpeaker(email, name, surname, awsUrl, awsKey) {
 
     return Speakers.findOrCreate({
