@@ -67,22 +67,26 @@ class MeetupDao {
   getCurrentMeetup(meetupId) {
 
     return Meetups.findOne({
-      attributes: meetupAttributes,
-      include: [{
-        model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
-        through: {attributes: []}
-      }],
       where: {
         id: meetupId
-      }
+      },
+      attributes: meetupAttributes,
+      include: [
+        {
+          model: Speakers, as: 'speakers', attributes: ['id', 'name', 'surname'],
+          through: {attributes: []}
+        },
+        {
+          model: Tags, as: 'tags', attributes: ['id', 'name'],
+          through: {attributes: []}
+        },
+      ],
     })
   }
 
   createMeetup(meetup) {
     meetup.tags = meetup.tags.split(',');
-    console.log(meetup);
-    let name = _.map(meetup.speakers, 'name');
-    let surname = _.map(meetup.speakers, 'surname');
+    meetup.speakers = meetup.speakers.split(',');
 
     return Promise.all([
       Meetups.findOrCreate({
@@ -91,47 +95,63 @@ class MeetupDao {
           city: meetup.city,
         },
         defaults: {
+          description: meetup.description,
+          isOpen: meetup.isOpen,
+          maxGuestsCount: meetup.maxGuestsCount,
+          guestsCount: meetup.guestsCount,
+          rate: meetup.rate,
+          cost: meetup.cost,
           starDate: meetup.startDate,
           endDate: meetup.endDate,
           coverSource: meetup.coverSource,
           coverKey: meetup.coverKey,
+          socialLink: meetup.socialLink,
+          country: meetup.country,
+          metro: meetup.metro,
+          typePlace: meetup.typePlace,
+          commentsCount: 0
         }
       }),
-      Tags.findOrCreate({
+      Tags.findAll({
         where: {
-          name: meetup.tags
+          id: meetup.tags
         }
       }),
       Speakers.findAll({
         where: {
-          name,
-          surname
+          id: meetup.speakers
         }
       })
     ])
       .then(response => {
         let meetup = response[zeroIndex][zeroIndex];
-        let tags = response[firstIndex];
-        let speakers = response[secondIndex];
-        let speakerIds = _.map(speakers, 'id');
-        let tagIds = _.map(tags, 'id');
+        let tagIds = _.map(response[firstIndex], 'id');
+        let speakerIds = _.map(response[secondIndex], 'id');
+        const promises = [];
 
-        return MeetupsSpeakers.findOrCreate({
-          where: {
-            meetupId: meetup.id,
-            speakerId: speakerIds
-          }
-        })
-          .then(() => {
-            return MeetupsTags.findOrCreate({
+        speakerIds.forEach(speakerId => {
+          promises.push(MeetupsSpeakers.findOrCreate({
+            where: {
               meetupId: meetup.id,
-              tagId: tagIds
-            })
-              .then(() => {
-                return this.getCurrentMeetup(meetup.id);
-              })
+              speakerId: speakerId
+            }
+          }))
+        });
+
+        tagIds.forEach(tagId => {
+          promises.push(MeetupsTags.findOrCreate({
+            where: {
+              meetupId: meetup.id,
+              tagId: tagId
+            }
+          }))
+        });
+
+        return Promise.all(promises)
+          .then(() => {
+            return this.getCurrentMeetup(meetup.id);
           })
-      });
+      })
   }
 
   getFilter() {
