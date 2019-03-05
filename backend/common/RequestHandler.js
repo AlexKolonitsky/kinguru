@@ -98,7 +98,6 @@ class RequestHandlers {
   process(request, response, next) {
 
     let errors = _.compact(this.validate(request));
-
     if (!_.isEmpty(errors)) {
       response.status(400).json({ errors: errors });
       return next();
