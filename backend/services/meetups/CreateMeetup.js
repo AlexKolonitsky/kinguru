@@ -35,7 +35,6 @@ class CreateMeetup extends RequestHandlers {
 
   methodAction(request) {
 
-    /*let { type, title, location, isFree, date, speakers } = request.body;*/
     let file = request.file;
     let filename = Date.now() + '-' + request.file.originalname;
     let contentType = request.file.mimetype;
