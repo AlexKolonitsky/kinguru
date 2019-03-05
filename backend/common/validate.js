@@ -20,7 +20,7 @@ const positiveIntegerReqex = /^\d+$/i;
 
 function fieldExist(key, value) {
   if (_isEmpty(value) && typeof value !== 'number') {
-    return `'${key}' field is reacquired`;
+    return `'${key}' field is required`;
   }
 }
 
