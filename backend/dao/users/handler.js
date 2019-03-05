@@ -20,11 +20,9 @@ class UsersDao {
 
   createUser(userInfo) {
 
-    let email = utils.encrypt(userInfo.email);
-
     return Users.findOne({
       where: {
-        email
+        email: userInfo.email
       }
     })
       .then(user => {

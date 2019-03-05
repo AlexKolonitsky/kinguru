@@ -40,15 +40,6 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: true,
     });
 
-  Speakers.beforeCreate((speaker, options) => {
-    return Promise.all([
-      utils.encrypt(speaker.email)
-    ])
-      .then(result => {
-        speaker.email = result
-      })
-  });
-
   Speakers.associate = models => {
 
     Speakers.belongsToMany(models.Meetups, {
