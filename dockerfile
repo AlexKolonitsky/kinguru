@@ -1,4 +1,4 @@
-FROM 188775681538.dkr.ecr.eu-west-1.amazonaws.com/base:base_1804_npm
+FROM dmitryshevkun/base:base_1804_npm
 
 run mkdir -p /app
 WORKDIR /app
