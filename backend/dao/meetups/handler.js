@@ -51,7 +51,6 @@ class MeetupDao {
           .then(meetupsResponse => {
             const meetups = meetupsResponse.rows;
             let filteredMeetups = meetups;
-            let meetupsCount = meetupsResponse.count;
             if (filteredMeetups.length === 0) {
               return Promise.reject(utils.responseError(404, `Meetup with location: ${filter.location} or  with: id ${filter.id} not found`))
             }
@@ -59,7 +58,11 @@ class MeetupDao {
               filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.endDate).getTime() < new Date().getTime());
               return Promise.resolve({filteredMeetups})
             }
-            return Promise.resolve({filteredMeetups, meetupsCount})
+            filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.endDate).getTime() >= new Date().getTime());
+            return Promise.resolve({
+              filteredMeetups: filteredMeetups,
+              meetupsCount: filteredMeetups.length
+            })
           })
       });
   }
