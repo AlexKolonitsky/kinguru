@@ -66,14 +66,16 @@ body {
   background: #C0C0C0;
 }
 
-#msform .reset-bnt {
+#msform .reset-btn {
   padding: 0.8em 2em;
   margin-top: 50px;
 }
 
-p{
-  margin: 0;
+#msform .login-btn {
+  padding: 0.8em 5em;
+  margin-top: 50px;
 }
+
 
 p:before {
   content:attr(type);
@@ -170,6 +172,7 @@ input[type="checkbox"] {
   text-decoration: underline;
   color: black;
   line-height: 40px;
+  font-family: "Muller Bold"
 }
 
 .share {
