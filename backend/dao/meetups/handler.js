@@ -56,7 +56,7 @@ class MeetupDao {
               return Promise.reject(utils.responseError(404, `Meetup with location: ${filter.location} or  with: id ${filter.id} not found`))
             }
             if (isRecent) {
-              filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.date).getTime() < new Date().getTime());
+              filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.endDate).getTime() < new Date().getTime());
               return Promise.resolve({filteredMeetups})
             }
             return Promise.resolve({filteredMeetups, meetupsCount})
