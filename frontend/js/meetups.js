@@ -230,16 +230,16 @@ function paginationPage(allList) {
   const pagination = $(`.pagination`);
   const prevButton =
     $(`<li class="page-item pagination-list">` +
-      `<a class="page-link" tabindex="-1"><i class="fa fa-angle-left" aria-hidden="true"></i></a>` +
+      `<a href="#task" class="page-link" tabindex="-1"><i class="fa fa-angle-left" aria-hidden="true"></i></a>` +
       `</li>`);
   const nextButton =
     $(`<li class="page-item pagination-list">` +
-      `<a class="page-link" tabindex="-1"><i class="fa fa-angle-right" aria-hidden="true"></i></a>` +
+      `<a href="#task" class="page-link" tabindex="-1"><i class="fa fa-angle-right" aria-hidden="true"></i></a>` +
       `</li>`);
   prevButton.click(toPrevPage);
   pagination.append(prevButton);
   for (let i = 0; i < allList; i++) {
-    li = $(`<li class="page-item item-number"><a class="page-link">${i + 1}</a></li>`);
+    li = $(`<li class="page-item item-number"><a href="#task" class="page-link">${i + 1}</a></li>`);
     li.click(() => {
       currentIndex = i;
       console.log(currentIndex);
