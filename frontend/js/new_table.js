@@ -30,9 +30,24 @@ $(function () {
   });
 });
 
-function initMap() {
-  var uluru = {lat: -25.344, lng: 131.036};
-  var map = new google.maps.Map(
-    document.getElementById('map'), {zoom: 4, center: uluru});
-  var marker = new google.maps.Marker({position: uluru, map: map});
-}
+$.ajax({
+  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/filter/meetup',
+  method: 'GET',
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  success: function (jsondata) {
+    allTags(jsondata.Tags);
+    $('#tags').multiSelect();
+  }
+});
+
+function allTags(recentTags) {
+  let tagsListContent = ``;
+  recentTags.forEach(tag => {
+    let tagsContent =
+      `<option value="${tag.id}">${tag.name}</option>`;
+    tagsListContent += tagsContent;
+  });
+  $('.tags-content').append(tagsListContent);
+};
+

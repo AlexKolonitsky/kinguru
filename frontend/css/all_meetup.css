@@ -64,6 +64,7 @@
   margin: 0px 25px;
   text-align: center;
   border-radius: 300px;
+  cursor: default;
 }
 
 .btn-search {
