@@ -1,0 +1,178 @@
+@font-face {
+  font-family: "Muller Regular";
+  src: url("../fonts/MullerRegular.eot");
+  src: url("../fonts/MullerRegular.woff") format("woff"),
+    url("../fonts/MullerRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Muller Bold";
+  src: url("../fonts/MullerBold.eot");
+  src: url("../fonts/MullerBold.woff") format("woff"),
+  url("../fonts/MullerBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+  /*border-color: #ffd800;*/
+
+/*---new style-----*/
+
+* {margin: 0; padding: 0;}
+
+html {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: "Muller Regular";
+  background: transparent;
+}
+/*form styles*/
+#msform {
+  width: 600px;
+  margin: 10px 0 0 0;
+  position: relative;
+  background-color: #ffffff;
+  padding: 50px 70px;
+  border-radius: 3px;
+}
+
+/*buttons*/
+#msform .action-button {
+  background: #ffd800;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-family: "Muller Bold" ;
+  color: #000000;
+  border: 0 none;
+  border-radius: 300px;
+  cursor: pointer;
+  padding: 0.7em 4em;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+  box-shadow: 0 0 0 1px white, 0 0 0 3px #ffd800;
+  outline: none;
+}
+
+#msform .action-button:disabled {
+  background: #C0C0C0;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 2em;
+  font-family: "Muller Bold";
+  padding-bottom: 30px;
+}
+
+.form-item {
+  padding: 0;
+}
+
+.input_field {
+  width:100%;
+  padding: 5px;
+  box-sizing:border-box;
+  background:none;
+  outline:none;
+  resize:none;
+  border:0;
+  transition:all .3s;
+  border-bottom:1px solid #C0C0C0;
+}
+
+.input_field:focus {
+  border-bottom:1px solid #ffd800;
+}
+
+p:before {
+  content:attr(type);
+  display:block;
+  margin:28px 0 0;
+  font-size:16px;
+  color:#C0C0C0;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.accept_terms + label:before {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  content: "\2713";
+  color: transparent;
+  display: inline-block;
+  border: 1px solid grey;
+  font-size: 20px;
+  line-height: 22px;
+  margin: -5px 15px 0 0;
+  text-align: center;
+  vertical-align: middle;
+  transition: color ease .3s;
+}
+
+.accept_terms:checked + label:before {
+  color: #ffd539;
+}
+
+.accept_label {
+  padding: 20px 15px;
+  font-family: "Muller Bold"
+}
+
+.terms-link {
+  text-decoration: underline;
+  color: black;
+  line-height: 40px;
+}
+
+.share {
+  margin: 0 auto;
+}
+
+.share-btn {
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 0 0 10px;
+  font-size: 1.1em;
+  border-radius: 50%;
+}
+
+.share-facebook {
+  background: #3b5998;
+}
+
+.share-in {
+  background: #0077b5;
+}
+
+.fa {
+  line-height: 40px;
+  color: white;
+}
+
+.pass{
+   margin: 0;
+}
+
+.not_match {
+  color: red;
+}
+
+.match {
+  color: green;
+}
+
+
+

@@ -15,20 +15,18 @@
   font-weight: normal;
   font-style: normal;
 }
-
-  /*border-color: #ffd800;*/
-
 /*---new style-----*/
 
 * {margin: 0; padding: 0;}
 
-html {
+html{
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
 }
 
 body {
   font-family: "Muller Regular";
+  background-color: rgba(0, 0, 0, 0.2);
 }
 /*form styles*/
 #msform {
