@@ -4,7 +4,7 @@ const RequestHandlers = require('./../../common/RequestHandler');
 const { MeetupsDaoHandler } = require('../../dao/handlers');
 const validator = require('./../../common/validate');
 const _ = require('lodash');
-const utils = require('../../common/securityAssert');
+const utils = require('./../../common/securityAssert');
 
 /**
  * Is used for getting current meetup
