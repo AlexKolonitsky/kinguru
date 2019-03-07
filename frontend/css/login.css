@@ -220,6 +220,16 @@ input[type="checkbox"] {
   color: #ffd539;
 }
 
+#open-log-in,
+#open-sing-up {
+  border: none;
+  text-decoration: underline;
+  background-color: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-family:"Muller Bold";
+}
+
 
 
 
