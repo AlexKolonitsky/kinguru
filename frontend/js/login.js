@@ -19,9 +19,9 @@
     var confirmPassword = $("#passch").val();
 
     if (password != confirmPassword)
-      $("#divCheckPasswordMatch").html("<p class='pass not_match'>Passwords do not match</p>");
-    else
       $("#divCheckPasswordMatch").html("<p class='pass match'>Passwords match</p>");
+    else
+      $("#divCheckPasswordMatch").html("<p class='pass not_match'>Passwords don't match</p>");
   }
 
   $(document).ready(function () {

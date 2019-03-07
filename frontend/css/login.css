@@ -30,17 +30,17 @@ body {
   background: transparent;
 }
 /*form styles*/
-#msform_login {
+.sign_up_form{
   width: 500px;
   margin: 10px 0 0 0;
   position: relative;
   background-color: #ffffff;
-  padding: 30px 70px;
+  padding: 10px 70px 20px;
   border-radius: 3px;
 }
 
 /*buttons*/
-#msform_login .action-btn {
+.sign_up_form .action-btn{
   background: #ffd800;
   font-size: 1em;
   line-height: 1em;
@@ -50,36 +50,35 @@ body {
   border-radius: 300px;
   cursor: pointer;
   padding: 0.8em 4em;
-  margin: 20px 0;
+  margin: 10px 0;
   text-transform: uppercase;
 }
 
-#msform_login .action-btn:hover,
-#msform_login .action-btn:focus {
+.sign_up_form .action-btn:hover,
+.sign_up_form .action-btn:focus{
   box-shadow: 0 0 0 1px white, 0 0 0 3px #ffd800;
   outline: none;
 }
 
-#msform_login .action-btn:disabled {
+.sign_up_form .action-btn:disabled{
   background: #C0C0C0;
 }
 
-#msform_login .reset-btn {
+.sign_up_form  .reset-btn {
   padding: 0.8em 2em;
   margin-top: 50px;
 }
 
-#msform_login .login-btn {
+.sign_up_form  .login-btn {
   padding: 0.8em 5em;
   margin-top: 50px;
 }
 
-
 .login-form-item:before {
   content:attr(type);
   display:block;
-  margin:30px 0 0;
-  font-size:16px;
+  margin:20px 0 0;
+  font-size:14px;
   color:#C0C0C0;
 }
 
@@ -87,7 +86,8 @@ body {
   text-align: center;
   font-size: 2em;
   font-family: "Muller Bold";
-  padding-bottom: 30px;
+  padding-bottom: 10px;
+  margin: 0;
 }
 
 .title-forgot {
@@ -128,6 +128,7 @@ body {
 
 .pass{
   margin: 0;
+  font-size: 10px;
 }
 
 .not_match {
@@ -163,7 +164,8 @@ input[type="checkbox"] {
 }
 
 .accept_label {
-  padding: 20px 15px;
+  padding: 0 15px;
+  margin: 0;
   font-family: "Muller Bold"
 }
 
