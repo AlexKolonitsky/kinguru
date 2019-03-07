@@ -62,7 +62,8 @@ body {
   font-family: "Muller Regular";
 }
 
-hr {
+.yellow-separator,
+.footer-title-divider{
   max-width: 72px;
   border-width: 3px;
   border-color: #ffd800;
@@ -199,7 +200,8 @@ img::-moz-selection {
   color: #000;
 }
 
-.btn-join {
+.event-join .btn-join,
+.button .btn-join{
   background-color: #ffd800;
   border-color: #ffd800;
   font-size: 20px;
@@ -207,6 +209,7 @@ img::-moz-selection {
   line-height: 55px;
   padding: 0 4em;
   font-family: "Muller Bold";
+  border-radius: 300px;
   font-weight: inherit;
   color: #000;
 }
@@ -490,6 +493,13 @@ img::-moz-selection {
   height: 93%;
   background-color: #f1f1f1;
   color: #848484;
+  border-radius: 50%;
+  margin: 0;
+}
+
+#task .task-title {
+  color: white;
+  font-family: "Muller ExtraBold";
 }
 
 .event {
@@ -885,6 +895,10 @@ img::-moz-selection {
   margin-top: 20px;
 }
 
+.owl-carousel .owl-stage {
+  margin: 0 auto;
+}
+
 #guests .owl-prev {
   top: 15%;
   left: -20px;
@@ -977,7 +991,7 @@ img::-moz-selection {
   width: auto;
 }
 
-.btn-join-meetup {
+.button .btn-join-meetup {
   padding: 0 68px;
   font-size: 14px;
 }
@@ -1327,10 +1341,10 @@ img::-moz-selection {
     margin: auto;
   }
 
-  .place-info-wrapper {
+  #place .place-info-wrapper {
     width: 710px;
     max-width: 710px;
-    margin: auto;
+    margin: 0 auto;
   }
 
   .footer-quick-links-wrapper,
@@ -1360,7 +1374,7 @@ img::-moz-selection {
   }
 
   .event-item {
-    margin-top: -200px;
+    margin-top: -300px;
   }
 
   .footer-quick-links-wrapper {
@@ -1375,7 +1389,7 @@ img::-moz-selection {
     padding-left: 70px;
   }
 
-  .place-info-wrapper {
+  #place .place-info-wrapper {
     width: 1000px;
     max-width: 1000px;
   }
@@ -1708,6 +1722,13 @@ img::-moz-selection {
   display:none;
 }
 
+#login-btn {
+  font-weight: 400;
+  padding: 0.5em 2em;
+  border-radius: 300px;
+  background-color: #ffd800;
+}
+
 #login-form {
   border-radius: 5px;
   border: none;
@@ -1733,7 +1754,7 @@ img::-moz-selection {
 }
 
 #overlay-login {
-  z-index: 99;
+  z-index: 999;
   position:fixed;
   background-color:#000;
   opacity:0.8;

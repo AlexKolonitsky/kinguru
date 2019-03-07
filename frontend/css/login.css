@@ -20,8 +20,6 @@
 
 /*---new style-----*/
 
-* {margin: 0; padding: 0;}
-
 html {
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
@@ -32,17 +30,17 @@ body {
   background: transparent;
 }
 /*form styles*/
-#msform {
+#msform_login {
   width: 500px;
   margin: 10px 0 0 0;
   position: relative;
   background-color: #ffffff;
-  padding: 50px 70px;
+  padding: 30px 70px;
   border-radius: 3px;
 }
 
 /*buttons*/
-#msform .action-btn {
+#msform_login .action-btn {
   background: #ffd800;
   font-size: 1em;
   line-height: 1em;
@@ -56,28 +54,28 @@ body {
   text-transform: uppercase;
 }
 
-#msform .action-btn:hover,
-#msform .action-btn:focus {
+#msform_login .action-btn:hover,
+#msform_login .action-btn:focus {
   box-shadow: 0 0 0 1px white, 0 0 0 3px #ffd800;
   outline: none;
 }
 
-#msform .action-btn:disabled {
+#msform_login .action-btn:disabled {
   background: #C0C0C0;
 }
 
-#msform .reset-btn {
+#msform_login .reset-btn {
   padding: 0.8em 2em;
   margin-top: 50px;
 }
 
-#msform .login-btn {
+#msform_login .login-btn {
   padding: 0.8em 5em;
   margin-top: 50px;
 }
 
 
-p:before {
+.login-form-item:before {
   content:attr(type);
   display:block;
   margin:30px 0 0;
@@ -107,7 +105,8 @@ p:before {
   margin: 0;
 }
 
-.form-item {
+.form-item,
+.login-form-items{
   padding: 0;
 }
 
