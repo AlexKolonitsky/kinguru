@@ -47,9 +47,7 @@ class RegisterUser extends RequestHandlers {
 
   methodAction(request) {
 
-    let { username, surname, password, email } = request.body;
-
-    return UsersDaoHandler.createUser({ username, surname, password, email })
+    return UsersDaoHandler.createUser(request.body)
       .then(() => {
         console.log('User successfully registration');
         return Promise.resolve('Ok')
@@ -57,7 +55,7 @@ class RegisterUser extends RequestHandlers {
       .catch((err) => {
         if (err.code === ERRORS_CODE.DUPLICATE) {
           return Promise.reject({
-            code: 404,
+            code: 401,
             message: `The user with email '${request.body.email}' has already been registered`,
           });
         }

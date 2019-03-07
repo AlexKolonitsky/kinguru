@@ -27,7 +27,14 @@ class UsersDao {
     })
       .then(user => {
         if (!user) {
-          return Users.create(userInfo);
+          return Users.create({
+            username: userInfo.username,
+            email: userInfo.email,
+            password: userInfo.password,
+            country: userInfo.country,
+            city: userInfo.city,
+            phone: userInfo.phone
+          });
         }
         return Promise.reject({ code: ERRORS_CODE.DUPLICATE });
       });
@@ -35,18 +42,17 @@ class UsersDao {
 
   findEmailAndPassword(email, password) {
 
-    let emailcrypt = utils.encrypt(email);
-    let hashPassword = utils.hashPassword(password);
+    const hashPassword = utils.hashPassword(password);
 
     return Users.findOne({
       where: {
-        email: emailcrypt,
+        email: email,
         password: hashPassword,
       }
     })
       .then(user => {
         if (user) {
-          return _.pick(user, ['id', 'username', 'surname'])
+          return _.pick(user, ['id', 'username', 'email'])
         }
         return Promise.reject({code: ERRORS_CODE.NOT_FOUND})
       })
