@@ -7,18 +7,19 @@ const utils = require('./securityAssert');
 /**
  * @description - is used for validate user's encrypted access jwt token: from headers
  */
+
+function getToken(req) {
+  if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
+    return req.headers.authorization.split(' ')[1];
+  }
+
+  return null;
+}
+
 const jwt = expressJwt({
   secret: utils.getJwtSecret(),
   credentialsRequired: false,
-  getToken: function (req) {
-
-    if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
-      return req.headers.authorization.split(' ')[1];
-    }
-
-    return null;
-  },
-
+  getToken: getToken
 });
 
 /**
@@ -30,12 +31,14 @@ const jwt = expressJwt({
  * @private
  */
 function _assertJwt(req, res, next) {
-
-  if (!req.user || !req.user.user) {
+  const token = getToken(req);
+  const user = token ? utils.getUserByToken(getToken(req)) : null;
+  if (!user || !user.user) {
+    console.log(user);
     return res.status(403).end('User not authorized');
   }
 
-  return next();
+  return true;
 }
 
 /**
@@ -60,5 +63,6 @@ function assertRole(role) {
 
 module.exports = {
   jwt: [jwt, _assertJwt],
+  assertJwt: _assertJwt,
   access: assertRole,
 };

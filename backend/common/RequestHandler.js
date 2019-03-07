@@ -9,6 +9,8 @@
 
 const _ = require('lodash');
 const utils = require('./securityAssert');
+const assert = require('./assert');
+
 
 /**
  * @type {Symbol} handleErrors - private method for logging, sending error in http response, call next() middleware
@@ -95,8 +97,7 @@ class RequestHandlers {
    * @param {Function} next
    * @returns {*}
    */
-  process(request, response, next) {
-
+  process(request, response, next, isAuthorize) {
     let errors = _.compact(this.validate(request));
     if (!_.isEmpty(errors)) {
       response.status(400).json({ errors: errors });
@@ -106,6 +107,10 @@ class RequestHandlers {
     let newToken = this[refreshToken](request.user);
     if (newToken) {
       response.header('Authorization', newToken);
+    }
+
+    if (isAuthorize && !assert.assertJwt(request, response, next)) {
+      return;
     }
 
     this.methodAction(request, response)

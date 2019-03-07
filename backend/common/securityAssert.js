@@ -43,6 +43,10 @@ function getJwtToken(userInfo) {
   return `Bearer ${jwt.sign({ user: userInfo }, SECURITY.JWT_SECRET, { expiresIn: SECURITY.TOKEN_EXPIRE_TIME })}`;
 }
 
+function getUserByToken(token) {
+  return jwt.verify(token, SECURITY.JWT_SECRET);
+}
+
 /**
  * @function encrypt - is using for encrypting incoming string, e.g. email
  * @param {string} value
@@ -101,6 +105,7 @@ module.exports = {
   ERRORS_CODE,
   hashPassword,
   getJwtToken,
+  getUserByToken,
   encrypt,
   decrypt,
   generatePassword,

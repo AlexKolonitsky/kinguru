@@ -49,8 +49,10 @@ class MeetupDao {
           where: filter,
         })
           .then(meetupsResponse => {
-            const meetups = meetupsResponse.rows;
-            let filteredMeetups = meetups;
+            let filteredMeetups = meetupsResponse.rows.map(meetup => {
+              meetup.rate = meetup.rate / (meetup.commentsCount || 1);
+              return meetup;
+            });
             if (filteredMeetups.length === 0) {
               return Promise.reject(utils.responseError(404, `Meetup with location: ${filter.location} or  with: id ${filter.id} not found`))
             }
