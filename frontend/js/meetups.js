@@ -65,14 +65,13 @@ function showRecentMeetups(recentMeetups) {
       `         alt="reportage"` +
       `     /></a>` +
       `     <div class="task-box-inner">` +
-      `       <div class="task-box-inner_desc">` +
-      `         <p>` +
-      `           <i class="fa fa-star yellow" aria-hidden="true"></i` +
-      `           ><i class="fa fa-star yellow" aria-hidden="true"></i` +
-      `           ><i class="fa fa-star yellow" aria-hidden="true"></i` +
-      `           ><i class="fa fa-star gray" aria-hidden="true"></i` +
-      `           ><i class="fa fa-star gray" aria-hidden="true"></i>` +
-      `         </p>` +
+             `<div class="task-box-inner_desc">` +
+              `<div class="progress">` +
+                `<div class="progress-bar bg-warning" role="progressbar" style="width: ${meetup.rate}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>` +
+                `<div class="progress-star">` +
+                 `<img class="progress-star-item" src="img/obvod.png" alt="">` +
+                `</div>` +
+              `</div>` +
       `         <h4 class="title-meetup">${meetup.title}</h4>` +
       `         <hr />` +
       `         <div class="card card-body">`;

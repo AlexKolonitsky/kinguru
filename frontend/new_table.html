@@ -119,16 +119,14 @@
             </div>
             <div class="row">
               <p type="Tags" class="col-lg-8 col-12">
-                <select class="tags-content" id="tags" name="tags" multiple>
-
-                </select>
+                <select class="tags-content" id="tags" name="tags" multiple></select>
               </p>
               <p class="col-lg-4 col-0">
               </p>
             </div>
             <div class="row">
               <p type="Meeting poster?" class="col-lg-8 col-12">
-                <input name="myFile" type="file" id="file" class="input_file">
+                <input name="myFile" type="file" id="file" class="input_file" onchange="addImage(event)">
                 <label class="load_poster col-12" for="file">
                   <span class="add_poster">
                     <i class="fa fa-image"></i>
@@ -159,7 +157,7 @@
                 <label class="label-speaker" for="vehicle1">Choose a speaker</label>
                 <div class="row bike-open">
                   <p type="Start typing the name" class="col-lg-8 col-12">
-                    <input class="input_field" name="about" type="text" required/>
+                    <input class="input_field" id="myInput" type="text" name="myCountry" placeholder="Country">
                   </p>
                   <p class="col-lg-4 col-0">
                   </p>
@@ -451,6 +449,7 @@
 <script src="js/new_table.js "></script>
 <script src="js/google_map.js"></script>
 <script src="js/data.js"></script>
+<script src="js/environment.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXFqmqsAuHyK-GCF5HDrMqu5WULRpFN-8&callback=initMap" type="text/javascript"></script>
 </body>
 </html>

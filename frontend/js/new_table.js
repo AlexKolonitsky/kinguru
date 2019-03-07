@@ -30,16 +30,44 @@ $(function () {
   });
 });
 
+function methodGet (url, state) {
 $.ajax({
-  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/filter/meetup',
+  url: url,
   method: 'GET',
   dataType: "json",
   contentType: "application/json; charset=utf-8",
-  success: function (jsondata) {
-    allTags(jsondata.Tags);
-    $('#tags').multiSelect();
-  }
+  success: state,
 });
+};
+
+window.addEventListener("load", function () {
+  let tags = isStateSuccess(true);
+  let speakers = isStateSuccess(false);
+  let urlTags = 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/filter/meetup';
+  let urlSpeakers = 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/speakers';
+  methodGet(urlTags, tags);
+  methodGet(urlSpeakers, speakers);
+
+});
+
+var speakers = [];
+
+function isStateSuccess (isState) {
+  if (isState == true) {
+    let a = function (jsondata) {
+      allTags(jsondata.Tags);
+      $('#tags').multiSelect();
+    };
+    return a;
+  } else {
+    let b = function (jsondata) {
+      speakers = jsondata;
+      autocomplete(document.getElementById("myInput"), speakers);
+      console.log(speakers);
+    };
+    return b;
+  }
+}
 
 function allTags(recentTags) {
   let tagsListContent = ``;
