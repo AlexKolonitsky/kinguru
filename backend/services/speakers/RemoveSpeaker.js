@@ -30,8 +30,7 @@ class RemoveSpeaker extends RequestHandlers {
 
   validate(request) {
     return [
-      validator.fieldExist('id', request.params.id),
-
+      validator.fieldExist('id', request.params.id)
     ];
   }
 

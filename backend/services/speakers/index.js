@@ -7,5 +7,5 @@ const RemoveSpeaker = require('./RemoveSpeaker');
 module.exports = {
   AddSpeaker: new AddSpeaker(),
   GetAllSpeakers: new GetAllSpeakers(),
-  RemoveSpeaker: new RemoveSpeaker,
+  RemoveSpeaker: new RemoveSpeaker(),
 };

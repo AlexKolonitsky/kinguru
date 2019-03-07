@@ -8,7 +8,7 @@ const firstIndex = 1;
 const secondIndex = 2;
 const meetupAttributes = [
   'id', 'title', 'description', 'isOpen', 'maxGuestsCount', 'guestsCount',
-  'rate', 'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
+  'commonRate', 'currentRate', 'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
   'country', 'city', 'metro', 'typePlace'
 ];
 
@@ -49,10 +49,7 @@ class MeetupDao {
           where: filter,
         })
           .then(meetupsResponse => {
-            let filteredMeetups = meetupsResponse.rows.map(meetup => {
-              meetup.rate = meetup.rate / (meetup.commentsCount || 1);
-              return meetup;
-            });
+            let filteredMeetups = meetupsResponse.rows;
             if (filteredMeetups.length === 0) {
               return Promise.reject(utils.responseError(404, `Meetup with location: ${filter.location} or  with: id ${filter.id} not found`))
             }

@@ -29,7 +29,7 @@ class GetCurrentMeetup extends RequestHandlers {
 
   methodAction(request) {
 
-    let meetupId = request.params.id;
+    const meetupId = request.params.id;
 
     return MeetupsDaoHandler.getCurrentMeetup(meetupId)
       .then(meetup => {

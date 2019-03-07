@@ -98,7 +98,8 @@ class RequestHandlers {
    * @returns {*}
    */
   process(request, response, next, isAuthorize) {
-    let errors = _.compact(this.validate(request));
+    const errors = _.compact(this.validate(request));
+
     if (!_.isEmpty(errors)) {
       response.status(400).json({ errors: errors });
       return next();

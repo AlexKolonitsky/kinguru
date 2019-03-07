@@ -34,4 +34,14 @@ router.post('/new/speaker', upload.single('image'),(req, res, next) => speakers.
 router.get('/speakers', (req, res, next) => speakers.GetAllSpeakers.process(req, res, next));
 router.delete('/speaker/:id', (req,res, next) => speakers.RemoveSpeaker.process(req, res, next));
 
+/**
+ * @description Locations endpoints
+ */
+
+const locations = require('./services/locations/index');
+router.get('/locations', (req, res, next) => locations.GetAllLocations.process(req, res, next));
+router.get('/location/:id', (req, res, next) => locations.GetCurrentLocation.process(req, res, next));
+/*router.get('/speakers', (req, res, next) => speakers.GetAllSpeakers.process(req, res, next));
+router.delete('/speaker/:id', (req,res, next) => speakers.RemoveSpeaker.process(req, res, next));*/
+
 module.exports = router;
