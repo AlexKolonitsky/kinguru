@@ -352,7 +352,7 @@
   $(function () {
     $("#includedContent").load('rating.html');
     $('#login-content').load('login.html');
-    $('#open-sing-up').load('sign_up.html');
+    $('#open-sign-up').load('sign_up.html');
     $('#footer').load('footer.html');
     $('#header').load('header.html');
   });
