@@ -50,12 +50,10 @@ module.exports = (sequelize, DataTypes) => {
 
     startDate: {
       type: DataTypes.DATE,
-      allowNull: false,
     },
 
     endDate: {
       type: DataTypes.DATE,
-      allowNull: false,
     },
 
     socialLink: {

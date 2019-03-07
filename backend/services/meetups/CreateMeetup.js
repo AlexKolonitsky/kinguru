@@ -29,23 +29,22 @@ class CreateMeetup extends RequestHandlers {
   validate(request) {
     return [
       validator.fieldExist('title', request.body.title),
-      validator.fieldExist('type', request.body.type),
-      validator.fieldExist('image', request.file),
+      // validator.fieldExist('image', request.file),
     ];
   }
 
   methodAction(request) {
 
-    let { type, title, location, isFree, date, speakers } = request.body;
     let file = request.file;
     let filename = Date.now() + '-' + request.file.originalname;
     let contentType = request.file.mimetype;
 
     return this.s3.upload(filename, file.buffer, contentType)
       .then(data => {
-        let coverSource = data.Location;
-        let coverKey = data.key;
-        return MeetupsDaoHandler.createMeetup(type, title, location, isFree, date, speakers, coverSource, coverKey)
+        request.body.coverSource = data.Location;
+        request.body.coverKey = data.key;
+        console.log(request.body);
+        return MeetupsDaoHandler.createMeetup(request.body)
       })
   }
 

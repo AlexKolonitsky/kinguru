@@ -17,17 +17,18 @@ class AddSpeaker extends RequestHandler {
   }
 
   methodAction(request) {
-
-    const { email, name, surname } = request.body;
     let file = request.file;
-    let filename = Date.now() + '-' + request.file.originalname;
-    let contentType = request.file.mimetype;
+    if (!file) {
+      return SpeakersDaoHandler.addSpeaker(request.body);
+    }
+    let filename = Date.now() + '-' + file.originalname;
+    let contentType = file.mimetype;
 
     return this.s3.upload(filename, file.buffer, contentType)
       .then(data => {
-        let awsUrl = data.Location;
-        let awsKey = data.key;
-        return SpeakersDaoHandler.addSpeaker(email, name, surname, awsUrl, awsKey);
+        request.body.awsUrl = data.Location;
+        request.body.awsKey = data.key;
+        return SpeakersDaoHandler.addSpeaker(request.body);
       })
 
   }

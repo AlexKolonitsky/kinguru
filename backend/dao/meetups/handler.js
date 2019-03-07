@@ -5,6 +5,13 @@ const {Meetups, Speakers, MeetupsSpeakers, Tags, MeetupsTags} = require('./../in
 const utils = require('./../../common/securityAssert');
 const zeroIndex = 0;
 const firstIndex = 1;
+const secondIndex = 2;
+const meetupAttributes = [
+  'id', 'title', 'description', 'isOpen', 'maxGuestsCount', 'guestsCount',
+  'rate', 'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
+  'country', 'city', 'metro', 'typePlace'
+];
+
 
 /**
  * @description dashboard all meetups and search
@@ -28,11 +35,7 @@ class MeetupDao {
         return Meetups.findAndCountAll({
           limit,
           offset,
-          attributes: [
-            'id', 'title', 'description', 'isOpen', 'maxGuestsCount', 'guestsCount',
-            'rate', 'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
-            'country', 'city', 'metro', 'typePlace'
-          ],
+          attributes: meetupAttributes,
           include: [
             {
               model: Speakers, as: 'speakers', attributes: ['id', 'name', 'surname'],
@@ -48,15 +51,18 @@ class MeetupDao {
           .then(meetupsResponse => {
             const meetups = meetupsResponse.rows;
             let filteredMeetups = meetups;
-            let meetupsCount = meetupsResponse.count;
             if (filteredMeetups.length === 0) {
               return Promise.reject(utils.responseError(404, `Meetup with location: ${filter.location} or  with: id ${filter.id} not found`))
             }
             if (isRecent) {
-              filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.date).getTime() < new Date().getTime());
+              filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.endDate).getTime() < new Date().getTime());
               return Promise.resolve({filteredMeetups})
             }
-            return Promise.resolve({filteredMeetups, meetupsCount})
+            filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.endDate).getTime() >= new Date().getTime());
+            return Promise.resolve({
+              filteredMeetups: filteredMeetups,
+              meetupsCount: filteredMeetups.length
+            })
           })
       });
   }
@@ -64,58 +70,91 @@ class MeetupDao {
   getCurrentMeetup(meetupId) {
 
     return Meetups.findOne({
-      attributes: ['id', 'title', 'location', 'isFree', 'date', 'coverSource', 'coverKey'],
-      include: [{
-        model: Speakers, as: 'speakers', attributes: ['name', 'surname'],
-        through: {attributes: []}
-      }],
       where: {
         id: meetupId
-      }
+      },
+      attributes: meetupAttributes,
+      include: [
+        {
+          model: Speakers, as: 'speakers', attributes: ['id', 'name', 'surname'],
+          through: {attributes: []}
+        },
+        {
+          model: Tags, as: 'tags', attributes: ['id', 'name'],
+          through: {attributes: []}
+        },
+      ],
     })
   }
 
-  createMeetup(type, title, location, date, speakers, coverSource, coverKey) {
-
-    let name = _.map(speakers, 'name');
-    let surname = _.map(speakers, 'surname');
+  createMeetup(meetup) {
+    meetup.tags = meetup.tags.split(',');
+    meetup.speakers = meetup.speakers.split(',');
 
     return Promise.all([
       Meetups.findOrCreate({
         where: {
-          title,
-          type,
-          location,
+          title: meetup.title,
+          city: meetup.city,
         },
         defaults: {
-          date,
-          coverSource,
-          coverKey,
+          description: meetup.description,
+          isOpen: meetup.isOpen,
+          maxGuestsCount: meetup.maxGuestsCount,
+          guestsCount: meetup.guestsCount,
+          rate: meetup.rate,
+          cost: meetup.cost,
+          starDate: meetup.startDate,
+          endDate: meetup.endDate,
+          coverSource: meetup.coverSource,
+          coverKey: meetup.coverKey,
+          socialLink: meetup.socialLink,
+          country: meetup.country,
+          metro: meetup.metro,
+          typePlace: meetup.typePlace,
+          commentsCount: 0
         }
       }),
-
+      Tags.findAll({
+        where: {
+          id: meetup.tags
+        }
+      }),
       Speakers.findAll({
         where: {
-          name,
-          surname
+          id: meetup.speakers
         }
       })
     ])
-      .then(result => {
-        let meetup = result[zeroIndex][zeroIndex];
-        let speakers = result[firstIndex];
-        let speakerIds = _.map(speakers, 'id');
+      .then(response => {
+        let meetup = response[zeroIndex][zeroIndex];
+        let tagIds = _.map(response[firstIndex], 'id');
+        let speakerIds = _.map(response[secondIndex], 'id');
+        const promises = [];
 
-        return MeetupsSpeakers.findOrCreate({
-          where: {
-            meetupId: meetup.id,
-            speakerId: speakerIds
-          }
-        })
+        speakerIds.forEach(speakerId => {
+          promises.push(MeetupsSpeakers.findOrCreate({
+            where: {
+              meetupId: meetup.id,
+              speakerId: speakerId
+            }
+          }))
+        });
+
+        tagIds.forEach(tagId => {
+          promises.push(MeetupsTags.findOrCreate({
+            where: {
+              meetupId: meetup.id,
+              tagId: tagId
+            }
+          }))
+        });
+
+        return Promise.all(promises)
           .then(() => {
-            return this.getCurrentMeetup(meetup.id)
+            return this.getCurrentMeetup(meetup.id);
           })
-      });
+      })
   }
 
   getFilter() {
