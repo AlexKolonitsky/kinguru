@@ -327,8 +327,32 @@
     });
   });
 
+  $(document).ready(function () {
+    $('#login-btn').click(function (event) {
+      console.log('hello');
+      event.preventDefault();
+      $('#overlay-login').fadeIn(400,
+        function () {
+          $('#login-form')
+            .css('display', 'block')
+            .animate({opacity: 1, top: '50%'}, 200);
+        });
+    });
+    $('#modal_close, #overlay-login').click(function () {
+      $('#login-form')
+        .animate({opacity: 0, top: '45%'}, 200,
+          function () {
+            $(this).css('display', 'none');
+            $('#overlay-login').fadeOut(400);
+          }
+        );
+    });
+  });
+
   $(function () {
     $("#includedContent").load('rating.html');
+    $('#login-content').load('login.html');
+    $('#open-sing-up').load('sign_up.html');
     $('#footer').load('footer.html');
     $('#header').load('header.html');
   });

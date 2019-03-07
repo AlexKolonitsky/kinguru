@@ -15,7 +15,7 @@ window.addEventListener("load", function () {
   let enitionState = isEnitionState(true);
   let enitionRecent = isEnitionState(false);
   let allMeetup = {limit: 12, offset: 0};
-  let allRecentMeetup = {limit: 3};
+  let allRecentMeetup = {limit: 3, isResent: true};
   postAllMeetup(allMeetup, enitionState);
   postAllMeetup(allRecentMeetup, enitionRecent);
 });

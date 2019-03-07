@@ -137,11 +137,8 @@
             </div>
           </div>
           <div>
-            <a
-              class="btn btn-primary js-scroll-trigger d-md-none d-lg-block d-none"
-              target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdNUPCDUNDSkuT-zbBS5A6oR8lTFCJZ5-Jg_R2oDsbHxx_4yg/viewform"
-              >Login</a
+            <button id="login-btn"
+              class="btn btn-primary js-scroll-trigger d-md-none d-lg-block d-none">Login</button
             >
           </div>
         </div>
@@ -678,6 +675,12 @@
     </section>
 
     <div id="footer"></div>
+
+    <div id="login-form">
+      <span id="modal_close">X</span>
+      <div id="login-content"></div>
+    </div>
+    <div id="overlay-login"></div>
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
