@@ -52,7 +52,7 @@ class UsersDao {
     })
       .then(user => {
         if (user) {
-          return _.pick(user, ['id', 'username', 'email'])
+          return _.pick(user, ['id', 'username', 'email', 'country', 'city', 'phone'])
         }
         return Promise.reject({code: ERRORS_CODE.NOT_FOUND})
       })
