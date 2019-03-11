@@ -97,7 +97,7 @@ class RequestHandlers {
    * @param {Function} next
    * @returns {*}
    */
-  process(request, response, next, isAuthorize) {
+  process(request, response, next, isAuthorized) {
     const errors = _.compact(this.validate(request));
 
     if (!_.isEmpty(errors)) {
@@ -110,7 +110,7 @@ class RequestHandlers {
       response.header('Authorization', newToken);
     }
     const user = assert.assertJwt(request, response, next);
-    if (isAuthorize && !user) {
+    if (isAuthorized && !user) {
       return;
     }
 

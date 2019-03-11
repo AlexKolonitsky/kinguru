@@ -31,6 +31,19 @@ module.exports = (sequelize, DataTypes) => {
     locationId: {
       type: DataTypes.INTEGER,
     },
+
+    userId: {
+      type: DataTypes.INTEGER,
+    },
+
+    createdAt: {
+      type: DataTypes.DATE,
+    },
+
+    updatedAt: {
+      type: DataTypes.DATE,
+    },
+
   }, {
     tableName: 'Comments',
     timestamps: true,
