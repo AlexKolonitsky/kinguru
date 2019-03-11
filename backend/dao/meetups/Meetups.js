@@ -76,22 +76,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
 
-    country: {
-      type: DataTypes.TEXT,
-    },
-
-    city: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-
-    metro: {
-      type: DataTypes.TEXT,
-    },
-
-    typePlace: {
-      type: DataTypes.TEXT,
-    },
+    locationId: {
+      type: DataTypes.INTEGER,
+    }
 
   }, {
     tableName: 'Meetups',
