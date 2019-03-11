@@ -1734,7 +1734,7 @@ img::-moz-selection {
   border: none;
   background: #fff;
   position: fixed;
-  top: 35%!important;
+  top: 50%!important;
   left: 50%;
   margin-top: -200px;
   margin-left: -260px;
@@ -1742,6 +1742,9 @@ img::-moz-selection {
   opacity: 0;
   padding: 20px 0px 0 0;
   z-index: 1000;
+  max-height: 500px;
+  overflow-y: auto;
+
 }
 #login-form #modal_close {
   width: 21px;

@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.min.css" />
+  <link href="css/main.css" rel="stylesheet" />
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -168,8 +177,25 @@
           </div>
         </div>
       </div>
+      <div>
+        <button id="login-btn" class="btn js-scroll-trigger d-md-none d-lg-block d-none btn-primary"
+                data-toggle="modal" data-target="#exampleModal">Login</button>
+      </div>
+
+      <div id="login-form">
+        <span id="modal_close">X</span>
+        <div id="login-content"></div>
+        <div class="show-content" id="open-sign-up"></div>
+      </div>
+      <div id="overlay-login"></div>
     </div>
   </div>
 </nav>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="vendor/owl-carousel/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
