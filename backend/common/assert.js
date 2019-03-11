@@ -36,7 +36,7 @@ function _assertJwt(req, res, next) {
   if (token && (!user || !user.user)) {
     return res.status(403).end('User not authorized');
   }
-  return user;
+  return true;
 }
 
 /**
@@ -63,4 +63,5 @@ module.exports = {
   jwt: [jwt, _assertJwt],
   assertJwt: _assertJwt,
   access: assertRole,
+  getToken: getToken,
 };

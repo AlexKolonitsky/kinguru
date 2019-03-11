@@ -12,6 +12,7 @@ const upload = multer();
 const users = require('./services/users/index');
 router.post('/user/register', (req, res, next) => users.RegistrationUser.process(req, res, next));
 router.post('/user/login', (req, res, next) => users.LoginUser.process(req, res, next));
+router.get('/user/current', (req, res, next) => users.GetCurrentUser.process(req, res, next, true));
 
 
 /**

@@ -2,9 +2,9 @@
 
 const _ = require('lodash');
 const {Comments} = require('./../index');
-const utils = require('./../../common/securityAssert');
+const UsersHandler = require('./../users/handler');
 const commentAttributes = [
-  'id', 'text', 'rate'
+  'id', 'text', 'rate', 'userId'
 ];
 
 
@@ -17,7 +17,10 @@ class CommentsDao {
         meetupId: meetupId
       },
       attributes: commentAttributes
-    });
+    })
+      .then(comments => {
+        return this.mapResponseComments(comments);
+      })
   }
 
   getSpeakerComments(speakerId) {
@@ -27,6 +30,9 @@ class CommentsDao {
       },
       attributes: commentAttributes
     })
+      .then(comments => {
+        return this.mapResponseComments(comments);
+      })
   }
 
   getLocationComments(locationId) {
@@ -36,6 +42,25 @@ class CommentsDao {
       },
       attributes: commentAttributes
     })
+      .then(comments => {
+        return this.mapResponseComments(comments);
+      })
+  }
+
+  mapResponseComments(comments) {
+    const usersDao = new UsersHandler();
+    const promises = [];
+    comments.forEach(comment => {
+      promises.push(usersDao.getUserById(comment.dataValues.userId));
+    });
+    return Promise.all(promises)
+      .then(users => {
+        return comments.map((comment, index) => {
+          comment.dataValues.user = users[index];
+          delete comment.dataValues.userId;
+          return comment.dataValues;
+        })
+      })
   }
 }
 

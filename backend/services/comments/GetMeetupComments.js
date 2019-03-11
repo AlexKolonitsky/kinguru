@@ -21,7 +21,6 @@ class GetMeetupComments extends RequestHandlers {
    */
 
   methodAction(request) {
-    console.log('kyky');
     return CommentsDaoHandler.getMeetupComments(
       !isNaN(parseInt(request.params.meetupId)) ? parseInt(request.params.meetupId) : null
     );

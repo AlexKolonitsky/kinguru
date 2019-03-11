@@ -15,6 +15,7 @@ const ERRORS_CODE = require('./../../common/securityAssert').ERRORS_CODE;
 const utils = require('./../../common/securityAssert');
 
 const { Users } = require('./../index');
+const userAttributes = ['id', 'username', 'email', 'country', 'city', 'phone'];
 
 class UsersDao {
 
@@ -52,13 +53,52 @@ class UsersDao {
     })
       .then(user => {
         if (user) {
-          return _.pick(user, ['id', 'username', 'email', 'country', 'city', 'phone'])
+          return _.pick(user, userAttributes)
         }
         return Promise.reject({code: ERRORS_CODE.NOT_FOUND})
       })
 
   }
 
+  getUserById(userId) {
+    return Users.findOne({
+      where: {
+        id: userId
+      },
+      attributes: userAttributes
+    })
+      .then(user => {
+        return user;
+      })
+  }
+
+  getCurrentUser(token, response) {
+    const userInfo = utils.getUserByToken(token).user;
+    return Users.findOne({
+      where: {
+        id: userInfo.id,
+        email: userInfo.email
+      },
+      attributes: userAttributes
+    })
+      .then(user => {
+        if (!user) {
+          return response.status(403).end('User not authorized');
+        }
+        return {
+          user: user,
+          token: utils.getJwtToken(user)
+        };
+      })
+      .catch(err => {
+        if(err.code === ERRORS_CODE.NOT_FOUND){
+          return Promise.reject({
+            code: 404,
+            message: `User with email: ${userInfo.email} not found`
+          })
+        }
+      })
+  }
 }
 
 module.exports = UsersDao;

@@ -114,8 +114,8 @@ class RequestHandlers {
       return;
     }
 
-    this.methodAction(request, response, user)
-      .then((result) => this[handleSuccess](result, response, next, user))
+    this.methodAction(request, response)
+      .then((result) => this[handleSuccess](result, response, next))
       .catch((error) => this[handleErrors](error.message || error, error.code || 400,
         error.customMessage, response, next));
 
