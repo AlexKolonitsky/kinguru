@@ -109,13 +109,13 @@ class RequestHandlers {
     if (newToken) {
       response.header('Authorization', newToken);
     }
-
-    if (isAuthorize && !assert.assertJwt(request, response, next)) {
+    const user = assert.assertJwt(request, response, next);
+    if (isAuthorize && !user) {
       return;
     }
 
-    this.methodAction(request, response)
-      .then((result) => this[handleSuccess](result, response, next))
+    this.methodAction(request, response, user)
+      .then((result) => this[handleSuccess](result, response, next, user))
       .catch((error) => this[handleErrors](error.message || error, error.code || 400,
         error.customMessage, response, next));
 

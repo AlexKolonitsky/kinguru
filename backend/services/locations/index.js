@@ -16,5 +16,4 @@ const GetCurrentLocation = require('./GetCurrentLocation');
 module.exports = {
   GetAllLocations: new GetAllLocations(),
   GetCurrentLocation: new GetCurrentLocation(),
-
 };

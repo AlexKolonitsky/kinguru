@@ -44,4 +44,14 @@ router.get('/location/:id', (req, res, next) => locations.GetCurrentLocation.pro
 /*router.get('/speakers', (req, res, next) => speakers.GetAllSpeakers.process(req, res, next));
 router.delete('/speaker/:id', (req,res, next) => speakers.RemoveSpeaker.process(req, res, next));*/
 
+/**
+ * @description Comments endpoints
+ */
+
+const comments = require('./services/comments/index');
+router.get('/meetup/:meetupId/comments', (req, res, next) => comments.GetMeetupComments.process(req, res, next));
+router.get('/speaker/:speakerId/comments', (req, res, next) => comments.GetSpeakerComments.process(req, res, next));
+router.get('/location/:locationId/comments', (req, res, next) => comments.GetLocationComments.process(req, res, next));
+
+
 module.exports = router;
