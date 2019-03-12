@@ -15,7 +15,7 @@ const ERRORS_CODE = require('./../../common/securityAssert').ERRORS_CODE;
 const utils = require('./../../common/securityAssert');
 
 const { Users } = require('./../index');
-const userAttributes = ['id', 'username', 'email', 'country', 'city', 'phone'];
+const defaultUserAttributes = ['id', 'username', 'email', 'country', 'city', 'phone'];
 
 class UsersDao {
 
@@ -53,7 +53,7 @@ class UsersDao {
     })
       .then(user => {
         if (user) {
-          return _.pick(user, userAttributes)
+          return _.pick(user, defaultUserAttributes)
         }
         return Promise.reject({code: ERRORS_CODE.NOT_FOUND})
       })
@@ -65,21 +65,21 @@ class UsersDao {
       where: {
         id: userId
       },
-      attributes: userAttributes
+      attributes: defaultUserAttributes
     })
       .then(user => {
         return user;
       })
   }
 
-  getCurrentUser(token, response) {
+  getCurrentUser(token, response, userAttributes) {
     const userInfo = utils.getUserByToken(token).user;
     return Users.findOne({
       where: {
         id: userInfo.id,
         email: userInfo.email
       },
-      attributes: userAttributes
+      attributes: userAttributes || defaultUserAttributes
     })
       .then(user => {
         if (!user) {
@@ -97,6 +97,27 @@ class UsersDao {
             message: `User with email: ${userInfo.email} not found`
           })
         }
+      })
+  }
+
+  changePassword(token, password, response) {
+    if (password.new !== password.confirm) {
+      return response.status(400).end('New password not equal confirm password');
+    }
+    return this.getCurrentUser(token, response, _.concat(defaultUserAttributes, 'password'))
+      .then(userInfo => {
+        if (userInfo.user.password !== utils.hashPassword(password.old)) {
+          return response.status(403).end('Old password is incorrect');
+        }
+        return Users.findOne({
+          where: {
+            id: userInfo.user.id,
+            email: userInfo.user.email
+          }
+        })
+          .then(user => {
+            return user.update({ password: utils.hashPassword(password.new) });
+          })
       })
   }
 }

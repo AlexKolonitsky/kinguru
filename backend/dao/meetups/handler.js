@@ -8,7 +8,7 @@ const firstIndex = 1;
 const secondIndex = 2;
 const meetupAttributes = [
   'id', 'title', 'description', 'isOpen', 'maxGuestsCount', 'guestsCount',
-  'commonRate', 'currentRate', 'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
+  'currentRate', 'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
   'locationId'
 ];
 
