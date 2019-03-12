@@ -56,6 +56,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
 
+    createdAt: {
+      type: DataTypes.DATE,
+    },
+
+    updatedAt: {
+      type: DataTypes.DATE,
+    },
+
   }, {
     tableName: 'Locations',
     timestamps: true,

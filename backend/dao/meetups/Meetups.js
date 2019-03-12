@@ -33,14 +33,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
 
-    currentRate: {
-      type: DataTypes.INTEGER,
-    },
-
-    commonRate: {
-      type: DataTypes.INTEGER,
-    },
-
     cost: {
       type: DataTypes.INTEGER,
     },

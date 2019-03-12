@@ -1,7 +1,8 @@
 'use strict';
 
 const _ = require('lodash');
-const {Meetups, Speakers, MeetupsSpeakers, Tags, MeetupsTags} = require('./../index');
+const Sequelize = require('sequelize');
+const {Meetups, Speakers, MeetupsSpeakers, Tags, MeetupsTags, Locations} = require('./../index');
 const utils = require('./../../common/securityAssert');
 const zeroIndex = 0;
 const firstIndex = 1;
@@ -20,21 +21,32 @@ const meetupAttributes = [
 
 class MeetupDao {
 
-  getAllMeetups(limit = 12, offset = 0, filter = {}, tags = [], isRecent = false) {
+  getAllMeetups(limit = 12, offset = 0, filter = {}, tags = [], cities = [], isRecent = false) {
 
-    return MeetupsTags.findAll({
-      where: {
-        tagId: tags
-      }
-    })
-      .then(meetupsTags => {
-        filter.id = _.map(meetupsTags, 'meetupId');
-        if (tags.length === 0) {
-          delete filter.id;
+    return Promise.all([
+      MeetupsTags.findAll({
+        where: {
+          tagId: tags
         }
-        return Meetups.findAndCountAll({
+      }),
+      Locations.findAll({
+        where: {
+          city: cities
+        }
+      })
+    ])
+      .then(response => {
+        const meetupsTagsFilter = _.map(response[zeroIndex], 'meetupId');
+        const meetupIdFilter = meetupsTagsFilter.length ? {id: meetupsTagsFilter} : {};
+        const locationsFilter = _.map(response[firstIndex], 'id');
+        const locationIdFilter = locationsFilter.length ? {locationId: locationsFilter} : {};
+        console.log(meetupIdFilter, locationIdFilter);
+        return Meetups.findAll({
           limit,
           offset,
+          where: {
+            [Sequelize.Op.and]: [meetupIdFilter, locationIdFilter]
+          },
           attributes: meetupAttributes,
           include: [
             {
@@ -45,24 +57,22 @@ class MeetupDao {
               model: Tags, as: 'tags', attributes: ['id', 'name'],
               through: {attributes: []}
             }],
-
-          where: filter,
         })
-          .then(meetupsResponse => {
-            let filteredMeetups = meetupsResponse.rows;
+          .then(filteredMeetups => {
+            console.log(filteredMeetups.length);
             if (filteredMeetups.length === 0) {
               return Promise.reject(utils.responseError(404, `Meetup with location: ${filter.location} or  with: id ${filter.id} not found`))
             }
             if (isRecent) {
               filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.endDate).getTime() < new Date().getTime());
-              return Promise.resolve({filteredMeetups})
+              return { filteredMeetups }
             }
             filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.endDate).getTime() >= new Date().getTime());
-            return Promise.resolve({
-              filteredMeetups: filteredMeetups,
+            return {
+              filteredMeetups,
               meetupsCount: filteredMeetups.length
-            })
-          })
+            }
+          });
       });
   }
 
@@ -158,13 +168,12 @@ class MeetupDao {
 
   getFilter() {
     return Promise.all([
-      Meetups.findAll({}),
-
+      Locations.findAll({}),
       Tags.findAll({})
     ])
       .then(result => {
         let filterLocations = _.map(result[zeroIndex], 'city');
-        let Tags = result[firstIndex].map(tag => {
+        let tags = result[firstIndex].map(tag => {
           return {
             id: tag.id,
             name: tag.name
@@ -176,8 +185,8 @@ class MeetupDao {
           let city = filterLocations[i];
           filterLocation[city] = true;
         }
-        let Locations = Object.keys(filterLocation);
-        return ({Locations, Tags})
+        let locations = Object.keys(filterLocation);
+        return ({locations, tags})
       })
   }
 }
