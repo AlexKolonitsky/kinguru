@@ -205,14 +205,6 @@ input[type="checkbox"] {
 
 /*styles for forgot pass*/
 
-.back-sign_in {
-  position: absolute;
-  left: 30%;
-  bottom: -50px;
-  color:white;
-  text-transform: uppercase;
-  line-height: 1.5em;
-}
 
 .fa-long-arrow-left {
   margin-right: 10px;
@@ -221,16 +213,23 @@ input[type="checkbox"] {
 }
 
 #open-log-in,
-#open-sing-up {
+#open-sing-up,
+#forgot-pass,
+.back-sign_in {
   border: none;
   text-decoration: underline;
   background-color: transparent;
   text-align: left;
   cursor: pointer;
   font-family:"Muller Bold";
+  outline: none;
 }
 
-
+#open-log-in,
+#open-sing-up,
+#forgot-pass:hover {
+  color: #0077b5;
+}
 
 
 

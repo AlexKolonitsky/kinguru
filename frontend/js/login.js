@@ -16,6 +16,14 @@
     $('#login-content').removeClass('show-content');
     $('#open-sign-up').addClass('show-content');
   });
+  $('#forgot-pass').click(function () {
+    $('#login-content').addClass('show-content');
+    $('#open-reset-pass').removeClass('show-content');
+  });
+  $('.back-sign_in').click(function () {
+    $('#login-content').removeClass('show-content');
+    $('#open-reset-pass').addClass('show-content');
+  });
 
   function checkPasswordMatch() {
     var password = $("#pass").val();
@@ -32,6 +40,32 @@
   });
 })(jQuery);
 
+function getUser(token) {
+  $.ajax({
+    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/current',
+    headers: {
+      'Authorization': token,
+    },
+    type: 'get',
+    dataType: 'json',
+    contentType: "application/json; charset=utf-8",
+    success: function (data) {
+      showHeaderContent(data.user);
+    },
+  });
+};
+
+window.addEventListener("load", function () {
+  let token = localStorage.getItem('Token');
+  if(token !== '') {
+    token = `Bearer ${token}`;
+    getUser(token);
+  }else {
+    $('#login-block').removeClass('show-content');
+
+  }
+});
+
 $('#continue').click( function() {
   event.preventDefault();
   $.ajax({
@@ -41,7 +75,6 @@ $('#continue').click( function() {
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(fillFormSingUp()),
     success: function(data) {
-      console.log(data);
     }
   });
 });
@@ -58,7 +91,6 @@ $('#login-post').click(function () {
     success: function(data) {
       saveToken(data.token);
       showHeaderContent(data.user);
-      console.log(data.user);
     }
   });
 });
@@ -80,7 +112,6 @@ function fillFormLogIn(postData) {
     email: document.getElementById('email-login').value,
     password: document.getElementById('pass').value,
   };
-  console.log(postData);
   return postData;
 };
 
@@ -120,6 +151,7 @@ function showHeaderContent(user) {
     console.log('Clikc HEAR');
     $('.user-content').remove();
     $('#login-block').removeClass('show-content');
+    localStorage.setItem('Token', '');
   });
 };
 

@@ -137,13 +137,20 @@
             </div>
           </div>
 
-          <div id="login-block">
+          <div class="show-content" id="login-block">
             <button id="login-btn"
               class="btn js-scroll-trigger d-md-none d-lg-block d-none">Login</button
             >
           </div>
         </div>
       </div>
+      <div id="login-form">
+        <span id="modal_close">X</span>
+        <div id="login-content"></div>
+        <div class="show-content" id="open-sign-up"></div>
+        <div class="show-content" id="open-reset-pass"></div>
+      </div>
+      <div id="overlay-login"></div>
     </nav>
 
     <section id="task">
@@ -677,18 +684,10 @@
 
     <div id="footer"></div>
 
-    <div id="login-form">
-      <span id="modal_close">X</span>
-      <div id="login-content"></div>
-      <div class="show-content" id="open-sign-up"></div>
-    </div>
-    <div id="overlay-login"></div>
-
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/login.js"></script>
   </body>
 </html>

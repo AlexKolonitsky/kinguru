@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link
-          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-          rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-          crossorigin="anonymous"
-  />
-  <link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.min.css" />
+  <!--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />-->
+  <!--<link-->
+          <!--href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"-->
+          <!--rel="stylesheet"-->
+          <!--integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"-->
+          <!--crossorigin="anonymous"-->
+  <!--/>-->
+  <!--<link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.min.css" />-->
   <link href="css/main.css" rel="stylesheet" />
 </head>
 <body>
@@ -127,7 +127,7 @@
     <div
       class="collapse navbar-collapse contactsNavbar col-lg-4 col-sm-11 mx-md-auto my-md-2 text-center"
     >
-      <div class="col-lg-8">
+      <div class="col-lg-8 sotial">
         <div class="row">
           <div class="col-lg-1 d-none d-md-none my-auto">
             <i class="fa fa-search my-auto d-lg-inline-block d-inline-block d-md-none"></i>
@@ -145,57 +145,28 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-2 col-2 d-lg-inline-block d-none">
-        <div class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img
-              class="img-fluid rounded-circle"
-              src="img/review-1.jpg"
-              alt="profile photo"
-            />
-          </a>
-          <div
-            class="dropdown-menu dropdown-menu-left"
-            aria-labelledby="dropdownMenuButton"
-          >
-            <a class="dropdown-item" href="#"
-            ><i class="fa fa-user-circle"></i> My profile</a
-            >
-            <a class="dropdown-item" href="#"
-            ><i class="fa fa-envelope"></i> Message</a
-            >
-            <a class="dropdown-item" href="#"
-            ><i class="fa fa-cog"></i> Another action</a
-            >
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#"
-            ><i class="fa fa-sign-out"></i> Logout</a
-            >
-          </div>
-          <div class="d-md-none d-lg-inline-block d-none">
-            <p class="user-name">User kinguru</p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <button id="login-btn" class="btn js-scroll-trigger d-md-none d-lg-block d-none btn-primary"
-                data-toggle="modal" data-target="#exampleModal">Login</button>
+
+      <div id="login-block">
+        <button id="login-btn"
+                class="btn js-scroll-trigger d-md-none d-lg-block d-none">Login</button>
       </div>
 
       <div id="login-form">
         <span id="modal_close">X</span>
         <div id="login-content"></div>
         <div class="show-content" id="open-sign-up"></div>
+        <div class="show-content" id="open-reset-pass"></div>
       </div>
       <div id="overlay-login"></div>
     </div>
   </div>
 </nav>
-
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/login.js"></script>
+
 </body>
 </html>

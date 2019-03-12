@@ -428,6 +428,10 @@ img::-moz-selection {
   margin: 5px 0;
 }
 
+.container-navbar{
+    min-height: 125px;
+}
+
 .container-navbar,
 .contactsNavbar {
   display: flex;
@@ -1772,5 +1776,5 @@ img::-moz-selection {
 }
 
 .show-content {
-  display: none;
+  display: none!important;
 }
