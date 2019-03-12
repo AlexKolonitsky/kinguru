@@ -37,15 +37,13 @@ class MeetupDao {
     ])
       .then(response => {
         const meetupsTagsFilter = _.map(response[zeroIndex], 'meetupId');
-        const meetupIdFilter = meetupsTagsFilter.length ? {id: meetupsTagsFilter} : {};
         const locationsFilter = _.map(response[firstIndex], 'id');
-        const locationIdFilter = locationsFilter.length ? {locationId: locationsFilter} : {};
-        console.log(meetupIdFilter, locationIdFilter);
         return Meetups.findAll({
-          limit,
-          offset,
           where: {
-            [Sequelize.Op.and]: [meetupIdFilter, locationIdFilter]
+            [Sequelize.Op.and]: [
+              meetupsTagsFilter.length ? {id: meetupsTagsFilter} : {},
+              locationsFilter.length ? {locationId: locationsFilter} : {}
+            ]
           },
           attributes: meetupAttributes,
           include: [
@@ -59,15 +57,18 @@ class MeetupDao {
             }],
         })
           .then(filteredMeetups => {
-            console.log(filteredMeetups.length);
             if (filteredMeetups.length === 0) {
               return Promise.reject(utils.responseError(404, `Meetup with location: ${filter.location} or  with: id ${filter.id} not found`))
             }
             if (isRecent) {
-              filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.endDate).getTime() < new Date().getTime());
+              filteredMeetups = filteredMeetups
+                .filter(meetup => new Date(meetup.endDate).getTime() < new Date().getTime())
+                .slice(offset, offset + limit);
               return { filteredMeetups }
             }
-            filteredMeetups = filteredMeetups.filter(meetup => new Date(meetup.endDate).getTime() >= new Date().getTime());
+            filteredMeetups = filteredMeetups
+              .filter(meetup => new Date(meetup.endDate).getTime() >= new Date().getTime())
+              .slice(offset, offset + limit);
             return {
               filteredMeetups,
               meetupsCount: filteredMeetups.length
