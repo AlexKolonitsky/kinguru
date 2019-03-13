@@ -15,7 +15,11 @@ const ERRORS_CODE = require('./../../common/securityAssert').ERRORS_CODE;
 const utils = require('./../../common/securityAssert');
 
 const { Users } = require('./../index');
-const defaultUserAttributes = ['id', 'username', 'email', 'country', 'city', 'phone'];
+const defaultUserAttributes = [
+  'id', 'firstname', 'lastname', 'email', 'description', 'birthday',
+  'locationId', 'company', 'website', 'linkedinLink', 'facebookLink',
+  'instagramLink', 'coverSource', 'coverKey', 'createdAt', 'updatedAt'
+];
 
 class UsersDao {
 
@@ -74,6 +78,7 @@ class UsersDao {
 
   getCurrentUser(token, response, userAttributes) {
     const userInfo = utils.getUserByToken(token).user;
+    console.log(userInfo);
     return Users.findOne({
       where: {
         id: userInfo.id,

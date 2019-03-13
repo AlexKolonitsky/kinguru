@@ -14,13 +14,18 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
 
-    username: {
+    email: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+
+    firstname: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
 
-    email: {
-      type: DataTypes.TEXT,
+    lastname: {
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
 
@@ -29,16 +34,52 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 
-    country: {
-      type: DataTypes.STRING(100)
+    description: {
+      type: DataTypes.STRING(100),
     },
 
-    city: {
-      type: DataTypes.STRING(100)
+    birthday: {
+      type: DataTypes.DATE,
     },
 
-    phone: {
-      type: DataTypes.STRING(100)
+    locationId: {
+      type: DataTypes.INTEGER
+    },
+
+    company: {
+      type: DataTypes.STRING(100),
+    },
+
+    website: {
+      type: DataTypes.STRING(100),
+    },
+
+    linkedinLink: {
+      type: DataTypes.STRING(100),
+    },
+
+    facebookLink: {
+      type: DataTypes.STRING(100),
+    },
+
+    instagramLink: {
+      type: DataTypes.STRING(100),
+    },
+
+    coverSource: {
+      type: DataTypes.TEXT,
+    },
+
+    coverKey: {
+      type: DataTypes.TEXT,
+    },
+
+    createdAt: {
+      type: DataTypes.DATE,
+    },
+
+    updatedAt: {
+      type: DataTypes.DATE,
     },
 
   }, {
