@@ -95,6 +95,18 @@ class MeetupDao {
         },
       ],
     })
+      .then(meetup => {
+        return Locations.findOne({
+          where: {
+            id: meetup.locationId
+          }
+        })
+          .then(location => {
+            meetup = meetup.dataValues;
+            meetup.location = location.dataValues;
+            return meetup;
+          })
+      })
   }
 
   createMeetup(meetup) {
