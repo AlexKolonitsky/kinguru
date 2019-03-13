@@ -126,21 +126,21 @@ function showHeaderContent(user) {
         `<div class="col-lg-4 col-md-2 col-2 d-lg-inline-block d-none user-content">` +
         `<div class="dropdown">` +
         `<a href="#" class="dropdown-toggle" data-toggle="dropdown">` +
-        `<img class="img-fluid rounded-circle" src="img/review-1.jpg" alt="profile photo"/>` +
+        `<img class="img-fluid rounded-circle" src="${user.coverSource}" alt="profile photo"/>` +
         `</a>` +
         `<div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">` +
-        `<a class="dropdown-item" href="#"` +
+        `<a class="dropdown-item" href="user_admin.html"` +
         `><i class="fa fa-user-circle"></i> My profile</a>` +
     `<a class="dropdown-item" href="#"` +
         `><i class="fa fa-envelope"></i> Message</a>` +
-    `<a class="dropdown-item" href="#"` +
+    `<a class="dropdown-item" href=""` +
         `><i class="fa fa-cog"></i> Another action</a>` +
     `<div class="dropdown-divider"></div>` +
         `<button id="logOut" class="dropdown-item"` +
         `><i class="fa fa-sign-out"></i> Logout</button>` +
     `</div>` +
     `<div class="d-md-none d-lg-inline-block d-none">` +
-        `<p class="user-name">${user.username}</p>` +
+        `<p class="user-name">${user.firstname} ${user.lastname}</p>` +
     `</div>` +
     `</div>` +
     `</div>`;

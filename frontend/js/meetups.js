@@ -29,6 +29,7 @@ function isEnitionState(isState) {
       removePagination;
       showAllMeetups(jsondata.filteredMeetups);
       paginationPage(jsondata.meetupsCount);
+      console.log(jsondata);
     };
     return a;
   } else {
@@ -45,8 +46,8 @@ $.ajax({
   dataType: "json",
   contentType: "application/json; charset=utf-8",
   success: function (jsondata) {
-    filterLocationMeetup(jsondata.Locations);
-    filterTagsMeetup(jsondata.Tags);
+    filterLocationMeetup(jsondata.locations);
+    filterTagsMeetup(jsondata.tags);
   }
 });
 
@@ -56,8 +57,7 @@ function showRecentMeetups(recentMeetups) {
     let meetupContent = `<div class="col-lg-4 col-sm-6 col-12 mb-5 child-recent">` +
       `<div class="task-box" aria-expanded="false">` +
       `     <a` +
-      `       href=""` +
-      `       target="_blank"` +
+      `       href="2_meetup.html" ` +
       `       title="${meetup.title}"` +
       `       ><img` +
       `         class="img mx-auto d-block"` +
@@ -123,7 +123,7 @@ function showAllMeetups(allMeetups) {
     let allMeetupContent =
       `<div class="col-lg-4 col-sm-6 col-12 mb-5 child-meetup">` +
       `<div class="task-box" aria-expanded="false">` +
-      `<a href="https://www.facebook.com/kinguru.online/posts/2102861716705954"` +
+      `<a href="1_meetup.html?meetupId=${meetup.id}"` +
       `target="_blank"` +
       `title="${meetup.title}">` +
       `<img class="img mx-auto d-block"` +

@@ -314,7 +314,7 @@ img::-moz-selection {
 }
 
 #mainNav {
-  padding-top: 13px;
+  padding: 0;
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
   background-color: #ffffff;
   font-family: "Muller Regular";
@@ -461,7 +461,7 @@ img::-moz-selection {
 }
 
 .dropdown-toggle::after {
-  display: none;
+  display: none!important;
 }
 
 .dropdown-menu {
@@ -474,6 +474,9 @@ img::-moz-selection {
   font-size: 0.7em;
   margin-top: 5px;
   margin-bottom: 0;
+}
+p:before{
+  margin: 0;
 }
 
 #task {
