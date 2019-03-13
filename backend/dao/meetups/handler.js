@@ -7,11 +7,15 @@ const utils = require('./../../common/securityAssert');
 const zeroIndex = 0;
 const firstIndex = 1;
 const secondIndex = 2;
-const meetupAttributes = [
-  'id', 'title', 'description', 'isOpen', 'maxGuestsCount', 'guestsCount',
-  'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
-  'locationId'
-];
+const attributes = {
+  meetup: [
+    'id', 'title', 'description', 'isOpen', 'maxGuestsCount', 'guestsCount',
+    'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
+    'locationId'
+  ],
+  speaker: ['id', 'name', 'surname', 'coverSource'],
+  tag: ['id', 'name']
+}
 
 
 /**
@@ -45,14 +49,14 @@ class MeetupDao {
               locationsFilter.length ? {locationId: locationsFilter} : {}
             ]
           },
-          attributes: meetupAttributes,
+          attributes: attributes.meetup,
           include: [
             {
-              model: Speakers, as: 'speakers', attributes: ['id', 'name', 'surname'],
+              model: Speakers, as: 'speakers', attributes: attributes.speaker,
               through: {attributes: []}
             },
             {
-              model: Tags, as: 'tags', attributes: ['id', 'name'],
+              model: Tags, as: 'tags', attributes: attributes.tag,
               through: {attributes: []}
             }],
         })
@@ -83,14 +87,14 @@ class MeetupDao {
       where: {
         id: meetupId
       },
-      attributes: meetupAttributes,
+      attributes: attributes.meetup,
       include: [
         {
-          model: Speakers, as: 'speakers', attributes: ['id', 'name', 'surname'],
+          model: Speakers, as: 'speakers', attributes: attributes.speaker,
           through: {attributes: []}
         },
         {
-          model: Tags, as: 'tags', attributes: ['id', 'name'],
+          model: Tags, as: 'tags', attributes: attributes.tag,
           through: {attributes: []}
         },
       ],
