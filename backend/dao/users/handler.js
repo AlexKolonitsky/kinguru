@@ -14,7 +14,7 @@ const _ = require('lodash');
 const ERRORS_CODE = require('./../../common/securityAssert').ERRORS_CODE;
 const utils = require('./../../common/securityAssert');
 
-const { Users } = require('./../index');
+const {Users, Locations} = require('./../index');
 const defaultUserAttributes = [
   'id', 'firstname', 'lastname', 'email', 'description', 'birthday',
   'locationId', 'company', 'website', 'linkedinLink', 'facebookLink',
@@ -41,7 +41,7 @@ class UsersDao {
             phone: userInfo.phone
           });
         }
-        return Promise.reject({ code: ERRORS_CODE.DUPLICATE });
+        return Promise.reject({code: ERRORS_CODE.DUPLICATE});
       });
   }
 
@@ -78,7 +78,6 @@ class UsersDao {
 
   getCurrentUser(token, response, userAttributes) {
     const userInfo = utils.getUserByToken(token).user;
-    console.log(userInfo);
     return Users.findOne({
       where: {
         id: userInfo.id,
@@ -90,13 +89,23 @@ class UsersDao {
         if (!user) {
           return response.status(403).end('User not authorized');
         }
-        return {
-          user: user,
-          token: utils.getJwtToken(user)
-        };
+        return Locations.findOne({
+          where: {
+            id: user.locationId
+          },
+          attributes: [ 'country', 'state', 'city', 'address', 'metro', 'phone', 'zipCode' ]
+        })
+          .then(location => {
+            user = user.dataValues;
+            user.location = location.dataValues;
+            return {
+              user,
+              token: utils.getJwtToken(user)
+            };
+          })
       })
       .catch(err => {
-        if(err.code === ERRORS_CODE.NOT_FOUND){
+        if (err.code === ERRORS_CODE.NOT_FOUND) {
           return Promise.reject({
             code: 404,
             message: `User with email: ${userInfo.email} not found`
@@ -121,7 +130,7 @@ class UsersDao {
           }
         })
           .then(user => {
-            return user.update({ password: utils.hashPassword(password.new) });
+            return user.update({password: utils.hashPassword(password.new)});
           })
       })
   }
