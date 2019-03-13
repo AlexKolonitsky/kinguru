@@ -16,9 +16,9 @@ const utils = require('./../../common/securityAssert');
 
 const {Users, Locations} = require('./../index');
 const defaultUserAttributes = [
-  'id', 'firstname', 'lastname', 'email', 'description', 'birthday',
-  'locationId', 'company', 'website', 'linkedinLink', 'facebookLink',
-  'instagramLink', 'coverSource', 'coverKey', 'createdAt', 'updatedAt'
+  'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender',
+  'locationId', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
+  'coverSource', 'coverKey', 'createdAt', 'updatedAt'
 ];
 
 class UsersDao {
@@ -46,13 +46,11 @@ class UsersDao {
   }
 
   findEmailAndPassword(email, password) {
-
-    const hashPassword = utils.hashPassword(password);
-
+    console.log(email, password);
     return Users.findOne({
       where: {
         email: email,
-        password: hashPassword,
+        password: utils.hashPassword(password),
       }
     })
       .then(user => {
@@ -61,6 +59,7 @@ class UsersDao {
         }
         return Promise.reject({code: ERRORS_CODE.NOT_FOUND})
       })
+      .catch(err => console.log("error", err));
 
   }
 
@@ -97,6 +96,7 @@ class UsersDao {
         })
           .then(location => {
             user = user.dataValues;
+            console.log(user);
             user.location = location.dataValues;
             return {
               user,

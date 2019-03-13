@@ -19,10 +19,9 @@ class LoginUser extends RequestHandler {
   }
 
   methodAction(request, response) {
-    let email = request.body.email;
-    let password = request.body.password;
+    const userRequest = request.body;
 
-    return UsersDaoHandler.findEmailAndPassword(email, password)
+    return UsersDaoHandler.findEmailAndPassword(userRequest.email, userRequest.password)
       .then(user => {
         const token = utils.getJwtToken(user).split(' ')[1];
         return Promise.resolve({user, token})
@@ -31,7 +30,7 @@ class LoginUser extends RequestHandler {
         if(err.code === ERRORS_CODE.NOT_FOUND){
           return Promise.reject({
             code: 404,
-            message: `User with email: ${email} not found`
+            message: `User with email: ${user.email} not found`
           })
         }
       })
