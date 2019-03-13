@@ -1,4 +1,4 @@
-const meetupId = location.search.split('meetupId=')[1];
+  const meetupId = location.search.split('meetupId=')[1];
 console.log(meetupId);
 
 function fromModelToView(data) {
@@ -54,7 +54,7 @@ function meetup(metap) {
 `  <div class="row event-categories mx-auto">`;
   metap.tags.forEach(tag => {
     meetupContent +=
-      `<div class="col-lg-3 col-sm-6 col-6 my-3">` +
+      `<div class="my-2">` +
 `    <a href="#" class="event-category">#${tag.name}</a>` +
       `    </div>`
   });
@@ -64,7 +64,7 @@ function meetup(metap) {
 `    <div class="col-lg-5 col-md-1"></div>` +
 `    <div class="col-lg-7 col-md-11 event-item">` +
 `    <div class="row mx-1 my-3">` +
-`    <div class="event-date col-lg-6 col-sm-6 col-6">` +
+`    <div class="event-date col-lg-6 col-sm-6 col-12">` +
 `    <p>` +
 `    <svg class="svg-calendar"` +
 `  viewBox="0 0 22 22"` +
@@ -87,21 +87,22 @@ function meetup(metap) {
 `  ${fromModelToView(metap.startDate)}` +
 `  </p>` +
 `  </div>` +
-`  <div class="event-speaker col-lg-6 col-sm-6 col-6">` +
+`  <div class="event-speaker col-lg-6 col-sm-6 col-12">` +
 `    <p class="mb-0">`+
 `<i class="fa fa-microphone"></i>`;
     metap.speakers.forEach(speker => {
     meetupContent += `<a class="speaker-name-link_task"` +
 `  target="_blank"` +
 `  title="facebook"` +
-`  href="">${speker.name} ${speker.surname}</a>`
+`  href="">${speker.name} ${speker.surname}</a>`+
+` <br>`
   });
   meetupContent +=
 `    </p>` +
 `  </div>` +
 `  </div>` +
 `  <div class="row mx-1 my-3">` +
-`    <div class="event-time col-lg-6 col-sm-6 col-6">` +
+`    <div class="event-time col-lg-6 col-sm-6 col-12">` +
 `    <p>` +
 `    <svg class="svg-time" xmlns="http://www.w3.org/2000/svg"` +
 `  viewBox="0 0 21 21"` +
@@ -121,7 +122,7 @@ function meetup(metap) {
 `  <div class="empty col-lg-6 col-sm-6 col-12"></div>` +
 `    </div>` +
 `    <div class="row mx-1 my-3">` +
-`    <div class="event-place col-lg-6 col-sm-6 col-6">` +
+`    <div class="event-place col-lg-6 col-sm-6 col-12">` +
 `    <p class="mt-3">` +
 `    <i class="fa fa-map-marker"></i>${metap.location.place}, ${metap.location.address}, ${metap.location.city}` +
 `    </p>` +

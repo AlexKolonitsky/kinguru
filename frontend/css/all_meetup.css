@@ -72,7 +72,6 @@
   border-color: #ffd800;
   font-size: 18px;
   height: 40px;
-  line-height: 45px;
   padding: 0 2em;
   font-family: "Muller Bold";
   font-weight: inherit;
@@ -87,19 +86,19 @@
   font-size: 1.2em;
 }
 
-.fa-heart {
+.fa.fa-heart {
   font-size: 2em;
   margin: 0px 25px;
   color: #e0e0e0;
   cursor: pointer;
 }
 
-.like {
+.fa.fa-heart.like {
   background: #ffffff;
   color: #fb0512;
 }
 
-.unlike {
+.fa.fa-heart.unlike {
   background: #ffffff;
   color: #e0e0e0;
 }
@@ -125,13 +124,15 @@ label {
   border-bottom: 1px solid #ffffff;
 }
 
-.form-control:focus {
+#meet.form-control,
+#subject.form-control {
   background: transparent;
   color: #ffffff;
   cursor: pointer;
   text-decoration: none;
   border: none;
   border-bottom: 1px solid #ffffff;
+  outline: none;
 }
 
 option {
@@ -384,7 +385,11 @@ option {
   color: #fff;
 }
 
-.page-link {
+#paginations {
+  background: #fff;
+}
+
+#paginations .page-link {
   padding: 10px 15px;
   border-radius: 50%;
   margin: 0 10px;
@@ -394,27 +399,16 @@ option {
   outline: none;
 }
 
-.page-link:hover,
-.page-link:active,
-.page-link:focus{
+#paginations .page-link:hover,
+#paginations .page-link:active,
+#paginations .page-link:focus{
   color: #000000;
   background-color: #ffea00;
   border: none;
   outline: none;
 }
 
-.page-item:first-child .page-link,
-.page-item:last-child .page-link,
-.page-item:first-child .page-link:hover,
-.page-item:last-child .page-link:hover,
-.page-item:first-child .page-link:active,
-.page-item:last-child .page-link:active{
-  font-size: 1em;
-  color: #909090;
-  background: none;
-  outline: none;
-  cursor: pointer;
-}
+
 
 @media (min-width: 768px) {
   header.masthead p {
@@ -459,6 +453,7 @@ option {
 .reset {
   margin: 0!important;
   background-color: #ffd800;
+  padding: .375rem .75rem;
 }
 
 .reset-img {
