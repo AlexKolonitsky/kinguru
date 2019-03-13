@@ -73,7 +73,7 @@ function showRecentMeetups(recentMeetups) {
                 `</div>` +
               `</div>` +
       `         <h4 class="title-meetup">${meetup.title}</h4>` +
-      `         <hr />` +
+      `         <hr class="yellow-separator"/>` +
       `         <div class="card card-body">`;
     meetup.speakers.forEach(speaker => {
       meetupContent += `<p><i class="fa fa-microphone"></i>${speaker.name} ${speaker.surname}</p>`
@@ -133,7 +133,7 @@ function showAllMeetups(allMeetups) {
       `<div class="task-box-inner">` +
       `<div class="task-box-inner_desc">` +
       `<h4>${meetup.title}</h4>` +
-      `<hr />` +
+      `<hr class="yellow-separator"/>` +
       `<div class="card card-body">`;
     meetup.speakers.forEach(speaker => {
       allMeetupContent += `<p><i class="fa fa-microphone"></i>${speaker.name} ${speaker.surname}</p>`

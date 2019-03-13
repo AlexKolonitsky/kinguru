@@ -7,6 +7,11 @@
   padding-left:15px;
 }
 
+.table-item-title {
+  font-family: "Muller Bold";
+  padding: 10px 0;
+}
+
 .checkbox-label {
     display: flex;
     align-items: center;
@@ -226,14 +231,14 @@ input::-webkit-inner-spin-button {
 
 .load_poster {
   width: 100%;
-  min-height: 250px;
+  height: 250px;
   border-radius: 5px;
   cursor:pointer;
   background-color: #dadada;
   color: #999999;
 }
 
-.fa-image {
+.fa.fa-image {
   font-size: 6em;
   padding-bottom: 5px;
 }
@@ -257,10 +262,12 @@ input::-webkit-inner-spin-button {
   text-align: center;
 }
 
+.invite_guest-photo {
+  width: 100%;
+}
+
 .invite_guest-name{
-  margin-top: -15px;
   font-size: 0.8em;
-  margin-bottom: 0;
 }
 
 .invite_guest .fa.fa-plus {
@@ -296,6 +303,19 @@ input::-webkit-inner-spin-button {
 
 .invite {
   padding: 10px 0;
+}
+
+.fallbackDatePicker.row{
+  margin-left: 0;
+}
+
+#time-table {
+  margin: 10px -15px;
+}
+
+.sett-btn{
+  background-color: #ffd539;
+  padding: 0.5em 1.5em;
 }
 
 @media only screen and (max-device-width: 769px) {
