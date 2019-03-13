@@ -21,7 +21,7 @@ const meetupAttributes = [
 
 class MeetupDao {
 
-  getAllMeetups(limit = 12, offset = 0, filter = {}, tags = [], cities = [], isRecent = false) {
+  getAllMeetups(limit = 12, offset = 0, tags = [], cities = [], isRecent = false) {
 
     return Promise.all([
       MeetupsTags.findAll({
@@ -58,19 +58,19 @@ class MeetupDao {
         })
           .then(filteredMeetups => {
             if (filteredMeetups.length === 0) {
-              return Promise.reject(utils.responseError(404, `Meetup with location: ${filter.location} or  with: id ${filter.id} not found`))
+              return Promise.reject(utils.responseError(404, `Meetups not found`))
             }
             if (isRecent) {
               filteredMeetups = filteredMeetups
-                .filter(meetup => new Date(meetup.endDate).getTime() < new Date().getTime())
-                .slice(offset, offset + limit);
-              return { filteredMeetups }
+                .filter(meetup => new Date(meetup.endDate).getTime() < new Date().getTime());
+              return {
+                filteredMeetups: filteredMeetups.slice(offset, offset + limit)
+              }
             }
             filteredMeetups = filteredMeetups
-              .filter(meetup => new Date(meetup.endDate).getTime() >= new Date().getTime())
-              .slice(offset, offset + limit);
+              .filter(meetup => new Date(meetup.endDate).getTime() >= new Date().getTime());
             return {
-              filteredMeetups,
+              filteredMeetups: filteredMeetups.slice(offset, offset + limit),
               meetupsCount: filteredMeetups.length
             }
           });
