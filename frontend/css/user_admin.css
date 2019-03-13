@@ -169,6 +169,8 @@ textarea {
 }
 .sett-btn {
   width: 275px;
+  background-color: #ffd539;
+  padding: 0.5em 1.5em;
 }
 
 .well legend{
@@ -179,8 +181,8 @@ textarea {
   margin-top: 0px;
 }
 
-.fallbackDatePicker {
-  margin-left: 3px;
+.fallbackDatePicker.row{
+  margin-left: 0;
 }
 
 @media (min-width: 992px) {

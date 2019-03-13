@@ -305,17 +305,8 @@ input::-webkit-inner-spin-button {
   padding: 10px 0;
 }
 
-.fallbackDatePicker.row{
-  margin-left: 0;
-}
-
 #time-table {
   margin: 10px -15px;
-}
-
-.sett-btn{
-  background-color: #ffd539;
-  padding: 0.5em 1.5em;
 }
 
 @media only screen and (max-device-width: 769px) {

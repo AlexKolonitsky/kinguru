@@ -464,6 +464,11 @@ img::-moz-selection {
   display: none!important;
 }
 
+.dropdown-toggle img {
+  width: 60px;
+  height: 60px;
+}
+
 .dropdown-menu {
   right: 0;
   left: auto;
