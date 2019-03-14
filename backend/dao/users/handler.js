@@ -89,7 +89,7 @@ class UsersDao {
         if (!user.locationId) {
           return {
             user,
-            token: utils.getJwtToken(user)
+            token: utils.getJwtToken(user).split(' ')[1]
           };
         }
         return Locations.findOne({
@@ -103,7 +103,7 @@ class UsersDao {
             user.location = location.dataValues;
             return {
               user,
-              token: utils.getJwtToken(user)
+              token: utils.getJwtToken(user).split(' ')[1]
             };
           })
       })
