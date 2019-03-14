@@ -56,6 +56,12 @@ router.get('/speaker/:speakerId/comments', (req, res, next) => comments.GetSpeak
 router.get('/location/:locationId/comments', (req, res, next) => comments.GetLocationComments.process(req, res, next));
 router.post('/comment', (req, res, next) => comments.CreateComment.process(req, res, next, true));
 
+/**
+ * @description Tags endpoints
+ */
+
+const tags = require('./services/tags/index');
+router.get('/tags', (req, res, next) => tags.GetAllTags.process(req, res, next));
 
 
 module.exports = router;

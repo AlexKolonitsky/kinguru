@@ -46,7 +46,6 @@ class UsersDao {
   }
 
   findEmailAndPassword(email, password) {
-    console.log(email, password);
     return Users.findOne({
       where: {
         email: email,
@@ -79,14 +78,19 @@ class UsersDao {
     const userInfo = utils.getUserByToken(token).user;
     return Users.findOne({
       where: {
-        id: userInfo.id,
-        email: userInfo.email
+        id: userInfo.id
       },
       attributes: userAttributes || defaultUserAttributes
     })
       .then(user => {
         if (!user) {
           return response.status(403).end('User not authorized');
+        }
+        if (!user.locationId) {
+          return {
+            user,
+            token: utils.getJwtToken(user)
+          };
         }
         return Locations.findOne({
           where: {
@@ -96,7 +100,6 @@ class UsersDao {
         })
           .then(location => {
             user = user.dataValues;
-            console.log(user);
             user.location = location.dataValues;
             return {
               user,
