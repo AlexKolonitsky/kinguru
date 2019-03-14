@@ -78,7 +78,8 @@ class UsersDao {
     const userInfo = utils.getUserByToken(token).user;
     return Users.findOne({
       where: {
-        id: userInfo.id
+        id: userInfo.id,
+        email: userInfo.email
       },
       attributes: userAttributes || defaultUserAttributes
     })
