@@ -14,8 +14,8 @@ const attributes = {
     'locationId'
   ],
   speaker: ['id', 'name', 'surname', 'coverSource'],
-  tag: ['id', 'name']
-}
+  tag: ['id', 'name', 'isTag']
+};
 
 
 /**
@@ -190,12 +190,14 @@ class MeetupDao {
     ])
       .then(result => {
         let filterLocations = _.map(result[zeroIndex], 'city');
-        let tags = result[firstIndex].map(tag => {
-          return {
-            id: tag.id,
-            name: tag.name
-          }
-        });
+        let tags = result[firstIndex]
+          .filter(tag => tag.isTag)
+          .map(tag => {
+            return {
+              id: tag.id,
+              name: tag.name
+            }
+          });
 
         let filterLocation = {};
         for (let i = 0; i < filterLocations.length; i++) {

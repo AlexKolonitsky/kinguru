@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
 
+      isTag: {
+        type: DataTypes.BOOLEAN,
+      },
+
       createdAt: {
         type: DataTypes.DATE,
       },
