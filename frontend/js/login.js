@@ -91,6 +91,7 @@ $('#login-post').click(function () {
     success: function(data) {
       saveToken(data.token);
       showHeaderContent(data.user);
+      console.log('UserLogin', data);
     }
   });
 });

@@ -621,20 +621,20 @@ p:before{
   width: 86%;
 }
 
-#people .progress-star,
+.progress-star,
 #comment .progress-star{
   width: 100%;
   height: 100%;
   position: absolute;
 }
 
-#people .progress-star-item,
+.progress-star-item,
 #comment .progress-star-item{
   width: 100%;
   height: 100%;
 }
 
-#people .progress{
+.progress{
   width: 50%;
   height: 18px;
   position: relative;
@@ -1493,7 +1493,7 @@ p:before{
     margin: 0 2px;
     font-size: 18px;
   }
-  #people .progress {
+  .progress {
     height: 18px;
   }
 

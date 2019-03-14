@@ -355,6 +355,7 @@
     $('#open-reset-pass').load('reset_pass.html')
     $('#open-sign-up').load('sign_up.html');
     $('#footer').load('footer.html');
+    $('#change-pass').load('change_pass.html');
   });
 
 

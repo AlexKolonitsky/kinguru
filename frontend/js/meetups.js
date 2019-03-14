@@ -67,7 +67,7 @@ function showRecentMeetups(recentMeetups) {
       `     <div class="task-box-inner">` +
              `<div class="task-box-inner_desc">` +
               `<div class="progress">` +
-                `<div class="progress-bar bg-warning" role="progressbar" style="width: ${meetup.rate}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>` +
+                `<div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>` +
                 `<div class="progress-star">` +
                  `<img class="progress-star-item" src="img/obvod.png" alt="">` +
                 `</div>` +
