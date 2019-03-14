@@ -34,10 +34,10 @@
     event.stopPropagation();
   });
 
-  $("body").scrollspy({
-    target: "#mainNav",
-    offset: 110
-  });
+  // $("body").scrollspy({
+  //   target: "#mainNav",
+  //   offset: 110
+  // });
 
   $(document).ready(function () {
     $("#burger-menu-button").click(function () {

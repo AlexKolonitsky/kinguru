@@ -17,6 +17,10 @@
     align-items: center;
 }
 
+.checkbox-label p {
+  margin-top: 1rem;
+}
+
 .input-switch + label {
     position: relative;
     display: inline-block;
@@ -80,6 +84,10 @@
     cursor: pointer;
 }
 
+.choose_speaker {
+  margin-left: 15px;
+}
+
 .input-switch:checked + label span.grip {
     left: 71px;
 }
@@ -122,8 +130,9 @@
 }
 
 .radio-content {
-    margin: 10px 0;
+    margin: 10px 0px;
 }
+
 
 .speakers {
     display: none;
@@ -151,19 +160,49 @@
 
 .bike-open {
   display: none;
+  width: 70%;
+  margin: 0 10px;
+}
+
+.bike-open .row {
+  margin: 50px 0;
+}
+
+.bike-open .radio-toolbar-3{
+  margin: 20px;
+}
+
+.bike-open .radio-toolbar-3 div {
+  margin-right: 20px;
+}
+
+
+.choose_deliver {
+  margin: 30px 0;
+}
+
+.expertise_category,
+.expertise_category:hover,
+.expertise_category:visited{
+  color: #000;
+  border-color: #000;
+  margin: 20px;
+  line-height: 100%;
 }
 
 .boat-open {
     display: none;
 }
 
-.radio-toolbar-1 input,
-.radio-toolbar-2 input{
+.radio-toolbar-3 input,
+.radio-toolbar-2 input,
+.radio-toolbar-1 input{
   display: none;
 }
 
-.radio-toolbar-1 label,
-.radio-toolbar-2 label{
+.radio-toolbar-3 label,
+.radio-toolbar-2 label,
+.radio-toolbar-1 label{
   display: inline-block;
   border: 1px solid #dadada;
   padding: 0.5em 2.5em;
@@ -177,8 +216,9 @@
   padding: 0.5em 1.5em;
 }
 
-.radio-toolbar-1 input[type="radio"]:checked + label,
-.radio-toolbar-2 input[type="radio"]:checked + label{
+.radio-toolbar-3 input[type="radio"]:checked + label,
+.radio-toolbar-2 input[type="radio"]:checked + label,
+.radio-toolbar-1 input[type="radio"]:checked + label{
   background-color: #ffd539;
   border: 1px solid #ffd539;
   color: #000000;
@@ -186,6 +226,14 @@
 
 .guest-number {
     display: flex!important;
+}
+
+.guest-number-rate{
+  margin-right: 20px;
+}
+
+.guest-title {
+  margin: auto 0;
 }
 
 .size-more {
@@ -212,6 +260,10 @@ input::-webkit-inner-spin-button {
 .cost-content {
     display: flex;
     height: 110px;
+}
+
+.event-pay {
+  margin-right: 20px;
 }
 
 .prise-value {

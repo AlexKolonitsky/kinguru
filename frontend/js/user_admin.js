@@ -137,7 +137,7 @@ function userInformation(information) {
     `    </p>` +
     `    </div>` +
     `    </div>` +
-    `    <div class="col-md-12 well">` +
+    `    <div class="col-md-9 well">` +
     `    <legend id="pers_interest" class="">Competenies and interests</legend>` +
     `  <div class="row">` +
     `    <p type="Occupation" class="col-lg-8 col-12">` +
@@ -168,7 +168,7 @@ function userInformation(information) {
     `    </p>` +
     `    </div>` +
     `    </div>` +
-    `    <div class="col-md-12 well">` +
+    `    <div class="col-md-9 well">` +
     `    <legend id="pers_connection" class="">Social connection</legend>` +
     `  <div class="row">` +
     `    <p type="Linked in" class="col-lg-8 col-12">` +
@@ -199,7 +199,7 @@ function userInformation(information) {
     `    </p>` +
     `    </div>` +
     `    </div>` +
-    `    <div class="col-md-12 well">` +
+    `    <div class="col-md-9 well">` +
     `    <legend id="pers_news" class="">Newsletters preference</legend>` +
     `  <p>Recommendations sent straight to your inbox. Don't worry, we won't send spam!</p>` +
     `  <div class="row">` +

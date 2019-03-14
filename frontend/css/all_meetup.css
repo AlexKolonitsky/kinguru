@@ -184,7 +184,10 @@ option {
 .task-box img {
   max-width: 100%;
   max-height: 188px;
-  background-color: #ffffff;
+}
+
+.task-box .progress-star-item {
+  vertical-align: super;
 }
 
 .task-box .task-box-inner {
