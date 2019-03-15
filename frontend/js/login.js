@@ -81,7 +81,6 @@ $('#continue').click( function() {
 
 $('#login-post').click(function () {
   event.preventDefault();
-  console.log('hello123');
   $.ajax({
     url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/login',
     type: 'post',
@@ -91,12 +90,32 @@ $('#login-post').click(function () {
     success: function(data) {
       saveToken(data.token);
       showHeaderContent(data.user);
-      console.log('UserLogin', data);
+      location.reload();
+    },
+    error: function () {
+      $('#error-login').html("<p class='pass not_match error-login'>Incorrect login or password</p>");
     }
   });
 });
 
+
 function fillFormSingUp(postData) {
+   let firstName = document.getElementById('name');
+   let email = document.getElementById('email');
+   let country = document.getElementById('country');
+   let phone = document.getElementById('phone');
+   let password = document.getElementById('pass');
+
+   let valid = [firstName, email, country, phone, password];
+
+  valid.forEach(element => {
+    console.log(element);
+    if(element.value.length < 1) {
+      $('.input_field').addClass('validation-input');
+      console.log('no work')
+    }
+  })
+
   postData = {
     username: document.getElementById('name').value,
     email: document.getElementById('email').value,
@@ -149,7 +168,6 @@ function showHeaderContent(user) {
   $('#login-block').addClass('show-content');
 
   $('#logOut').click(function () {
-    console.log('Clikc HEAR');
     $('.user-content').remove();
     $('#login-block').removeClass('show-content');
     localStorage.setItem('Token', '');

@@ -126,9 +126,13 @@ body {
   border-bottom:1px solid #ffd800;
 }
 
+.validation-input {
+  border-bottom:1px solid red!important;
+}
+
 .pass{
   margin: 0;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .not_match {

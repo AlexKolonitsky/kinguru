@@ -329,7 +329,6 @@
 
   $(document).ready(function () {
     $('#login-btn').click(function (event) {
-      console.log('hello');
       event.preventDefault();
       $('#overlay-login').fadeIn(400,
         function () {

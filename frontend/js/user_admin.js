@@ -18,6 +18,19 @@
       $('body,html').animate({scrollTop: top}, 1500);
     });
   });
+  $(document).ready(function () {
+    $("#new-pass, #confirm-pass").keyup(checkPasswordMatch);
+  });
+
+  function checkPasswordMatch() {
+    var password = $("#new-pass").val();
+    var confirmPassword = $("#confirm-pass").val();
+
+    if (password == confirmPassword)
+      $("#CheckPasswordMatch").html("<p class='pass match confirm-pass'>Passwords match</p>");
+    else
+      $("#CheckPasswordMatch").html("<p class='pass not_match confirm-pass'>Passwords don't match</p>");
+  };
 
 })(jQuery);
 
@@ -37,6 +50,26 @@ $.ajax({
     userInformation(data.user);
   },
 });
+
+$('.change-pass').click(function () {
+  event.preventDefault();
+  $.ajax({
+    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/change/password',
+    headers: {
+      'Authorization': token,
+    },
+    type: 'post',
+    dataType: 'json',
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(changePass()),
+    success: function (data) {
+      successChgangePass();
+    },
+    error: function () {
+      $('#old-pass-error').html("<p class='pass not_match error-old-pass'>Old password don't match</p>");
+    },
+  });
+})
 
 function userInformation(information) {
   const personalInfo =
@@ -154,6 +187,13 @@ function userInformation(information) {
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
+    `    <p type="Job title" class="col-lg-8 col-12">` +
+    `    <input class="input_field" name="jobTitle" type="text" value=""/>` +
+    `    </p>` +
+    `    <p class="col-lg-4 col-0">` +
+    `    </p>` +
+    `    </div>` +
+    `    <div class="row">` +
     `    <p type="Expertise" class="col-lg-8 col-12">` +
     `    <input class="input_field" name="expertise" type="search"/>` +
     `    </p>` +
@@ -213,4 +253,21 @@ function userInformation(information) {
     `    </div>`;
 
   $('.personal-info').append(personalInfo);
+};
+
+function changePass(data) {
+  data = {
+    old: document.getElementById('past-pass').value,
+    new: document.getElementById('new-pass').value,
+    confirm: document.getElementById('confirm-pass').value,
+  };
+  return data;
+};
+
+function successChgangePass() {
+  console.log('pass ok');
+  $("#change-pass-form")[0].reset();
+  $('.confirm-pass').remove();
+  $('.error-old-pass').remove();
+  $('#success-change').html("<p class='pass match'>Change password success</p>");
 };
