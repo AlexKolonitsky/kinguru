@@ -148,7 +148,7 @@
     border: 1px solid grey;
     font-size: 20px;
     line-height: 22px;
-    margin: -5px 5px 0 0;
+    margin: auto 10px;
     text-align: center;
     vertical-align: middle;
     transition: color ease .3s;
@@ -164,18 +164,14 @@
   margin: 0 10px;
 }
 
-.bike-open .row {
+.bike-open .speaker_setting {
   margin: 50px 0;
 }
 
-.bike-open .radio-toolbar-3{
-  margin: 20px;
+.bike-open .speaker_setting .row,
+.label-speaker_checked{
+  margin: 10px 0 10px 15px;
 }
-
-.bike-open .radio-toolbar-3 div {
-  margin-right: 20px;
-}
-
 
 .choose_deliver {
   margin: 30px 0;
@@ -196,13 +192,15 @@
 
 .radio-toolbar-3 input,
 .radio-toolbar-2 input,
-.radio-toolbar-1 input{
+.radio-toolbar-1 input,
+.check-toolbar-1 input{
   display: none;
 }
 
 .radio-toolbar-3 label,
 .radio-toolbar-2 label,
-.radio-toolbar-1 label{
+.radio-toolbar-1 label,
+.check-toolbar-1 label{
   display: inline-block;
   border: 1px solid #dadada;
   padding: 0.5em 2.5em;
@@ -210,6 +208,7 @@
   background-color: white;
   color: #dadada;
   font-size: 0.8em;
+  margin-right: 20px;
 }
 
 .radio-toolbar-2 label {
@@ -218,7 +217,8 @@
 
 .radio-toolbar-3 input[type="radio"]:checked + label,
 .radio-toolbar-2 input[type="radio"]:checked + label,
-.radio-toolbar-1 input[type="radio"]:checked + label{
+.radio-toolbar-1 input[type="radio"]:checked + label,
+.check-toolbar-1 input[type="checkbox"]:checked + label{
   background-color: #ffd539;
   border: 1px solid #ffd539;
   color: #000000;
@@ -540,4 +540,40 @@ table {
     margin-left: 20px;
     cursor: pointer;
     user-select: none;
+}
+
+.speaker_filtered {
+  border: 1px solid rgba(75, 75, 82, 0.5);
+  border-radius: 5px;
+}
+
+.speakers_checked {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 30px;
+}
+
+.speaker_checked{
+  width: 40%;
+}
+
+.speaker_checked-photo {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+}
+
+.speaker_checked-name {
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+.speaker_available.row {
+  margin: 10px 20px;
+  justify-content: space-between;
+}
+
+.speaker_available-title {
+  font-family: "Muller Bold";
 }

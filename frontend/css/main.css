@@ -1883,6 +1883,7 @@ p:before{
   border-color: #ffd800;
   font-size: 18px;
   height: 40px;
+  line-height: 40px;
   padding: 0 2em;
   font-family: "Muller Bold";
   font-weight: inherit;
@@ -1893,4 +1894,9 @@ p:before{
 .create-meeting-butt:hover{
   text-decoration: none;
   color: #000;
+}
+
+.cost-from_to {
+  margin: 0;
+  line-height: 2em;
 }

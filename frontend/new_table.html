@@ -42,7 +42,6 @@
     property="og:description"
     content="Сообщество людей, открытых для встреч и знакомств"
   />
-  <title>KINGURU - для тех кто ценит общение!</title>
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
   <link
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -51,6 +50,10 @@
     crossorigin="anonymous"
   />
   <link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.min.css"/>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+
+  <link rel="stylesheet" href="vendor/bootstrap-slider/bootstrap-slider.min.css" />
+
   <link
     rel="stylesheet"
     type="text/css"
@@ -63,6 +66,7 @@
   <link href="css/user_admin.css" rel="stylesheet"/>
   <link href="css/main.css" rel="stylesheet"/>
   <link href="css/new_table.css" rel="stylesheet"/>
+
 </head>
 
 <body id="page-top">
@@ -219,7 +223,6 @@
             </div>
           </div>
 
-
           <div class="col-md-12 well">
             <legend id="table_speakers" class="table-item-title">Speakers</legend>
             <div class="checkbox-label">
@@ -281,45 +284,55 @@
                 <div class="choose_deliver">
                   <p>or choose one</p>
                 </div>
-                <div class="row">
+                <div class="row speaker_setting">
                   <input class="speakers" type="checkbox" id="setting_1">
                   <label class="label-speaker col-4" for="setting_1">City</label>
                   <input class="input_field col-8" type="text" name="mySpeaker">
                 </div>
-                <div class="row">
+                <div class="row speaker_setting">
                   <input class="speakers" type="checkbox" id="setting_2">
                   <label class="label-speaker col-4" for="setting_2">Industry</label>
                   <input class="input_field col-8" type="text" name="mySpeaker">
                 </div>
-                <div class="row">
+                <div class="row speaker_setting">
                   <input class="speakers" type="checkbox" id="setting_3">
                   <label class="label-speaker col-4" for="setting_3">Job title</label>
                   <input class="input_field col-8" type="text" name="mySpeaker">
                 </div>
-                <div class="row">
+                <div class="row speaker_setting">
                   <input class="speakers" type="checkbox" id="setting_4">
                   <label class="label-speaker col-4" for="setting_4">Rate</label>
                   <input class="input_field col-8" type="text" name="mySpeaker">
                 </div>
-                <div class="row">
+                <div class="row speaker_setting">
                   <input class="speakers" type="checkbox" id="setting_5">
                   <label class="label-speaker col-4" for="setting_5">Cost per hour</label>
-                  <input class="input_field col-2" type="text" name="mySpeaker">
-                  <p class="col-1">$</p>
+                  <p class="col-1 cost-from_to">from</p>
+                  <input class="input_field cost-from_to col-2" type="text" name="mySpeaker">
+                  <p class="col-1 cost-from_to">$</p>
+                  <p class="col-1 cost-from_to">to</p>
+                  <input class="input_field cost-from_to col-2" type="text" name="mySpeaker">
+                  <p class="col-1 cost-from_to">$</p>
                 </div>
-                <div class="row">
+                <div class="row speaker_setting">
                   <input class="speakers" type="checkbox" id="setting_6">
                   <label class="label-speaker col-12" for="setting_6">Expertise</label>
                   <a href="#" class="event-category expertise_category">business</a>
                   <a href="#" class="event-category expertise_category">journalism</a>
                   <a href="#" class="event-category expertise_category">cats</a>
                 </div>
-                <div class="row">
+                <div class="row speaker_setting">
                   <input class="speakers" type="checkbox" id="setting_7">
-                  <label class="label-speaker col-12" for="setting_7">Expertise</label>
-                  <p></p>
+                  <label class="label-speaker col-12" for="setting_7">Age</label>
+
+                  <input
+                      type="text"
+                      class="duration-slider"
+                      data-slider-value="5"
+                  >
+
                 </div>
-                <div class="row">
+                <div class="row speaker_setting">
                   <input class="speakers" type="checkbox" id="setting_8">
                   <label class="label-speaker col-12" for="setting_8">Gender</label>
                   <div class="row radio-toolbar-3">
@@ -333,6 +346,65 @@
                     </div>
                   </div>
                 </div>
+                <div class="row speaker_setting">
+                  <input class="speakers" type="checkbox" id="setting_9">
+                  <label class="label-speaker col-12" for="setting_9">Language</label>
+                  <div class="row check-toolbar-1">
+                    <div class="my-auto">
+                      <input type="checkbox" id="check1" name="radios-forth" value="all" checked/>
+                      <label for="check1" class="text-center pointer">En</label>
+                    </div>
+                    <div class="my-auto">
+                      <input type="checkbox" id="check2" name="radios-forth" value="false"/>
+                      <label for="check2" class="text-center pointer">Rus</label>
+                    </div>
+                    <div class="my-auto">
+                      <input type="checkbox" id="check3" name="radios-forth" value="all"/>
+                      <label for="check3" class="text-center pointer">Cn</label>
+                    </div>
+                    <div class="my-auto">
+                      <input type="checkbox" id="check4" name="radios-forth" value="false"/>
+                      <label for="check4" class="text-center pointer">Bel</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="speaker_filtered">
+                  <div class="speakers_checked check-toolbar-2">
+                    <div class="speaker_checked">
+                      <input class="speakers" type="checkbox" id="speaker_1">
+                      <label class="label-speaker_checked row" for="speaker_1">
+                        <img class="speaker_checked-photo rounded-circle" src="img/speaker-1.jpg">
+                        <p class="speaker_checked-name">Vadim Calms</p>
+                      </label>
+                    </div>
+                    <div class="speaker_checked my-auto">
+                      <input class="speakers" type="checkbox" id="speaker_2">
+                      <label class="label-speaker_checked row" for="speaker_2">
+                        <img class="speaker_checked-photo rounded-circle" src="img/speaker-2.jpg">
+                        <p class="speaker_checked-name">Vadim Calms</p>
+                      </label>
+                    </div>
+                    <div class=" speaker_checked my-auto">
+                      <input class="speakers" type="checkbox" id="speaker_3">
+                      <label class="label-speaker_checked row" for="speaker_3">
+                        <img class="speaker_checked-photo rounded-circle" src="img/speaker-3.jpg">
+                        <p class="speaker_checked-name">Vadim Calms</p>
+                      </label>
+                    </div>
+                    <div class="speaker_checked my-auto">
+                      <input class="speakers" type="checkbox" id="speaker_4">
+                      <label class="label-speaker_checked row" for="speaker_4">
+                        <img class="speaker_checked-photo rounded-circle" src="img/speaker-2.jpg">
+                        <p class="speaker_checked-name">Vadim Calms</p>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="speaker_available row">
+                    <p class="speaker_available-title">The speaker will be available after confirming</p>
+                    <p><div class="speaker_available-number">6 </div>
+                    speakers selected</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -341,11 +413,11 @@
             <legend id="table_guests" class="table-item-title">Guests</legend>
             <div class="row radio-toolbar-1">
               <p class="col-lg-2 col-12 guest-title">Who's invited?</p>
-              <div class="col-lg-3 col-12 my-auto">
+              <div class="my-auto">
                 <input type="radio" id="radio1" name="radios-one" value="all" checked/>
                 <label for="radio1" class="text-center pointer">Open for everyone</label>
               </div>
-              <div class="col-lg-3 col-12 my-auto">
+              <div class="my-auto">
                 <input type="radio" id="radio2" name="radios-one" value="false"/>
                 <label for="radio2" class="text-center pointer">Just my guests</label>
               </div>
@@ -569,6 +641,7 @@
 
 
 <script src="vendor/jquery/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -583,7 +656,7 @@
 <script src="js/google_map.js"></script>
 <script src="js/data.js"></script>
 <script src="js/environment.js"></script>
+<script src="vendor/bootstrap-slider/bootstrap-slider.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXFqmqsAuHyK-GCF5HDrMqu5WULRpFN-8&callback=initMap" type="text/javascript"></script>
-
 </body>
 </html>
