@@ -68,7 +68,9 @@ $('.change-pass').click(function () {
       $('#old-pass-error').html("<p class='pass not_match error-old-pass'>Old password don't match</p>");
     },
   });
-})
+});
+
+
 
 function userInformation(information) {
   if (!information.location) {
@@ -80,14 +82,27 @@ function userInformation(information) {
     }
   }
   console.log(111, information);
+
+  let date = new Date(information.birthday);
+  let year = date.getFullYear();
+  let month = date.getMonth()+1;
+  let dt = date.getDate();
+
+  if (dt < 10) {
+    dt = '0' + dt;
+  }
+  if (month < 10) {
+    month = '0' + month;
+  }
+
   const personalInfo =
-    `    <div class="col-md-9 well">` +
+    `    <div class="col-md-9 well" id="user-info-content">` +
     `    <legend id="pers_info" class="">Personal information</legend>` +
     `  <input name="myFile" type="file" id="file" class="input_file">` +
-    `    <label class="load_file" for="file"><img src="${information.coverSource}" class="img-fluid rounded-circle mx-auto"></label>` +
+    `    <label class="load_file" for="file"><img src="${information.coverSource}" id="image" class="img-fluid rounded-circle mx-auto"></label>` +
     `    <div class="row">` +
     `    <p type="Title*" class="col-lg-8 col-12">` +
-    `    <select class="select_field">` +
+    `    <select id="gender-user" class="select_field">` +
     `    <option hidden selected value>${information.gender}</option>` +
     `  <option value="Male">Male</option>` +
     `    <option value="Female">Female</option>` +
@@ -98,69 +113,44 @@ function userInformation(information) {
     `    </div>` +
     `    <div class="row">` +
     `    <p type="First name*" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="fname" type="text" value="${information.firstname}" required/>` +
+    `    <input id="first-name" class="input_field" name="fname" type="text" value="${information.firstname}" required/>` +
     `  </p>` +
     `  <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Last name*" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="lname" type="text" value="${information.lastname}" required/>` +
+    `    <input id="last-name" class="input_field" name="lname" type="text" value="${information.lastname}" required/>` +
     `  </p>` +
     `  <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Country*" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name='country' type="text" value="${information.location.country}" required/>` +
+    `    <input id="country-user" class="input_field" name='country' type="text" value="${information.location.country || ''}" required/>` +
     `  </p>` +
     `  <p type="City" class="col-lg-4 col-12">` +
-    `    <input class="input_field" name='city' type="text" value="${information.location.city}"/>` +
+    `    <input class="input_field" name='city' type="text" value="${information.location.city || ''}"/>` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Address" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name='address' type="text" value="${information.location.address}"/>` +
+    `    <input class="input_field" name='address' type="text" value="${information.location.address || ''}"/>` +
     `    </p>` +
     `    <p type="Zip code" class="col-lg-4 col-12">` +
-    `    <input class="input_field" name='z-code' type="number" value="${information.location.zipCode}"/>` +
+    `    <input class="input_field" name='z-code' type="number" value="${information.location.zipCode || ''}"/>` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Birthday*" class="col-lg-8 col-12">` +
-    `    <div class="fallbackDatePicker row">` +
-    `    <div class="col-3">` +
-    `    <select id="day" class="select_field" name="day" >` +
-    `    </select>` +
-    `    </div>` +
-    `    <div class="col-5">` +
-    `    <select id="month" class="select_field" name="month">` +
-    `    <option selected>January</option>` +
-    `  <option>February</option>` +
-    `  <option>March</option>` +
-    `  <option>April</option>` +
-    `  <option>May</option>` +
-    `  <option>June</option>` +
-    `  <option>July</option>` +
-    `  <option>August</option>` +
-    `  <option>September</option>` +
-    `  <option>October</option>` +
-    `  <option>November</option>` +
-    `  <option>December</option>` +
-    `  </select>` +
-    `  </div>` +
-    `  <div class="col-4">` +
-    `    <select id="year" class="select_field" name="year" >` +
-    `    </select>` +
-    `    </div>` +
-    `    </div>` +
+    `    <input class="input_field" name="expertise" id="birthday-user" type="date" value="${year+'-' + month + '-'+dt}"/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Phone number*" class="col-lg-8 col-12">` +
-    `    <input name="phone" class="input_field" type="number" value="" required/>` +
+    `    <input id="phone-user" name="phone" class="input_field" type="number" value="${information.phone || ''}" required/>` +
     `  </p>` +
     `  <p class="col-lg-4 col-0">` +
     `    </p>` +
@@ -189,7 +179,7 @@ function userInformation(information) {
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Company" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="company" type="text" value="${information.company}"/>` +
+    `    <input class="input_field" name="company" type="text" value="${information.company || ''}"/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
@@ -246,21 +236,24 @@ function userInformation(information) {
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
-    `    </div>` +
-    `    <div class="col-md-9 well">` +
-    `    <legend id="pers_news" class="">Newsletters preference</legend>` +
-    `  <p>Recommendations sent straight to your inbox. Don't worry, we won't send spam!</p>` +
-    `  <div class="row">` +
-    `    <p type="Your email" class="col-lg-7 col-12">` +
-    `    <input class="input_field" name="email" type="email"/>` +
-    `    </p>` +
-    `    <div class="col-lg-5 col-12 event-join right-btn">` +
-    `    <button href="#" class="mt-lg-5 mt-0 butt sett-btn">Subscribe</button>` +
-    `    </div>` +
-    `    </div>` +
     `    </div>`;
 
   $('#personal-info').append(personalInfo);
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#image').attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+      console.log(reader);
+    }
+  }
+  $("#file").change(function(){
+    readURL(this);
+  });
 };
 
 function changePass(data) {
@@ -279,3 +272,32 @@ function successChgangePass() {
   $('.error-old-pass').remove();
   $('#success-change').html("<p class='pass match'>Change password success</p>");
 };
+
+$('#update-account').click(function () {
+  let fd = new FormData();
+  console.log(document.getElementById('birthday-user').value);
+
+  fd.append( 'image', $('#file')[0].files[0]);
+  fd.append( 'firstname', document.getElementById('first-name').value);
+  fd.append( 'gender', $('#gender-user option:selected').text());
+  fd.append( 'lastname', document.getElementById('last-name').value);
+  fd.append( 'country', document.getElementById('country-user').value);
+  fd.append( 'birthday', document.getElementById('birthday-user').value);
+  fd.append( 'phone', document.getElementById('phone-user').value);
+
+  $.ajax({
+    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/update',
+    data: fd,
+    headers: {
+      'Authorization': token,
+    },
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function(data){
+      $('#personal-info').empty();
+      userInformation(data.user);
+      $("#success-save-user").html("<p class='pass match'>Save success</p>");
+    }
+  });
+});

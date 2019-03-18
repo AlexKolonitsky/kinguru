@@ -90,7 +90,7 @@ $('#login-post').click(function () {
     success: function(data) {
       saveToken(data.token);
       showHeaderContent(data.user);
-      // location.reload();
+      location.reload();
     },
     error: function () {
       $('#error-login').html("<p class='pass not_match error-login'>Incorrect login or password</p>");
@@ -101,20 +101,24 @@ $('#login-post').click(function () {
 
 function fillFormSingUp(postData) {
    let firstName = document.getElementById('name');
+    if (firstName.length < 1) {
+      console.log('123');
+      $('.input_field').addClass('validation-input');
+    };
    let email = document.getElementById('email');
    let country = document.getElementById('country');
    let phone = document.getElementById('phone');
    let password = document.getElementById('pass');
 
-   let valid = [firstName, email, country, phone, password];
-
-  valid.forEach(element => {
-    console.log(element);
-    if(element.value.length < 1) {
-      $('.input_field').addClass('validation-input');
-      console.log('no work')
-    }
-  })
+  //  let valid = [firstName, email, country, phone, password];
+  //
+  // valid.forEach(element => {
+  //   console.log(element);
+  //   if(element.value.length < 1) {
+  //     $('.input_field').addClass('validation-input');
+  //     console.log('no work')
+  //   }
+  // })
 
   postData = {
     username: document.getElementById('name').value,

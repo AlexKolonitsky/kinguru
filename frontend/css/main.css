@@ -1875,12 +1875,17 @@ p:before{
   font-size: 1.1rem;
   border-radius: 300px;
   text-transform: uppercase;
-  outline: none;
+  outline: none!important;
+    cursor: pointer;
+}
+
+.butt:active {
+    border: 2px solid #c9a700;
 }
 
 .create-meeting-butt {
   background-color: #ffd800;
-  border-color: #ffd800;
+  border:  2px solid #ffd800;
   font-size: 18px;
   height: 40px;
   line-height: 40px;
