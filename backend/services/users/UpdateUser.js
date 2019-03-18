@@ -20,12 +20,12 @@ class UpdateUser extends RequestHandler {
   validate(request) {
     const userRequest = request.body;
     return _.flatten([
-      /*validator.fieldExist('first name', userRequest.firstname),
+      validator.fieldExist('first name', userRequest.firstname),
       validator.fieldExist('last name', userRequest.lastname),
       validator.fieldExist('gender', userRequest.gender),
       validator.fieldExist('country', userRequest.country),
       validator.fieldExist('birthday', userRequest.birthday),
-      validator.fieldExist('phone number', userRequest.phone),*/
+      validator.fieldExist('phone number', userRequest.phone),
     ]);
 
   }
