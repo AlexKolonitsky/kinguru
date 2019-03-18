@@ -16,7 +16,7 @@ const utils = require('./../../common/securityAssert');
 
 const {Users, Locations} = require('./../index');
 const defaultUserAttributes = [
-  'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender',
+  'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender', 'phone',
   'locationId', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
   'coverSource', 'coverKey', 'createdAt', 'updatedAt'
 ];
@@ -137,6 +137,75 @@ class UsersDao {
             return user.update({password: utils.hashPassword(password.new)});
           })
       })
+  }
+
+  setLocation(location) {
+    return {
+      country: location.country,
+      state: location.state,
+      city: location.city,
+      zipCode: location.zipCode,
+      address: location.address,
+      metro: location.metro,
+      place: location.place,
+      email: location.email,
+      phone: location.phone,
+    }
+  }
+
+  updateUser(newUserInfo, token) {
+    const userBeforeUpdated = utils.getUserByToken(token).user;
+    console.log(123, userBeforeUpdated);
+    return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo))
+      .then(location => {
+        return Users.findOne({
+          where: {
+            email: userBeforeUpdated.email
+          }
+        })
+          .then(userInfo => {
+            return userInfo.update({
+              firstname: newUserInfo.firstname,
+              lastname: newUserInfo.lastname,
+              description: newUserInfo.description,
+              birthday: newUserInfo.birthday,
+              gender: newUserInfo.gender,
+              phone: newUserInfo.phone,
+              company: newUserInfo.company,
+              website: newUserInfo.website,
+              linkedinLink: newUserInfo.linkedinLink,
+              facebookLink: newUserInfo.facebookLink,
+              instagramLink: newUserInfo.instagramLink,
+              coverSource: newUserInfo.coverSource,
+              coverKey: newUserInfo.coverKey,
+              locationId: location.id
+            })
+          })
+          .then(user => {
+            user = user.dataValues;
+            user.location = location.dataValues;
+            return {
+              user,
+              token: utils.getJwtToken(user).split(' ')[1],
+              oldFileKey: userBeforeUpdated.coverKey
+            }
+          })
+      })
+  }
+
+  updateUserLocation(idLocation, newlocationInfo) {
+    console.log(idLocation);
+    if (idLocation) {
+      return Locations.findOne({
+        where: {
+          id: idLocation
+        },
+      })
+        .then(location => {
+          return location.update(this.setLocation(newlocationInfo))
+        })
+    }
+    return Locations.create(this.setLocation(newlocationInfo))
   }
 }
 

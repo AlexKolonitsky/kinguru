@@ -58,6 +58,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(100),
     },
 
+    phone: {
+      type: DataTypes.STRING(100),
+    },
+
     linkedinLink: {
       type: DataTypes.STRING(100),
     },

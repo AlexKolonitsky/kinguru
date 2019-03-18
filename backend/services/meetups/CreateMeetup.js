@@ -36,8 +36,8 @@ class CreateMeetup extends RequestHandlers {
   methodAction(request) {
 
     let file = request.file;
-    let filename = Date.now() + '-' + request.file.originalname;
-    let contentType = request.file.mimetype;
+    let filename = Date.now() + '-' + file.originalname;
+    let contentType = file.mimetype;
 
     return this.s3.upload(filename, file.buffer, contentType)
       .then(data => {
