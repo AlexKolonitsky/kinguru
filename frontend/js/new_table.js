@@ -11,6 +11,10 @@ $(function () {
     $('.price-open').stop().fadeToggle();
   });
 
+  $('.city').click(function () {
+    $('.city-open').stop().fadeToggle();
+  });
+
   $('.switch2').click(function () {
     var isDisabled = $('.speakers').is(':disabled');
     if (isDisabled) {
@@ -80,6 +84,6 @@ function allTags(recentTags) {
 };
 
 $(document).ready(function () {
-  $('.duration-slider').slider();
+  $('.duration-slider').bootstrapSlider();
 });
 
