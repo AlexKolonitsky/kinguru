@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
 
   <link href="css/login.css" rel="stylesheet"/>
+  <link href="css/user_admin.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -17,6 +18,40 @@
     <p type="First name" class="login-form-item col-12">
       <input id="name" class="input_field" name="fname" type="text" required/>
     </p>
+  </div>
+  <div class="login-form-items row">
+    <p type="Last name" class="login-form-item col-12">
+      <input id="s-name" class="input_field" name="fname" type="text" required/>
+    </p>
+  </div>
+  <div class="login-form-items row">
+    <p type="Date of birth" class="login-form-item col-12"></p>
+    <div class="fallbackDatePicker">
+      <div class="select-wrapper">
+        <select id="day" class="select_field" name="day">
+        </select>
+      </div>
+      <div class="select-wrapper">
+        <select id="month" class="select_field" name="month">
+          <option selected>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+      </div>
+      <div class="select-wrapper">
+        <select id="year" class="select_field" name="year">
+        </select>
+      </div>
+    </div>
   </div>
   <div class="login-form-items row">
     <p type="Email" class="login-form-item col-12">
@@ -69,5 +104,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="js/login.js"></script>
+<script src="js/data.js"></script>
 </body>
 </html>

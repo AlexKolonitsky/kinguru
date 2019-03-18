@@ -194,8 +194,17 @@ textarea {
   margin-top: 0px;
 }
 
+.fallbackDatePicker{
+  display: flex;
+}
+
+.select-wrapper {
+  margin: 0 15px;
+}
+
 .fallbackDatePicker.row{
   margin-left: 0;
+
 }
 
 @media (min-width: 992px) {

@@ -261,6 +261,10 @@ legend {
   color: #000000;
 }
 
+.list-speaker .butt {
+  margin: 25px auto;
+}
+
 .guest-number {
     display: flex!important;
 }

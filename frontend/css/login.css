@@ -235,5 +235,10 @@ input[type="checkbox"] {
   color: #0077b5;
 }
 
+.fallbackDatePicker {
+  display: flex;
+}
 
-
+.select-wrapper {
+  margin-right: 20px;
+}
