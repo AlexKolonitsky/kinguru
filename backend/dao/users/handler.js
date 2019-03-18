@@ -97,7 +97,7 @@ class UsersDao {
           where: {
             id: user.locationId
           },
-          attributes: ['country', 'state', 'city', 'address', 'metro', 'phone', 'zipCode']
+          attributes: ['country', 'state', 'city', 'address', 'metro', 'phone', 'zipCode', 'place']
         })
           .then(location => {
             user = user.dataValues;
