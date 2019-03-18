@@ -46,8 +46,7 @@ $.ajax({
   dataType: 'json',
   contentType: "application/json; charset=utf-8",
   success: function (data) {
-    console.log(data, 'user');
-    userInformation(data.user);
+     userInformation(data.user);
   },
 });
 
@@ -72,6 +71,15 @@ $('.change-pass').click(function () {
 })
 
 function userInformation(information) {
+  if (!information.location) {
+    information.location = {
+      country: '',
+      city: '',
+      address: '',
+      zipCode: '',
+    }
+  }
+  console.log(111, information);
   const personalInfo =
     `    <div class="col-md-9 well">` +
     `    <legend id="pers_info" class="">Personal information</legend>` +
@@ -252,7 +260,7 @@ function userInformation(information) {
     `    </div>` +
     `    </div>`;
 
-  $('.personal-info').append(personalInfo);
+  $('#personal-info').append(personalInfo);
 };
 
 function changePass(data) {

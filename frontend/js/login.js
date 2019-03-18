@@ -90,7 +90,7 @@ $('#login-post').click(function () {
     success: function(data) {
       saveToken(data.token);
       showHeaderContent(data.user);
-      location.reload();
+      // location.reload();
     },
     error: function () {
       $('#error-login').html("<p class='pass not_match error-login'>Incorrect login or password</p>");
