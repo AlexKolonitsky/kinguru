@@ -97,7 +97,7 @@ class UsersDao {
           where: {
             id: user.locationId
           },
-          attributes: [ 'country', 'state', 'city', 'address', 'metro', 'phone', 'zipCode' ]
+          attributes: ['country', 'state', 'city', 'address', 'metro', 'phone', 'zipCode']
         })
           .then(location => {
             user = user.dataValues;
@@ -139,24 +139,25 @@ class UsersDao {
       })
   }
 
-  setLocation(location) {
+  setLocation(location, locationBeforeUpdated) {
     return {
-      country: location.country,
-      state: location.state,
-      city: location.city,
-      zipCode: location.zipCode,
-      address: location.address,
-      metro: location.metro,
-      place: location.place,
-      email: location.email,
-      phone: location.phone,
+      country: location.country || locationBeforeUpdated.country,
+      state: location.state || locationBeforeUpdated.state,
+      city: location.city || locationBeforeUpdated.city,
+      zipCode: location.zipCode || locationBeforeUpdated.zipCode,
+      address: location.address || locationBeforeUpdated.address,
+      metro: location.metro || locationBeforeUpdated.metro,
+      place: location.place || locationBeforeUpdated.place,
+      email: location.email || locationBeforeUpdated.email,
+      phone: location.phone || locationBeforeUpdated.phone,
     }
   }
 
   updateUser(newUserInfo, token) {
+    console.log(newUserInfo);
     const userBeforeUpdated = utils.getUserByToken(token).user;
-    console.log(123, userBeforeUpdated);
-    return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo))
+    console.log(userBeforeUpdated);
+    return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo, userBeforeUpdated.location))
       .then(location => {
         return Users.findOne({
           where: {
@@ -165,30 +166,34 @@ class UsersDao {
         })
           .then(userInfo => {
             return userInfo.update({
-              firstname: newUserInfo.firstname,
-              lastname: newUserInfo.lastname,
-              description: newUserInfo.description,
-              birthday: newUserInfo.birthday,
-              gender: newUserInfo.gender,
-              phone: newUserInfo.phone,
-              company: newUserInfo.company,
-              website: newUserInfo.website,
-              linkedinLink: newUserInfo.linkedinLink,
-              facebookLink: newUserInfo.facebookLink,
-              instagramLink: newUserInfo.instagramLink,
-              coverSource: newUserInfo.coverSource,
-              coverKey: newUserInfo.coverKey,
+              firstname: newUserInfo.firstname || userBeforeUpdated.firstname,
+              lastname: newUserInfo.lastname || userBeforeUpdated.lastname,
+              description: newUserInfo.description || userBeforeUpdated.description,
+              birthday: newUserInfo.birthday || userBeforeUpdated.birthday,
+              gender: newUserInfo.gender || userBeforeUpdated.gender,
+              phone: newUserInfo.phone || userBeforeUpdated.phone,
+              company: newUserInfo.company || userBeforeUpdated.company,
+              website: newUserInfo.website || userBeforeUpdated.website,
+              linkedinLink: newUserInfo.linkedinLink || userBeforeUpdated.linkedinLink,
+              facebookLink: newUserInfo.facebookLink || userBeforeUpdated.facebookLink,
+              instagramLink: newUserInfo.instagramLink || userBeforeUpdated.instagramLink,
+              coverSource: newUserInfo.coverSource || userBeforeUpdated.coverSource,
+              coverKey: newUserInfo.coverKey || userBeforeUpdated.coverKey,
               locationId: location.id
             })
           })
           .then(user => {
             user = user.dataValues;
             user.location = location.dataValues;
-            return {
+            const userInfo = {
               user,
               token: utils.getJwtToken(user).split(' ')[1],
-              oldFileKey: userBeforeUpdated.coverKey
+            };
+            if (newUserInfo.coverSource) {
+              console.log(userBeforeUpdated.coverKey);
+              userInfo.oldFileKey = userBeforeUpdated.coverKey;
             }
+            return userInfo;
           })
       })
   }
