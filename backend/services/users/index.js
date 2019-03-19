@@ -5,6 +5,7 @@ const LoginUser = require('./LoginUser');
 const GetCurrentUser = require('./GetCurrentUser');
 const UpdateUser = require('./UpdateUser');
 const ChangePassword = require('./ChangePassword');
+const ConfirmEmail = require('./ConfirmEmail');
 
 /**
  * @type {{
@@ -19,4 +20,5 @@ module.exports = {
   GetCurrentUser: new GetCurrentUser(),
   UpdateUser: new UpdateUser(),
   ChangePassword: new ChangePassword(),
+  ConfirmEmail: new ConfirmEmail()
 };

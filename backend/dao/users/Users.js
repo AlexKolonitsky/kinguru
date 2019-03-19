@@ -82,6 +82,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
 
+    confirmed: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+
     createdAt: {
       type: DataTypes.DATE,
     },

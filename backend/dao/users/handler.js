@@ -33,19 +33,20 @@ class UsersDao {
       .then(user => {
         if (!user) {
           return Users.create({
-            username: userInfo.username,
+            firstname: userInfo.firstname,
+            lastname: userInfo.lastname,
             email: userInfo.email,
             password: userInfo.password,
             country: userInfo.country,
             city: userInfo.city,
-            phone: userInfo.phone
+            phone: userInfo.phone,
           });
         }
         return Promise.reject({code: ERRORS_CODE.DUPLICATE});
       });
   }
 
-  findEmailAndPassword(email, password) {
+  findEmailAndPassword(email, password, response) {
     return Users.findOne({
       where: {
         email: email,
@@ -53,6 +54,9 @@ class UsersDao {
       }
     })
       .then(user => {
+        if (!user.confirmed) {
+          return response.status(401).end('Please confirm your email to login');
+        }
         if (user) {
           return _.pick(user, defaultUserAttributes)
         }
@@ -211,6 +215,17 @@ class UsersDao {
         })
     }
     return Locations.create(this.setLocation(newlocationInfo))
+  }
+
+  confirmEmail(email) {
+    Users.findOne({
+      where: {
+        email: email
+      }
+    })
+      .then(user => {
+        return user.update({confirmed: true})
+      })
   }
 }
 

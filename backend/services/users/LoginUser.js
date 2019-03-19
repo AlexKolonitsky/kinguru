@@ -21,16 +21,20 @@ class LoginUser extends RequestHandler {
   methodAction(request, response) {
     const userRequest = request.body;
 
-    return UsersDaoHandler.findEmailAndPassword(userRequest.email, userRequest.password)
+    return UsersDaoHandler.findEmailAndPassword(userRequest.email, userRequest.password, response)
       .then(user => {
-        const token = utils.getJwtToken(user).split(' ')[1];
-        return UsersDaoHandler.getCurrentUser(token, response)
+        console.log('success');
+        if (user) {
+          const token = utils.getJwtToken(user).split(' ')[1];
+          return UsersDaoHandler.getCurrentUser(token, response)
+        }
       })
       .catch(err => {
+        console.log('err');
         if(err.code === ERRORS_CODE.NOT_FOUND){
           return Promise.reject({
             code: 404,
-            message: `User with email: ${user.email} not found`
+            message: `User with email: ${userRequest.email} not found`
           })
         }
       })

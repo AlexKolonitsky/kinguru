@@ -15,6 +15,7 @@ router.post('/user/login', (req, res, next) => users.LoginUser.process(req, res,
 router.get('/user/current', (req, res, next) => users.GetCurrentUser.process(req, res, next, true));
 router.post('/user/update', upload.single('image'), (req, res, next) => users.UpdateUser.process(req, res, next, true));
 router.post('/user/change/password', (req, res, next) => users.ChangePassword.process(req, res, next, true));
+router.get('/user/confirmation/:id', (req, res, next) => users.ConfirmEmail.process(req, res, next));
 
 
 /**
