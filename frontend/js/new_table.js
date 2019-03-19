@@ -47,6 +47,10 @@ $(function () {
     $('.lang-speaker-open').stop().fadeToggle();
   });
 
+  $('.invited-by').click(function () {
+    $('.invited-by-open').stop().fadeToggle();
+  });
+
   $('.job-guest').click(function () {
     $('.job-guest-open').stop().fadeToggle();
   });

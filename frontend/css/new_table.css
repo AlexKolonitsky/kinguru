@@ -404,6 +404,10 @@ input::-webkit-inner-spin-button {
   color: #bebed2;
 }
 
+.radio-toolbar-5 label{
+  margin: 10px 0px 10px 30px;
+}
+
 .add_guest {
   width: 200px;
   font-size: 0.8em;
