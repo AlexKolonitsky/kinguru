@@ -105,8 +105,13 @@ legend {
     cursor: default!important;
 }
 
-.label-speaker {
+.label-speaker{
+  margin: auto 0;
     cursor: pointer;
+}
+
+.cost-speaker-open {
+  display: flex;
 }
 
 .choose_speaker {
@@ -189,13 +194,23 @@ legend {
   margin: 0 10px;
 }
 
-.bike-open .speaker_setting {
+.speaker_setting {
   margin: 50px 0;
 }
 
 .cost-from_to{
-  margin: auto 0;
+  margin: auto 20px auto 0;
   text-align: center;
+}
+
+p.cost-from_to {
+  font-size: 1.3em;
+}
+
+.expertise-speaker-open,
+.expertise-guest-open,
+.interest-guest-open{
+  margin: 30px 0;
 }
 
 .bike-open .speaker_setting .row,

@@ -11,8 +11,64 @@ $(function () {
     $('.price-open').stop().fadeToggle();
   });
 
-  $('.city').click(function () {
-    $('.city-open').stop().fadeToggle();
+  $('.city-speaker').click(function () {
+    $('.city-speaker-open').stop().fadeToggle();
+  });
+
+  $('.industry-speaker').click(function () {
+    $('.industry-speaker-open').stop().fadeToggle();
+  });
+
+  $('.job-speaker').click(function () {
+    $('.job-speaker-open').stop().fadeToggle();
+  });
+
+  $('.rate-speaker').click(function () {
+    $('.rate-speaker-open').stop().fadeToggle();
+  });
+
+  $('.cost-speaker').click(function () {
+    $('.cost-speaker-open').stop().fadeToggle();
+  });
+
+  $('.expertise-speaker').click(function () {
+    $('.expertise-speaker-open').stop().fadeToggle();
+  });
+
+  $('.age-speaker').click(function () {
+    $('.age-speaker-open').stop().fadeToggle();
+  });
+
+  $('.gender-speaker').click(function () {
+    $('.gender-speaker-open').stop().fadeToggle();
+  });
+
+  $('.lang-speaker').click(function () {
+    $('.lang-speaker-open').stop().fadeToggle();
+  });
+
+  $('.job-guest').click(function () {
+    $('.job-guest-open').stop().fadeToggle();
+  });
+
+  $('.interest-guest').click(function () {
+    $('.interest-guest-open').stop().fadeToggle();
+  });
+
+  $('.age-guest').click(function () {
+    $('.age-guest-open').stop().fadeToggle();
+  });
+
+  $('.gender-guest').click(function () {
+    $('.gender-guest-open').stop().fadeToggle();
+  });
+
+  $('.expertise-guest').click(function () {
+    $('.expertise-guest-open').stop().fadeToggle();
+  });
+
+  $('.city-guest').click(function () {
+    $('.city-guest-open').stop().fadeToggle();
   });
 
   $('.switch2').click(function () {
