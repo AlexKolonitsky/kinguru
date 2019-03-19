@@ -1,5 +1,4 @@
-  const meetupId = location.search.split('meetupId=')[1];
-console.log(meetupId);
+const meetupId = location.search.split('meetupId=')[1];
 
 function fromModelToView(data) {
   var date = new Date(data);

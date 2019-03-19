@@ -68,6 +68,16 @@ window.addEventListener("load", function () {
 
 $('#continue').click( function() {
   event.preventDefault();
+  document.getElementById('name').value.length < 1 ? $('#name').addClass('validation-input') : $('#name').removeClass('validation-input');
+  document.getElementById('s-name').value.length < 1 ? $('#s-name').addClass('validation-input') : $('#s-name').removeClass('validation-input');
+  document.getElementById('email').value.length < 1 ? $('#email').addClass('validation-input') : $('#email').removeClass('validation-input');
+  document.getElementById('country').value.length < 1 ? $('#country').addClass('validation-input') : $('#country').removeClass('validation-input');
+  document.getElementById('city').value.length < 1 ? $('#city').addClass('validation-input') : $('#city').removeClass('validation-input');
+  document.getElementById('phone').value.length < 1 ? $('#phone').addClass('validation-input') : $('#phone').removeClass('validation-input');
+  document.getElementById('pass-sugn-up').value.length < 1 ? $('#pass-sugn-up').addClass('validation-input') : $('#pass-sugn-up').removeClass('validation-input');
+  document.getElementById('passch').value.length < 1 ? $('#passch').addClass('validation-input') : $('#passch').removeClass('validation-input');
+
+
   $.ajax({
     url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/register',
     type: 'post',
@@ -98,35 +108,16 @@ $('#login-post').click(function () {
   });
 });
 
-
 function fillFormSingUp(postData) {
-   let firstName = document.getElementById('name');
-    if (firstName.length < 1) {
-      console.log('123');
-      $('.input_field').addClass('validation-input');
-    };
-   let email = document.getElementById('email');
-   let country = document.getElementById('country');
-   let phone = document.getElementById('phone');
-   let password = document.getElementById('pass');
-
-  //  let valid = [firstName, email, country, phone, password];
-  //
-  // valid.forEach(element => {
-  //   console.log(element);
-  //   if(element.value.length < 1) {
-  //     $('.input_field').addClass('validation-input');
-  //     console.log('no work')
-  //   }
-  // })
 
   postData = {
-    username: document.getElementById('name').value,
+    firstname: document.getElementById('name').value,
+    lastname: document.getElementById('s-name').value,
     email: document.getElementById('email').value,
     country: document.getElementById('country').value,
     city: document.getElementById('city').value,
     phone: document.getElementById('phone').value,
-    password: document.getElementById('pass').value,
+    password: document.getElementById('pass-sugn-up').value,
   };
   return postData;
 };
@@ -175,6 +166,10 @@ function showHeaderContent(user) {
     $('.user-content').remove();
     $('#login-block').removeClass('show-content');
     localStorage.setItem('Token', '');
+    if($('form').is('#change-pass-form')) {
+      window.location.href = "index.html";
+      console.log('Work form');
+    }
   });
 };
 

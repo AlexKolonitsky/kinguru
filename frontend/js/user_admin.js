@@ -32,6 +32,7 @@
       $("#CheckPasswordMatch").html("<p class='pass not_match confirm-pass'>Passwords don't match</p>");
   };
 
+
 })(jQuery);
 
 let token = localStorage.getItem('Token');
@@ -81,7 +82,6 @@ function userInformation(information) {
       zipCode: '',
     }
   }
-  console.log(111, information);
 
   let date = new Date(information.birthday);
   let year = date.getFullYear();
@@ -101,7 +101,7 @@ function userInformation(information) {
     `  <input name="myFile" type="file" id="file" class="input_file">` +
     `    <label class="load_file" for="file"><img src="${information.coverSource}" id="image" class="img-fluid rounded-circle mx-auto"></label>` +
     `    <div class="row">` +
-    `    <p type="Title*" class="col-lg-8 col-12">` +
+    `    <p type="Gender*" class="col-lg-8 col-12">` +
     `    <select id="gender-user" class="select_field">` +
     `    <option hidden selected value>${information.gender}</option>` +
     `  <option value="Male">Male</option>` +
@@ -157,7 +157,7 @@ function userInformation(information) {
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Email*" class="col-lg-8 col-12">` +
-    `    <input name="email" class="input_field" type="email" value="${information.email || ''}" required/>` +
+    `    <input id="email-user" name="email" class="input_field" type="email" value="${information.email || ''}" required/>` +
     `  </p>` +
     `  <p class="col-lg-4 col-0">` +
     `    </p>` +
@@ -284,6 +284,7 @@ $('#update-account').click(function () {
   fd.append( 'country', document.getElementById('country-user').value);
   fd.append( 'birthday', document.getElementById('birthday-user').value);
   fd.append( 'phone', document.getElementById('phone-user').value);
+  fd.append('email', document.getElementById('email-user').value);
 
   $.ajax({
     url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/update',
