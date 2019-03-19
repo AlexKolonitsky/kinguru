@@ -25,6 +25,7 @@ legend {
 .meeting-desc {
   outline: none;
   width: 100%;
+  padding: 10px;
 }
 
 .meeting-desc:focus {
@@ -308,6 +309,19 @@ p.cost-from_to {
     margin: 0!important;
 }
 
+.speaker_setting .slider.slider-horizontal {
+  width: 300px;
+}
+
+.slider.slider-horizontal .slider-tick,
+.slider.slider-horizontal .slider-handle {
+  background-color: #fff;
+}
+
+.slider-selection{
+  background-color: #ffd539;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -360,7 +374,8 @@ input::-webkit-inner-spin-button {
   font-family: "Muller ExtraBold";
 }
 
-.load_poster:hover {
+.load_poster:hover,
+.load_poster:active{
   background-color: #ffd539;
   color: #ffffff;
 }
@@ -630,12 +645,12 @@ table {
 .speaker_checked-photo {
   width: 40px;
   height: 40px;
-  margin: 0 10px;
+  margin: auto 10px;
 }
 
 .speaker_checked-name {
-  margin-bottom: 0;
-  line-height: 40px;
+  margin: 0 10px;
+  line-height: 30px;
 }
 
 .speaker_available.row {
@@ -645,4 +660,8 @@ table {
 
 .speaker_available-title {
   font-family: "Muller Bold";
+}
+
+.duration-slider{
+  display: block;
 }

@@ -350,14 +350,13 @@
                 <div class="row speaker_setting">
                   <input class="speakers age-speaker" type="checkbox" id="setting_7">
                   <label class="label-speaker col-12" for="setting_7">Age</label>
-                  <div class="age-speaker-open">
-                    <input
-                        type="text"
-                        class="duration-slider"
-                        data-slider-value="5"
-                    >
+                  <div class="age-guest-open">
+                    <div class="age-speaker-open">
+                      <b>16</b>
+                      <input type="text" class="duration-slider" value="" data-slider-min="16" data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
+                      <b>100</b>
+                    </div>
                   </div>
-
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers gender-speaker" type="checkbox" id="setting_8">
@@ -506,11 +505,11 @@
                   <input class="speakers age-guest" type="checkbox" id="setting_guest_3">
                   <label class="label-speaker col-12" for="setting_guest_3">Age</label>
                   <div class="age-guest-open">
-                    <input
-                        type="text"
-                        class="duration-slider"
-                        data-slider-value="5"
-                    >
+                    <div class="age-speaker-open">
+                      <b>16</b>
+                      <input type="text" class="duration-slider" value="" data-slider-min="16" data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
+                      <b>100</b>
+                    </div>
                   </div>
                 </div>
                 <div class="row speaker_setting">
@@ -550,6 +549,7 @@
                 </div>
               </div>
             </div>
+
             <div class="row invite">
               <p class="col-lg-2 col-2 guest-title">Invite</p>
               <div class="col-lg-2 col-2 my-auto invite_guest">

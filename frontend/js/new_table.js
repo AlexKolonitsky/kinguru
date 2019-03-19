@@ -144,6 +144,8 @@ function allTags(recentTags) {
 };
 
 $(document).ready(function () {
-  $('.duration-slider').bootstrapSlider();
+  $('.duration-slider').bootstrapSlider({
+    tooltip: 'always'
+  });
 });
 
