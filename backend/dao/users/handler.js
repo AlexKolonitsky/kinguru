@@ -13,6 +13,8 @@
 const _ = require('lodash');
 const ERRORS_CODE = require('./../../common/securityAssert').ERRORS_CODE;
 const utils = require('./../../common/securityAssert');
+const nodemailer = require('./../../common/nodemailer');
+
 
 const {Users, Locations} = require('./../index');
 const defaultUserAttributes = [
@@ -23,8 +25,7 @@ const defaultUserAttributes = [
 
 class UsersDao {
 
-  createUser(userInfo) {
-
+  createUser(userInfo, hostname) {
     return Users.findOne({
       where: {
         email: userInfo.email
@@ -32,15 +33,25 @@ class UsersDao {
     })
       .then(user => {
         if (!user) {
-          return Users.create({
-            firstname: userInfo.firstname,
-            lastname: userInfo.lastname,
-            email: userInfo.email,
-            password: userInfo.password,
-            country: userInfo.country,
-            city: userInfo.city,
-            phone: userInfo.phone,
-          });
+          const htmlTemplate = `<a href="http://${hostname}:3010/user/confirmation/${utils.getJwtToken(userInfo.email).split(' ')[1]}">Registration confirmation</a>`;
+          console.log(htmlTemplate);
+          return nodemailer.sendMail(
+            null,
+            userInfo.email,
+            'KINGURU user confirmation',
+            null,
+            htmlTemplate
+          ).then(() => {
+            return Users.create({
+              firstname: userInfo.firstname,
+              lastname: userInfo.lastname,
+              email: userInfo.email,
+              password: userInfo.password,
+              country: userInfo.country,
+              city: userInfo.city,
+              phone: userInfo.phone,
+            });
+          })
         }
         return Promise.reject({code: ERRORS_CODE.DUPLICATE});
       });

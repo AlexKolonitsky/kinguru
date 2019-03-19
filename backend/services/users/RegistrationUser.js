@@ -3,7 +3,6 @@
 const _ = require('lodash');
 const RequestHandlers = require('./../../common/RequestHandler');
 const utils = require('../../common/securityAssert');
-const nodemailer = require('../../common/nodemailer');
 const validator = require('./../../common/validate');
 const ERRORS_CODE = utils.ERRORS_CODE;
 
@@ -48,28 +47,10 @@ class RegisterUser extends RequestHandlers {
    */
 
   methodAction(request) {
-
-    return UsersDaoHandler.createUser(request.body)
-      .then(user => {
-        const htmlTemplate = `<a href="http://${process.env.HOST}:${process.env.PORT}/user/confirmation/${utils.getJwtToken(user.email).split(' ')[1]}">Registration confirmation</a>`;
-        console.log(htmlTemplate);
-        return nodemailer.sendMail(
-          null,
-          user.email,
-          'KINGURU user confirmation',
-          null,
-          htmlTemplate
-        )
-          .then (info => {
-            console.log('User successfully registration');
-            return Promise.resolve('Ok');
-          })
-          .catch((errorSendMail) => {
-            return Promise.reject({
-              code: 401,
-              message: errorSendMail,
-            });
-          })
+    return UsersDaoHandler.createUser(request.body, request.hostname)
+      .then(() => {
+        console.log('User successfully registration');
+        return Promise.resolve('Ok');
       })
       .catch((err) => {
         if (err.code === ERRORS_CODE.DUPLICATE) {

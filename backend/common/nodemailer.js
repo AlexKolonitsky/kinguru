@@ -7,7 +7,7 @@ function sendMail(from, to, subject, text, html) {
     service: 'gmail',
     auth: {
       user: 'noklen63@gmail.com',
-      pass: '2wsxzaq1'
+      pass: '5288199Qazxsw'
     }
   });
   return transporter.sendMail({
