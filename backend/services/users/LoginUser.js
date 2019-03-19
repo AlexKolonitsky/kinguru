@@ -23,14 +23,12 @@ class LoginUser extends RequestHandler {
 
     return UsersDaoHandler.findEmailAndPassword(userRequest.email, userRequest.password, response)
       .then(user => {
-        console.log('success');
         if (user) {
           const token = utils.getJwtToken(user).split(' ')[1];
           return UsersDaoHandler.getCurrentUser(token, response)
         }
       })
       .catch(err => {
-        console.log('err');
         if(err.code === ERRORS_CODE.NOT_FOUND){
           return Promise.reject({
             code: 404,
