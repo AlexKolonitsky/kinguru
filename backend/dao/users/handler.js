@@ -26,7 +26,6 @@ const defaultUserAttributes = [
 class UsersDao {
 
   createUser(userInfo, hostname) {
-    console.log('HOSTNAME', hostname);
     return Users.findOne({
       where: {
         email: userInfo.email
@@ -43,6 +42,7 @@ class UsersDao {
             null,
             htmlTemplate
           ).then(() => {
+            console.log('==========1==============');
             return Users.create({
               firstname: userInfo.firstname,
               lastname: userInfo.lastname,
@@ -53,7 +53,10 @@ class UsersDao {
               phone: userInfo.phone,
             });
           })
-            .catch(sendError => console.log(sendError));
+            .catch(sendError => {
+              console.log('==========nodemailer error==========');
+              return Promise.reject(sendError)
+            });
         }
         return Promise.reject({code: ERRORS_CODE.DUPLICATE});
       });
