@@ -178,7 +178,7 @@ legend {
     display: inline-block;
     border: 1px solid grey;
     font-size: 20px;
-    line-height: 22px;
+    line-height: 19px;
     margin: auto 10px;
     text-align: center;
     vertical-align: middle;
@@ -319,7 +319,25 @@ p.cost-from_to {
 }
 
 .slider-selection{
-  background-color: #ffd539;
+  background-image: linear-gradient(to bottom,#ffd539 0,#ffd539 100%);
+}
+
+.slider-handle {
+  width: 15px;
+  height: 15px;
+  background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.slider.slider-horizontal .slider-track {
+  height: 5px;
+}
+
+#years-start_speaker,
+#years-end_speaker,
+#years-start_guest,
+#years-end_guest{
+  margin: 0 20px;
 }
 
 input::-webkit-outer-spin-button,
@@ -343,6 +361,11 @@ input::-webkit-inner-spin-button {
 
 .price-open {
     margin-left: 50px;
+}
+
+.age-guest-open,
+.age-speaker-open{
+  margin: 20px;
 }
 
 .submit {

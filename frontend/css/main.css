@@ -652,8 +652,9 @@ p:before{
 
 .progress{
   width: 50%;
-  height: 18px;
   position: relative;
+  height: 90%;
+  margin: auto 0;
 }
 
 #comment .progress{

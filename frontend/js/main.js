@@ -381,6 +381,28 @@
     });
   });
 
+  $(document).ready(function () {
+    const range = $('#years-slider_speaker');
+    range.slider({
+      tooltip: 'always'
+    });
+    range.change(function() {
+      $('#years-start_speaker').text(range[0].value.split(',')[0]);
+      $('#years-end_speaker').text(range[0].value.split(',')[1]);
+    });
+  });
+
+  $(document).ready(function () {
+    const range = $('#years-slider_guest');
+    range.slider({
+      tooltip: 'always'
+    });
+    range.change(function() {
+      $('#years-start_guest').text(range[0].value.split(',')[0]);
+      $('#years-end_guest').text(range[0].value.split(',')[1]);
+    });
+  });
+
 })(jQuery);
 
 var like = function (element) {

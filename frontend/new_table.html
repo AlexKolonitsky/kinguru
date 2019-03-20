@@ -53,7 +53,7 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
 
   <link rel="stylesheet" href="vendor/bootstrap-slider/bootstrap-slider.min.css" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
   <link
     rel="stylesheet"
     type="text/css"
@@ -350,13 +350,11 @@
                 <div class="row speaker_setting">
                   <input class="speakers age-speaker" type="checkbox" id="setting_7" checked>
                   <label class="label-speaker col-12" for="setting_7">Age</label>
-                  <div class="age-guest-open">
                     <div class="age-speaker-open">
-                      <b>16</b>
-                      <input type="text" class="duration-slider" value="" data-slider-min="16" data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
-                      <b>100</b>
+                      <b id="years-start_speaker">40</b>
+                      <input type="text" id="years-slider_speaker" class="duration-slider" value="" data-slider-min="16" data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
+                      <b id="years-end_speaker">60</b>
                     </div>
-                  </div>
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers gender-speaker" type="checkbox" id="setting_8" checked>
@@ -505,11 +503,9 @@
                   <input class="speakers age-guest" type="checkbox" id="setting_guest_3" checked>
                   <label class="label-speaker col-12" for="setting_guest_3">Age</label>
                   <div class="age-guest-open">
-                    <div class="age-speaker-open">
-                      <b>16</b>
-                      <input type="text" class="duration-slider" value="" data-slider-min="16" data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
-                      <b>100</b>
-                    </div>
+                    <b id="years-start_guest">40</b>
+                    <input type="text" id="years-slider_guest" class="duration-slider" value="" data-slider-min="16" data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
+                    <b id="years-end_guest">60</b>
                   </div>
                 </div>
                 <div class="row speaker_setting">
@@ -747,9 +743,11 @@
 
 
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="
+    crossorigin="anonymous"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
 <script src="vendor/owl-carousel/owl.carousel.min.js"></script>

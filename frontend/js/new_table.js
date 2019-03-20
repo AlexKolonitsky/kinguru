@@ -143,9 +143,4 @@ function allTags(recentTags) {
   $('.tags-content').append(tagsListContent);
 };
 
-$(document).ready(function () {
-  $('.duration-slider').bootstrapSlider({
-    tooltip: 'always'
-  });
-});
 
