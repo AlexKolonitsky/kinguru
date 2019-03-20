@@ -685,6 +685,29 @@ table {
   font-family: "Muller Bold";
 }
 
-.duration-slider{
-  display: block;
+.job-speaker-open .button-purple.fill {
+  background-color: transparent;
+}
+
+.job-speaker-open .button-purple{
+  border-color: #c0c0c0;
+}
+
+.job-speaker-open .button-purple:hover,
+.job-speaker-open .button-purple:active {
+  border-color: #ffd539;
+}
+
+.job-speaker-open .fill {
+  color: #000000!important;
+}
+
+.job-speaker-open .multi-button::after {
+  color: #c0c0c0;
+}
+
+.job-speaker-open .button-purple .multi-menu li.selected,
+.job-speaker-open .button-purple .multi-menu li.selected:hover,
+.job-speaker-open .button-purple .multi-menu li.controls {
+  background-color: #ffd539;
 }
