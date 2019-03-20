@@ -20,12 +20,13 @@ const {Users, Locations} = require('./../index');
 const defaultUserAttributes = [
   'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender', 'phone',
   'locationId', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
-  'coverSource', 'coverKey', 'createdAt', 'updatedAt'
+  'coverSource', 'coverKey', 'createdAt', 'updatedAt', 'confirmed'
 ];
 
 class UsersDao {
 
   createUser(userInfo, hostname) {
+    console.log('HOSTNAME', hostname);
     return Users.findOne({
       where: {
         email: userInfo.email
@@ -52,6 +53,7 @@ class UsersDao {
               phone: userInfo.phone,
             });
           })
+            .catch(sendError => console.log(sendError));
         }
         return Promise.reject({code: ERRORS_CODE.DUPLICATE});
       });
@@ -62,19 +64,20 @@ class UsersDao {
       where: {
         email: email,
         password: utils.hashPassword(password),
-      }
+      },
+      attributes: defaultUserAttributes
     })
       .then(user => {
-        if (!user.confirmed) {
-          return response.status(401).end('Please confirm your email to login');
-        }
         if (user) {
-          return _.pick(user, defaultUserAttributes)
+          if (!user.confirmed) {
+            return response.status(401).end('Please confirm your email to login');
+          }
+          const token = utils.getJwtToken(user).split(' ')[1];
+          return this.getCurrentUser(token, response)
         }
-        return Promise.reject({code: ERRORS_CODE.NOT_FOUND})
+        return response.status(401).end(`User with email: ${email} not found`);
       })
-      .catch(err => console.log("error", err));
-
+      .catch(err => err);
   }
 
   getUserById(userId) {

@@ -4,8 +4,6 @@ const RequestHandler = require('./../../common/RequestHandler');
 const validator = require('./../../common/validate');
 const { UsersDaoHandler } = require('./../../dao/handlers');
 const _ = require('lodash');
-const utils = require('./../../common/securityAssert');
-const ERRORS_CODE = utils.ERRORS_CODE;
 
 
 class LoginUser extends RequestHandler {
@@ -21,21 +19,7 @@ class LoginUser extends RequestHandler {
   methodAction(request, response) {
     const userRequest = request.body;
 
-    return UsersDaoHandler.findEmailAndPassword(userRequest.email, userRequest.password, response)
-      .then(user => {
-        if (user) {
-          const token = utils.getJwtToken(user).split(' ')[1];
-          return UsersDaoHandler.getCurrentUser(token, response)
-        }
-      })
-      .catch(err => {
-        if(err.code === ERRORS_CODE.NOT_FOUND){
-          return Promise.reject({
-            code: 404,
-            message: `User with email: ${userRequest.email} not found`
-          })
-        }
-      })
+    return UsersDaoHandler.findEmailAndPassword(userRequest.email, userRequest.password, response);
   }
 
 }
