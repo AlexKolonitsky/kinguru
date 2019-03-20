@@ -68,9 +68,10 @@ router.get('/tags', (req, res, next) => tags.GetAllTags.process(req, res, next))
  */
 
 const images = require('./services/images/index');
-/*router.get('/meetup/:meetupId/comments', (req, res, next) => comments.GetMeetupComments.process(req, res, next));
-router.get('/speaker/:speakerId/comments', (req, res, next) => comments.GetSpeakerComments.process(req, res, next));
-router.get('/location/:locationId/comments', (req, res, next) => comments.GetLocationComments.process(req, res, next));*/
-router.post('/user/galery/add', upload.array('images'), (req, res, next) => images.AddUserImages.process(req, res, next, true));
+router.post('/images/add/user/galery', upload.array('images'), (req, res, next) => images.AddUserImages.process(req, res, next, true));
+router.post('/images/add', upload.array('images'), (req, res, next) => images.AddImages.process(req, res, next, true));
+router.get('/images/meetup/:id', (req, res, next) => images.GetMeetupImages.process(req, res, next));
+router.get('/images/location/:id', (req, res, next) => images.GetLocationImages.process(req, res, next));
+router.get('/images/meetup/:id', (req, res, next) => images.GetMeetupImages.process(req, res, next));
 
 module.exports = router;

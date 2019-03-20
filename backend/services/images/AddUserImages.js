@@ -14,21 +14,31 @@ class AddUserImages extends RequestHandlers {
 
   methodAction(request, response) {
 
-    console.log('===============');
-    let file = request.file;
-    /*let file = request.file;
-    let filename = Date.now() + '-' + file.originalname;
-    let contentType = file.mimetype;*/
+    let files = request.files;
+    const promises = [];
+    files.forEach(file => {
+      promises.push(
+        this.s3.upload(Date.now() + '-' + file.originalname, file.buffer, file.mimetype)
+      );
+    });
 
-    /*return this.s3.upload(filename, file.buffer, contentType)
-      .then(data => {
-        console.log('req.body', request.body);
-        console.log('s3 response', data);*/
+    return Promise.all(promises)
+      .then(response => {
         return UsersDaoHandler.getCurrentUser(assert.getToken(request), response)
-          .then(user => {
-            return user;
+          .then(userInfo => {
+
+            const images = [];
+            response.forEach(image => {
+              console.log('userId', userInfo.user.id);
+              images.push({
+                coverSource: image.Location,
+                coverKey: image.key,
+                userId: userInfo.user.id
+              })
+            });
+            return ImagesDaoHandler.addUserImages(images);
           });
-  /*    })*/
+      })
   }
 
 

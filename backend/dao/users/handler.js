@@ -43,7 +43,6 @@ class UsersDao {
             htmlTemplate,
             hostname
           ).then(() => {
-            console.log('==========1==============');
             return Users.create({
               firstname: userInfo.firstname,
               lastname: userInfo.lastname,
@@ -55,9 +54,7 @@ class UsersDao {
             });
           })
             .catch(sendError => {
-              console.log('==========nodemailer error==========');
               console.log(sendError);
-              console.log('==========nodemailer error==========');
               return Promise.reject(sendError)
             });
         }
