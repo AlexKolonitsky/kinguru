@@ -45,8 +45,6 @@ router.delete('/speaker/:id', (req,res, next) => speakers.RemoveSpeaker.process(
 const locations = require('./services/locations/index');
 router.get('/locations', (req, res, next) => locations.GetAllLocations.process(req, res, next));
 router.get('/location/:id', (req, res, next) => locations.GetCurrentLocation.process(req, res, next));
-/*router.get('/speakers', (req, res, next) => speakers.GetAllSpeakers.process(req, res, next));
-router.delete('/speaker/:id', (req,res, next) => speakers.RemoveSpeaker.process(req, res, next));*/
 
 /**
  * @description Comments endpoints
@@ -65,5 +63,14 @@ router.post('/comment', (req, res, next) => comments.CreateComment.process(req, 
 const tags = require('./services/tags/index');
 router.get('/tags', (req, res, next) => tags.GetAllTags.process(req, res, next));
 
+/**
+ * @description Images endpoints
+ */
+
+const images = require('./services/images/index');
+/*router.get('/meetup/:meetupId/comments', (req, res, next) => comments.GetMeetupComments.process(req, res, next));
+router.get('/speaker/:speakerId/comments', (req, res, next) => comments.GetSpeakerComments.process(req, res, next));
+router.get('/location/:locationId/comments', (req, res, next) => comments.GetLocationComments.process(req, res, next));*/
+router.post('/user/galery/add', upload.array('images'), (req, res, next) => images.AddUserImages.process(req, res, next, true));
 
 module.exports = router;

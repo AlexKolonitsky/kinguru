@@ -56,6 +56,8 @@ class UsersDao {
           })
             .catch(sendError => {
               console.log('==========nodemailer error==========');
+              console.log(sendError);
+              console.log('==========nodemailer error==========');
               return Promise.reject(sendError)
             });
         }

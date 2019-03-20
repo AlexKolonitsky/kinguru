@@ -2,9 +2,8 @@
 
 const _ = require('lodash');
 const {Locations} = require('./../index');
-const utils = require('./../../common/securityAssert');
 const locationAttributes = [
-  'id', 'country', 'state', 'city', 'address', 'metro', 'place', 'email', 'phone', 'zipCode', 'coverSource', 'coverKey'
+  'id', 'country', 'state', 'city', 'address', 'metro', 'place', 'email', 'phone', 'zipCode'
 ];
 
 

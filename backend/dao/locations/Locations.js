@@ -48,14 +48,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
 
-    coverSource: {
-      type: DataTypes.TEXT,
-    },
-
-    coverKey: {
-      type: DataTypes.TEXT,
-    },
-
     createdAt: {
       type: DataTypes.DATE,
     },
