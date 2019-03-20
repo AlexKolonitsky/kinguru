@@ -1,9 +1,11 @@
 'use strict';
 const nodemailer = require('nodemailer');
 
-function sendMail(from, to, subject, text, html) {
+function sendMail(from, to, subject, text, html, hostname) {
 
   const transporter = nodemailer.createTransport({
+    host: hostname || 'localhost',
+    port: 3010,
     service: 'gmail',
     auth: {
       user: 'noklen63@gmail.com',

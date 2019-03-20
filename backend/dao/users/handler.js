@@ -40,7 +40,8 @@ class UsersDao {
             userInfo.email,
             'KINGURU user confirmation',
             null,
-            htmlTemplate
+            htmlTemplate,
+            hostname
           ).then(() => {
             console.log('==========1==============');
             return Users.create({
