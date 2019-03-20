@@ -286,28 +286,28 @@
                   <p>or choose one</p>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers city-speaker" type="checkbox" id="setting_1">
+                  <input class="speakers city-speaker" type="checkbox" id="setting_1" checked>
                   <label class="label-speaker col-4" for="setting_1">City</label>
                   <div class="city-speaker-open col-8">
                     <input class=" input_field" type="text" name="mySpeaker">
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers industry-speaker" type="checkbox" id="setting_2">
+                  <input class="speakers industry-speaker" type="checkbox" id="setting_2" checked>
                   <label class="label-speaker col-4" for="setting_2">Industry</label>
                   <div class="industry-speaker-open col-8">
                     <input class="input_field" type="text" name="mySpeaker">
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers job-speaker" type="checkbox" id="setting_3">
+                  <input class="speakers job-speaker" type="checkbox" id="setting_3" checked>
                   <label class="label-speaker col-4" for="setting_3">Job title</label>
-                  <div class="job-speaker-open col-8">
-                    <input class="input_field col-8" type="text" name="mySpeaker">
+                  <div class="job-speaker-open col-8" id="job-title">
+                    <!--<input class="input_field col-8" type="text" name="mySpeaker">-->
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers rate-speaker" type="checkbox" id="setting_4">
+                  <input class="speakers rate-speaker" type="checkbox" id="setting_4" checked>
                   <label class="label-speaker col-12" for="setting_4">Rate</label>
                   <div class="reviewStars-input rate-speaker-open reviewStars_new_table">
                     <input class="star-4" id="rate-place_star-4" type="radio" name="reviewStars"/>
@@ -327,7 +327,7 @@
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers cost-speaker" type="checkbox" id="setting_5">
+                  <input class="speakers cost-speaker" type="checkbox" id="setting_5" checked>
                   <label class="label-speaker col-4" for="setting_5">Cost per hour</label>
                   <div class="col-8 cost-speaker-open">
                     <label class="cost-from_to" for="cost_from">from</label>
@@ -339,7 +339,7 @@
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers expertise-speaker" type="checkbox" id="setting_6">
+                  <input class="speakers expertise-speaker" type="checkbox" id="setting_6" checked>
                   <label class="label-speaker col-12" for="setting_6">Expertise</label>
                   <div class=" expertise-speaker-open">
                     <a href="#" class="event-category expertise_category">business</a>
@@ -348,7 +348,7 @@
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers age-speaker" type="checkbox" id="setting_7">
+                  <input class="speakers age-speaker" type="checkbox" id="setting_7" checked>
                   <label class="label-speaker col-12" for="setting_7">Age</label>
                   <div class="age-guest-open">
                     <div class="age-speaker-open">
@@ -359,7 +359,7 @@
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers gender-speaker" type="checkbox" id="setting_8">
+                  <input class="speakers gender-speaker" type="checkbox" id="setting_8" checked>
                   <label class="label-speaker col-12" for="setting_8">Gender</label>
                   <div class="row radio-toolbar-3 gender-speaker-open">
                     <div class="my-auto">
@@ -373,7 +373,7 @@
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers lang-speaker" type="checkbox" id="setting_9">
+                  <input class="speakers lang-speaker" type="checkbox" id="setting_9" checked>
                   <label class="label-speaker col-12" for="setting_9">Language</label>
                   <div class="row check-toolbar-1 lang-speaker-open">
                     <div class="my-auto">
@@ -486,14 +486,14 @@
               </div>
               <div class="invited-by-open col-lg-8 col-12">
                 <div class="row speaker_setting">
-                  <input class="speakers job-guest" type="checkbox" id="setting_guest_1">
+                  <input class="speakers job-guest" type="checkbox" id="setting_guest_1" checked>
                   <label class="label-speaker col-4" for="setting_guest_1">Job title</label>
                   <div class="job-guest-open col-8">
                     <input class="input_field" type="text" name="mySpeaker">
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers interest-guest" type="checkbox" id="setting_guest_2">
+                  <input class="speakers interest-guest" type="checkbox" id="setting_guest_2" checked>
                   <label class="label-speaker col-12" for="setting_guest_2">Interests</label>
                   <div class="interest-guest-open">
                     <a href="#" class="event-category expertise_category">business</a>
@@ -502,7 +502,7 @@
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers age-guest" type="checkbox" id="setting_guest_3">
+                  <input class="speakers age-guest" type="checkbox" id="setting_guest_3" checked>
                   <label class="label-speaker col-12" for="setting_guest_3">Age</label>
                   <div class="age-guest-open">
                     <div class="age-speaker-open">
@@ -513,7 +513,7 @@
                   </div>
                 </div>
                 <div class="row speaker_setting">
-                  <input class="speakers gender-guest" type="checkbox" id="setting_guest_4">
+                  <input class="speakers gender-guest" type="checkbox" id="setting_guest_4" checked>
                   <label class="label-speaker col-12" for="setting_guest_4">Gender</label>
                   <div class="row radio-toolbar-5 gender-guest-open">
                     <div class="my-auto">
@@ -528,7 +528,7 @@
                 </div>
 
                 <div class="row speaker_setting">
-                  <input class="speakers expertise-guest" type="checkbox" id="setting_guest_6">
+                  <input class="speakers expertise-guest" type="checkbox" id="setting_guest_6" checked>
                   <label class="label-speaker col-12" for="setting_guest_6">Expertise</label>
                   <div class="expertise-guest-open">
                     <a href="#" class="event-category expertise_category">business</a>
@@ -538,7 +538,7 @@
                 </div>
 
                 <div class="row speaker_setting">
-                  <input class="speakers city-guest" type="checkbox" id="setting_guest_7">
+                  <input class="speakers city-guest" type="checkbox" id="setting_guest_7" checked>
                   <label class="label-speaker col-4" for="setting_guest_7">City</label>
                   <div class="city-guest-open col-8">
                     <input class=" input_field" type="text" name="mySpeaker">

@@ -11,50 +11,26 @@
 
 <form class="sign_up_form">
   <div class="login-form-items row">
-    <button id="open-log-in" class="col-12"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back to Log in</button>
+    <button id="open-log-in" class="col-12"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back to Log in
+    </button>
   </div>
   <h2 class="form-title">Sign up</h2>
   <div class="login-form-items row">
-    <p type="First name" class="login-form-item col-12">
+    <p type="First name*" class="login-form-item col-12">
       <input id="name" class="input_field" name="fname" type="text" required/>
     </p>
   </div>
   <div class="login-form-items row">
-    <p type="Last name" class="login-form-item col-12">
+    <p type="Last name*" class="login-form-item col-12">
       <input id="s-name" class="input_field" name="fname" type="text" required/>
     </p>
   </div>
   <div class="login-form-items row">
     <p type="Date of birth" class="login-form-item col-12"></p>
-    <div class="fallbackDatePicker">
-      <div class="select-wrapper">
-        <select id="day" class="select_field" name="day">
-        </select>
-      </div>
-      <div class="select-wrapper">
-        <select id="month" class="select_field" name="month">
-          <option selected>January</option>
-          <option>February</option>
-          <option>March</option>
-          <option>April</option>
-          <option>May</option>
-          <option>June</option>
-          <option>July</option>
-          <option>August</option>
-          <option>September</option>
-          <option>October</option>
-          <option>November</option>
-          <option>December</option>
-        </select>
-      </div>
-      <div class="select-wrapper">
-        <select id="year" class="select_field" name="year">
-        </select>
-      </div>
-    </div>
+    <input class="input_field" name="expertise" id="birthday-sign-up" type="date" value=""/>
   </div>
   <div class="login-form-items row">
-    <p type="Email" class="login-form-item col-12">
+    <p type="Email*" class="login-form-item col-12">
       <input id="email" name="email" class="input_field" type="email" value="" required/>
     </p>
   </div>
@@ -72,12 +48,12 @@
     </p>
   </div>
   <div class="login-form-items row">
-    <p type="Password" class="login-form-item col-12">
+    <p type="Password*" class="login-form-item col-12">
       <input id="pass-sugn-up" class="input_field" type="password" value="" required/>
     </p>
   </div>
   <div class="login-form-items row">
-    <p type="Confirm password" class="login-form-item col-12">
+    <p type="Confirm password*" class="login-form-item col-12">
       <input id="passch" class="input_field" type="password" value="" required/>
     </p>
   </div>
@@ -85,10 +61,12 @@
   </div>
   <div class="login-form-items row">
     <input class="accept_terms" type="checkbox" id="agree">
-    <label class="accept_label col-12" for="agree">I've read and accept the <a class="terms-link" href="#">Terms of service</a></label>
+    <label class="accept_label col-12" for="agree">I've read and accept the <a class="terms-link" href="#">Terms of
+      service</a></label>
   </div>
+  <div id="error-sugn-up"></div>
   <div class="text-center">
-    <button  id="continue" class="action-btn" value="Sign up" disabled>Sign up</button>
+    <button id="continue" class="action-btn" value="Sign up" disabled>Sign up</button>
   </div>
   <div class="text-center row">
     <div class="share row">

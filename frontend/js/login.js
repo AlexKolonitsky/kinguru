@@ -38,6 +38,12 @@
   $(document).ready(function () {
     $("#pass, #passch").keyup(checkPasswordMatch);
   });
+
+  $('#modal_close').click(function () {
+    $('#error-login').empty();
+    $('#email-login').val('');
+    $('#passw-login').val('');
+  });
 })(jQuery);
 
 function getUser(token) {
@@ -62,12 +68,12 @@ window.addEventListener("load", function () {
     getUser(token);
   }else {
     $('#login-block').removeClass('show-content');
-
   }
 });
 
 $('#continue').click( function() {
   event.preventDefault();
+  $("#error-sugn-up").empty();
   document.getElementById('name').value.length < 1 ? $('#name').addClass('validation-input') : $('#name').removeClass('validation-input');
   document.getElementById('s-name').value.length < 1 ? $('#s-name').addClass('validation-input') : $('#s-name').removeClass('validation-input');
   document.getElementById('email').value.length < 1 ? $('#email').addClass('validation-input') : $('#email').removeClass('validation-input');
@@ -76,8 +82,7 @@ $('#continue').click( function() {
   document.getElementById('phone').value.length < 1 ? $('#phone').addClass('validation-input') : $('#phone').removeClass('validation-input');
   document.getElementById('pass-sugn-up').value.length < 1 ? $('#pass-sugn-up').addClass('validation-input') : $('#pass-sugn-up').removeClass('validation-input');
   document.getElementById('passch').value.length < 1 ? $('#passch').addClass('validation-input') : $('#passch').removeClass('validation-input');
-
-
+  
   $.ajax({
     url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/register',
     type: 'post',
@@ -85,7 +90,15 @@ $('#continue').click( function() {
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(fillFormSingUp()),
     success: function(data) {
+    },
+    error: function (jqXHR) {
+      if (jqXHR.status == 401) {
+        $("#error-sugn-up").html("<p class='pass not_match'>The user with email has already been registered</p>");
+      }else if(jqXHR.status == 400) {
+        $("#error-sugn-up").html("<p class='pass not_match'>Fill all field</p>");
+      }
     }
+    
   });
 });
 
@@ -102,11 +115,18 @@ $('#login-post').click(function () {
       showHeaderContent(data.user);
       location.reload();
     },
-    error: function () {
-      $('#error-login').html("<p class='pass not_match error-login'>Incorrect login or password</p>");
+    error: function (jqXHR) {
+      if(jqXHR.status == 401) {
+        $('#error-login').empty();
+        $('#error-login').html("<p class='pass not_match error-login'>Please confirm your email to login</p>");
+      } else if(jqXHR.status == 400) {
+        $('#error-login').empty();
+        $('#error-login').html("<p class='pass not_match error-login'>Incorrect email or password</p>");
+      }
     }
   });
 });
+
 
 function fillFormSingUp(postData) {
 
@@ -118,6 +138,7 @@ function fillFormSingUp(postData) {
     city: document.getElementById('city').value,
     phone: document.getElementById('phone').value,
     password: document.getElementById('pass-sugn-up').value,
+    birthday: document.getElementById('birthday-sign-up').value,
   };
   return postData;
 };
@@ -125,7 +146,7 @@ function fillFormSingUp(postData) {
 function fillFormLogIn(postData) {
   postData = {
     email: document.getElementById('email-login').value,
-    password: document.getElementById('pass').value,
+    password: document.getElementById('passw-login').value,
   };
   return postData;
 };
