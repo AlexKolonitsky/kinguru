@@ -244,5 +244,40 @@ function meetup(metap) {
 `    </div>` +
 `    </div>` +
 `    </div>`;
+
+  let meetingPlace =
+`<h2 class="section-title section-title-left">${metap.location.place}</h2>` +
+`  <p class="place-description"><i class="fa fa-map-marker"></i>${metap.location.address}, ${metap.location.city}</p>` +
+`    <p class="place-description">` +
+`    <a href="tel:+13472234410"><i class="fa fa-mobile"></i>${metap.location.phone}</a>` +
+`  </p>`;
+
   $('.meetup').append(meetupContent);
+
+  $.ajax({
+    url: `http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/images/location/${metap.locationId}`,
+    method: 'GET',
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    success: function (jsondata) {
+      $('.place-info').append(meetingPlace);
+      placeImage(jsondata);
+    }
+
+  });
+
+  function placeImage(content) {
+    let imgList = ``;
+
+    content.forEach(img => {
+      const imgContent =
+       ` <div class="owl-item-inner">` +
+       ` <img src="${img.coverSource}" alt="${img.coverKey}"/>` +
+       ` </div>`;
+      imgList += imgContent;
+    })
+    // $('#place-carousel').append(imgList);
+  }
+
+
 }
