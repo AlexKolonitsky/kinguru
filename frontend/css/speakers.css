@@ -549,6 +549,10 @@ img::-moz-selection {
   font-weight: bold;
 }
 
+.speaker-interest {
+  margin: 10px;
+}
+
 .speaker-category {
   background-color: transparent;
   border: 1px solid #fff;
@@ -564,6 +568,18 @@ img::-moz-selection {
 
 .speaker-category:hover {
   color: #fff;
+}
+
+.speaker-lang {
+  margin: 20px 0;
+}
+
+.speaker-lang p:not(:first-child) {
+  margin: 0 10px;
+}
+
+.speaker-cost {
+  margin: 20px 0px;
 }
 
 .svg-calendar,

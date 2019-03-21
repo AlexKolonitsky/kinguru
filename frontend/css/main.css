@@ -651,15 +651,27 @@ p:before{
 }
 
 .progress{
-  width: 50%;
-  position: relative;
-  height: 90%;
-  margin: auto 0;
+   width: 50%;
+   position: relative;
+   height: 90%;
+   margin: auto 0px;
+   border: 3px solid #2a2a2a;
+ }
+
+#people .progress{
+  border: 2px solid #ffffff;
+  height: 20px;
 }
 
 #comment .progress{
-  width: 80%;
-  height: 17px;
+  width: 70%;
+  height: 20px;
+  position: relative;
+}
+
+#task .progress{
+  width: 9rem;
+  height: 1.5rem;
   position: relative;
 }
 
@@ -1477,7 +1489,7 @@ p:before{
   }
 
   #people .progress {
-    height: 17px;
+    height: 19px;
   }
 
   #comment .owl-item-inner {
@@ -1514,7 +1526,7 @@ p:before{
     margin: 0 2px;
     font-size: 18px;
   }
-  .progress {
+  .event-desc .progress {
     height: 18px;
   }
 
