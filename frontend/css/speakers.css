@@ -549,8 +549,9 @@ img::-moz-selection {
   font-weight: bold;
 }
 
-.speaker-interest {
-  margin: 10px;
+.speaker-interest,
+.speaker-lang{
+  margin: 20px 10px;
 }
 
 .speaker-category {
@@ -558,7 +559,7 @@ img::-moz-selection {
   border: 1px solid #fff;
   font-size: 16px;
   height: 40px;
-  line-height: 40px;
+  line-height: 20px;
   padding: 0.6em 1.5em;
   font-family: "Muller Regular";
   font-weight: normal;
@@ -568,14 +569,6 @@ img::-moz-selection {
 
 .speaker-category:hover {
   color: #fff;
-}
-
-.speaker-lang {
-  margin: 20px 0;
-}
-
-.speaker-lang p:not(:first-child) {
-  margin: 0 10px;
 }
 
 .speaker-cost {

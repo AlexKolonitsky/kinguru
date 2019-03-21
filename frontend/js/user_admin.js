@@ -101,6 +101,24 @@ function userInformation(information) {
     `  <input name="myFile" type="file" id="file" class="input_file">` +
     `    <label class="load_file" for="file"><img src="${information.coverSource}" id="image" class="img-fluid rounded-circle mx-auto"></label>` +
     `    <div class="row">` +
+    ` <div class="checkbox-label col-lg-8 col-12">`+
+    `  <p class="">I want to be a speaker</p>` +
+    ` <input class="input-switch input_field" id="switch2" type="checkbox" checked="checked"/>` +
+    ` <label class="switch2" for="switch2">`+
+    ` <span class="switch-label off">No</span>`+
+    ` <span class="switch-label on">Yes</span>`+
+    ` <span class="grip"></span>`+
+    ` </label>`+
+    ` </div>`+
+    ` <div class="checkbox-label col-lg-8 col-12">`+
+    `  <p class="">I want to create meetup</p>` +
+    ` <input class="input-switch input_field" id="switch3" type="checkbox" checked="checked"/>` +
+    ` <label class="switch2" for="switch3">`+
+    ` <span class="switch-label off">No</span>`+
+    ` <span class="switch-label on">Yes</span>`+
+    ` <span class="grip"></span>`+
+    ` </label>`+
+    ` </div>`+
     `    <p type="Gender*" class="col-lg-8 col-12">` +
     `    <select id="gender-user" class="select_field">` +
     `    <option hidden selected value>${information.gender}</option>` +
@@ -162,6 +180,33 @@ function userInformation(information) {
     `  <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
+    `  <div class="row">`+
+    `  <p type="Cost per hour" class="col-12"></p>`+
+    `  <div class="col-8 row">`+
+    `  <label class="cost-from_to-set" for="cost_from">from</label>`+
+    `  <input class="input_field cost-from_to-set" id="cost_from" type="text" name="mySpeaker">`+
+    `  <label class="cost-from_to-set" for="cost_to">to</label>`+
+    `  <input class="input_field cost-from_to-set" id="cost_to" type="text" name="mySpeaker">`+
+    ` <p class="cost-from_to">$</p>`+
+    ` </div>`+
+    `    </div>` +
+    ` <div class="row">`+
+    ` <p type="Language" class="col-12"></p>`+
+    ` <div class="col-8 row check-toolbar-1">`+
+    `   <div class="my-auto speaker-lang">`+
+    `     <input type="checkbox" id="check1" name="radios-forth" value="all" checked/>`+
+    `     <label for="check1" class="text-center pointer">En</label>`+
+    `   </div>`+
+    `   <div class="my-auto speaker-lang">`+
+    `     <input type="checkbox" id="check2" name="radios-forth" value="all"/>`+
+    `     <label for="check2" class="text-center pointer">Rus</label>`+
+    `   </div>`+
+    `   <div class="my-auto speaker-lang">`+
+    `    <input type="checkbox" id="check3" name="radios-forth" value="all"/>`+
+    `    <label for="check3" class="text-center pointer">Bel</label>`+
+    ` </div>`+
+    ` </div>`+
+    ` </div>`+
     `    <div class="row">` +
     `    <p type="About me" class="col-12">` +
     `    <textarea placeholder="About me" rows="5" wrap="off">${information.description || ''}</textarea>` +

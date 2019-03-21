@@ -206,7 +206,17 @@ textarea {
 
 .fallbackDatePicker.row{
   margin-left: 0;
+}
 
+.input_field.cost-from_to-set {
+  width: 20%;
+}
+.cost-from_to-set {
+  margin: auto 15px;
+}
+
+.speaker-lang {
+  margin-left:10px;
 }
 
 @media (min-width: 992px) {
