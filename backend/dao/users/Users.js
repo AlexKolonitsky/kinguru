@@ -87,6 +87,16 @@ module.exports = (sequelize, DataTypes) => {
       default: false,
     },
 
+    role: {                           //user = 1, speaker = 2, admin = 3
+      type: DataTypes.INTEGER,
+      default: 1,
+    },
+
+    faked: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+
     createdAt: {
       type: DataTypes.DATE,
     },

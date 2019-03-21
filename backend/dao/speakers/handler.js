@@ -10,9 +10,9 @@ class SpeakersDao {
     return Speakers.findById(id)
   }
 
-  getSpeakers(ids) {
+/*  getSpeakers(ids) {
     return Promise.all(_.map(ids, id => this.getSpeaker(id)))
-  }
+  }*/
 
   getAllSpeakers() {
     return Speakers.findAll({})

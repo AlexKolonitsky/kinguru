@@ -6,6 +6,8 @@ const GetCurrentUser = require('./GetCurrentUser');
 const UpdateUser = require('./UpdateUser');
 const ChangePassword = require('./ChangePassword');
 const ConfirmEmail = require('./ConfirmEmail');
+const CreateSpeaker = require('./CreateSpeaker');
+const GetSpeakers = require('./GetSpeakers');
 
 /**
  * @type {{
@@ -20,5 +22,7 @@ module.exports = {
   GetCurrentUser: new GetCurrentUser(),
   UpdateUser: new UpdateUser(),
   ChangePassword: new ChangePassword(),
-  ConfirmEmail: new ConfirmEmail()
+  ConfirmEmail: new ConfirmEmail(),
+  CreateSpeaker: new CreateSpeaker(),
+  GetSpeakers: new GetSpeakers(),
 };

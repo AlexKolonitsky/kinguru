@@ -20,10 +20,24 @@ const {Users, Locations} = require('./../index');
 const defaultUserAttributes = [
   'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender', 'phone',
   'locationId', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
-  'coverSource', 'coverKey', 'createdAt', 'updatedAt', 'confirmed'
+  'coverSource', 'coverKey', 'createdAt', 'updatedAt', 'confirmed', 'role'
 ];
 
 class UsersDao {
+
+  getUserObject(userInfo) {
+    return {
+      firstname: userInfo.firstname,
+      lastname: userInfo.lastname,
+      email: userInfo.email,
+      password: userInfo.password,
+      country: userInfo.country,
+      city: userInfo.city,
+      phone: userInfo.phone,
+      faked: userInfo.faked,
+      role: userInfo.role,
+    }
+  }
 
   createUser(userInfo, hostname) {
     return Users.findOne({
@@ -34,7 +48,6 @@ class UsersDao {
       .then(user => {
         if (!user) {
           const htmlTemplate = `<a href="http://${hostname}:3010/user/confirmation/${utils.getJwtToken(userInfo.email).split(' ')[1]}">Registration confirmation</a>`;
-          console.log(htmlTemplate);
           return nodemailer.sendMail(
             null,
             userInfo.email,
@@ -43,15 +56,7 @@ class UsersDao {
             htmlTemplate,
             hostname
           ).then(() => {
-            return Users.create({
-              firstname: userInfo.firstname,
-              lastname: userInfo.lastname,
-              email: userInfo.email,
-              password: userInfo.password,
-              country: userInfo.country,
-              city: userInfo.city,
-              phone: userInfo.phone,
-            });
+            return Users.create(this.getUserObject(userInfo));
           })
             .catch(sendError => {
               console.log(sendError);
@@ -60,6 +65,28 @@ class UsersDao {
         }
         return Promise.reject({code: ERRORS_CODE.DUPLICATE});
       });
+  }
+
+  createSpeaker(userInfo) {
+    userInfo.faked = true;
+    userInfo.role = 2;
+    return Users.findOne({
+      where: {
+        email: userInfo.email
+      }
+    })
+      .then(user => {
+        if (!user) {
+          return Users.create(this.getUserObject(userInfo))
+        }
+      })
+  }
+
+  getSpeakers(filter = {}) {
+    filter.role = 2;
+    return Users.findAll({
+      where: filter
+    })
   }
 
   findEmailAndPassword(email, password, response) {
