@@ -203,7 +203,7 @@
             </div>
             <div class="row">
               <p type="Tags" class="col-lg-8 col-12">
-                <!--<select class="tags-content" id="tags" name="tags" multiple></select>-->
+                <select class="tags-content" id="tags" name="tags" multiple></select>
               </p>
               <p class="col-lg-4 col-0">
               </p>
@@ -302,7 +302,9 @@
                 <div class="row speaker_setting">
                   <input class="speakers job-speaker" type="checkbox" id="setting_3" checked>
                   <label class="label-speaker col-4" for="setting_3">Job title</label>
-
+                  <div class="job-speaker-open col-8" id="job-title">
+                    <!--<input class="input_field col-8" type="text" name="mySpeaker">-->
+                  </div>
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers rate-speaker" type="checkbox" id="setting_4" checked>
@@ -470,7 +472,7 @@
               </div>
             </div>
 
-            <div class="invited-by">
+            <div class="invited-by_guest">
               <div class="checkbox-label event-pay">
                 <p class="">Invited people by </p>
                 <input class="input-switch input_field invited-by" id="invited-by" type="checkbox" name="switch" checked="checked"/>
@@ -751,6 +753,7 @@
 <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.js"></script>
+<script src="./vendor/multiselect/src/jquery.multi-select.js"></script>
 <script src="js/main.js"></script>
 <script src="js/user_admin.js "></script>
 <script src="js/new_table.js "></script>

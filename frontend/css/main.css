@@ -1133,8 +1133,7 @@ p:before{
   border-top: 1px solid transparent;
   border-bottom: 1px solid #575757;
   background-color: transparent;
-  width: 230px;
-  max-width: 100%;
+  width: 100%;
   color: #fff;
 }
 
@@ -1192,18 +1191,18 @@ p:before{
 }
 
 #tab-title .nav-tabs li>a{
-  color: #000000;
+  color: #c0c0c0;
   font-size: 1.2em;
 }
 
-#tab-title .nav-tabs .show{
+#tab-title .nav-tabs .active{
   position: relative;
   color: #000000;
   font-family: "Muller ExtraBold";
   text-decoration: none;
 }
 
-#tab-title .nav-tabs > li > a.show:after {
+#tab-title .nav-tabs > li > a.active:after {
   position: absolute;
   content: "";
   left: 0;
@@ -1503,8 +1502,13 @@ p:before{
     max-width: 1000px;
   }
 
+  .contactsNavbar {
+    width: 370px;
+    height: 100px;
+  }
+
   #contact {
-    padding: 50px 0 70px 0;
+    padding: 10px 0 20px 0;
   }
   .fa-star {
     margin: 0 2px;
