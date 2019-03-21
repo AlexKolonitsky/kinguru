@@ -1922,3 +1922,16 @@ p:before{
   margin: 0;
   line-height: 2em;
 }
+
+.your-class {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.your-class div {
+  overflow: hidden;
+}
+
+.your-class img {
+  margin: 0 auto;
+}
