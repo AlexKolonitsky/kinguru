@@ -80,9 +80,15 @@ module.exports = (sequelize, DataTypes) => {
 
   Meetups.associate = models => {
 
-    Meetups.belongsToMany(models.Speakers, {
+    Meetups.belongsToMany(models.Users, {
       as: 'speakers',
       through: models.MeetupsSpeakers,
+      foreignKey: 'meetupId',
+    });
+
+    Meetups.belongsToMany(models.Users, {
+      as: 'guests',
+      through: models.MeetupsGuests,
       foreignKey: 'meetupId',
     });
 

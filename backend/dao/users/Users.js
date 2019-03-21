@@ -119,6 +119,22 @@ module.exports = (sequelize, DataTypes) => {
       })
   });
 
+  Users.associate = models => {
+
+    Users.belongsToMany(models.Meetups, {
+      as: 'speakers',
+      through: models.MeetupsSpeakers,
+      foreignKey: 'speakerId',
+    });
+
+    Users.belongsToMany(models.Meetups, {
+      as: 'guests',
+      through: models.MeetupsGuests,
+      foreignKey: 'guestId',
+    })
+
+  };
+
   return Users;
 };
 

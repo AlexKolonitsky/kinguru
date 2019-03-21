@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const Sequelize = require('sequelize');
-const {Meetups, Speakers, MeetupsSpeakers, Tags, MeetupsTags, Locations} = require('./../index');
+const {Meetups, Speakers, MeetupsSpeakers, Tags, MeetupsTags, Locations, Users} = require('./../index');
 const utils = require('./../../common/securityAssert');
 const zeroIndex = 0;
 const firstIndex = 1;
@@ -13,7 +13,7 @@ const attributes = {
     'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
     'locationId'
   ],
-  speaker: ['id', 'name', 'surname', 'coverSource'],
+  speaker: ['id', 'firstname', 'lastname', 'coverSource'],
   tag: ['id', 'name', 'isTag']
 };
 
@@ -52,7 +52,11 @@ class MeetupDao {
           attributes: attributes.meetup,
           include: [
             {
-              model: Speakers, as: 'speakers', attributes: attributes.speaker,
+              model: Users, as: 'speakers', attributes: attributes.speaker,
+              through: {attributes: []}
+            },
+            {
+              model: Users, as: 'guests', attributes: attributes.speaker,
               through: {attributes: []}
             },
             {
@@ -147,7 +151,7 @@ class MeetupDao {
           id: meetup.tags
         }
       }),
-      Speakers.findAll({
+      Users.findAll({
         where: {
           id: meetup.speakers
         }

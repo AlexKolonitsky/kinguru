@@ -33,7 +33,7 @@ const jwt = expressJwt({
 function _assertJwt(req, res, next) {
   const token = getToken(req);
   const user = token ? utils.getUserByToken(token) : null;
-  if (token && (!user || !user.user)) {
+  if (!token || (!user || !user.user)) {
     return res.status(403).end('User not authorized');
   }
   return true;

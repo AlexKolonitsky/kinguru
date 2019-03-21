@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, DataTypes) => {
 
-  const MeetupsSpeakers = sequelize.define('MeetupsSpeakers', {
+  const MeetupsGuests = sequelize.define('MeetupsGuests', {
 
     id: {
       type: DataTypes.INTEGER,
@@ -14,17 +14,17 @@ module.exports = (sequelize, DataTypes) => {
       references: 'Meetups',
       referencesKey: 'id',
     },
-    speakerId: {
+    guestId: {
       type: DataTypes.INTEGER,
       references: 'Users',
       referencesKey: 'id',
     }
   }, {
 
-    tableName: 'MeetupsSpeakers',
+    tableName: 'MeetupsGuests',
     timestamps: true,
 
   });
 
-  return MeetupsSpeakers;
+  return MeetupsGuests;
 };

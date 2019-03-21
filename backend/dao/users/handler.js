@@ -20,7 +20,7 @@ const {Users, Locations} = require('./../index');
 const defaultUserAttributes = [
   'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender', 'phone',
   'locationId', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
-  'coverSource', 'coverKey', 'createdAt', 'updatedAt', 'confirmed', 'role'
+  'coverSource', 'coverKey', 'createdAt', 'updatedAt', 'confirmed', 'role', 'faked'
 ];
 
 class UsersDao {
@@ -36,6 +36,8 @@ class UsersDao {
       phone: userInfo.phone,
       faked: userInfo.faked,
       role: userInfo.role,
+      coverSource: userInfo.coverSource,
+      coverKey: userInfo.coverKey
     }
   }
 
@@ -70,6 +72,7 @@ class UsersDao {
   createSpeaker(userInfo) {
     userInfo.faked = true;
     userInfo.role = 2;
+    userInfo.password = '1234qweasdzxc';
     return Users.findOne({
       where: {
         email: userInfo.email
@@ -78,14 +81,19 @@ class UsersDao {
       .then(user => {
         if (!user) {
           return Users.create(this.getUserObject(userInfo))
+            .then(user => {
+              return this.getUserById(user.id)
+            })
         }
+        return {code: ERRORS_CODE.DUPLICATE};
       })
   }
 
   getSpeakers(filter = {}) {
     filter.role = 2;
     return Users.findAll({
-      where: filter
+      where: filter,
+      attributes: defaultUserAttributes
     })
   }
 

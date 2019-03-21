@@ -6,7 +6,9 @@ const {ImagesDaoHandler} = require('../../dao/handlers');
 class GetLocationImages extends RequestHandlers {
 
   methodAction(request, response) {
-    return ImagesDaoHandler.getLocationImages(request.params.id);
+    return ImagesDaoHandler.getLocationImages(
+      !isNaN(parseInt(request.params.id)) ? parseInt(request.params.id) : null
+    );
   }
 
 

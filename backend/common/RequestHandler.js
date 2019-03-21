@@ -109,9 +109,10 @@ class RequestHandlers {
     if (newToken) {
       response.header('Authorization', newToken);
     }
-    const user = assert.assertJwt(request, response, next);
-    if (isAuthorized && !user) {
-      return;
+    if (isAuthorized) {
+      if (!assert.assertJwt(request, response, next)) {
+        return;
+      }
     }
 
     this.methodAction(request, response)

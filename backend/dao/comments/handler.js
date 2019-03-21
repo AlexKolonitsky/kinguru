@@ -1,6 +1,5 @@
 'use strict';
 
-const _ = require('lodash');
 const {Comments} = require('./../index');
 const UsersHandler = require('./../users/handler');
 const assert = require('./../../common/assert');

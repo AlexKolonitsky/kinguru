@@ -76,6 +76,6 @@ router.post('/images/add/user/galery', upload.array('images'), (req, res, next) 
 router.post('/images/add', upload.array('images'), (req, res, next) => images.AddImages.process(req, res, next, true));
 router.get('/images/meetup/:id', (req, res, next) => images.GetMeetupImages.process(req, res, next));
 router.get('/images/location/:id', (req, res, next) => images.GetLocationImages.process(req, res, next));
-/*router.get('/images/meetup/:id', (req, res, next) => images.GetMeetupImages.process(req, res, next));*/
+router.get('/images/user/:id', (req, res, next) => images.GetUserImages.process(req, res, next));
 
 module.exports = router;
