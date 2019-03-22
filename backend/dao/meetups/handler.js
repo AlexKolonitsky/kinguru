@@ -95,7 +95,11 @@ class MeetupDao {
       attributes: attributes.meetup,
       include: [
         {
-          model: Speakers, as: 'speakers', attributes: attributes.speaker,
+          model: Users, as: 'speakers', attributes: attributes.speaker,
+          through: {attributes: []}
+        },
+        {
+          model: Users, as: 'guests', attributes: attributes.speaker,
           through: {attributes: []}
         },
         {

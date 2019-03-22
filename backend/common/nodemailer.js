@@ -8,12 +8,12 @@ function sendMail(from, to, subject, text, html, hostname) {
     port: 3010,
     service: 'gmail',
     auth: {
-      user: 'noklen63@gmail.com',
-      pass: '5288199Qazxsw'
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASSWORD
     }
   });
   return transporter.sendMail({
-    from: from || 'KINGURU <noklen63@gmail.com>',
+    from: from || `KINGURU <${process.env.GMAIL_USER}>`,
     to: to,
     subject: subject,
     text: text,
