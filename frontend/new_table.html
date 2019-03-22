@@ -52,8 +52,8 @@
   <link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.min.css"/>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
 
-  <link rel="stylesheet" href="vendor/bootstrap-slider/bootstrap-slider.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+  <link rel="stylesheet" href="vendor/bootstrap-slider/bootstrap-slider.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
   <link
     rel="stylesheet"
     type="text/css"
@@ -67,7 +67,7 @@
   <link href="css/rating.css" rel="stylesheet"/>
   <link href="css/main.css" rel="stylesheet"/>
   <link href="css/new_table.css" rel="stylesheet"/>
-
+  <link rel="stylesheet" href="vendor/autocomplete/css/amsify.suggestags.css">
 </head>
 
 <body id="page-top">
@@ -278,7 +278,7 @@
                 <input class="speakers bike" type="checkbox" name="vehicle1" value="Bike" id="vehicle1">
                 <label class="label-speaker choose_speaker" for="vehicle1">Choose a speaker</label>
                 <div class="bike-open">
-                    <input class="input_field" type="text" name="mySpeaker">
+                  <input class="input_field" type="text" name="mySpeaker">
                 </div>
               </div>
               <div class="bike-open">
@@ -302,9 +302,10 @@
                 <div class="row speaker_setting">
                   <input class="speakers job-speaker" type="checkbox" id="setting_3" checked>
                   <label class="label-speaker col-4" for="setting_3">Job title</label>
-                  <div class="job-speaker-open col-8" id="job-title">
-                    <!--<input class="input_field col-8" type="text" name="mySpeaker">-->
-                  </div>
+
+                  <input class="input_field" type="text" name="jobTitle" value="">
+
+
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers rate-speaker" type="checkbox" id="setting_4" checked>
@@ -350,11 +351,12 @@
                 <div class="row speaker_setting">
                   <input class="speakers age-speaker" type="checkbox" id="setting_7" checked>
                   <label class="label-speaker col-12" for="setting_7">Age</label>
-                    <div class="age-speaker-open">
-                      <b id="years-start_speaker">40</b>
-                      <input type="text" id="years-slider_speaker" class="duration-slider" value="" data-slider-min="16" data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
-                      <b id="years-end_speaker">60</b>
-                    </div>
+                  <div class="age-speaker-open">
+                    <b id="years-start_speaker">40</b>
+                    <input type="text" id="years-slider_speaker" class="duration-slider" value="" data-slider-min="16"
+                           data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
+                    <b id="years-end_speaker">60</b>
+                  </div>
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers gender-speaker" type="checkbox" id="setting_8" checked>
@@ -428,7 +430,8 @@
                   </div>
                   <div class="speaker_available row">
                     <p class="speaker_available-title">The speaker will be available after confirming</p>
-                    <p><div class="speaker_available-number">6 </div>
+                    <p>
+                    <div class="speaker_available-number">6</div>
                     speakers selected</p>
                   </div>
                 </div>
@@ -475,7 +478,8 @@
             <div class="invited-by_guest">
               <div class="checkbox-label event-pay">
                 <p class="">Invited people by </p>
-                <input class="input-switch input_field invited-by" id="invited-by" type="checkbox" name="switch" checked="checked"/>
+                <input class="input-switch input_field invited-by" id="invited-by" type="checkbox" name="switch"
+                       checked="checked"/>
                 <label class="invited-switch" for="invited-by">
                   <span class="switch-label off">No</span>
                   <span class="switch-label on">Yes</span>
@@ -504,7 +508,8 @@
                   <label class="label-speaker col-12" for="setting_guest_3">Age</label>
                   <div class="age-guest-open">
                     <b id="years-start_guest">40</b>
-                    <input type="text" id="years-slider_guest" class="duration-slider" value="" data-slider-min="16" data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
+                    <input type="text" id="years-slider_guest" class="duration-slider" value="" data-slider-min="16"
+                           data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
                     <b id="years-end_guest">60</b>
                   </div>
                 </div>
@@ -550,19 +555,22 @@
               <p class="col-lg-2 col-2 guest-title">Invite</p>
               <div class="col-lg-2 col-2 my-auto invite_guest">
                 <a href="#">
-                  <img src="img/speaker-1.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none" alt="">
+                  <img src="img/speaker-1.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none"
+                       alt="">
                   <p class="invite_guest-name">Alex Mix</p>
                 </a>
               </div>
               <div class="col-lg-2 col-2 my-auto invite_guest">
                 <a href="#">
-                  <img src="img/speaker-2.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none" alt="">
+                  <img src="img/speaker-2.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none"
+                       alt="">
                   <p class="invite_guest-name">Fedor Hi</p>
                 </a>
               </div>
               <div class="col-lg-2 col-2 my-auto invite_guest">
                 <a href="#">
-                  <img src="img/speaker-3.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none" alt="">
+                  <img src="img/speaker-3.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none"
+                       alt="">
                   <p class="invite_guest-name">Olivian Rock</p>
                 </a>
               </div>
@@ -574,12 +582,12 @@
                   <div class="dropdown-menu add_guest" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">
                       <div class="row">
-                      <div class="col-2  my-auto">
-                        <i class="fa fa-search"></i>
-                      </div>
-                      <div class="col-10">
-                        <input class="input_field" type="search" placeholder="Find">
-                      </div>
+                        <div class="col-2  my-auto">
+                          <i class="fa fa-search"></i>
+                        </div>
+                        <div class="col-10">
+                          <input class="input_field" type="search" placeholder="Find">
+                        </div>
                       </div>
                     </a>
                     <a class="dropdown-item" href="#">item</a>
@@ -664,7 +672,7 @@
             </div>
             <div class="row">
               <p type="Choose a place" class="col-lg-7 col-12" id="locationField">
-                <input class="input_field controls" id="autocomplete" type="text" />
+                <input class="input_field controls" id="autocomplete" type="text"/>
               </p>
               <p class="col-lg-5 col-0">
               </p>
@@ -674,39 +682,39 @@
 
               <div id="map" style="width:100%;height:400px;"></div>
 
-            <div id="listing">
-              <table id="resultsTable">
-                <tbody id="results"></tbody>
-              </table>
-            </div>
-
-            <div style="display: none">
-              <div id="info-content">
-                <table>
-                  <tr id="iw-url-row" class="iw_table_row">
-                    <td id="iw-icon" class="iw_table_icon"></td>
-                    <td id="iw-url"></td>
-                  </tr>
-                  <tr id="iw-address-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Address:</td>
-                    <td id="iw-address"></td>
-                  </tr>
-                  <tr id="iw-phone-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Telephone:</td>
-                    <td id="iw-phone"></td>
-                  </tr>
-                  <tr id="iw-rating-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Rating:</td>
-                    <td id="iw-rating"></td>
-                  </tr>
-                  <tr id="iw-website-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Website:</td>
-                    <td id="iw-website"></td>
-                  </tr>
+              <div id="listing">
+                <table id="resultsTable">
+                  <tbody id="results"></tbody>
                 </table>
               </div>
+
+              <div style="display: none">
+                <div id="info-content">
+                  <table>
+                    <tr id="iw-url-row" class="iw_table_row">
+                      <td id="iw-icon" class="iw_table_icon"></td>
+                      <td id="iw-url"></td>
+                    </tr>
+                    <tr id="iw-address-row" class="iw_table_row">
+                      <td class="iw_attribute_name">Address:</td>
+                      <td id="iw-address"></td>
+                    </tr>
+                    <tr id="iw-phone-row" class="iw_table_row">
+                      <td class="iw_attribute_name">Telephone:</td>
+                      <td id="iw-phone"></td>
+                    </tr>
+                    <tr id="iw-rating-row" class="iw_table_row">
+                      <td class="iw_attribute_name">Rating:</td>
+                      <td id="iw-rating"></td>
+                    </tr>
+                    <tr id="iw-website-row" class="iw_table_row">
+                      <td class="iw_attribute_name">Website:</td>
+                      <td id="iw-website"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
             </div>
-          </div>
           </div>
           <div class="col-md-12 well">
             <legend id="table_cost" class="table-item-subtitle">Cost</legend>
@@ -730,9 +738,9 @@
               </div>
             </div>
           </div>
-            <div class="col-md-12 well submit">
-              <button class="btn-join butt sett-btn">submit</button>
-            </div>
+          <div class="col-md-12 well submit">
+            <button class="btn-join butt sett-btn">submit</button>
+          </div>
         </div>
       </div>
     </div>
@@ -743,9 +751,6 @@
 
 
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-    integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="
-    crossorigin="anonymous"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -753,15 +758,26 @@
 <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.js"></script>
-<script src="./vendor/multiselect/src/jquery.multi-select.js"></script>
 <script src="js/main.js"></script>
 <script src="js/user_admin.js "></script>
-<script src="js/new_table.js "></script>
 <script src="js/google_map.js"></script>
 <script src="js/data.js"></script>
-<script src="js/environment.js"></script>
 <script src="js/rating.js"></script>
 <script src="vendor/bootstrap-slider/bootstrap-slider.min.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXFqmqsAuHyK-GCF5HDrMqu5WULRpFN-8&callback=initMap" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChz9A5Nog5rcMGOY580pq6prfiL-gk7ok&callback=initMap"
+type="text/javascript"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous">
+</script>
+<script src="vendor/autocomplete/js/jquery.amsify.suggestags.js"></script>
+
+<script src="js/new_table.js "></script>
+
+
 </body>
 </html>

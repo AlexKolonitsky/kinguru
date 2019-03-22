@@ -355,7 +355,7 @@
     $('#open-sign-up').load('sign_up.html');
     $('#footer').load('footer.html');
     $('#change-pass').load('change_pass.html');
-    $('#job-title').load('job-title.html');
+    $('#multiselect').load('job-title.html');
   });
 
 
@@ -403,7 +403,7 @@
     });
   });
 
-  $(document).ready(function(){
+  function helloBro() {
     $('.your-class').slick({
       dots: true,
       infinite: true,
@@ -411,7 +411,12 @@
       slidesToShow: 1,
       slidesToScroll: 1
     });
+  }
+  $(document).ready(function () {
+    setTimeout(helloBro, 1000);
+
   });
+
 
 })(jQuery);
 

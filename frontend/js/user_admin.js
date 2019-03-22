@@ -216,7 +216,7 @@ function userInformation(information) {
     `    <div class="col-md-9 well">` +
     `    <legend id="pers_interest" class="">Competenies and interests</legend>` +
     `  <div class="row">` +
-    `    <p type="Occupation" class="col-lg-8 col-12">` +
+    `    <p type="Industry" class="col-lg-8 col-12">` +
     `    <input class="input_field" name="occupation" type="text"/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +

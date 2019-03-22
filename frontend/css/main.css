@@ -1935,3 +1935,8 @@ p:before{
 .your-class img {
   margin: 0 auto;
 }
+
+.place-img {
+  height: 310px;
+  width: 535px;
+}

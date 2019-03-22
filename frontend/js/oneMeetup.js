@@ -271,13 +271,13 @@ function meetup(metap) {
 
     content.forEach(img => {
       const imgContent =
-       ` <div class="owl-item-inner">` +
-       ` <img src="${img.coverSource}" alt="${img.coverKey}"/>` +
-       ` </div>`;
+       ` <div><img class="place-img" src="${img.coverSource}" alt="${img.coverKey}"/></div>`;
+
       imgList += imgContent;
     })
-    // $('#place-carousel').append(imgList);
-  }
+    $('#imgContent').append(imgList);
 
+
+  }
 
 }
