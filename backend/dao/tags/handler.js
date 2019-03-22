@@ -4,8 +4,10 @@ const { Tags } = require('./../index');
 
 class TagsDao {
 
-  getAllTags() {
-    return Tags.findAll({})
+  getAllTags(filter = {}) {
+    return Tags.findAll({
+      where: filter
+    })
   }
 }
 

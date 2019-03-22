@@ -7,6 +7,7 @@ const LocationsHandler = require('./locations/handler');
 const CommentsHandler = require('./comments/handler');
 const TagsHandler = require('./tags/handler');
 const ImagesHandler = require('./images/handler');
+const LanguagesHandler = require('./languages/handler');
 
 module.exports = {
   UsersDaoHandler: new UsersHandler(),
@@ -16,4 +17,5 @@ module.exports = {
   CommentsDaoHandler: new CommentsHandler(),
   TagsDaoHandler: new TagsHandler(),
   ImagesDaoHandler: new ImagesHandler(),
+  LanguagesDaoHandler: new LanguagesHandler(),
 };

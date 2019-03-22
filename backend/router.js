@@ -65,7 +65,7 @@ router.post('/comment', (req, res, next) => comments.CreateComment.process(req, 
  */
 
 const tags = require('./services/tags/index');
-router.get('/tags', (req, res, next) => tags.GetAllTags.process(req, res, next));
+router.post('/tags', (req, res, next) => tags.GetAllTags.process(req, res, next));
 
 /**
  * @description Images endpoints
@@ -77,5 +77,12 @@ router.post('/images/add', upload.array('images'), (req, res, next) => images.Ad
 router.get('/images/meetup/:id', (req, res, next) => images.GetMeetupImages.process(req, res, next));
 router.get('/images/location/:id', (req, res, next) => images.GetLocationImages.process(req, res, next));
 router.get('/images/user/:id', (req, res, next) => images.GetUserImages.process(req, res, next));
+
+/**
+ * @description Languages endpoints
+ */
+
+const languages = require('./services/languages/index');
+router.get('/languages', (req, res, next) => languages.GetAllLanguages.process(req, res, next));
 
 module.exports = router;

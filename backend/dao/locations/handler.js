@@ -1,6 +1,5 @@
 'use strict';
 
-const _ = require('lodash');
 const {Locations} = require('./../index');
 const locationAttributes = [
   'id', 'country', 'state', 'city', 'address', 'metro', 'place', 'email', 'phone', 'zipCode'

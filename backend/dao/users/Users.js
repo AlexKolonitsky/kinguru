@@ -131,10 +131,21 @@ module.exports = (sequelize, DataTypes) => {
       as: 'guests',
       through: models.MeetupsGuests,
       foreignKey: 'guestId',
-    })
+    });
 
+    Users.belongsToMany(models.Languages, {
+      as: 'languages',
+      through: models.UsersLanguages,
+      foreignKey: 'userId',
+    });
+
+    Users.belongsToMany(models.WordKeys, {
+      as: 'keywords',
+      through: models.UsersKeywords,
+      foreignKey: 'userId',
+    });
   };
+
 
   return Users;
 };
-

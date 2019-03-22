@@ -16,7 +16,7 @@ const utils = require('./../../common/securityAssert');
 const nodemailer = require('./../../common/nodemailer');
 
 
-const {Users, Locations} = require('./../index');
+const {Users, Locations, Languages, WordKeys} = require('./../index');
 const defaultUserAttributes = [
   'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender', 'phone',
   'locationId', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
@@ -93,6 +93,15 @@ class UsersDao {
     filter.role = 2;
     return Users.findAll({
       where: filter,
+      include: [
+        {
+          model: Languages, as: 'languages', attributes: ['id', 'name'],
+          through: {attributes: []}
+        },
+        {
+          model: WordKeys, as: 'keywords', attributes: ['id', 'name', 'isExpertise'],
+          through: {attributes: []}
+        }],
       attributes: defaultUserAttributes
     })
   }
@@ -132,11 +141,21 @@ class UsersDao {
 
   getCurrentUser(token, response, userAttributes) {
     const userInfo = utils.getUserByToken(token).user;
+    console.log(userInfo);
     return Users.findOne({
       where: {
         id: userInfo.id,
         email: userInfo.email
       },
+      include: [
+        {
+          model: Languages, as: 'languages', attributes: ['id', 'name'],
+          through: {attributes: []}
+        },
+        {
+          model: WordKeys, as: 'keywords', attributes: ['id', 'name', 'isExpertise'],
+          through: {attributes: []}
+        }],
       attributes: userAttributes || defaultUserAttributes
     })
       .then(user => {
@@ -212,7 +231,6 @@ class UsersDao {
   updateUser(newUserInfo, token) {
     console.log(newUserInfo);
     const userBeforeUpdated = utils.getUserByToken(token).user;
-    console.log(userBeforeUpdated);
     return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo, userBeforeUpdated.location))
       .then(location => {
         return Users.findOne({

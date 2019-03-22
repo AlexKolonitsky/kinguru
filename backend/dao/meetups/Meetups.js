@@ -1,7 +1,5 @@
 'use strict';
 
-const _ = require('lodash');
-
 module.exports = (sequelize, DataTypes) => {
 
   const Meetups = sequelize.define('Meetups', {

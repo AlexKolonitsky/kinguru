@@ -19,7 +19,7 @@ class GetAllTags extends RequestHandlers {
    */
 
   methodAction(request) {
-    return TagsDaoHandler.getAllTags()
+    return TagsDaoHandler.getAllTags(request.body)
   }
 
 

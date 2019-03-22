@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, DataTypes) => {
 
-  const Tags = sequelize.define('Tags', {
+  const WordKeys = sequelize.define('WordKeys', {
 
       id: {
         type: DataTypes.INTEGER,
@@ -11,8 +11,12 @@ module.exports = (sequelize, DataTypes) => {
       },
 
       name: {
-        type: DataTypes.STRING(45),
+        type: DataTypes.STRING(100),
         allowNull: false,
+      },
+
+      isExpertise: {
+        type: DataTypes.BOOLEAN,
       },
 
       createdAt: {
@@ -25,21 +29,21 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     {
-      tableName: 'Tags',
+      tableName: 'WordKeys',
       timestamps: true,
     });
 
-  Tags.associate = models => {
+  WordKeys.associate = models => {
 
-    Tags.belongsToMany(models.Meetups, {
-      as: 'tags',
-      through: models.MeetupsTags,
-      foreignKey: 'tagId',
+    WordKeys.belongsToMany(models.Users, {
+      as: 'keywords',
+      through: models.UsersKeywords,
+      foreignKey: 'wordId',
     });
 
   };
 
-  return Tags
+  return WordKeys;
 
 
 };

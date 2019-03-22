@@ -14,7 +14,7 @@ const attributes = {
     'locationId'
   ],
   speaker: ['id', 'firstname', 'lastname', 'coverSource'],
-  tag: ['id', 'name', 'isTag']
+  tag: ['id', 'name']
 };
 
 
