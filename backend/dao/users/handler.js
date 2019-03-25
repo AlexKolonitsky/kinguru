@@ -149,7 +149,6 @@ class UsersDao {
     console.log('==================111================');
     return Users.findOne({
       where: {
-        id: userInfo.id,
         email: userInfo.email
       },
       include: [
