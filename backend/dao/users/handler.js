@@ -134,9 +134,6 @@ class UsersDao {
       },
       attributes: defaultUserAttributes
     })
-      .then(user => {
-        return user;
-      })
   }
 
   getUserInfoResponse(user) {
@@ -149,6 +146,7 @@ class UsersDao {
   getCurrentUser(token, response, userAttributes) {
     const userInfo = utils.getUserByToken(token).user;
     console.log(userInfo);
+    console.log('==================111================');
     return Users.findOne({
       where: {
         id: userInfo.id,
@@ -166,6 +164,9 @@ class UsersDao {
       attributes: userAttributes || defaultUserAttributes
     })
       .then(user => {
+        console.log('==================222================');
+        console.log(user.locationId);
+        console.log('==================222================');
         if (!user) {
           return response.status(403).end('User not authorized');
         }
