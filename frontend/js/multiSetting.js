@@ -1,8 +1,10 @@
 $('#speakerMeetup').bsMultiSelect({
-
+  selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+  selectedPanelFocusBorderColor: 'transparent'
 });
 $('#tugsMeetup').bsMultiSelect({
-  inputColor: '#ffd24e',
+  selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+  selectedPanelFocusBorderColor: 'transparent'
 });
 
 

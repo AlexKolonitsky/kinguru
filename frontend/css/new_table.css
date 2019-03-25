@@ -32,6 +32,39 @@ legend {
   border: 1px solid #ffd800;
 }
 
+.dashboardcode-bsmultiselect ul.form-control {
+  border: none;
+  border-bottom: 1px solid #C0C0C0;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.dashboardcode-bsmultiselect ul.form-control:focus {
+  box-shadow: none;
+}
+
+.dashboardcode-bsmultiselect .dropdown-menu{
+  width: 50%;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color: #ffd800 !important;
+}
+
+.dashboardcode-bsmultiselect ul.form-control .badge {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  border: 1px solid #ffd800;
+  border-radius: 300px;
+  background-color: #ffd800;
+  margin-right: 5px;
+}
+
+.dashboardcode-bsmultiselect ul.form-control .badge span{
+  padding: 0 5px;
+}
+
 .reviewStars_new_table{
   width: 60%;
   text-align: left;
@@ -226,9 +259,10 @@ p.cost-from_to {
 .expertise_category,
 .expertise_category:hover,
 .expertise_category:visited{
+  display: inline-block;
   color: #000;
   border-color: #000;
-  margin: 20px;
+  margin: 10px;
   line-height: 100%;
 }
 
@@ -310,7 +344,7 @@ p.cost-from_to {
 }
 
 .speaker_setting .slider.slider-horizontal {
-  width: 300px;
+  width: 60%;
 }
 
 .slider.slider-horizontal .slider-tick,
@@ -366,6 +400,7 @@ input::-webkit-inner-spin-button {
 .age-guest-open,
 .age-speaker-open{
   margin: 20px;
+  width: 100%;
 }
 
 .submit {

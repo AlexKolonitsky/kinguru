@@ -417,7 +417,18 @@
 
   });
 
+  $(document).ready(function () {
+    $('#speakerMeetup').BsMultiSelect({
 
+    });
+    $('#tugsMeetup').BsMultiSelect({
+      selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+      selectedPanelFocusBorderColor: 'rgb(255, 213, 57)',
+      selectedPanelFocusValidBoxShadow: '0 0 0 0.2rem rgb(40, 167, 69)',
+      selectedPanelFocusInvalidBoxShadow: '0 0 0 0.2rem rgb(220, 53, 69)'
+    });
+
+  });
 })(jQuery);
 
 var like = function (element) {

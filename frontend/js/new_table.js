@@ -92,6 +92,7 @@ $(function () {
       this.disabled = !$(this).hasClass(dataClass);
     });
   });
+
 });
 
 function getAllSpeakers(object) {
