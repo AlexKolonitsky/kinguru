@@ -17,8 +17,7 @@ const nodemailer = require('./../../common/nodemailer');
 const Sequelize = require('sequelize');
 
 
-
-const {Users, Locations, Languages, WordKeys} = require('./../index');
+const {Users, Locations, Languages, UsersLanguages, WordKeys, UsersKeywords} = require('./../index');
 const defaultUserAttributes = [
   'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender', 'phone',
   'locationId', 'cost', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
@@ -91,10 +90,49 @@ class UsersDao {
       })
   }
 
-  calculateAge(birthday) { // birthday is a date
+  calculateAge(birthday) {
     const ageDifMs = Date.now() - birthday.getTime();
-    const ageDate = new Date(ageDifMs); // miliseconds from epoch
+    const ageDate = new Date(ageDifMs);
     return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+
+  getSpeakersByAssociations(associationTable) {
+    const filter = {role: 2};
+    if (associationTable) {
+      filter.id = _.uniq(_.map(associationTable, 'userId'));
+    }
+    return Users.findAll({
+      where: filter,
+      attributes: defaultUserAttributes
+    })
+  };
+
+  getSpeakersByLanguages(languages = []) {
+    if (!languages.length) {
+      return this.getSpeakersByAssociations();
+    }
+    return UsersLanguages.findAll({
+      where: {
+        languageId: languages
+      },
+    })
+      .then(usersLanguages => {
+        return this.getSpeakersByAssociations(usersLanguages);
+      })
+  }
+
+  getSpeakersByExpertises(expertises = []) {
+    if (!expertises.length) {
+      return this.getSpeakersByAssociations();
+    }
+    return UsersKeywords.findAll({
+      where: {
+        wordId: expertises,
+      },
+    })
+      .then(usersKeywords => {
+        return this.getSpeakersByAssociations(usersKeywords);
+      })
   }
 
   getSpeakers(filter = {}) {
@@ -104,7 +142,6 @@ class UsersDao {
       },
       role: 2
     };
-    console.log(filter);
     if (filter.gender) {
       queryFilter.gender = filter.gender;
     }
@@ -122,11 +159,17 @@ class UsersDao {
       attributes: defaultUserAttributes
     })
       .then(speakers => {
-        return speakers
-          .filter(speaker => {
-            const age = this.calculateAge(speaker.birthday);
-            return ((filter.ageFrom || -1) <= age) && (age <= (filter.ageTo || 999));
-          });
+        return Promise.all([
+          this.getSpeakersByLanguages(filter.languages),
+          this.getSpeakersByExpertises(filter.expertises)
+        ])
+          .then(response => {
+            return _.intersectionBy(speakers
+              .filter(speaker => {
+                const age = this.calculateAge(speaker.birthday);
+                return ((filter.ageFrom || -1) <= age) && (age <= (filter.ageTo || 999));
+              }), response[0], response[1], 'id');
+          })
       })
   }
 
