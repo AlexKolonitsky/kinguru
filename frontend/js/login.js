@@ -63,7 +63,7 @@ function getUser(token) {
 
 window.addEventListener("load", function () {
   let token = localStorage.getItem('Token');
-  if(token !== '') {
+  if(token !== null) {
     token = `Bearer ${token}`;
     getUser(token);
   }else {
@@ -175,8 +175,8 @@ function showHeaderContent(user) {
     `</div>` +
     `</div>` +
     `</div>`;
-  $('.sotial').after(userContent);
-  $('#login-block').addClass('show-content');
+  $('#search').after(userContent);
+  // $('#login-block').addClass('show-content');
 
   $('#logOut').click(function () {
     $('.user-content').remove();
