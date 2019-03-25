@@ -1,5 +1,6 @@
 'use strict';
 
+const _ = require('lodash');
 const {Comments} = require('./../index');
 const UsersHandler = require('./../users/handler');
 const assert = require('./../../common/assert');
@@ -69,6 +70,23 @@ class CommentsDao {
         if (created) {
           return comment;
         }
+      })
+  }
+
+  getSpeakerRate(speakerId) {
+    return Comments.findAll({
+      where: {
+        speakerId: speakerId
+      },
+      attributes: commentAttributes
+    })
+      .then(comments => {
+        const rates = _.compact(_.map(comments, 'rate'));
+        return {
+          rate: _.reduce(rates, (sum, n) => {
+            return sum + n;
+          }, 0) / rates.length
+        };
       })
   }
 

@@ -59,6 +59,7 @@ router.get('/meetup/:meetupId/comments', (req, res, next) => comments.GetMeetupC
 router.get('/speaker/:speakerId/comments', (req, res, next) => comments.GetSpeakerComments.process(req, res, next));
 router.get('/location/:locationId/comments', (req, res, next) => comments.GetLocationComments.process(req, res, next));
 router.post('/comment', (req, res, next) => comments.CreateComment.process(req, res, next, true));
+router.get('/speaker/:speakerId/rate', (req, res, next) => comments.GetSpeakerRate.process(req, res, next));
 
 /**
  * @description Tags endpoints

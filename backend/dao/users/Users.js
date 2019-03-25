@@ -50,6 +50,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
 
+    cost: {
+      type: DataTypes.INTEGER
+    },
+
     company: {
       type: DataTypes.STRING(100),
     },

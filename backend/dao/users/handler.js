@@ -14,12 +14,14 @@ const _ = require('lodash');
 const ERRORS_CODE = require('./../../common/securityAssert').ERRORS_CODE;
 const utils = require('./../../common/securityAssert');
 const nodemailer = require('./../../common/nodemailer');
+const Sequelize = require('sequelize');
+
 
 
 const {Users, Locations, Languages, WordKeys} = require('./../index');
 const defaultUserAttributes = [
   'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender', 'phone',
-  'locationId', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
+  'locationId', 'cost', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
   'coverSource', 'coverKey', 'createdAt', 'updatedAt', 'confirmed', 'role', 'faked'
 ];
 
@@ -89,10 +91,25 @@ class UsersDao {
       })
   }
 
+  calculateAge(birthday) { // birthday is a date
+    const ageDifMs = Date.now() - birthday.getTime();
+    const ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+
   getSpeakers(filter = {}) {
-    filter.role = 2;
+    const queryFilter = {
+      cost: {
+        [Sequelize.Op.between]: [filter.costFrom || -1, filter.costTo || 999999999]
+      },
+      role: 2
+    };
+    console.log(filter);
+    if (filter.gender) {
+      queryFilter.gender = filter.gender;
+    }
     return Users.findAll({
-      where: filter,
+      where: queryFilter,
       include: [
         {
           model: Languages, as: 'languages', attributes: ['id', 'name'],
@@ -104,6 +121,13 @@ class UsersDao {
         }],
       attributes: defaultUserAttributes
     })
+      .then(speakers => {
+        return speakers
+          .filter(speaker => {
+            const age = this.calculateAge(speaker.birthday);
+            return ((filter.ageFrom || -1) <= age) && (age <= (filter.ageTo || 999));
+          });
+      })
   }
 
   findEmailAndPassword(email, password, response) {
@@ -146,7 +170,6 @@ class UsersDao {
   getCurrentUser(token, response, userAttributes) {
     const userInfo = utils.getUserByToken(token).user;
     console.log(userInfo);
-    console.log('==================111================');
     return Users.findOne({
       where: {
         email: userInfo.email
@@ -163,9 +186,6 @@ class UsersDao {
       attributes: userAttributes || defaultUserAttributes
     })
       .then(user => {
-        console.log('==================222================');
-        console.log(user.locationId);
-        console.log('==================222================');
         if (!user) {
           return response.status(403).end('User not authorized');
         }
