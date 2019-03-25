@@ -139,6 +139,13 @@ class UsersDao {
       })
   }
 
+  getUserInfoResponse(user) {
+    return {
+      user,
+      token: utils.getJwtToken(user).split(' ')[1]
+    }
+  }
+
   getCurrentUser(token, response, userAttributes) {
     const userInfo = utils.getUserByToken(token).user;
     console.log(userInfo);
@@ -163,10 +170,7 @@ class UsersDao {
           return response.status(403).end('User not authorized');
         }
         if (!user.locationId) {
-          return {
-            user,
-            token: utils.getJwtToken(user).split(' ')[1]
-          };
+          return this.getUserInfoResponse(user);
         }
         return Locations.findOne({
           where: {
@@ -175,12 +179,13 @@ class UsersDao {
           attributes: ['country', 'state', 'city', 'address', 'metro', 'phone', 'zipCode', 'place']
         })
           .then(location => {
+            if (!location) {
+              return this.getUserInfoResponse(user);
+            }
+            console.log('Hello DIMA');
             user = user.dataValues;
             user.location = location.dataValues;
-            return {
-              user,
-              token: utils.getJwtToken(user).split(' ')[1]
-            };
+            return this.getUserInfoResponse(user);
           })
       })
       .catch(err => {
