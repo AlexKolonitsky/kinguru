@@ -18,11 +18,11 @@ class Bootstrap4Adapter {
         this.containerClass= 'dashboardcode-bsmultiselect';
         this.dropDownMenuClass= 'dropdown-menu';
         this.dropDownItemClass= 'px-2';
-        this.dropDownItemHoverClass= 'text-primary bg-light';
+        this.dropDownItemHoverClass= 'bg-light';
         this.selectedPanelClass= 'form-control';
         this.selectedPanelStyle= {'margin-bottom': '0'};
         this.selectedItemClass= 'badge'; 
-        this.selectedItemStyle= {'padding-left': '0px', 'line-height': '1rem'};
+        this.selectedItemStyle= {'padding-left': '10px', 'line-height': '1rem'};
         this.removeSelectedItemButtonClass= 'close';
         this.removeSelectedItemButtonStyle= {'line-height': '1rem', 'font-size':'1.3rem'};
     }
