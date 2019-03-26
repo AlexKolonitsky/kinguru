@@ -215,13 +215,14 @@
             </div>
             <div class="row">
               <p type="Meeting poster?" class="col-lg-6 col-12">
-                <input name="myFile" type="file" id="file" class="input_file" onchange="addImage(event)">
+                <input name="myFile" type="file" id="file" class="input_file" onchange="readURL(this)">
                 <label class="load_poster col-12" for="file">
-                  <span class="add_poster">
-                    <i class="fa fa-image"></i>
-                    <br>
-                    Add poster
-                  </span>
+                  <img src="${information.coverSource}" id="image" alt="">
+                  <!--<span class="add_poster">-->
+                    <!--<i class="fa fa-image"></i>-->
+                    <!--<br>-->
+                    <!--Add poster-->
+                  <!--</span>-->
                 </label>
               </p>
               <p class="col-lg-6 col-0">
@@ -665,8 +666,6 @@
               <strong>Place ID</strong>: <span id="place-id"></span><br>
               <span id="place-address"></span>
             </div>
-
-
           </div>
           <div class="col-md-12 well">
             <legend id="table_cost" class="table-item-subtitle">Cost</legend>
