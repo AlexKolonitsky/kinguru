@@ -302,8 +302,8 @@
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers industry-speaker" type="checkbox" id="setting_2" checked>
-                  <label class="label-speaker col-4" for="setting_2">Industry</label>
-                  <div class="industry-speaker-open col-8">
+                  <label class="label-speaker col-12" for="setting_2">Industry</label>
+                  <div class="industry-speaker-open col-12">
                     <select name="states" id="speakerIndustry" class="form-control" multiple="multiple"
                             style="display: none;"></select>
                   </div>
@@ -311,7 +311,7 @@
                 <div class="row speaker_setting">
                   <input class="speakers job-speaker" type="checkbox" id="setting_3" checked>
                   <label class="label-speaker col-4" for="setting_3">Job title</label>
-                  <div class="industry-speaker-open col-8">
+                  <div class="job-speaker-open col-8">
                       <select name="states" id="speakerJobTitle" class="form-control" multiple="multiple"
                               style="display: none;"></select>
                   </div>
@@ -352,7 +352,7 @@
                 <div class="row speaker_setting">
                   <input class="speakers expertise-speaker" type="checkbox" id="setting_6" checked>
                   <label class="label-speaker col-12" for="setting_6">Expertise</label>
-                  <div class="industry-speaker-open col-8">
+                  <div class="expertise-speaker-open col-12">
                     <select name="states" id="speakerExpertise" class="form-control" multiple="multiple"
                             style="display: none;"></select>
                   </div>
@@ -363,20 +363,20 @@
                   <div class="age-speaker-open">
                     <b id="years-start_speaker">40</b>
                     <input type="text" id="years-slider_speaker" class="duration-slider" value="" data-slider-min="16"
-                           data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
+                           data-slider-max="100" data-slider-step="1" data-slider-value="[40,60]"/>
                     <b id="years-end_speaker">60</b>
                   </div>
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers gender-speaker" type="checkbox" id="setting_8" checked>
                   <label class="label-speaker col-12" for="setting_8">Gender</label>
-                  <div id="speakerGender" class="row radio-toolbar-3 gender-speaker-open">
+                  <div id="speakerGender" class="row check-toolbar-3 gender-speaker-open">
                     <div class="my-auto">
-                      <input type="radio" id="radio7" name="radios-third" value="male" />
+                      <input type="checkbox" id="radio7" checked>
                       <label for="radio7" class="text-center pointer">Male</label>
                     </div>
                     <div class="my-auto">
-                      <input type="radio" id="radio8" name="radios-third" value="female"/>
+                      <input type="checkbox" id="radio8">
                       <label for="radio8" class="text-center pointer">Female</label>
                     </div>
                   </div>
@@ -482,17 +482,17 @@
                 <div class="row speaker_setting">
                   <input class="speakers job-guest" type="checkbox" id="setting_guest_1" checked>
                   <label class="label-speaker col-4" for="setting_guest_1">Job title</label>
-                  <div class="job-guest-open col-8">
-                    <input class="input_field" type="text" name="mySpeaker">
+                  <div class="job-guest-open multiSelect-field col-8">
+                    <select name="states" id="guestJobTitle" class="form-control" multiple="multiple"
+                            style="display: none;"></select>
                   </div>
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers interest-guest" type="checkbox" id="setting_guest_2" checked>
                   <label class="label-speaker col-12" for="setting_guest_2">Interests</label>
                   <div class="interest-guest-open">
-                    <a href="#" class="event-category expertise_category">business</a>
-                    <a href="#" class="event-category expertise_category">journalism</a>
-                    <a href="#" class="event-category expertise_category">cats</a>
+                    <select name="states" id="guestInterest" class="form-control" multiple="multiple"
+                            style="display: none;"></select>
                   </div>
                 </div>
                 <div class="row speaker_setting">
@@ -501,20 +501,20 @@
                   <div class="age-guest-open">
                     <b id="years-start_guest">40</b>
                     <input type="text" id="years-slider_guest" class="duration-slider" value="" data-slider-min="16"
-                           data-slider-max="100" data-slider-step="5" data-slider-value="[40,60]"/>
+                           data-slider-max="100" data-slider-step="1" data-slider-value="[40,60]"/>
                     <b id="years-end_guest">60</b>
                   </div>
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers gender-guest" type="checkbox" id="setting_guest_4" checked>
                   <label class="label-speaker col-12" for="setting_guest_4">Gender</label>
-                  <div class="row radio-toolbar-5 gender-guest-open">
+                  <div class="row check-toolbar-5 gender-guest-open">
                     <div class="my-auto">
-                      <input type="radio" id="radio10" name="radios-fifth" value="male" checked/>
+                      <input type="checkbox" id="radio10" name="radios-fifth" value="male" checked/>
                       <label for="radio10" class="text-center pointer">Male</label>
                     </div>
                     <div class="my-auto">
-                      <input type="radio" id="radio11" name="radios-fifth" value="female"/>
+                      <input type="checkbox" id="radio11" name="radios-fifth" value="female"/>
                       <label for="radio11" class="text-center pointer">Female</label>
                     </div>
                   </div>
@@ -524,9 +524,8 @@
                   <input class="speakers expertise-guest" type="checkbox" id="setting_guest_6" checked>
                   <label class="label-speaker col-12" for="setting_guest_6">Expertise</label>
                   <div class="expertise-guest-open">
-                    <a href="#" class="event-category expertise_category">business</a>
-                    <a href="#" class="event-category expertise_category">journalism</a>
-                    <a href="#" class="event-category expertise_category">cats</a>
+                    <select name="states" id="guestExpertise" class="form-control" multiple="multiple"
+                            style="display: none;"></select>
                   </div>
                 </div>
 

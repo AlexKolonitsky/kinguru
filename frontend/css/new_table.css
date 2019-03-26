@@ -18,6 +18,10 @@ legend {
   font-size: 2em;
 }
 
+.table_content {
+  margin-top: 100px;
+}
+
 .table-item-title {
   font-size: 3em;
 }
@@ -59,6 +63,16 @@ legend {
   border-radius: 300px;
   background-color: #ffd800;
   margin: 2px!important;
+}
+
+.industry-speaker-open .dashboardcode-bsmultiselect ul.form-control .badge,
+.expertise-speaker-open .dashboardcode-bsmultiselect ul.form-control .badge,
+.interest-guest-open .dashboardcode-bsmultiselect ul.form-control .badge,
+.expertise-guest-open .dashboardcode-bsmultiselect ul.form-control .badge{
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 5px;
+  font-size: 1.2em;
 }
 
 .dashboardcode-bsmultiselect ul.form-control .badge span{
@@ -241,12 +255,6 @@ p.cost-from_to {
   font-size: 1.3em;
 }
 
-.expertise-speaker-open,
-.expertise-guest-open,
-.interest-guest-open{
-  margin: 30px 0;
-}
-
 .bike-open .speaker_setting .row,
 .label-speaker_checked{
   margin: 10px 0 10px 15px;
@@ -274,16 +282,16 @@ p.cost-from_to {
   display: none;
 }
 
-.radio-toolbar-5 input,
-.radio-toolbar-3 input,
+.check-toolbar-5 input,
 .radio-toolbar-2 input,
 .radio-toolbar-1 input,
-.check-toolbar-1 input{
+.check-toolbar-1 input,
+.check-toolbar-3 input{
   display: none;
 }
 
-.radio-toolbar-5 label,
-.radio-toolbar-3 label,
+.check-toolbar-5 label,
+.check-toolbar-3 label,
 .radio-toolbar-2 label,
 .radio-toolbar-1 label,
 .check-toolbar-1 label{
@@ -301,14 +309,18 @@ p.cost-from_to {
   padding: 0.5em 1.5em;
 }
 
-.radio-toolbar-5 input[type="radio"]:checked + label,
-.radio-toolbar-3 input[type="radio"]:checked + label,
+.check-toolbar-5 input[type="checkbox"]:checked + label,
+.check-toolbar-3 input[type="checkbox"]:checked + label,
 .radio-toolbar-2 input[type="radio"]:checked + label,
 .radio-toolbar-1 input[type="radio"]:checked + label,
 .check-toolbar-1 input[type="checkbox"]:checked + label{
   background-color: #ffd539;
   border: 1px solid #ffd539;
   color: #000000;
+}
+
+.check-toolbar-5 label{
+  margin: 10px 0px 10px 30px;
 }
 
 .list-speaker .butt {
