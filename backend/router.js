@@ -66,7 +66,21 @@ router.get('/speaker/:speakerId/rate', (req, res, next) => comments.GetSpeakerRa
  */
 
 const tags = require('./services/tags/index');
-router.post('/tags', (req, res, next) => tags.GetAllTags.process(req, res, next));
+router.get('/tags', (req, res, next) => tags.GetAllTags.process(req, res, next));
+
+/**
+ * @description job titles endpoints
+ */
+
+const jobtitles = require('./services/jobtitles/index');
+router.get('/job/titles', (req, res, next) => jobtitles.GetAllJobTitles.process(req, res, next));
+
+/**
+ * @description industries endpoints
+ */
+
+const industries = require('./services/industries/index');
+router.get('/industries', (req, res, next) => industries.GetAllIndustries.process(req, res, next));
 
 /**
  * @description Images endpoints

@@ -148,6 +148,18 @@ module.exports = (sequelize, DataTypes) => {
       through: models.UsersKeywords,
       foreignKey: 'userId',
     });
+
+    Users.belongsToMany(models.JobTitles, {
+      as: 'jobtitles',
+      through: models.UsersJobTitles,
+      foreignKey: 'userId',
+    });
+
+    Users.belongsToMany(models.Industries, {
+      as: 'industries',
+      through: models.UsersIndustries,
+      foreignKey: 'userId',
+    });
   };
 
 

@@ -17,12 +17,30 @@ const nodemailer = require('./../../common/nodemailer');
 const Sequelize = require('sequelize');
 
 
-const {Users, Locations, Languages, UsersLanguages, WordKeys, UsersKeywords} = require('./../index');
+const {Users, Locations, Languages, UsersLanguages, WordKeys, UsersKeywords, JobTitles, UsersJobTitles, Industries, UsersIndustries} = require('./../index');
 const defaultUserAttributes = [
   'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender', 'phone',
   'locationId', 'cost', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
   'coverSource', 'coverKey', 'createdAt', 'updatedAt', 'confirmed', 'role', 'faked'
 ];
+
+const userAssociates = [
+  {
+    model: Languages, as: 'languages', attributes: ['id', 'name'],
+    through: {attributes: []}
+  },
+  {
+    model: WordKeys, as: 'keywords', attributes: ['id', 'name', 'isExpertise'],
+    through: {attributes: []}
+  },
+  {
+    model: JobTitles, as: 'jobtitles', attributes: ['id', 'name'],
+    through: {attributes: []}
+  },
+  {
+    model: Industries, as: 'industries', attributes: ['id', 'name'],
+    through: {attributes: []}
+  },];
 
 class UsersDao {
 
@@ -107,31 +125,15 @@ class UsersDao {
     })
   };
 
-  getSpeakersByLanguages(languages = []) {
-    if (!languages.length) {
+  getSpeakersByAssociated(model, ids = [], filter) {
+    if (!ids.length) {
       return this.getSpeakersByAssociations();
     }
-    return UsersLanguages.findAll({
-      where: {
-        languageId: languages
-      },
+    return model.findAll({
+      where: filter,
     })
-      .then(usersLanguages => {
-        return this.getSpeakersByAssociations(usersLanguages);
-      })
-  }
-
-  getSpeakersByExpertises(expertises = []) {
-    if (!expertises.length) {
-      return this.getSpeakersByAssociations();
-    }
-    return UsersKeywords.findAll({
-      where: {
-        wordId: expertises,
-      },
-    })
-      .then(usersKeywords => {
-        return this.getSpeakersByAssociations(usersKeywords);
+      .then(response => {
+        return this.getSpeakersByAssociations(response);
       })
   }
 
@@ -147,28 +149,22 @@ class UsersDao {
     }
     return Users.findAll({
       where: queryFilter,
-      include: [
-        {
-          model: Languages, as: 'languages', attributes: ['id', 'name'],
-          through: {attributes: []}
-        },
-        {
-          model: WordKeys, as: 'keywords', attributes: ['id', 'name', 'isExpertise'],
-          through: {attributes: []}
-        }],
+      include: userAssociates,
       attributes: defaultUserAttributes
     })
       .then(speakers => {
         return Promise.all([
-          this.getSpeakersByLanguages(filter.languages),
-          this.getSpeakersByExpertises(filter.expertises)
+          this.getSpeakersByAssociated(UsersLanguages, filter.languages, {languageId: filter.languages}),
+          this.getSpeakersByAssociated(UsersKeywords, filter.expertises, {wordId: filter.expertises}),
+          this.getSpeakersByAssociated(UsersJobTitles, filter.jobTitles, {jobtitleId: filter.jobTitles}),
+          this.getSpeakersByAssociated(UsersIndustries, filter.industries, {industryId: filter.industries})
         ])
           .then(response => {
             return _.intersectionBy(speakers
               .filter(speaker => {
                 const age = this.calculateAge(speaker.birthday);
                 return ((filter.ageFrom || -1) <= age) && (age <= (filter.ageTo || 999));
-              }), response[0], response[1], 'id');
+              }), response[0], response[1], response[2], response[3], 'id');
           })
       })
   }
@@ -217,15 +213,7 @@ class UsersDao {
       where: {
         email: userInfo.email
       },
-      include: [
-        {
-          model: Languages, as: 'languages', attributes: ['id', 'name'],
-          through: {attributes: []}
-        },
-        {
-          model: WordKeys, as: 'keywords', attributes: ['id', 'name', 'isExpertise'],
-          through: {attributes: []}
-        }],
+      include: userAssociates,
       attributes: userAttributes || defaultUserAttributes
     })
       .then(user => {

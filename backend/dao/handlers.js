@@ -8,6 +8,8 @@ const CommentsHandler = require('./comments/handler');
 const TagsHandler = require('./tags/handler');
 const ImagesHandler = require('./images/handler');
 const LanguagesHandler = require('./languages/handler');
+const IndustriesHandler = require('./industries/handler');
+const JobTitlesHandler = require('./jobtitles/handler');
 
 module.exports = {
   UsersDaoHandler: new UsersHandler(),
@@ -18,4 +20,6 @@ module.exports = {
   TagsDaoHandler: new TagsHandler(),
   ImagesDaoHandler: new ImagesHandler(),
   LanguagesDaoHandler: new LanguagesHandler(),
+  IndustriesDaoHandler: new IndustriesHandler(),
+  JobTitlesDaoHandler: new JobTitlesHandler(),
 };
