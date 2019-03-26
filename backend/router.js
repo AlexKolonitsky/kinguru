@@ -84,7 +84,7 @@ const industries = require('./services/industries/index');
 router.get('/industries', (req, res, next) => industries.GetAllIndustries.process(req, res, next));
 
 /**
- * @description industries endpoints
+ * @description expertises, interests endpoints
  */
 
 const wordkeys = require('./services/wordkeys/index');

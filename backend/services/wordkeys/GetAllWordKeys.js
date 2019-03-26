@@ -10,7 +10,7 @@ const {WordKeysDaoHandler} = require('../../dao/handlers');
 class GetAllWordKeys extends RequestHandlers {
 
   methodAction(request) {
-    return WordKeysDaoHandler.getAllJobTitles()
+    return WordKeysDaoHandler.getAllWordKeys()
   }
 }
 
