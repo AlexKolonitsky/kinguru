@@ -63,7 +63,9 @@ function getUser(token) {
 
 window.addEventListener("load", function () {
   let token = localStorage.getItem('Token');
-  if(token !== '') {
+  console.log('token', token);
+  if(token !== '' || null) {
+    console.log('login work');
     token = `Bearer ${token}`;
     getUser(token);
   }else {

@@ -58,7 +58,7 @@ legend {
   border: 1px solid #ffd800;
   border-radius: 300px;
   background-color: #ffd800;
-  margin-right: 5px;
+  margin: 2px!important;
 }
 
 .dashboardcode-bsmultiselect ul.form-control .badge span{

@@ -1,3 +1,43 @@
+$.ajax({
+  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/job/titles',
+  method: 'GET',
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  success: function (jsondata) {
+    speakerJobTitle(jsondata);
+  }
+});
+
+$.ajax({
+  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/filter/meetup',
+  method: 'GET',
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  success: function (jsondata) {
+    tagsMeetup(jsondata.tags);
+  }
+});
+
+$.ajax({
+  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/industries',
+  method: 'GET',
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  success: function (jsondata) {
+    industrySpeaker(jsondata);
+  }
+});
+
+$.ajax({
+  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/wordkeys',
+  method: 'GET',
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  success: function (jsondata) {
+    expertiseSpeaker(jsondata);
+  }
+});
+
 $(function () {
   $('.bike').click(function () {
     $('.bike-open').stop().fadeToggle();
@@ -107,56 +147,123 @@ function getAllSpeakers(object) {
     }
   });
 }
+
 $.ajax({
   url: `http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/speakers`,
   method: 'post',
   dataType: "json",
   contentType: "application/json; charset=utf-8",
   success: function (jsondata) {
-    console.log('speaker', jsondata);
     allSpeakers(jsondata);
   }
 });
 
-$('#searchSpeakers').click(function () {
-    let object =
-      {
-        costFrom: document.getElementById('cost_from').value,
-        costTo: document.getElementById('cost_to').value,
-        ageFrom: document.getElementById('years-slider_speaker').value.split(',')[0],
-        ageTo: document.getElementById('years-slider_speaker').value.split(',')[1],
-        gender: $('input[name=radios-third]:checked').val(),
 
+// $('#searchSpeakers').click(function () {
+//   const languages = [1, 2, 3, 4];
+//
+//   let speaker = $('#speakerMeetup').val();
+//   let chooseSpeaker = speaker.map(function (x) {
+//     return parseInt(x, 10);
+//   });
+//
+//   console.log(chooseSpeaker);
+//
+//   const filter = {};
+//   if (document.getElementById('speakerCity').value) {
+//     filter.costFrom = document.getElementById('years-slider_speaker').value.split(',')[0]
+//   }
+//     {
+//       city: document.getElementById('speakerCity').value,
+//       costFrom: document.getElementById('cost_from').value,
+//       costTo: document.getElementById('cost_to').value,
+//       ageFrom: document.getElementById('years-slider_speaker').value.split(',')[0],
+//       ageTo: document.getElementById('years-slider_speaker').value.split(',')[1],
+//       gender: $('input[name=radios-third]:checked').val(),
+//       languages: languages.filter(languageId => {
+//         return $(`#langSpeaker${languageId}`).is(":checked");
+//       }),
+//
+//     };
+//   getAllSpeakers(filter);
+// });
 
-      };
-  getAllSpeakers(object);
+window.addEventListener("load", function () {
+  let language = function (jsondata) {allLanguages(jsondata);};
+  let tags = function (jsondata) {tagsMeetup(jsondata.tags);};
+  let jobTitle = function (jsondata) {speakerJobTitle(jsondata);};
+  filterGet(`languages`, language);
 });
-$.ajax({
-  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/filter/meetup',
-  method: 'GET',
-  dataType: "json",
-  contentType: "application/json; charset=utf-8",
-  success: function (jsondata) {
-    tagsMeetup(jsondata.tags);
-  }
-});
 
-function allSpeakers(speakers) {
-    let speakersName = ``;
+function filterGet (url, success) {
+  $.ajax({
+    url: `http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/${url}`,
+    method: 'GET',
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    success: success,
+  });
+}
+
+function allLanguages(langs = []) {
+  let langName = ``;
+  langs.forEach(lang => {
+    let langList =
+      ` <div class="my-auto">` +
+      ` <input type="checkbox" id="langSpeaker${lang.id}" name="radios-forth" value="${lang.id}"/>` +
+      ` <label for="langSpeaker${lang.id}" class="text-center pointer">${lang.name}</label>` +
+      ` </div>`;
+    langName += langList;
+  });
+
+  $('#languageSpeakers').append(langName);
+}
+
+function allSpeakers(speakers = []) {
+  let speakersName = ``;
   speakers.forEach(speaker => {
-      let speakerList = `<option value="${speaker.id}">${speaker.lastname} ${speaker.firstname}</option>`
+    let speakerList = `<option value="speaker${speaker.id}">${speaker.lastname} ${speaker.firstname}</option>`
     speakersName += speakerList;
   });
 
   $('#speakerMeetup').append(speakersName);
 }
 
-function tagsMeetup(allTagsFilter) {
+function speakerJobTitle(titles = []) {
+  let jobTitle = ``;
+  titles.forEach(title => {
+    let titleList = `<option value="${title.id}">${title.name}</option>`
+    jobTitle += titleList;
+  });
+
+  $('#speakerJobTitle').append(jobTitle);
+}
+
+function tagsMeetup(allTagsFilter = []) {
   let tagsList = ``;
   allTagsFilter.forEach(tag => {
     let countFilter =
-      `<option value="${tag.id}">${tag.name}</option>`;
+      `<option value="tag${tag.id}">${tag.name}</option>`;
     tagsList += countFilter;
   });
   $('#tugsMeetup').append(tagsList);
+};
+
+function industrySpeaker(industrys = []) {
+  let industryList = ``;
+  industrys.forEach(industry => {
+    let countFilter =
+      `<option value="industry${industry.id}">${industry.name}</option>`;
+    industryList += countFilter;
+  });
+  $('#speakerIndustry').append(industryList);
+};
+function expertiseSpeaker(expertises = []) {
+  let expertiseList = ``;
+  expertises.forEach(expertise => {
+    let countFilter =
+      `<option value="expertise${expertise.id}">${expertise.name}</option>`;
+    expertiseList += countFilter;
+  });
+  $('#speakerExpertise').append(expertiseList);
 };

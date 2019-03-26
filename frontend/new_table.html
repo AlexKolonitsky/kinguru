@@ -297,24 +297,23 @@
                   <input class="speakers city-speaker" type="checkbox" id="setting_1" checked>
                   <label class="label-speaker col-4" for="setting_1">City</label>
                   <div class="city-speaker-open col-8">
-                    <input class=" input_field" type="text" name="mySpeaker">
+                    <input id="speakerCity" class=" input_field" type="text" name="mySpeaker">
                   </div>
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers industry-speaker" type="checkbox" id="setting_2" checked>
                   <label class="label-speaker col-4" for="setting_2">Industry</label>
                   <div class="industry-speaker-open col-8">
-                    <input class="input_field" type="text" name="mySpeaker">
+                    <select name="states" id="speakerIndustry" class="form-control" multiple="multiple"
+                            style="display: none;"></select>
                   </div>
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers job-speaker" type="checkbox" id="setting_3" checked>
                   <label class="label-speaker col-4" for="setting_3">Job title</label>
                   <div class="industry-speaker-open col-8">
-                    <!--<div class="container" id="multiTest">-->
-                      <!--<select name="states" id="example" class="form-control" multiple="multiple"-->
-                              <!--style="display: none;"></select>-->
-                    <!--</div>-->
+                      <select name="states" id="speakerJobTitle" class="form-control" multiple="multiple"
+                              style="display: none;"></select>
                   </div>
 
                 </div>
@@ -353,10 +352,9 @@
                 <div class="row speaker_setting">
                   <input class="speakers expertise-speaker" type="checkbox" id="setting_6" checked>
                   <label class="label-speaker col-12" for="setting_6">Expertise</label>
-                  <div class=" expertise-speaker-open">
-                    <a href="#" class="event-category expertise_category">business</a>
-                    <a href="#" class="event-category expertise_category">journalism</a>
-                    <a href="#" class="event-category expertise_category">cats</a>
+                  <div class="industry-speaker-open col-8">
+                    <select name="states" id="speakerExpertise" class="form-control" multiple="multiple"
+                            style="display: none;"></select>
                   </div>
                 </div>
                 <div class="row speaker_setting">
@@ -386,24 +384,7 @@
                 <div class="row speaker_setting">
                   <input class="speakers lang-speaker" type="checkbox" id="setting_9" checked>
                   <label class="label-speaker col-12" for="setting_9">Language</label>
-                  <div class="row check-toolbar-1 lang-speaker-open">
-                    <div class="my-auto">
-                      <input type="checkbox" id="check1" name="radios-forth" value="all"/>
-                      <label for="check1" class="text-center pointer">En</label>
-                    </div>
-                    <div class="my-auto">
-                      <input type="checkbox" id="check2" name="radios-forth" value="false"/>
-                      <label for="check2" class="text-center pointer">Rus</label>
-                    </div>
-                    <div class="my-auto">
-                      <input type="checkbox" id="check3" name="radios-forth" value="all"/>
-                      <label for="check3" class="text-center pointer">Cn</label>
-                    </div>
-                    <div class="my-auto">
-                      <input type="checkbox" id="check4" name="radios-forth" value="false"/>
-                      <label for="check4" class="text-center pointer">Bel</label>
-                    </div>
-                  </div>
+                  <div id="languageSpeakers" class="row check-toolbar-1 lang-speaker-open"></div>
                 </div>
                 <div class="col-md-12 well submit list-speaker">
                   <button class="btn-join butt sett-btn" id="searchSpeakers">Search speakers</button>

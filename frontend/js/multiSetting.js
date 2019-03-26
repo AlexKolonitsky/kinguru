@@ -1,12 +1,25 @@
 $('#speakerMeetup').bsMultiSelect({
   selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
-  selectedPanelFocusBorderColor: 'transparent'
+  selectedPanelFocusBorderColor: 'transparent',
+  selectedPanelClass: 'speaker-filtr-meetups form-control',
+  selectedItemId: 'qwer',
 });
 $('#tugsMeetup').bsMultiSelect({
   selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
   selectedPanelFocusBorderColor: 'transparent'
 });
-
+$('#speakerJobTitle').bsMultiSelect({
+  selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+  selectedPanelFocusBorderColor: 'transparent'
+});
+$('#speakerIndustry').bsMultiSelect({
+  selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+  selectedPanelFocusBorderColor: 'transparent'
+});
+$('#speakerExpertise').bsMultiSelect({
+  selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+  selectedPanelFocusBorderColor: 'transparent'
+});
 
 
 var _gaq = _gaq || [];
