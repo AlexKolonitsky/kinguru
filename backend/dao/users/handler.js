@@ -288,7 +288,6 @@ class UsersDao {
             if (!location) {
               return this.getUserInfoResponse(user);
             }
-            console.log('Hello DIMA');
             user = user.dataValues;
             user.location = location.dataValues;
             return this.getUserInfoResponse(user);

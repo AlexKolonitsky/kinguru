@@ -10,6 +10,7 @@ const ImagesHandler = require('./images/handler');
 const LanguagesHandler = require('./languages/handler');
 const IndustriesHandler = require('./industries/handler');
 const JobTitlesHandler = require('./jobtitles/handler');
+const WordKeysHandler = require('./wordkeys/handler');
 
 module.exports = {
   UsersDaoHandler: new UsersHandler(),
@@ -22,4 +23,5 @@ module.exports = {
   LanguagesDaoHandler: new LanguagesHandler(),
   IndustriesDaoHandler: new IndustriesHandler(),
   JobTitlesDaoHandler: new JobTitlesHandler(),
+  WordKeysDaoHandler: new WordKeysHandler(),
 };

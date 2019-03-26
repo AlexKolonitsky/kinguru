@@ -35,11 +35,13 @@ class CreateMeetup extends RequestHandlers {
 
   methodAction(request) {
 
-    let file = request.file;
-    let filename = Date.now() + '-' + file.originalname;
-    let contentType = file.mimetype;
+    const file = request.file;
 
-    return this.s3.upload(filename, file.buffer, contentType)
+    if (!file) {
+      return MeetupsDaoHandler.createMeetup(request.body);
+    }
+
+    return this.s3.upload(Date.now() + '-' + file.originalname, file.buffer, file.mimetype)
       .then(data => {
         request.body.coverSource = data.Location;
         request.body.coverKey = data.key;

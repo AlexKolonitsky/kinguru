@@ -2,18 +2,19 @@
 
 const _ = require('lodash');
 const Sequelize = require('sequelize');
-const {Meetups, Speakers, MeetupsSpeakers, Tags, MeetupsTags, Locations, Users} = require('./../index');
+const {Meetups, MeetupsSpeakers, Tags, MeetupsTags, Locations, Users, MeetupsGuests} = require('./../index');
 const utils = require('./../../common/securityAssert');
 const zeroIndex = 0;
 const firstIndex = 1;
 const secondIndex = 2;
+const thirdIndex = 3;
 const attributes = {
   meetup: [
-    'id', 'title', 'description', 'isOpen', 'maxGuestsCount', 'guestsCount',
-    'cost', 'coverSource', 'startDate', 'endDate', 'socialLink', 'commentsCount',
+    'id', 'title', 'description', 'isOpen', 'maxGuestsCount',
+    'cost', 'coverSource', 'startDate', 'endDate', 'socialLink',
     'locationId'
   ],
-  speaker: ['id', 'firstname', 'lastname', 'coverSource'],
+  user: ['id', 'firstname', 'lastname', 'coverSource'],
   tag: ['id', 'name']
 };
 
@@ -52,11 +53,11 @@ class MeetupDao {
           attributes: attributes.meetup,
           include: [
             {
-              model: Users, as: 'speakers', attributes: attributes.speaker,
+              model: Users, as: 'speakers', attributes: attributes.user,
               through: {attributes: []}
             },
             {
-              model: Users, as: 'guests', attributes: attributes.speaker,
+              model: Users, as: 'guests', attributes: attributes.user,
               through: {attributes: []}
             },
             {
@@ -95,11 +96,11 @@ class MeetupDao {
       attributes: attributes.meetup,
       include: [
         {
-          model: Users, as: 'speakers', attributes: attributes.speaker,
+          model: Users, as: 'speakers', attributes: attributes.user,
           through: {attributes: []}
         },
         {
-          model: Users, as: 'guests', attributes: attributes.speaker,
+          model: Users, as: 'guests', attributes: attributes.user,
           through: {attributes: []}
         },
         {
@@ -109,6 +110,9 @@ class MeetupDao {
       ],
     })
       .then(meetup => {
+        if (!meetup.locationId) {
+          return meetup;
+        }
         return Locations.findOne({
           where: {
             id: meetup.locationId
@@ -123,31 +127,25 @@ class MeetupDao {
   }
 
   createMeetup(meetup) {
-    meetup.tags = meetup.tags.split(',');
-    meetup.speakers = meetup.speakers.split(',');
+    meetup.tags = meetup.tags ? meetup.tags.split(',').map(tag => parseInt(tag, 10)) : [];
+    meetup.speakers = meetup.speakers ? meetup.speakers.split(',').map(speaker => parseInt(speaker, 10)) : [];
+    meetup.guests = meetup.guests ? meetup.guests.split(',').map(guest => parseInt(guest, 10)) : [];
 
     return Promise.all([
       Meetups.findOrCreate({
         where: {
-          title: meetup.title,
-          city: meetup.city,
+          title: meetup.title
         },
         defaults: {
           description: meetup.description,
           isOpen: meetup.isOpen,
           maxGuestsCount: meetup.maxGuestsCount,
-          guestsCount: meetup.guestsCount,
-          rate: meetup.rate,
           cost: meetup.cost,
           starDate: meetup.startDate,
           endDate: meetup.endDate,
           coverSource: meetup.coverSource,
           coverKey: meetup.coverKey,
           socialLink: meetup.socialLink,
-          country: meetup.country,
-          metro: meetup.metro,
-          typePlace: meetup.typePlace,
-          commentsCount: 0
         }
       }),
       Tags.findAll({
@@ -159,12 +157,18 @@ class MeetupDao {
         where: {
           id: meetup.speakers
         }
+      }),
+      Users.findAll({
+        where: {
+          id: meetup.guests
+        }
       })
     ])
       .then(response => {
         let meetup = response[zeroIndex][zeroIndex];
         let tagIds = _.map(response[firstIndex], 'id');
         let speakerIds = _.map(response[secondIndex], 'id');
+        let guestIds = _.map(response[thirdIndex], 'id');
         const promises = [];
 
         speakerIds.forEach(speakerId => {
@@ -185,8 +189,29 @@ class MeetupDao {
           }))
         });
 
+        guestIds.forEach(guestId => {
+          promises.push(MeetupsGuests.findOrCreate({
+            where: {
+              meetupId: meetup.id,
+              guestId: guestId
+            }
+          }))
+        });
+
         return Promise.all(promises)
           .then(() => {
+            if (meetup.country || meetup.city || meetup.place) {
+              return Locations.findOrCreate({
+                where: {
+                  country: meetup.country,
+                  city: meetup.city,
+                  place: meetup.place
+                }
+              })
+                .then(() => {
+                  return this.getCurrentMeetup(meetup.id);
+                })
+            }
             return this.getCurrentMeetup(meetup.id);
           })
       })

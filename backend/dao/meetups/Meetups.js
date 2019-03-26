@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     title: {
-      type: DataTypes.STRING(45),
+      type: DataTypes.TEXT,
       allowNull: false,
     },
 
@@ -24,10 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     maxGuestsCount: {
-      type: DataTypes.INTEGER,
-    },
-
-    guestsCount: {
       type: DataTypes.INTEGER,
     },
 
@@ -60,10 +56,6 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     coverKey: {
-      type: DataTypes.TEXT,
-    },
-
-    commentsCount: {
       type: DataTypes.TEXT,
     },
 

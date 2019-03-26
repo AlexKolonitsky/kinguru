@@ -84,6 +84,13 @@ const industries = require('./services/industries/index');
 router.get('/industries', (req, res, next) => industries.GetAllIndustries.process(req, res, next));
 
 /**
+ * @description industries endpoints
+ */
+
+const wordkeys = require('./services/wordkeys/index');
+router.get('/wordkeys', (req, res, next) => wordkeys.GetAllWordKeys.process(req, res, next));
+
+/**
  * @description Languages endpoints
  */
 
