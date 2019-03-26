@@ -125,6 +125,8 @@ $('#searchSpeakers').click(function () {
         costTo: document.getElementById('cost_to').value,
         ageFrom: document.getElementById('years-slider_speaker').value.split(',')[0],
         ageTo: document.getElementById('years-slider_speaker').value.split(',')[1],
+        gender: $('input[name=radios-third]:checked').val(),
+
 
       };
   getAllSpeakers(object);

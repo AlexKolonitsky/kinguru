@@ -63,7 +63,7 @@ function getUser(token) {
 
 window.addEventListener("load", function () {
   let token = localStorage.getItem('Token');
-  if(token !== null) {
+  if(token !== '') {
     token = `Bearer ${token}`;
     getUser(token);
   }else {
@@ -108,7 +108,7 @@ $('#login-post').click(function () {
     success: function(data) {
       saveToken(data.token);
       showHeaderContent(data.user);
-      location.reload();
+      $('#login-block').addClass('show-content');
     },
     error: function (jqXHR) {
       if(jqXHR.status == 401) {
@@ -149,7 +149,7 @@ function fillFormLogIn(postData) {
 function saveToken(token) {
   $('#modal_close').click();
   localStorage.setItem('Token', token);
-  console.log(localStorage.getItem('Token'));
+  // console.log(localStorage.getItem('Token'));
 };
 
 function showHeaderContent(user) {
@@ -175,7 +175,7 @@ function showHeaderContent(user) {
     `</div>` +
     `</div>` +
     `</div>`;
-  $('#search').after(userContent);
+  $('#login-block').after(userContent);
   // $('#login-block').addClass('show-content');
 
   $('#logOut').click(function () {
@@ -184,7 +184,6 @@ function showHeaderContent(user) {
     localStorage.setItem('Token', '');
     if($('form').is('#change-pass-form')) {
       window.location.href = "index.html";
-      console.log('Work form');
     }
   });
 };
