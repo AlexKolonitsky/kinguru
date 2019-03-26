@@ -113,38 +113,47 @@ class UsersDao {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
-  getSpeakersByAssociations(associationTable) {
-    const filter = {role: 2};
+  getUsersByAge(users, from, to) {
+    return users
+      .filter(speaker => {
+        const age = this.calculateAge(speaker.birthday);
+        return ((from || -1) <= age) && (age <= (to || 999));
+      })
+  }
+
+  getSpeakersByAssociations(roles = [1,2,3], associationTable) {
+    const filter = {role: roles};
     if (associationTable) {
       filter.id = _.uniq(_.map(associationTable, 'userId'));
     }
+    console.log(roles);
     return Users.findAll({
       where: filter,
       attributes: defaultUserAttributes
     })
   };
 
-  getSpeakersByAssociated(model, ids = [], filter) {
+  getUsersByAssociated(model, ids = [], filter, roles) {
     if (!ids.length) {
-      return this.getSpeakersByAssociations();
+      return this.getSpeakersByAssociations(roles);
     }
     return model.findAll({
       where: filter,
     })
       .then(response => {
-        return this.getSpeakersByAssociations(response);
+        return this.getSpeakersByAssociations(roles, response);
       })
   }
 
-  getSpeakerByCity(speakers, city) {
+  getUsersByCity(users, city) {
     if (!city) {
-      return speakers;
+      return users;
     }
     const locationPromises = [];
-    speakers.forEach(speaker => locationPromises.push(
+    users.forEach(user => locationPromises.push(
       Locations.findOne({
         where: {
-          id: speaker.locationId,
+          id: user.locationId,
           city: city
         }
       })
@@ -152,9 +161,9 @@ class UsersDao {
     );
     return Promise.all(locationPromises)
       .then(locations => {
-        return speakers.filter((speaker, index) => {
+        return users.filter((user, index) => {
           if (locations[index]) {
-            return speaker;
+            return user;
           }
         })
       })
@@ -176,19 +185,41 @@ class UsersDao {
       attributes: defaultUserAttributes
     })
       .then(speakers => {
+        const speakerRole = [2];
         return Promise.all([
-          this.getSpeakersByAssociated(UsersLanguages, filter.languages, {languageId: filter.languages}),
-          this.getSpeakersByAssociated(UsersKeywords, filter.expertises, {wordId: filter.expertises}),
-          this.getSpeakersByAssociated(UsersJobTitles, filter.jobTitles, {jobtitleId: filter.jobTitles}),
-          this.getSpeakersByAssociated(UsersIndustries, filter.industries, {industryId: filter.industries})
+          this.getUsersByAssociated(UsersLanguages, filter.languages, {languageId: filter.languages}, speakerRole),
+          this.getUsersByAssociated(UsersKeywords, filter.expertises, {wordId: filter.expertises}, speakerRole),
+          this.getUsersByAssociated(UsersJobTitles, filter.jobTitles, {jobtitleId: filter.jobTitles}, speakerRole),
+          this.getUsersByAssociated(UsersIndustries, filter.industries, {industryId: filter.industries}, speakerRole)
         ])
           .then(response => {
-            const filteredSpeakers = _.intersectionBy(speakers
-              .filter(speaker => {
-                const age = this.calculateAge(speaker.birthday);
-                return ((filter.ageFrom || -1) <= age) && (age <= (filter.ageTo || 999));
-              }), response[0], response[1], response[2], response[3], 'id');
-            return this.getSpeakerByCity(filteredSpeakers, filter.city);
+            const filteredSpeakers = _.intersectionBy(
+              this.getUsersByAge(speakers, filter.ageFrom, filter.ageTo),
+              response[0], response[1], response[2], response[3], 'id');
+            return this.getUsersByCity(filteredSpeakers, filter.city);
+          })
+      })
+  }
+
+  getGuests(filter = {}) {
+    const queryFilter = {};
+    if (filter.gender) {
+      queryFilter.gender = filter.gender;
+    }
+    return Users.findAll({
+      where: queryFilter,
+      include: userAssociates,
+      attributes: defaultUserAttributes
+    })
+      .then(guests => {
+        return Promise.all([
+          this.getUsersByAssociated(UsersKeywords, filter.expertises, {wordId: filter.expertises}),
+          this.getUsersByAssociated(UsersJobTitles, filter.jobTitles, {jobtitleId: filter.jobTitles}),
+        ])
+          .then(response => {
+            const filteredSpeakers = _.intersectionBy(
+              this.getUsersByAge(guests, filter.ageFrom, filter.ageTo), response[0], response[1], 'id');
+            return this.getUsersByCity(filteredSpeakers, filter.city);
           })
       })
   }

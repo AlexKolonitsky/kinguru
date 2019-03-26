@@ -8,6 +8,7 @@ const ChangePassword = require('./ChangePassword');
 const ConfirmEmail = require('./ConfirmEmail');
 const CreateSpeaker = require('./CreateSpeaker');
 const GetSpeakers = require('./GetSpeakers');
+const GetGuests = require('./GetGuests');
 
 /**
  * @type {{
@@ -25,4 +26,5 @@ module.exports = {
   ConfirmEmail: new ConfirmEmail(),
   CreateSpeaker: new CreateSpeaker(),
   GetSpeakers: new GetSpeakers(),
+  GetGuests: new GetGuests()
 };

@@ -18,6 +18,7 @@ router.post('/user/change/password', (req, res, next) => users.ChangePassword.pr
 router.get('/user/confirmation/:id', (req, res, next) => users.ConfirmEmail.process(req, res, next));
 router.post('/new/speaker', upload.single('image'),  (req, res, next) => users.CreateSpeaker.process(req, res, next, true));
 router.post('/speakers', (req, res, next) => users.GetSpeakers.process(req, res, next));
+router.post('/guests', (req, res, next) => users.GetGuests.process(req, res, next));
 
 
 /**
@@ -83,6 +84,14 @@ const industries = require('./services/industries/index');
 router.get('/industries', (req, res, next) => industries.GetAllIndustries.process(req, res, next));
 
 /**
+ * @description Languages endpoints
+ */
+
+const languages = require('./services/languages/index');
+router.get('/languages', (req, res, next) => languages.GetAllLanguages.process(req, res, next));
+
+
+/**
  * @description Images endpoints
  */
 
@@ -92,12 +101,5 @@ router.post('/images/add', upload.array('images'), (req, res, next) => images.Ad
 router.get('/images/meetup/:id', (req, res, next) => images.GetMeetupImages.process(req, res, next));
 router.get('/images/location/:id', (req, res, next) => images.GetLocationImages.process(req, res, next));
 router.get('/images/user/:id', (req, res, next) => images.GetUserImages.process(req, res, next));
-
-/**
- * @description Languages endpoints
- */
-
-const languages = require('./services/languages/index');
-router.get('/languages', (req, res, next) => languages.GetAllLanguages.process(req, res, next));
 
 module.exports = router;
