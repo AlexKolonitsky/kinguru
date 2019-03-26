@@ -16,7 +16,6 @@ const utils = require('./../../common/securityAssert');
 const nodemailer = require('./../../common/nodemailer');
 const Sequelize = require('sequelize');
 
-
 const {Users, Locations, Languages, UsersLanguages, WordKeys, UsersKeywords, JobTitles, UsersJobTitles, Industries, UsersIndustries} = require('./../index');
 const defaultUserAttributes = [
   'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender', 'phone',
@@ -137,6 +136,30 @@ class UsersDao {
       })
   }
 
+  getSpeakerByCity(speakers, city) {
+    if (!city) {
+      return speakers;
+    }
+    const locationPromises = [];
+    speakers.forEach(speaker => locationPromises.push(
+      Locations.findOne({
+        where: {
+          id: speaker.locationId,
+          city: city
+        }
+      })
+      )
+    );
+    return Promise.all(locationPromises)
+      .then(locations => {
+        return speakers.filter((speaker, index) => {
+          if (locations[index]) {
+            return speaker;
+          }
+        })
+      })
+  }
+
   getSpeakers(filter = {}) {
     const queryFilter = {
       cost: {
@@ -160,11 +183,12 @@ class UsersDao {
           this.getSpeakersByAssociated(UsersIndustries, filter.industries, {industryId: filter.industries})
         ])
           .then(response => {
-            return _.intersectionBy(speakers
+            const filteredSpeakers = _.intersectionBy(speakers
               .filter(speaker => {
                 const age = this.calculateAge(speaker.birthday);
                 return ((filter.ageFrom || -1) <= age) && (age <= (filter.ageTo || 999));
               }), response[0], response[1], response[2], response[3], 'id');
+            return this.getSpeakerByCity(filteredSpeakers, filter.city);
           })
       })
   }
