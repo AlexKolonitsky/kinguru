@@ -10,18 +10,22 @@
   });
 
   $('#open-sing-up').click(function () {
+    event.preventDefault();
     $('#login-content').addClass('hide-content');
     $('#open-sign-up').removeClass('hide-content');
   });
   $('#open-log-in').click(function () {
+    event.preventDefault();
     $('#login-content').removeClass('hide-content');
     $('#open-sign-up').addClass('hide-content');
   });
   $('#forgot-pass').click(function () {
+    event.preventDefault();
     $('#login-content').addClass('hide-content');
     $('#open-reset-pass').removeClass('hide-content');
   });
   $('.back-sign_in').click(function () {
+    event.preventDefault();
     $('#login-content').removeClass('hide-content');
     $('#open-reset-pass').addClass('hide-content');
   });
@@ -41,6 +45,7 @@
   });
 
   $('#modal_close').click(function () {
+    event.preventDefault();
     $('#error-login').empty();
     $('#email-login').val('');
     $('#passw-login').val('');
