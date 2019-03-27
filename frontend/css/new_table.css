@@ -428,6 +428,7 @@ input::-webkit-inner-spin-button {
   cursor:pointer;
   background-color: #dadada;
   color: #999999;
+    padding: 0;
 }
 
 .fa.fa-image {
@@ -448,6 +449,7 @@ input::-webkit-inner-spin-button {
 .load_poster:active{
   background-color: #ffd539;
   color: #ffffff;
+    padding: 0;
 }
 
 .invited-switch-open .row {
