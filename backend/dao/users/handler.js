@@ -396,7 +396,7 @@ class UsersDao {
   }
 
   confirmEmail(email) {
-    Users.findOne({
+    return Users.findOne({
       where: {
         email: email
       }
