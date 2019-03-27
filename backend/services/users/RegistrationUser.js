@@ -33,7 +33,7 @@ class RegisterUser extends RequestHandlers {
       validator.fieldExist('password', request.body.password),
       validator.fieldExist('firstname', request.body.firstname),
       validator.fieldExist('lastname', request.body.lastname),
-      validator.fieldExist('host', request.body.host),
+      validator.fieldExist('link', request.body.link),
     ]);
   }
 
