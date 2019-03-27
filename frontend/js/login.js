@@ -1,11 +1,12 @@
-(function($) {
+(function ($) {
   "use strict";
   $('#agree').click(function () {
-    if($('#continue').is(':disabled')){
-      $('#continue').prop('disabled',false);
+    if ($('#continue').is(':disabled')) {
+      $('#continue').prop('disabled', false);
       return;
-    };
-    $('#continue').prop('disabled',true);
+    }
+    ;
+    $('#continue').prop('disabled', true);
   });
 
   $('#open-sing-up').click(function () {
@@ -63,17 +64,16 @@ function getUser(token) {
 
 window.addEventListener("load", function () {
   let token = localStorage.getItem('Token');
-  console.log('token', token);
-  if(token !== '' || null) {
+  if (token) {
     console.log('login work');
     token = `Bearer ${token}`;
     getUser(token);
-  }else {
-    $('#login-block').removeClass('show-content');
+    return;
   }
+  $('#login-block').removeClass('show-content');
 });
 
-$('#continue').click( function() {
+$('#continue').click(function () {
   event.preventDefault();
   $("#error-sugn-up").empty();
   elementsValidation = ['email', 's-name', 'name', 'country', 'city', 'phone', 'pass-sugn-up', 'passch'];
@@ -86,16 +86,16 @@ $('#continue').click( function() {
     dataType: 'json',
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(fillFormSingUp()),
-    success: function(data) {
+    success: function (data) {
     },
     error: function (jqXHR) {
       if (jqXHR.status == 401) {
         $("#error-sugn-up").html("<p class='pass not_match'>The user with email has already been registered</p>");
-      }else if(jqXHR.status == 400) {
+      } else if (jqXHR.status == 400) {
         $("#error-sugn-up").html("<p class='pass not_match'>Fill all field</p>");
       }
     }
-    
+
   });
 });
 
@@ -107,16 +107,16 @@ $('#login-post').click(function () {
     dataType: 'json',
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(fillFormLogIn()),
-    success: function(data) {
+    success: function (data) {
       saveToken(data.token);
       showHeaderContent(data.user);
       $('#login-block').addClass('show-content');
     },
     error: function (jqXHR) {
-      if(jqXHR.status == 401) {
+      if (jqXHR.status == 401) {
         $('#error-login').empty();
         $('#error-login').html("<p class='pass not_match error-login'>Please confirm your email to login</p>");
-      } else if(jqXHR.status == 400) {
+      } else if (jqXHR.status == 400) {
         $('#error-login').empty();
         $('#error-login').html("<p class='pass not_match error-login'>Incorrect email or password</p>");
       }
@@ -136,6 +136,7 @@ function fillFormSingUp(postData) {
     phone: document.getElementById('phone').value,
     password: document.getElementById('pass-sugn-up').value,
     birthday: document.getElementById('birthday-sign-up').value,
+    link: location.hostname === 'localhost' ? `${location.origin}/kinguru/frontend/confirmation.html`: `${location.origin}/confirmation.html`,
   };
   return postData;
 };
@@ -155,25 +156,25 @@ function saveToken(token) {
 };
 
 function showHeaderContent(user) {
-    const userContent =
-        `<div class="col-lg-4 col-md-2 col-2 d-lg-inline-block d-none user-content">` +
-        `<div class="dropdown">` +
-        `<a href="#" class="dropdown-toggle" data-toggle="dropdown">` +
-        `<img class="img-fluid rounded-circle" src="${user.coverSource}" alt="profile photo"/>` +
-        `</a>` +
-        `<div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">` +
-        `<a class="dropdown-item" href="user_admin.html"` +
-        `><i class="fa fa-user-circle"></i> My profile</a>` +
+  const userContent =
+    `<div class="col-lg-4 col-md-2 col-2 d-lg-inline-block d-none user-content">` +
+    `<div class="dropdown">` +
+    `<a href="#" class="dropdown-toggle" data-toggle="dropdown">` +
+    `<img class="img-fluid rounded-circle" src="${user.coverSource}" alt="profile photo"/>` +
+    `</a>` +
+    `<div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">` +
+    `<a class="dropdown-item" href="user_admin.html"` +
+    `><i class="fa fa-user-circle"></i> My profile</a>` +
     `<a class="dropdown-item" href="#"` +
-        `><i class="fa fa-envelope"></i> Message</a>` +
+    `><i class="fa fa-envelope"></i> Message</a>` +
     `<a class="dropdown-item" href=""` +
-        `><i class="fa fa-cog"></i> Another action</a>` +
+    `><i class="fa fa-cog"></i> Another action</a>` +
     `<div class="dropdown-divider"></div>` +
-        `<button id="logOut" class="dropdown-item"` +
-        `><i class="fa fa-sign-out"></i> Logout</button>` +
+    `<button id="logOut" class="dropdown-item"` +
+    `><i class="fa fa-sign-out"></i> Logout</button>` +
     `</div>` +
     `<div class="d-md-none d-lg-inline-block d-none">` +
-        `<p class="user-name">${user.firstname} ${user.lastname}</p>` +
+    `<p class="user-name">${user.firstname} ${user.lastname}</p>` +
     `</div>` +
     `</div>` +
     `</div>`;
@@ -184,7 +185,7 @@ function showHeaderContent(user) {
     $('.user-content').remove();
     $('#login-block').removeClass('show-content');
     localStorage.setItem('Token', '');
-    if($('form').is('#change-pass-form')) {
+    if ($('form').is('#change-pass-form')) {
       window.location.href = "index.html";
     }
   });

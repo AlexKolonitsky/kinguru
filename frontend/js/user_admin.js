@@ -174,8 +174,8 @@ function userInformation(information) {
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
-    `    <p type="Email*" class="col-lg-8 col-12">` +
-    `    <input id="email-user" name="email" class="input_field" type="email" value="${information.email || ''}" required/>` +
+    `    <p type="Email" class="col-lg-8 col-12">` +
+    `    <input id="email-user" name="email" class="input_field" type="email" value="${information.email || ''}" disabled/>` +
     `  </p>` +
     `  <p class="col-lg-4 col-0">` +
     `    </p>` +
