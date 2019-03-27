@@ -48,7 +48,7 @@ class RegisterUser extends RequestHandlers {
    */
 
   methodAction(request) {
-    return UsersDaoHandler.createUser(request.body, request.body.host)
+    return UsersDaoHandler.createUser(request.body, request.body.link)
       .then(() => {
         console.log('User successfully registration');
         return Promise.resolve('Ok');
