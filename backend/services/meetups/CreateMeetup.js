@@ -41,7 +41,7 @@ class CreateMeetup extends RequestHandlers {
     filter.tags = filter.tags ? filter.tags.split(',').map(tag => parseInt(tag, 10)) : [];
     filter.speakers = filter.speakers ? filter.speakers.split(',').map(speaker => parseInt(speaker, 10)) : [];
     filter.guests = filter.guests ? filter.guests.split(',').map(guest => parseInt(guest, 10)) : [];
-    if (filter.guests > filter.maxGuestsCount) {
+    if (filter.guests.length > filter.maxGuestsCount) {
       return Promise.reject(utils.responseError(403, `guests count can't be more than the maximum guests count`))
     }
 
