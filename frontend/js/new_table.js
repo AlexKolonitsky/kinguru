@@ -1,3 +1,9 @@
+const tagSelector = 'tugsMeetup';
+const speakerSelector = 'speakerMeetup';
+const jobTitleSelector = 'speakerJobTitle';
+const industrySelector = 'speakerIndustry';
+const expertiseSelector = 'speakerExpertise';
+
 $.ajax({
   url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/job/titles',
   method: 'GET',
@@ -5,6 +11,21 @@ $.ajax({
   contentType: "application/json; charset=utf-8",
   success: function (jsondata) {
     speakerJobTitle(jsondata);
+    $('#speakerJobTitle').bsMultiSelect({
+      selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+      selectedPanelFocusBorderColor: 'transparent'
+    });
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
   }
 });
 
@@ -15,6 +36,21 @@ $.ajax({
   contentType: "application/json; charset=utf-8",
   success: function (jsondata) {
     tagsMeetup(jsondata.tags);
+    $('#tugsMeetup').bsMultiSelect({
+      selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+      selectedPanelFocusBorderColor: 'transparent'
+    });
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
   }
 });
 
@@ -25,6 +61,23 @@ $.ajax({
   contentType: "application/json; charset=utf-8",
   success: function (jsondata) {
     industrySpeaker(jsondata);
+    $('#speakerIndustry').bsMultiSelect({
+      selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+      selectedPanelFocusBorderColor: 'transparent'
+    });
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+
   }
 });
 
@@ -35,6 +88,23 @@ $.ajax({
   contentType: "application/json; charset=utf-8",
   success: function (jsondata) {
     expertiseSpeaker(jsondata);
+    $('#speakerExpertise').bsMultiSelect({
+      selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+      selectedPanelFocusBorderColor: 'transparent'
+    });
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+
   }
 });
 
@@ -144,6 +214,7 @@ function getAllSpeakers(object) {
     data: JSON.stringify(object),
     success: function (jsondata) {
       allSpeakers(jsondata);
+
     }
   });
 }
@@ -155,38 +226,74 @@ $.ajax({
   contentType: "application/json; charset=utf-8",
   success: function (jsondata) {
     allSpeakers(jsondata);
+    $('#speakerMeetup').bsMultiSelect({
+      selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+      selectedPanelFocusBorderColor: 'transparent',
+      selectedPanelClass: 'speaker-filtr-meetups form-control',
+      selectedItemId: 'qwer',
+    });
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+
   }
 });
 
 
-// $('#searchSpeakers').click(function () {
-//   const languages = [1, 2, 3, 4];
-//
-//   let speaker = $('#speakerMeetup').val();
-//   let chooseSpeaker = speaker.map(function (x) {
-//     return parseInt(x, 10);
-//   });
-//
-//   console.log(chooseSpeaker);
-//
-//   const filter = {};
-//   if (document.getElementById('speakerCity').value) {
-//     filter.costFrom = document.getElementById('years-slider_speaker').value.split(',')[0]
-//   }
-//     {
-//       city: document.getElementById('speakerCity').value,
-//       costFrom: document.getElementById('cost_from').value,
-//       costTo: document.getElementById('cost_to').value,
-//       ageFrom: document.getElementById('years-slider_speaker').value.split(',')[0],
-//       ageTo: document.getElementById('years-slider_speaker').value.split(',')[1],
-//       gender: $('input[name=radios-third]:checked').val(),
-//       languages: languages.filter(languageId => {
-//         return $(`#langSpeaker${languageId}`).is(":checked");
-//       }),
-//
-//     };
-//   getAllSpeakers(filter);
-// });
+$('#searchSpeakers').click(function () {
+  const languages = [1, 2, 3, 4];
+
+  // let speaker = $('#speakerMeetup').val();
+  // let chooseSpeaker = speaker.map(function (x) {
+  //   return parseInt(x, 10);
+  // });
+  //
+  // console.log(chooseSpeaker);
+
+  const filter = {
+    // gender: $('#radio7').is(":checked")? $('#radio7').val(): '',
+    languages: languages.filter(languageId => {
+      return $(`#languageSpeakers${languageId}`).is(":checked");
+    }),
+  };
+  if (document.getElementById('cost_from').value) {
+    filter.costFrom = document.getElementById('cost_from').value
+  };
+  if (document.getElementById('cost_to').value) {
+    filter.costTo = document.getElementById('cost_to').value
+  }
+  if (document.getElementById('speakerCity').value) {
+    filter.city = document.getElementById('speakerCity').value
+  };
+  if (document.getElementById('years-slider_speaker').value.split(',')[0]) {
+    filter.ageFrom = document.getElementById('years-slider_speaker').value.split(',')[0]
+  };
+  if (document.getElementById('years-slider_speaker').value.split(',')[1]) {
+    filter.ageTo = document.getElementById('years-slider_speaker').value.split(',')[1]
+  };
+  if ($(`#${expertiseSelector}`).val()) {
+    filter.expertises = $(`#${expertiseSelector}`).val().map(function (x) {
+      return parseInt(x.split('speakerExpertise')[1], 10);
+    });
+  };
+  if ($(`#${industrySelector}`).val()) {
+    filter.industries = $(`#${industrySelector}`).val().map(function (x) {
+      return parseInt(x.split('speakerIndustry')[1], 10);
+    });
+  }
+
+
+  getAllSpeakers(filter);
+});
 
 window.addEventListener("load", function () {
   let language = function (jsondata) {allLanguages(jsondata);};
@@ -210,8 +317,8 @@ function allLanguages(langs = []) {
   langs.forEach(lang => {
     let langList =
       ` <div class="my-auto">` +
-      ` <input type="checkbox" id="langSpeaker${lang.id}" name="radios-forth" value="${lang.id}"/>` +
-      ` <label for="langSpeaker${lang.id}" class="text-center pointer">${lang.name}</label>` +
+      ` <input type="checkbox" id="languageSpeakers${lang.id}" name="radios-forth" value="${lang.id}"/>` +
+      ` <label for="languageSpeakers${lang.id}" class="text-center pointer">${lang.name}</label>` +
       ` </div>`;
     langName += langList;
   });
@@ -222,11 +329,11 @@ function allLanguages(langs = []) {
 function allSpeakers(speakers = []) {
   let speakersName = ``;
   speakers.forEach(speaker => {
-    let speakerList = `<option value="speaker${speaker.id}">${speaker.lastname} ${speaker.firstname}</option>`
+    let speakerList = `<option value="${speaker.id}">${speaker.lastname} ${speaker.firstname}</option>`
     speakersName += speakerList;
   });
 
-  $('#speakerMeetup').append(speakersName);
+  $(`#${speakerSelector}`).append(speakersName);
 }
 
 function speakerJobTitle(titles = []) {
@@ -236,34 +343,49 @@ function speakerJobTitle(titles = []) {
     jobTitle += titleList;
   });
 
-  $('#speakerJobTitle').append(jobTitle);
+  $(`#${jobTitleSelector}`).append(jobTitle);
 }
 
 function tagsMeetup(allTagsFilter = []) {
   let tagsList = ``;
   allTagsFilter.forEach(tag => {
     let countFilter =
-      `<option value="tag${tag.id}">${tag.name}</option>`;
+      `<option value="${tag.id}">${tag.name}</option>`;
     tagsList += countFilter;
   });
-  $('#tugsMeetup').append(tagsList);
+  $(`#${tagSelector}`).append(tagsList);
 };
 
 function industrySpeaker(industrys = []) {
   let industryList = ``;
   industrys.forEach(industry => {
     let countFilter =
-      `<option value="industry${industry.id}">${industry.name}</option>`;
+      `<option value="${industrySelector}${industry.id}">${industry.name}</option>`;
     industryList += countFilter;
   });
-  $('#speakerIndustry').append(industryList);
+  $(`#${industrySelector}`).append(industryList);
 };
 function expertiseSpeaker(expertises = []) {
   let expertiseList = ``;
   expertises.forEach(expertise => {
     let countFilter =
-      `<option value="expertise${expertise.id}">${expertise.name}</option>`;
+      `<option value="${expertiseSelector}${expertise.id}">${expertise.name}</option>`;
     expertiseList += countFilter;
   });
-  $('#speakerExpertise').append(expertiseList);
+  $(`#${expertiseSelector}`).append(expertiseList);
 };
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#image').attr('src', e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+    console.log(reader);
+  }
+}
+$("#file").change(function(){
+  readURL(this);
+});

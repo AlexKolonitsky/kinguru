@@ -137,7 +137,7 @@
       <div class="row sotial" id="search">
         <i class="fa fa-search my-auto"></i>
       </div>
-      <div id="login-block" class="show-content">
+      <div id="login-block" class="hide-content">
         <button id="login-btn"
                 class="btn js-scroll-trigger d-md-none d-lg-block ">Login
         </button>
@@ -151,8 +151,8 @@
   <div id="login-form">
     <span id="modal_close">X</span>
     <div id="login-content"></div>
-    <div class="show-content" id="open-sign-up"></div>
-    <div class="show-content" id="open-reset-pass"></div>
+    <div class="hide-content" id="open-sign-up"></div>
+    <div class="hide-content" id="open-reset-pass"></div>
   </div>
   <div id="overlay-login"></div>
 </nav>
@@ -215,14 +215,14 @@
             </div>
             <div class="row">
               <p type="Meeting poster?" class="col-lg-6 col-12">
-                <input name="myFile" type="file" id="file" class="input_file" onchange="readURL(this)">
-                <label class="load_poster col-12" for="file">
-                  <img src="${information.coverSource}" id="image" alt="">
-                  <!--<span class="add_poster">-->
-                    <!--<i class="fa fa-image"></i>-->
-                    <!--<br>-->
-                    <!--Add poster-->
-                  <!--</span>-->
+                <input name="myFile" type="file" id="file" class="input_file">
+                <label class="load_poster" for="file">
+                  <img id="image" class="load_poster">
+                  <span class="add_poster">
+                    <i class="fa fa-image"></i>
+                    <br>
+                    Add poster
+                  </span>
                 </label>
               </p>
               <p class="col-lg-6 col-0">
@@ -362,10 +362,10 @@
                   <input class="speakers age-speaker" type="checkbox" id="setting_7" checked>
                   <label class="label-speaker col-12" for="setting_7">Age</label>
                   <div class="age-speaker-open">
-                    <b id="years-start_speaker">40</b>
+                    <b id="years-start_speaker">16</b>
                     <input type="text" id="years-slider_speaker" class="duration-slider" value="" data-slider-min="16"
-                           data-slider-max="100" data-slider-step="1" data-slider-value="[40,60]"/>
-                    <b id="years-end_speaker">60</b>
+                           data-slider-max="100" data-slider-step="1" data-slider-value="[16,100]"/>
+                    <b id="years-end_speaker">100</b>
                   </div>
                 </div>
                 <div class="row speaker_setting">
@@ -373,11 +373,11 @@
                   <label class="label-speaker col-12" for="setting_8">Gender</label>
                   <div id="speakerGender" class="row check-toolbar-3 gender-speaker-open">
                     <div class="my-auto">
-                      <input type="checkbox" id="radio7" checked>
+                      <input type="checkbox" id="radio7" value="male">
                       <label for="radio7" class="text-center pointer">Male</label>
                     </div>
                     <div class="my-auto">
-                      <input type="checkbox" id="radio8">
+                      <input type="checkbox" id="radio8" value="female">
                       <label for="radio8" class="text-center pointer">Female</label>
                     </div>
                   </div>
@@ -721,7 +721,6 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChz9A5Nog5rcMGOY580pq6prfiL-gk7ok&callback=initMap"
         type="text/javascript"></script>
-
 <script src="js/new_table.js "></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
