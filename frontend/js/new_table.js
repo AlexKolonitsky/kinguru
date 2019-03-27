@@ -275,7 +275,7 @@ $('#searchSpeakers').click(function () {
     filter.ageTo = document.getElementById('years-slider_speaker').value.split(',')[1]
   };
   if ($('#speakerExpertise').val()) {
-    filter.ecpertises = $('#speakerExpertise').val().map(function (x) {
+    filter.expertises = $('#speakerExpertise').val().map(function (x) {
       return parseInt(x, 10);
     });
   };
