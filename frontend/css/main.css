@@ -1879,7 +1879,7 @@ p:before{
   display:none;
 }
 
-.show-content {
+.hide-content {
   display: none!important;
 }
 

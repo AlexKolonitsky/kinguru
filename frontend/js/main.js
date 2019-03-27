@@ -355,7 +355,6 @@
     $('#open-sign-up').load('sign_up.html');
     $('#footer').load('footer.html');
     $('#change-pass').load('change_pass.html');
-    $('#multiselect').load('job-title.html');
   });
 
 

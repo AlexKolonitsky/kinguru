@@ -10,20 +10,20 @@
   });
 
   $('#open-sing-up').click(function () {
-    $('#login-content').addClass('show-content');
-    $('#open-sign-up').removeClass('show-content');
+    $('#login-content').addClass('hide-content');
+    $('#open-sign-up').removeClass('hide-content');
   });
   $('#open-log-in').click(function () {
-    $('#login-content').removeClass('show-content');
-    $('#open-sign-up').addClass('show-content');
+    $('#login-content').removeClass('hide-content');
+    $('#open-sign-up').addClass('hide-content');
   });
   $('#forgot-pass').click(function () {
-    $('#login-content').addClass('show-content');
-    $('#open-reset-pass').removeClass('show-content');
+    $('#login-content').addClass('hide-content');
+    $('#open-reset-pass').removeClass('hide-content');
   });
   $('.back-sign_in').click(function () {
-    $('#login-content').removeClass('show-content');
-    $('#open-reset-pass').addClass('show-content');
+    $('#login-content').removeClass('hide-content');
+    $('#open-reset-pass').addClass('hide-content');
   });
 
   function checkPasswordMatch() {
@@ -70,7 +70,7 @@ window.addEventListener("load", function () {
     getUser(token);
     return;
   }
-  $('#login-block').removeClass('show-content');
+  $('#login-block').removeClass('hide-content');
 });
 
 $('#continue').click(function () {
@@ -110,7 +110,7 @@ $('#login-post').click(function () {
     success: function (data) {
       saveToken(data.token);
       showHeaderContent(data.user);
-      $('#login-block').addClass('show-content');
+      $('#login-block').addClass('hide-content');
     },
     error: function (jqXHR) {
       if (jqXHR.status == 401) {
@@ -179,11 +179,11 @@ function showHeaderContent(user) {
     `</div>` +
     `</div>`;
   $('#login-block').after(userContent);
-  // $('#login-block').addClass('show-content');
+  // $('#login-block').addClass('hide-content');
 
   $('#logOut').click(function () {
     $('.user-content').remove();
-    $('#login-block').removeClass('show-content');
+    $('#login-block').removeClass('hide-content');
     localStorage.setItem('Token', '');
     if ($('form').is('#change-pass-form')) {
       window.location.href = "index.html";
