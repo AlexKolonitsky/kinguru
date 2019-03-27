@@ -74,7 +74,6 @@ class UsersDao {
             'KINGURU user confirmation',
             null,
             htmlTemplate,
-            host
           ).then(() => {
             return Users.create(this.getUserObject(userInfo));
           })
