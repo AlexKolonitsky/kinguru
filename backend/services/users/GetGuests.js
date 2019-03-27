@@ -6,7 +6,7 @@ const { UsersDaoHandler } = require('./../../dao/handlers');
 
 class GetGuests extends RequestHandler {
 
-  methodAction(request, response) {
+  methodAction(request) {
     return UsersDaoHandler.getGuests(request.body);
   }
 

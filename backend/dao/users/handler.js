@@ -59,7 +59,7 @@ class UsersDao {
     }
   }
 
-  createUser(userInfo, hostname) {
+  createUser(userInfo, host) {
     return Users.findOne({
       where: {
         email: userInfo.email
@@ -67,19 +67,18 @@ class UsersDao {
     })
       .then(user => {
         if (!user) {
-          const htmlTemplate = `<a href="http://${hostname}:3010/user/confirmation/${utils.getJwtToken(userInfo.email).split(' ')[1]}">Registration confirmation</a>`;
+          const htmlTemplate = `<a href="${host}/confirmation/?email=${utils.getJwtToken(userInfo.email).split(' ')[1]}">Registration confirmation</a>`;
           return nodemailer.sendMail(
             null,
             userInfo.email,
             'KINGURU user confirmation',
             null,
             htmlTemplate,
-            hostname
+            host
           ).then(() => {
             return Users.create(this.getUserObject(userInfo));
           })
             .catch(sendError => {
-              console.log(sendError);
               return Promise.reject(sendError)
             });
         }

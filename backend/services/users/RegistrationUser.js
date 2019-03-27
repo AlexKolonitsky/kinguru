@@ -33,6 +33,7 @@ class RegisterUser extends RequestHandlers {
       validator.fieldExist('password', request.body.password),
       validator.fieldExist('firstname', request.body.firstname),
       validator.fieldExist('lastname', request.body.lastname),
+      validator.fieldExist('host', request.body.host),
     ]);
   }
 
@@ -47,7 +48,7 @@ class RegisterUser extends RequestHandlers {
    */
 
   methodAction(request) {
-    return UsersDaoHandler.createUser(request.body, request.hostname)
+    return UsersDaoHandler.createUser(request.body, request.body.host)
       .then(() => {
         console.log('User successfully registration');
         return Promise.resolve('Ok');

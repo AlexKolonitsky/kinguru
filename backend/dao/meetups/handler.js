@@ -127,9 +127,6 @@ class MeetupDao {
   }
 
   createMeetup(meetup) {
-    meetup.tags = meetup.tags ? meetup.tags.split(',').map(tag => parseInt(tag, 10)) : [];
-    meetup.speakers = meetup.speakers ? meetup.speakers.split(',').map(speaker => parseInt(speaker, 10)) : [];
-    meetup.guests = meetup.guests ? meetup.guests.split(',').map(guest => parseInt(guest, 10)) : [];
 
     return Promise.all([
       Meetups.findOrCreate({
