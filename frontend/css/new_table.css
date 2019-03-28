@@ -458,6 +458,8 @@ input::-webkit-inner-spin-button {
   text-align: center;
   margin-top: 70px;
   font-family: "Muller ExtraBold";
+    position: absolute;
+    top: 30px;
 }
 
 .load_poster:hover,
