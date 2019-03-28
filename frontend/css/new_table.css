@@ -338,8 +338,13 @@ p.cost-from_to {
   margin: 25px auto;
 }
 
-.guest-number {
+.guest-num .guest-number {
     display: flex!important;
+  border-color: #ffd539;
+}
+
+.guest-num .guest-number:disabled {
+  border-color: #dadada;
 }
 
 .guest-number-rate{
