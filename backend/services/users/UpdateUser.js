@@ -30,16 +30,18 @@ class UpdateUser extends RequestHandler {
 
   }
 
-  methodAction(request, response) {
+  methodAction(request) {
     const userRequest = request.body;
+    userRequest.languages = userRequest.languages ? userRequest.languages.split(',').map(language => parseInt(language, 10)) : null;
+    userRequest.jobTitles = userRequest.jobTitles ? userRequest.jobTitles.split(',').map(jobTitle => parseInt(jobTitle, 10)) : null;
+    userRequest.keywords = userRequest.keywords ? userRequest.keywords.split(',').map(keyword => parseInt(keyword, 10)) : null;
     const file = request.file;
     if (file) {
       return this.s3.upload(Date.now() + '-' + file.originalname, file.buffer, file.mimetype)
         .then(data => {
-          console.log(data);
           userRequest.coverSource = data.Location;
           userRequest.coverKey = data.key;
-          return UsersDaoHandler.updateUser(userRequest, assert.getToken(request), response)
+          return UsersDaoHandler.updateUser(userRequest, assert.getToken(request))
             .then(userInfo => {
               return this.s3.deleteObject(userInfo.oldFileKey)
                 .then(() => {
@@ -51,7 +53,7 @@ class UpdateUser extends RequestHandler {
             })
         })
     }
-    return UsersDaoHandler.updateUser(userRequest, assert.getToken(request), response)
+    return UsersDaoHandler.updateUser(userRequest, assert.getToken(request))
   }
 }
 

@@ -8,11 +8,14 @@ const assert = require('./../../common/assert');
 
 class ChangePassword extends RequestHandler {
 
-  methodAction(request, response) {
-    return UsersDaoHandler.changePassword(assert.getToken(request), request.body, response)
+  methodAction(request) {
+    return UsersDaoHandler.changePassword(assert.getToken(request), request.body)
       .then(user => {
         const token = utils.getJwtToken(user).split(' ')[1];
         return Promise.resolve({ user, token })
+      })
+      .catch(error => {
+        return Promise.reject(error);
       })
   }
 

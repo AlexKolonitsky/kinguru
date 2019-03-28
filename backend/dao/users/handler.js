@@ -49,8 +49,6 @@ class UsersDao {
       lastname: userInfo.lastname,
       email: userInfo.email,
       password: userInfo.password,
-      country: userInfo.country,
-      city: userInfo.city,
       phone: userInfo.phone,
       faked: userInfo.faked,
       role: userInfo.role,
@@ -222,7 +220,7 @@ class UsersDao {
       })
   }
 
-  findEmailAndPassword(email, password, response) {
+  findEmailAndPassword(email, password) {
     return Users.findOne({
       where: {
         email: email,
@@ -233,23 +231,23 @@ class UsersDao {
       .then(user => {
         if (user) {
           if (!user.confirmed) {
-            return response.status(401).end('Please confirm your email to login');
+            return Promise.reject({
+              code: 401,
+              message: 'Please confirm your email to login'
+            })
           }
           const token = utils.getJwtToken(user).split(' ')[1];
-          return this.getCurrentUser(token, response)
+          return this.getCurrentUser(token)
         }
-        return response.status(401).end(`User with email: ${email} not found`);
+        return Promise.reject({
+          code: 401,
+          message: `User with email: ${email} not found`
+        });
       })
-      .catch(err => err);
   }
 
   getUserById(userId) {
-    return Users.findOne({
-      where: {
-        id: userId
-      },
-      attributes: defaultUserAttributes
-    })
+    return Users.findById(userId);
   }
 
   getUserInfoResponse(user) {
@@ -259,7 +257,7 @@ class UsersDao {
     }
   }
 
-  getCurrentUser(token, response, userAttributes) {
+  getCurrentUser(token, userAttributes) {
     const userInfo = utils.getUserByToken(token).user;
     console.log(userInfo);
     return Users.findOne({
@@ -271,7 +269,10 @@ class UsersDao {
     })
       .then(user => {
         if (!user) {
-          return response.status(403).end('User not authorized');
+          return Promise.reject({
+            code: 403,
+            message: `User not authorized`
+          });
         }
         if (!user.locationId) {
           return this.getUserInfoResponse(user);
@@ -301,14 +302,20 @@ class UsersDao {
       })
   }
 
-  changePassword(token, password, response) {
+  changePassword(token, password) {
     if (password.new !== password.confirm) {
-      return response.status(400).end('New password not equal confirm password');
+      return Promise.reject({
+        code: 400,
+        message: 'New password not equal confirm password'
+      });
     }
-    return this.getCurrentUser(token, response, _.concat(defaultUserAttributes, 'password'))
+    return this.getCurrentUser(token, _.concat(defaultUserAttributes, 'password'))
       .then(userInfo => {
         if (userInfo.user.password !== utils.hashPassword(password.old)) {
-          return response.status(403).end('Old password is incorrect');
+          return Promise.reject({
+            code: 403,
+            message: 'Old password is incorrect'
+          });
         }
         return Users.findOne({
           where: {
@@ -337,16 +344,19 @@ class UsersDao {
   }
 
   updateUser(newUserInfo, token) {
-    console.log(newUserInfo);
     const userBeforeUpdated = utils.getUserByToken(token).user;
+    console.log('==================1=====================');
+    console.log(userBeforeUpdated.email);
     return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo, userBeforeUpdated.location))
       .then(location => {
+        console.log(userBeforeUpdated.email);
         return Users.findOne({
           where: {
             email: userBeforeUpdated.email
-          }
+          },
         })
           .then(userInfo => {
+            console.log('==================2=====================');
             return userInfo.update({
               firstname: newUserInfo.firstname || userBeforeUpdated.firstname,
               lastname: newUserInfo.lastname || userBeforeUpdated.lastname,
@@ -354,6 +364,7 @@ class UsersDao {
               birthday: newUserInfo.birthday || userBeforeUpdated.birthday,
               gender: newUserInfo.gender || userBeforeUpdated.gender,
               phone: newUserInfo.phone || userBeforeUpdated.phone,
+              cost: newUserInfo.cost || userBeforeUpdated.cost,
               company: newUserInfo.company || userBeforeUpdated.company,
               website: newUserInfo.website || userBeforeUpdated.website,
               linkedinLink: newUserInfo.linkedinLink || userBeforeUpdated.linkedinLink,
@@ -361,27 +372,63 @@ class UsersDao {
               instagramLink: newUserInfo.instagramLink || userBeforeUpdated.instagramLink,
               coverSource: newUserInfo.coverSource || userBeforeUpdated.coverSource,
               coverKey: newUserInfo.coverKey || userBeforeUpdated.coverKey,
-              locationId: location.id
+              locationId: location ? location.id : userBeforeUpdated.locationId
             })
-          })
-          .then(user => {
-            user = user.dataValues;
-            user.location = location.dataValues;
-            const userInfo = {
-              user,
-              token: utils.getJwtToken(user).split(' ')[1],
-            };
-            if (newUserInfo.coverSource) {
-              console.log(userBeforeUpdated.coverKey);
-              userInfo.oldFileKey = userBeforeUpdated.coverKey;
-            }
-            return userInfo;
+              .then(user => {
+                console.log('====================3===================');
+                const associatedPromises = [];
+                if (newUserInfo.languages && newUserInfo.languages.length) {
+                  associatedPromises.push(this.updateUserAssociated(UsersLanguages, newUserInfo.languages, user.id, 'languageId'))
+                }
+                if (newUserInfo.jobTitles && newUserInfo.jobTitles.length) {
+                  associatedPromises.push(this.updateUserAssociated(UsersJobTitles, newUserInfo.jobTitles, user.id, 'jobtitleId'))
+                }
+                if (newUserInfo.keywords && newUserInfo.keywords.length) {
+                  associatedPromises.push(this.updateUserAssociated(UsersKeywords, newUserInfo.keywords, user.id, 'wordId'))
+                }
+                if (newUserInfo.industries && newUserInfo.industries.length) {
+                  associatedPromises.push(this.updateUserAssociated(UsersIndustries, newUserInfo.industries, user.id, 'industryId'))
+                }
+                console.log('===================4====================');
+                if (associatedPromises.length) {
+                  return Promise.all(associatedPromises)
+                    .then(() => {
+                      console.log('==================5=====================');
+                      return this.getCurrentUser(token);
+                    })
+                }
+                console.log('====================6===================');
+                return this.getCurrentUser(token);
+              })
           })
       })
   }
 
+  updateUserAssociated(associatedModel, associatedArray, userId, field) {
+    return associatedModel.findAll({
+      where: {
+        userId: userId
+      }
+    })
+      .then(response => {
+        const removedUsersLanguages = response.filter(item => !associatedArray.includes(item[field]));
+        const destroyPromises = [];
+        removedUsersLanguages.forEach(item => destroyPromises.push(item.destroy()));
+        return Promise.all(destroyPromises)
+          .then(() => {
+            const filter = {userId: userId};
+            filter[field] = associatedArray;
+            return associatedModel.findOrCreate({
+              where: filter
+            })
+          })
+      });
+  }
+
   updateUserLocation(idLocation, newlocationInfo) {
-    console.log(idLocation);
+    if (newlocationInfo) {
+      return Promise.resolve(null);
+    }
     if (idLocation) {
       return Locations.findOne({
         where: {

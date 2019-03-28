@@ -7,8 +7,8 @@ const assert = require('./../../common/assert');
 
 class GetCurrentUser extends RequestHandler {
 
-  methodAction(request, response) {
-    return UsersDaoHandler.getCurrentUser(assert.getToken(request), response);
+  methodAction(request) {
+    return UsersDaoHandler.getCurrentUser(assert.getToken(request));
   }
 
 }
