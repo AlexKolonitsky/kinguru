@@ -2,25 +2,25 @@ jQuery.noConflict();
 
 setTimeout(function () {
   jQuery('#tugsMeetup').bsMultiSelect({
-    selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
-    selectedPanelFocusBorderColor: 'transparent'
+    selectedPanelFocusBoxShadow: '0 0 0 0 transparent',
+    selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)'
   });
   jQuery('#speakerIndustry').bsMultiSelect({
-    selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
-    selectedPanelFocusBorderColor: 'transparent'
+    selectedPanelFocusBoxShadow: '0 0 0 0 transparent',
+    selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)'
   });
   jQuery('#speakerExpertise').bsMultiSelect({
-    selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
-    selectedPanelFocusBorderColor: 'transparent'
+    selectedPanelFocusBoxShadow: '0 0 0 0 transparent',
+    selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)'
   });
   jQuery('#speakerMeetup').bsMultiSelect({
-    selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
-    selectedPanelFocusBorderColor: 'transparent',
+    selectedPanelFocusBoxShadow: '0 0 0 0 transparent',
+    selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
     selectedPanelClass: 'speaker-filtr-meetups form-control',
   });
   jQuery('#speakerJobTitle').bsMultiSelect({
-    selectedPanelFocusBoxShadow: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
-    selectedPanelFocusBorderColor: 'transparent'
+    selectedPanelFocusBoxShadow: 'transparent',
+    selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)'
   });
 
   var _gaq = _gaq || [];
