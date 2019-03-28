@@ -253,6 +253,10 @@ legend {
   margin: 50px 0;
 }
 
+.speaker_setting_fixed-height {
+  min-height: 50px;
+}
+
 .cost-from_to{
   margin: auto 20px auto 0;
   text-align: center;
