@@ -141,7 +141,7 @@ function fillFormSingUp(postData) {
     phone: document.getElementById('phone').value,
     password: document.getElementById('pass-sugn-up').value,
     birthday: document.getElementById('birthday-sign-up').value,
-    link: location.hostname === 'localhost' ? `${location.origin}/kinguru/frontend/confirmation.html`: `${location.origin}/confirmation.html`,
+    link: location.hostname === 'localhost' || 's3-eu-west-1.amazonaws.com' ? `${location.origin}/kinguru/frontend/confirmation.html`: `${location.origin}/confirmation.html`,
   };
   return postData;
 };
