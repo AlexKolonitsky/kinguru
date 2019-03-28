@@ -259,7 +259,6 @@ class UsersDao {
 
   getCurrentUser(token, userAttributes) {
     const userInfo = utils.getUserByToken(token).user;
-    console.log(userInfo);
     return Users.findOne({
       where: {
         email: userInfo.email
