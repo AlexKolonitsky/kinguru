@@ -345,7 +345,6 @@ class UsersDao {
 
   updateUser(newUserInfo, token) {
     const userBeforeUpdated = utils.getUserByToken(token).user;
-    console.log('==================1=====================');
     console.log(userBeforeUpdated.email);
     return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo, userBeforeUpdated.location))
       .then(location => {
@@ -356,7 +355,6 @@ class UsersDao {
           },
         })
           .then(userInfo => {
-            console.log('==================2=====================');
             return userInfo.update({
               firstname: newUserInfo.firstname || userBeforeUpdated.firstname,
               lastname: newUserInfo.lastname || userBeforeUpdated.lastname,
@@ -375,7 +373,6 @@ class UsersDao {
               locationId: location ? location.id : userBeforeUpdated.locationId
             })
               .then(user => {
-                console.log('====================3===================');
                 const associatedPromises = [];
                 if (newUserInfo.languages && newUserInfo.languages.length) {
                   associatedPromises.push(this.updateUserAssociated(UsersLanguages, newUserInfo.languages, user.id, 'languageId'))
@@ -389,15 +386,12 @@ class UsersDao {
                 if (newUserInfo.industries && newUserInfo.industries.length) {
                   associatedPromises.push(this.updateUserAssociated(UsersIndustries, newUserInfo.industries, user.id, 'industryId'))
                 }
-                console.log('===================4====================');
                 if (associatedPromises.length) {
                   return Promise.all(associatedPromises)
                     .then(() => {
-                      console.log('==================5=====================');
                       return this.getCurrentUser(token);
                     })
                 }
-                console.log('====================6===================');
                 return this.getCurrentUser(token);
               })
           })
