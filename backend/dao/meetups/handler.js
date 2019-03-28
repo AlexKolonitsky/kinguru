@@ -110,6 +110,12 @@ class MeetupDao {
       ],
     })
       .then(meetup => {
+        if (!meetup) {
+          return Promise.reject({
+            code: 403,
+            message: `Meetup with such id ${meetupId} not found`
+          })
+        }
         if (!meetup.locationId) {
           return meetup;
         }
@@ -211,6 +217,23 @@ class MeetupDao {
             }
             return this.getCurrentMeetup(meetup.id);
           })
+      })
+  }
+
+  addGuestsToMeetup(meetupId, guests = []) {
+    const promises = [];
+    guests.forEach(guest => {
+      promises.push(
+        MeetupsGuests.findOrCreate({
+          where: {
+            meetupId: meetupId,
+            guestId: guest
+          }
+        }))
+    });
+    return Promise.all(promises)
+      .then(() => {
+        return this.getCurrentMeetup(meetupId);
       })
   }
 

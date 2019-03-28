@@ -344,7 +344,6 @@ class UsersDao {
 
   updateUser(newUserInfo, token) {
     const userBeforeUpdated = utils.getUserByToken(token).user;
-    console.log(userBeforeUpdated.email);
     return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo, userBeforeUpdated.location))
       .then(location => {
         console.log(userBeforeUpdated.email);
