@@ -214,7 +214,7 @@ class MeetupDao {
                 }
               })
                 .then(location => {
-                  responseMeetup.update({ locationId: location.id })
+                  return responseMeetup.update({ locationId: location[0].id })
                     .then(() => {
                       return this.getCurrentMeetup(responseMeetup.id);
                     });
