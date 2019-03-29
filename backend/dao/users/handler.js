@@ -65,13 +65,13 @@ class UsersDao {
     })
       .then(user => {
         if (!user) {
-          const htmlTemplate = `<a href="${link}?email=${utils.getJwtToken(userInfo.email).split(' ')[1]}">Registration confirmation</a>`;
+          const email = userInfo.email;
           return nodemailer.sendMail(
             null,
-            userInfo.email,
+            email,
             'KINGURU user confirmation',
-            null,
-            htmlTemplate,
+            `Hello, ${{email}}! Thank you for registering! To set up your account and start an event, confirm your email address, please, and click the button below.`,
+            `<a href="${link}?email=${utils.getJwtToken(email).split(' ')[1]}">Registration confirmation</a>`,
           ).then(() => {
             return Users.create(this.getUserObject(userInfo));
           })
