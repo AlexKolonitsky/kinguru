@@ -2,7 +2,7 @@ const pageSize = 12;
 
 function postAllMeetup(object, state) {
   $.ajax({
-    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/meetups',
+    url: `${urlBack}/meetups`,
     method: 'POST',
     dataType: "json",
     contentType: "application/json; charset=utf-8",
@@ -41,7 +41,7 @@ function isEnitionState(isState) {
 };
 
 $.ajax({
-  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/filter/meetup',
+  url: `${urlBack}/filter/meetup`,
   method: 'GET',
   dataType: "json",
   contentType: "application/json; charset=utf-8",

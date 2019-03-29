@@ -39,7 +39,7 @@ let token = localStorage.getItem('Token');
 token = `Bearer ${token}`;
 
 $.ajax({
-  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/current',
+  url: `${urlBack}/user/current`,
   headers: {
     'Authorization': token,
   },
@@ -54,7 +54,7 @@ $.ajax({
 $('.change-pass').click(function () {
   event.preventDefault();
   $.ajax({
-    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/change/password',
+    url: `${urlBack}/user/change/password`,
     headers: {
       'Authorization': token,
     },
@@ -320,7 +320,6 @@ function successChgangePass() {
 
 $('#update-account').click(function () {
   let fd = new FormData();
-  console.log(document.getElementById('birthday-user').value);
 
   fd.append( 'image', $('#file')[0].files[0]);
   fd.append( 'firstname', document.getElementById('first-name').value);
@@ -331,8 +330,9 @@ $('#update-account').click(function () {
   fd.append( 'phone', document.getElementById('phone-user').value);
   fd.append('email', document.getElementById('email-user').value);
 
+
   $.ajax({
-    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/update',
+    url: `${urlBack}/user/update`,
     data: fd,
     headers: {
       'Authorization': token,

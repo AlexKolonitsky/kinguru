@@ -19,7 +19,7 @@ function fromModelToView(data) {
 
 
 $.ajax({
-  url: `http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/meetup/${meetupId}`,
+  url: `${urlBack}/meetup/${meetupId}`,
   method: 'GET',
   dataType: "json",
   contentType: "application/json; charset=utf-8",
@@ -255,7 +255,7 @@ function meetup(metap) {
   $('.meetup').append(meetupContent);
 
   $.ajax({
-    url: `http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/images/location/${metap.locationId}`,
+    url: `${urlBack}/images/location/${metap.locationId}`,
     method: 'GET',
     dataType: "json",
     contentType: "application/json; charset=utf-8",

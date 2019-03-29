@@ -3,9 +3,11 @@ const speakerSelector = 'speakerMeetup';
 const jobTitleSelector = 'speakerJobTitle';
 const industrySelector = 'speakerIndustry';
 const expertiseSelector = 'speakerExpertise';
+let token = localStorage.getItem('Token');
+token = `Bearer ${token}`;
 
 $.ajax({
-  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/job/titles',
+  url: `${urlBack}/job/titles`,
   method: 'GET',
   dataType: "json",
   contentType: "application/json; charset=utf-8",
@@ -15,7 +17,7 @@ $.ajax({
 });
 
 $.ajax({
-  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/filter/meetup',
+  url: `${urlBack}/filter/meetup`,
   method: 'GET',
   dataType: "json",
   contentType: "application/json; charset=utf-8",
@@ -25,7 +27,7 @@ $.ajax({
 });
 
 $.ajax({
-  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/industries',
+  url: `${urlBack}/industries`,
   method: 'GET',
   dataType: "json",
   contentType: "application/json; charset=utf-8",
@@ -35,7 +37,7 @@ $.ajax({
 });
 
 $.ajax({
-  url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/wordkeys',
+  url: `${urlBack}/wordkeys`,
   method: 'GET',
   dataType: "json",
   contentType: "application/json; charset=utf-8",
@@ -141,22 +143,54 @@ $(function () {
 
 });
 
+$(document).ready(function () {
+  const range = $('#years-slider_speaker');
+  range.slider({
+    tooltip: 'always'
+  });
+  range.change(function() {
+    $('#years-start_speaker').text(range[0].value.split(',')[0]);
+    $('#years-end_speaker').text(range[0].value.split(',')[1]);
+  });
+});
+
+$(document).ready(function () {
+  const range = $('#years-slider_guest');
+  range.slider({
+    tooltip: 'always'
+  });
+  range.change(function() {
+    $('#years-start_guest').text(range[0].value.split(',')[0]);
+    $('#years-end_guest').text(range[0].value.split(',')[1]);
+  });
+});
+// $(function () {
+//   $('.time').timepicker({
+//     dynamic: false,
+//     dropdown: true,
+//     scrollbar: true,
+//     format: 'HH:mm'
+//   });
+// });
+
+
 function getAllSpeakers(object) {
   $.ajax({
-    url: `http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/speakers`,
+    url: `${urlBack}/speakers`,
     method: 'post',
     dataType: "json",
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(object),
     success: function (jsondata) {
-      allSpeakers(jsondata);
+      viewSpeakerFilter(jsondata);
+      console.log(jsondata.length);
 
     }
   });
 }
 
 $.ajax({
-  url: `http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/speakers`,
+  url: `${urlBack}/speakers`,
   method: 'post',
   dataType: "json",
   contentType: "application/json; charset=utf-8",
@@ -184,33 +218,41 @@ $('#searchSpeakers').click(function () {
   };
   if (document.getElementById('cost_from').value) {
     filter.costFrom = document.getElementById('cost_from').value
-  };
+  }
   if (document.getElementById('cost_to').value) {
     filter.costTo = document.getElementById('cost_to').value
   }
   if (document.getElementById('speakerCity').value) {
     filter.city = document.getElementById('speakerCity').value
-  };
+  }
   if (document.getElementById('years-slider_speaker').value.split(',')[0]) {
     filter.ageFrom = document.getElementById('years-slider_speaker').value.split(',')[0]
-  };
+  }
   if (document.getElementById('years-slider_speaker').value.split(',')[1]) {
     filter.ageTo = document.getElementById('years-slider_speaker').value.split(',')[1]
-  };
+  }
   if ($(`#${expertiseSelector}`).val()) {
     filter.expertises = $(`#${expertiseSelector}`).val().map(function (x) {
-      return parseInt(x.split('speakerExpertise')[1], 10);
+      return parseInt(x.split(`${expertiseSelector}`)[1], 10);
     });
-  };
+  }
   if ($(`#${industrySelector}`).val()) {
     filter.industries = $(`#${industrySelector}`).val().map(function (x) {
-      return parseInt(x.split('speakerIndustry')[1], 10);
+      return parseInt(x.split(`${industrySelector}`)[1], 10);
+    });
+  }
+  if ($(`#${jobTitleSelector}`).val()) {
+    filter.jobTitles = $(`#${jobTitleSelector}`).val().map(function (x) {
+      return parseInt(x.split(`${jobTitleSelector}`)[1], 10);
     });
   }
 
-
   getAllSpeakers(filter);
 });
+
+$('#dateMeetup').click( function () {
+  console.log($('#dateMeetup').val());
+})
 
 window.addEventListener("load", function () {
   let language = function (jsondata) {allLanguages(jsondata);};
@@ -221,7 +263,7 @@ window.addEventListener("load", function () {
 
 function filterGet (url, success) {
   $.ajax({
-    url: `http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/${url}`,
+    url: `${urlBack}/${url}`,
     method: 'GET',
     dataType: "json",
     contentType: "application/json; charset=utf-8",
@@ -246,7 +288,7 @@ function allLanguages(langs = []) {
 function allSpeakers(speakers = []) {
   let speakersName = ``;
   speakers.forEach(speaker => {
-    let speakerList = `<option value="${speaker.id}">${speaker.lastname} ${speaker.firstname}</option>`
+    let speakerList = `<option value="${speakerSelector}${speaker.id}">${speaker.lastname} ${speaker.firstname}</option>`
     speakersName += speakerList;
   });
 
@@ -256,7 +298,7 @@ function allSpeakers(speakers = []) {
 function speakerJobTitle(titles = []) {
   let jobTitle = ``;
   titles.forEach(title => {
-    let titleList = `<option value="${title.id}">${title.name}</option>`
+    let titleList = `<option value="${jobTitleSelector}${title.id}">${title.name}</option>`
     jobTitle += titleList;
   });
 
@@ -267,7 +309,7 @@ function tagsMeetup(allTagsFilter = []) {
   let tagsList = ``;
   allTagsFilter.forEach(tag => {
     let countFilter =
-      `<option value="${tag.id}">${tag.name}</option>`;
+      `<option value="${tagSelector}${tag.id}">${tag.name}</option>`;
     tagsList += countFilter;
   });
   $(`#${tagSelector}`).append(tagsList);
@@ -292,6 +334,23 @@ function expertiseSpeaker(expertises = []) {
   $(`#${expertiseSelector}`).append(expertiseList);
 };
 
+function viewSpeakerFilter(speakers) {
+  $('#speakersListFilter').empty();
+  let speakerList = ``;
+  speakers.forEach(speaker => {
+    let speakerContent =
+      `<div class="speaker_checked my-auto">` +
+      `<input class="speakers" type="checkbox" id="speaker${speaker.id}">` +
+      `<label class="label-speaker_checked row" for="speaker${speaker.id}">` +
+      `<img class="speaker_checked-photo rounded-circle" src="${speaker.coverSource}">` +
+      `<p class="speaker_checked-name">${speaker.firstname} ${speaker.lastname}</p>` +
+      `</label>` +
+      `</div>`;
+    speakerList += speakerContent;
+  });
+  $('#speakersListFilter').append(speakerList);
+}
+
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -306,3 +365,38 @@ function readURL(input) {
 $("#file").change(function(){
   readURL(this);
 });
+$('#startHour').click(function () {
+  console.log(document.getElementById('startHour').value);
+})
+$('#createMeetup').click(function () {
+  event.preventDefault();
+  let fd = new FormData();
+
+  fd.append( 'image', $('#file')[0].files[0]);
+  fd.append( 'title', document.getElementById('titleMeetup').value);
+  fd.append( 'description', document.getElementById('descriptionMeetup').value);
+  fd.append('tags',  $(`#${tagSelector}`).val().map(function (x) {
+    return parseInt(x.split(`${tagSelector}`)[1], 10);}));
+  fd.append( 'startDate', `${document.getElementById('dateMeetup').value}T${document.getElementById('startHour').value}:25.000Z`);
+  fd.append( 'endDate', `${document.getElementById('dateMeetup').value}T${document.getElementById('endHour').value}:25.000Z`);
+  fd.append( 'country', document.getElementById('countryMeetup').value);
+  fd.append('city', document.getElementById('cityMeetup').value);
+  fd.append('place', document.getElementById('placeMeetup').value);
+  fd.append('socialLink', document.getElementById('urlEvent').value);
+  fd.append('speakers', $(`#${speakerSelector}`).val().map(function (x) {
+    return parseInt(x.split(`${speakerSelector}`)[1], 10);}));
+
+  $.ajax({
+    url: `${urlBack}/new/meetup`,
+    data: fd,
+    headers: {
+      'Authorization': token,
+    },
+    processData: false,
+    contentType: false,
+    type: 'POST',
+    success: function(data){
+    }
+  });
+
+})

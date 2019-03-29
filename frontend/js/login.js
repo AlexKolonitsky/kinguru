@@ -54,7 +54,7 @@
 
 function getUser(token) {
   $.ajax({
-    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/current',
+    url: `${urlBack}/user/current`,
     headers: {
       'Authorization': token,
     },
@@ -81,22 +81,24 @@ window.addEventListener("load", function () {
 $('#continue').click(function () {
   event.preventDefault();
   $("#error-sugn-up").empty();
-  elementsValidation = ['email', 's-name', 'name', 'country', 'city', 'phone', 'pass-sugn-up', 'passch'];
+  elementsValidation = ['email', 's-name', 'name', 'pass-sugn-up', 'passch', 'birthday-sign-up'];
   elementsValidation.forEach(component => {
     document.getElementById(`${component}`).value.length < 1 ? $(`#${component}`).addClass('validation-input') : $(`#${component}`).removeClass('validation-input');
   })
   $.ajax({
-    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/register',
+    url: `${urlBack}/user/register`,
     type: 'post',
     dataType: 'json',
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(fillFormSingUp()),
-    success: function (data) {
+    success: function () {
+        console.log('click');
+        $('#modal_close').show().click();
     },
     error: function (jqXHR) {
-      if (jqXHR.status == 401) {
+      if (jqXHR.status === 401) {
         $("#error-sugn-up").html("<p class='pass not_match'>The user with email has already been registered</p>");
-      } else if (jqXHR.status == 400) {
+      } else if (jqXHR.status === 400) {
         $("#error-sugn-up").html("<p class='pass not_match'>Fill all field</p>");
       }
     }
@@ -107,7 +109,7 @@ $('#continue').click(function () {
 $('#login-post').click(function () {
   event.preventDefault();
   $.ajax({
-    url: 'http://ec2-35-158-84-70.eu-central-1.compute.amazonaws.com:3010/user/login',
+    url: `${urlBack}/user/login`,
     type: 'post',
     dataType: 'json',
     contentType: "application/json; charset=utf-8",
@@ -118,10 +120,10 @@ $('#login-post').click(function () {
       $('#login-block').addClass('hide-content');
     },
     error: function (jqXHR) {
-      if (jqXHR.status == 401) {
+      if (jqXHR.status === 401) {
         $('#error-login').empty();
         $('#error-login').html("<p class='pass not_match error-login'>Please confirm your email to login</p>");
-      } else if (jqXHR.status == 400) {
+      } else if (jqXHR.status === 400) {
         $('#error-login').empty();
         $('#error-login').html("<p class='pass not_match error-login'>Incorrect email or password</p>");
       }
@@ -184,7 +186,7 @@ function showHeaderContent(user) {
     `</div>` +
     `</div>`;
   $('#login-block').after(userContent);
-  // $('#login-block').addClass('hide-content');
+  $('#login-block').addClass('hide-content');
 
   $('#logOut').click(function () {
     $('.user-content').remove();
