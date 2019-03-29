@@ -39,29 +39,8 @@ function _assertJwt(req, res, next) {
   return true;
 }
 
-/**
- * @function assertRole - for asserting user's permission for suggested operation
- * @param {string} role
- * @returns {Function} _assertPerm
- */
-function assertRole(role) {
-  return function _assertPerm(req, res, next) {
-
-    if (!role) {
-      return res.status(403).end('No role was specified to assert');
-    }
-
-    if (req.user.user.role !== role) {
-      return res.status(403).end('User did not assert the required permissions');
-    }
-
-    return next();
-  };
-}
-
 module.exports = {
   jwt: [jwt, _assertJwt],
   assertJwt: _assertJwt,
-  access: assertRole,
   getToken: getToken,
 };
