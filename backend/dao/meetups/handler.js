@@ -144,7 +144,7 @@ class MeetupDao {
           isOpen: meetup.isOpen,
           maxGuestsCount: meetup.maxGuestsCount,
           cost: meetup.cost,
-          starDate: meetup.startDate,
+          startDate: meetup.startDate,
           endDate: meetup.endDate,
           coverSource: meetup.coverSource,
           coverKey: meetup.coverKey,
