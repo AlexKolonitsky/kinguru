@@ -211,8 +211,11 @@ class MeetupDao {
                   place: meetup.place
                 }
               })
-                .then(() => {
-                  return this.getCurrentMeetup(responseMeetup.id);
+                .then(location => {
+                  responseMeetup.update({ locationId: location.id })
+                    .then(() => {
+                      return this.getCurrentMeetup(responseMeetup.id);
+                    });
                 })
             }
             return this.getCurrentMeetup(responseMeetup.id);
