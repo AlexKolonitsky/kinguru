@@ -57,16 +57,15 @@ class UsersDao {
     }
   }
 
-  createUser(userInfo) {
-    const email = userInfo.email;
-    const link = userInfo.link;
+  createUser(userInfo, link) {
     return Users.findOne({
       where: {
-        email: email
+        email
       }
     })
       .then(user => {
         if (!user) {
+          const email = userInfo.email;
           return nodemailer.sendMail(
             null,
             email,
@@ -222,24 +221,229 @@ class UsersDao {
   }
 
   findEmailAndPassword(email, password) {
-
-    let hashPassword = utils.hashPassword(password);
-
     return Users.findOne({
       where: {
         email: email,
-        password: hashPassword,
-      }
+        password: utils.hashPassword(password),
+      },
+      attributes: defaultUserAttributes
     })
       .then(user => {
         if (user) {
-          return _.pick(user, ['id', 'username', 'surname'])
+          if (!user.confirmed) {
+            return Promise.reject({
+              code: 401,
+              message: 'Please confirm your email to login'
+            })
+          }
+          const token = utils.getJwtToken(user).split(' ')[1];
+          return this.getCurrentUser(token)
         }
-        return Promise.reject({code: ERRORS_CODE.NOT_FOUND})
+        return Promise.reject({
+          code: 401,
+          message: `User with email: ${email} not found`
+        });
       })
-
   }
 
+  getUserById(userId) {
+    return Users.findById(userId);
+  }
+
+  getUserInfoResponse(user) {
+    return {
+      user,
+      token: utils.getJwtToken(user).split(' ')[1]
+    }
+  }
+
+  getCurrentUser(token, userAttributes) {
+    const userInfo = utils.getUserByToken(token).user;
+    return Users.findOne({
+      where: {
+        email: userInfo.email
+      },
+      include: userAssociates,
+      attributes: userAttributes || defaultUserAttributes
+    })
+      .then(user => {
+        if (!user) {
+          return Promise.reject({
+            code: 403,
+            message: `User not authorized`
+          });
+        }
+        if (!user.locationId) {
+          return this.getUserInfoResponse(user);
+        }
+        return Locations.findOne({
+          where: {
+            id: user.locationId
+          },
+          attributes: ['country', 'state', 'city', 'address', 'metro', 'phone', 'zipCode', 'place']
+        })
+          .then(location => {
+            if (!location) {
+              return this.getUserInfoResponse(user);
+            }
+            user = user.dataValues;
+            user.location = location.dataValues;
+            return this.getUserInfoResponse(user);
+          })
+      })
+      .catch(err => {
+        if (err.code === ERRORS_CODE.NOT_FOUND) {
+          return Promise.reject({
+            code: 404,
+            message: `User with email: ${userInfo.email} not found`
+          })
+        }
+      })
+  }
+
+  changePassword(token, password) {
+    if (password.new !== password.confirm) {
+      return Promise.reject({
+        code: 400,
+        message: 'New password not equal confirm password'
+      });
+    }
+    return this.getCurrentUser(token, _.concat(defaultUserAttributes, 'password'))
+      .then(userInfo => {
+        if (userInfo.user.password !== utils.hashPassword(password.old)) {
+          return Promise.reject({
+            code: 403,
+            message: 'Old password is incorrect'
+          });
+        }
+        return Users.findOne({
+          where: {
+            id: userInfo.user.id,
+            email: userInfo.user.email
+          }
+        })
+          .then(user => {
+            return user.update({password: utils.hashPassword(password.new)});
+          })
+      })
+  }
+
+  setLocation(location, locationBeforeUpdated) {
+    return {
+      country: location.country || locationBeforeUpdated.country,
+      state: location.state || locationBeforeUpdated.state,
+      city: location.city || locationBeforeUpdated.city,
+      zipCode: location.zipCode || locationBeforeUpdated.zipCode,
+      address: location.address || locationBeforeUpdated.address,
+      metro: location.metro || locationBeforeUpdated.metro,
+      place: location.place || locationBeforeUpdated.place,
+      email: location.email || locationBeforeUpdated.email,
+      phone: location.phone || locationBeforeUpdated.phone,
+    }
+  }
+
+  updateUser(newUserInfo, token) {
+    const userBeforeUpdated = utils.getUserByToken(token).user;
+    return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo, userBeforeUpdated.location))
+      .then(location => {
+        console.log(userBeforeUpdated.email);
+        return Users.findOne({
+          where: {
+            email: userBeforeUpdated.email
+          },
+        })
+          .then(userInfo => {
+            return userInfo.update({
+              firstname: newUserInfo.firstname || userBeforeUpdated.firstname,
+              lastname: newUserInfo.lastname || userBeforeUpdated.lastname,
+              description: newUserInfo.description || userBeforeUpdated.description,
+              birthday: newUserInfo.birthday || userBeforeUpdated.birthday,
+              gender: newUserInfo.gender || userBeforeUpdated.gender,
+              phone: newUserInfo.phone || userBeforeUpdated.phone,
+              cost: newUserInfo.cost || userBeforeUpdated.cost,
+              company: newUserInfo.company || userBeforeUpdated.company,
+              website: newUserInfo.website || userBeforeUpdated.website,
+              linkedinLink: newUserInfo.linkedinLink || userBeforeUpdated.linkedinLink,
+              facebookLink: newUserInfo.facebookLink || userBeforeUpdated.facebookLink,
+              instagramLink: newUserInfo.instagramLink || userBeforeUpdated.instagramLink,
+              coverSource: newUserInfo.coverSource || userBeforeUpdated.coverSource,
+              coverKey: newUserInfo.coverKey || userBeforeUpdated.coverKey,
+              locationId: location ? location.id : userBeforeUpdated.locationId
+            })
+              .then(user => {
+                const associatedPromises = [];
+                if (newUserInfo.languages && newUserInfo.languages.length) {
+                  associatedPromises.push(this.updateUserAssociated(UsersLanguages, newUserInfo.languages, user.id, 'languageId'))
+                }
+                if (newUserInfo.jobTitles && newUserInfo.jobTitles.length) {
+                  associatedPromises.push(this.updateUserAssociated(UsersJobTitles, newUserInfo.jobTitles, user.id, 'jobtitleId'))
+                }
+                if (newUserInfo.keywords && newUserInfo.keywords.length) {
+                  associatedPromises.push(this.updateUserAssociated(UsersKeywords, newUserInfo.keywords, user.id, 'wordId'))
+                }
+                if (newUserInfo.industries && newUserInfo.industries.length) {
+                  associatedPromises.push(this.updateUserAssociated(UsersIndustries, newUserInfo.industries, user.id, 'industryId'))
+                }
+                if (associatedPromises.length) {
+                  return Promise.all(associatedPromises)
+                    .then(() => {
+                      return this.getCurrentUser(token);
+                    })
+                }
+                return this.getCurrentUser(token);
+              })
+          })
+      })
+  }
+
+  updateUserAssociated(associatedModel, associatedArray, userId, field) {
+    return associatedModel.findAll({
+      where: {
+        userId: userId
+      }
+    })
+      .then(response => {
+        const removedUsersLanguages = response.filter(item => !associatedArray.includes(item[field]));
+        const destroyPromises = [];
+        removedUsersLanguages.forEach(item => destroyPromises.push(item.destroy()));
+        return Promise.all(destroyPromises)
+          .then(() => {
+            const filter = {userId: userId};
+            filter[field] = associatedArray;
+            return associatedModel.findOrCreate({
+              where: filter
+            })
+          })
+      });
+  }
+
+  updateUserLocation(idLocation, newlocationInfo) {
+    if (newlocationInfo) {
+      return Promise.resolve(null);
+    }
+    if (idLocation) {
+      return Locations.findOne({
+        where: {
+          id: idLocation
+        },
+      })
+        .then(location => {
+          return location.update(this.setLocation(newlocationInfo))
+        })
+    }
+    return Locations.create(this.setLocation(newlocationInfo))
+  }
+
+  confirmEmail(email) {
+    return Users.findOne({
+      where: {
+        email: email
+      }
+    })
+      .then(user => {
+        return user.update({confirmed: true})
+      })
+  }
 }
 
 module.exports = UsersDao;
