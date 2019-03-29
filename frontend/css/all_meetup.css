@@ -182,9 +182,14 @@ option {
   max-width: 305px;
 }
 
-.task-box img {
+.task-box .img {
   max-width: 100%;
+  height: 188px;
   max-height: 188px;
+}
+
+.task-box > a{
+  background: rgba(95, 112, 135, 0.2);
 }
 
 .task-box .progress-star-item {
