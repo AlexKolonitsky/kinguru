@@ -223,12 +223,11 @@ class UsersDao {
 
   findEmailAndPassword(email, password) {
 
-    let emailcrypt = utils.encrypt(email);
     let hashPassword = utils.hashPassword(password);
 
     return Users.findOne({
       where: {
-        email: emailcrypt,
+        email: email,
         password: hashPassword,
       }
     })
