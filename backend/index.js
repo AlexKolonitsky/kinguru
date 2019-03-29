@@ -24,12 +24,8 @@ app.use((req, res, next) => {
   next();
 });
 
-
-if (process.env.NODE_ENV === 'development') {
-  app.use('/', router);
-} else {
-  app.use('/', express.static(path.join(__dirname, '../frontend')));
-}
+app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(router);
 
 app.use((err, req, res, next) => {
 
