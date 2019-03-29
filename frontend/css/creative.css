@@ -202,7 +202,8 @@ img::-moz-selection {
   text-decoration: underline;
 }
 
-#mainNav {
+/*
+mainNav {
   padding-top: 13px;
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
   background-color: transparent;
@@ -242,6 +243,8 @@ img::-moz-selection {
 .navbar-brand img:first-child, .footer-logo img:first-child {
 	margin-right: 10px;
 }
+
+*/
 
 header.masthead {
   overflow: hidden;
@@ -326,6 +329,10 @@ header.masthead p>span {
 		max-width: 100%;
 	    max-height: 188px;
 	}
+
+.task-box_poster{
+  background-color: rgba(95, 112, 135, 0.2);
+}
 
 .task-box .task-box-inner {
     padding: 28px 38px 50px;
@@ -765,18 +772,43 @@ header.masthead p>span {
     z-index: 1;
 }
 
+#people .owl-prev {
+  position: absolute;
+  top: 40%;
+  left: -45px;
+  outline: none;
+}
+
+#people .owl-next {
+  position: absolute;
+  top: 40%;
+  right: -40px;
+  outline: none;
+}
+
+#people .owl-prev i,
+#people .owl-next i {
+  font-size: 60px;
+  color: #dadada;
+}
+
 #people .owl-item {
 	padding: 0 36px;
 	overflow: hidden;
 }
 #people .owl-item-inner {
-	padding: 235px 20px 71px 20px;
-	box-shadow: 0px 5px 49px 0px rgba(0, 0, 0, 0.04);
-	min-height: 314px;
-	background-color: #fff;
+  padding: 50px 0 75px 100px;
+  box-shadow: 0 5px 49px 0 rgba(0, 0, 0, 0.04);
+  min-height: 200px;
+  background-color: #fff;
+}
+
+#people h2 {
+  color: #000000;
 }
 
 #people h6 {
+  position: relative;
 	font-family: "Muller ExtraBold";
 	font-size: 20px;
 }
@@ -785,20 +817,31 @@ header.masthead p>span {
 	width: 169px;
     height: 2px;
     position: absolute;
-    left: 140px;
-    top: 100px;
+    left: 0;
+    top: 15px;
 }
 
-	#people .owl-carousel .owl-item img.rounded-circle {
-		width: auto;
-		position: absolute;
-	    left: 0;
-	    top: 45px;
-	}
+#people .owl-carousel .owl-item img.rounded-circle {
+  width: auto;
+  position: absolute;
+  left: 0;
+  top: 25px;
+}
+
+#people .owl-carousel .owl-item p {
+  margin: 0;
+}
+
+.people-wrapper {
+  margin: auto;
+  padding: 20px;
+  width: 86%;
+}
+
 	#people .owl-carousel .owl-item strong {
 		font-family: "Muller Light";
 		font-size: 15px;
-		margin-top: 47px;
+		margin-top: 20px;
 		margin-bottom: 20px;
     	display: block;
 	}
@@ -888,7 +931,7 @@ footer {
 		width: 33%;
   }
   #people .owl-item-inner {
-  	   padding: 75px 0px 75px 180px;
+  	   padding: 50px 10px 50px 120px;
   }
   	.footer-logo img {
 		display: block;
@@ -924,15 +967,20 @@ footer {
 	section {
 	  padding: 70px 0 95px;
 	}
+  /*
   #mainNav {
     border-color: transparent;
     background-color: transparent;
 	padding-right: 0!important;
   }
+
+ */
   header .container {
 	position: relative;
     z-index: 999;
   }
+
+  /*
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
     padding: 0.5rem 1rem;
     font-size: 15px;
@@ -956,6 +1004,7 @@ footer {
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
     color: #fff;
   }
+  */
   header.masthead {
     height: 100vh;
     min-height: 650px;
@@ -1007,6 +1056,7 @@ footer {
 @media (min-width: 1200px) {
   header.masthead h1 {
     font-size: 73px;
+    margin-top: 150px;
   }
 .container {
     width: 1000px;

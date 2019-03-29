@@ -58,6 +58,7 @@ function showRecentMeetups(recentMeetups) {
       `<div class="task-box" aria-expanded="false">` +
       `     <a` +
       `       href="2_meetup.html" ` +
+      `       class="task-box_poster" ` +
       `       title="${meetup.title}"` +
       `       ><img` +
       `         class="img mx-auto d-block"` +
@@ -125,6 +126,7 @@ function showAllMeetups(allMeetups) {
       `<div class="task-box" aria-expanded="false">` +
       `<a href="1_meetup.html?meetupId=${meetup.id}"` +
       `target="_blank"` +
+      `class="task-box_poster"` +
       `title="${meetup.title}">` +
       `<img class="img mx-auto d-block"` +
       `src="${meetup.coverSource}"` +
