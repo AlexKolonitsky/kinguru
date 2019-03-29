@@ -57,8 +57,9 @@ class UsersDao {
     }
   }
 
-  createUser(userInfo, link) {
+  createUser(userInfo) {
     const email = userInfo.email;
+    const link = userInfo.link;
     return Users.findOne({
       where: {
         email: email
