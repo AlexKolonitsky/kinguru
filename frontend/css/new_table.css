@@ -1,5 +1,5 @@
 .table_content {
-  margin-top: 150px;
+  margin-top: 30px;
   padding-left: 40px;
 }
 
@@ -7,9 +7,98 @@
   padding-left:15px;
 }
 
+legend {
+  font-size: 2em;
+}
+
+.table-item-subtitle,
+.table-item-title{
+  font-family: "Muller Bold";
+  padding: 20px 0 10px;
+  font-size: 2em;
+}
+
+.table_content {
+  margin-top: 100px;
+}
+
+.table-item-title {
+  font-size: 3em;
+}
+
+.meeting-desc {
+  outline: none;
+  width: 100%;
+  padding: 10px;
+}
+
+.meeting-desc:focus {
+  border: 1px solid #ffd800;
+}
+
+.dashboardcode-bsmultiselect ul.form-control {
+  border: none;
+  border-bottom: 1px solid #C0C0C0;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: transparent;
+}
+
+.dashboardcode-bsmultiselect ul.form-control:focus {
+  box-shadow: none;
+}
+
+.dashboardcode-bsmultiselect .dropdown-menu{
+  width: 60%;
+  height: 200px;
+  overflow: auto;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color: #ffd800 !important;
+}
+
+.dashboardcode-bsmultiselect ul.form-control .badge {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  border: 1px solid #ffd800;
+  border-radius: 300px;
+  background-color: #ffd800;
+  margin: 2px!important;
+}
+
+.industry-speaker-open .dashboardcode-bsmultiselect ul.form-control .badge,
+.expertise-speaker-open .dashboardcode-bsmultiselect ul.form-control .badge,
+.interest-guest-open .dashboardcode-bsmultiselect ul.form-control .badge,
+.expertise-guest-open .dashboardcode-bsmultiselect ul.form-control .badge{
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 2px 5px;
+  font-size: 1.2em;
+}
+
+.dashboardcode-bsmultiselect ul.form-control .badge span{
+  padding: 0 5px;
+}
+
+.dashboardcode-bsmultiselect ul.form-control .badge span:last-child{
+  opacity: 0.6;
+}
+
+.reviewStars_new_table{
+  width: 60%;
+  text-align: left;
+}
+
+
 .checkbox-label {
     display: flex;
     align-items: center;
+}
+
+.checkbox-label p {
+  margin-top: 1rem;
 }
 
 .input-switch + label {
@@ -71,8 +160,17 @@
     cursor: default!important;
 }
 
-.label-speaker {
+.label-speaker{
+  margin: auto 0;
     cursor: pointer;
+}
+
+.cost-speaker-open {
+  display: flex;
+}
+
+.choose_speaker {
+  margin-left: 15px;
 }
 
 .input-switch:checked + label span.grip {
@@ -117,8 +215,9 @@
 }
 
 .radio-content {
-    margin: 10px 0;
+    margin: 10px 0px;
 }
+
 
 .speakers {
     display: none;
@@ -134,7 +233,7 @@
     border: 1px solid grey;
     font-size: 20px;
     line-height: 22px;
-    margin: -5px 5px 0 0;
+    margin: auto 10px;
     text-align: center;
     vertical-align: middle;
     transition: color ease .3s;
@@ -146,19 +245,67 @@
 
 .bike-open {
   display: none;
+  width: 70%;
+  margin: 0 10px;
 }
 
-.boat-open {
+.speaker_setting {
+  margin: 50px 0;
+}
+
+.speaker_setting_fixed-height {
+  min-height: 50px;
+}
+
+.cost-from_to{
+  margin: auto 20px auto 0;
+  text-align: center;
+}
+
+p.cost-from_to {
+  font-size: 1.3em;
+}
+
+.bike-open .speaker_setting .row,
+.label-speaker_checked{
+  margin: 10px 0 10px 15px;
+}
+
+.choose_deliver {
+  margin: 30px 0;
+}
+
+.expertise_category,
+.expertise_category:hover,
+.expertise_category:visited{
+  display: inline-block;
+  color: #000;
+  border-color: #000;
+  margin: 10px;
+  line-height: 100%;
+}
+
+.boat-open{
     display: none;
 }
 
-.radio-toolbar-1 input,
-.radio-toolbar-2 input{
+.city-open{
   display: none;
 }
 
+.check-toolbar-5 input,
+.radio-toolbar-2 input,
+.radio-toolbar-1 input,
+.check-toolbar-1 input,
+.check-toolbar-3 input{
+  display: none;
+}
+
+.check-toolbar-5 label,
+.check-toolbar-3 label,
+.radio-toolbar-2 label,
 .radio-toolbar-1 label,
-.radio-toolbar-2 label{
+.check-toolbar-1 label{
   display: inline-block;
   border: 1px solid #dadada;
   padding: 0.5em 2.5em;
@@ -166,21 +313,46 @@
   background-color: white;
   color: #dadada;
   font-size: 0.8em;
+  margin-right: 20px;
 }
 
 .radio-toolbar-2 label {
   padding: 0.5em 1.5em;
 }
 
+.check-toolbar-5 input[type="checkbox"]:checked + label,
+.check-toolbar-3 input[type="checkbox"]:checked + label,
+.radio-toolbar-2 input[type="radio"]:checked + label,
 .radio-toolbar-1 input[type="radio"]:checked + label,
-.radio-toolbar-2 input[type="radio"]:checked + label{
+.check-toolbar-1 input[type="checkbox"]:checked + label{
   background-color: #ffd539;
   border: 1px solid #ffd539;
   color: #000000;
 }
 
-.guest-number {
+.check-toolbar-5 label{
+  margin: 10px 0px 10px 30px;
+}
+
+.list-speaker .butt {
+  margin: 25px auto;
+}
+
+.guest-num .guest-number {
     display: flex!important;
+  border-color: #ffd539;
+}
+
+.guest-num .guest-number:disabled {
+  border-color: #dadada;
+}
+
+.guest-number-rate{
+  margin-right: 20px;
+}
+
+.guest-title {
+  margin: auto 0;
 }
 
 .size-more {
@@ -199,6 +371,37 @@
     margin: 0!important;
 }
 
+.speaker_setting .slider.slider-horizontal {
+  width: 60%;
+}
+
+.slider.slider-horizontal .slider-tick,
+.slider.slider-horizontal .slider-handle {
+  background-color: #fff;
+}
+
+.slider-selection{
+  background-image: linear-gradient(to bottom,#ffd539 0,#ffd539 100%);
+}
+
+.slider-handle {
+  width: 15px;
+  height: 15px;
+  background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.slider.slider-horizontal .slider-track {
+  height: 5px;
+}
+
+#years-start_speaker,
+#years-end_speaker,
+#years-start_guest,
+#years-end_guest{
+  margin: 0 20px;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -207,6 +410,10 @@ input::-webkit-inner-spin-button {
 .cost-content {
     display: flex;
     height: 110px;
+}
+
+.event-pay {
+  margin-right: 20px;
 }
 
 .prise-value {
@@ -218,6 +425,12 @@ input::-webkit-inner-spin-button {
     margin-left: 50px;
 }
 
+.age-guest-open,
+.age-speaker-open{
+  margin: 20px;
+  width: 100%;
+}
+
 .submit {
     display: flex;
     justify-content: center;
@@ -225,20 +438,36 @@ input::-webkit-inner-spin-button {
 }
 
 .load_poster {
+  position: relative;
+  z-index: 0;
   width: 100%;
-  min-height: 250px;
+  height: 250px;
   border-radius: 5px;
   cursor:pointer;
   background-color: #dadada;
   color: #999999;
+    padding: 0;
 }
 
-.fa-image {
+.fa.fa-image {
   font-size: 6em;
   padding-bottom: 5px;
 }
 
+.load_poster-img {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
 .add_poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
   display: block;
   text-transform: uppercase;
   width: 100%;
@@ -247,9 +476,19 @@ input::-webkit-inner-spin-button {
   font-family: "Muller ExtraBold";
 }
 
-.load_poster:hover {
+.load_poster:hover,
+.load_poster:active{
   background-color: #ffd539;
   color: #ffffff;
+    padding: 0;
+}
+
+.invited-switch-open .row {
+  margin: 30px 0 0 20px;
+}
+
+.invite_guest{
+  text-align: center;
 }
 
 .invite_guest a{
@@ -257,8 +496,11 @@ input::-webkit-inner-spin-button {
   text-align: center;
 }
 
+.invite_guest-photo {
+  width: 90%;
+}
+
 .invite_guest-name{
-  margin-top: -15px;
   font-size: 0.8em;
   margin-bottom: 0;
 }
@@ -280,6 +522,10 @@ input::-webkit-inner-spin-button {
   color: #bebed2;
 }
 
+.radio-toolbar-5 label{
+  margin: 10px 0px 10px 30px;
+}
+
 .add_guest {
   width: 200px;
   font-size: 0.8em;
@@ -296,6 +542,10 @@ input::-webkit-inner-spin-button {
 
 .invite {
   padding: 10px 0;
+}
+
+#time-table {
+  margin: 10px -15px;
 }
 
 @media only screen and (max-device-width: 769px) {
@@ -317,7 +567,7 @@ input::-webkit-inner-spin-button {
     z-index: 3;
   }
 
-  .input-switch + label{
+  #switch1 + label{
     width: 150px;
   }
 }
@@ -328,7 +578,252 @@ input::-webkit-inner-spin-button {
     padding-left: 10px;
   }
 
-  .input-switch + label{
+  #switch1 + label{
     width: 170px;
   }
+}
+
+
+#map {
+    height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+table {
+    font-size: 12px;
+}
+
+.google-map {
+
+}
+
+#map {
+    width: 440px;
+}
+#listing {
+    position: absolute;
+    width: 200px;
+    height: 470px;
+    overflow: auto;
+    left: 442px;
+    top: 0px;
+    cursor: pointer;
+    overflow-x: hidden;
+}
+#findhotels {
+    position: absolute;
+    text-align: right;
+    width: 100px;
+    font-size: 14px;
+    padding: 4px;
+    z-index: 5;
+    background-color: #fff;
+}
+
+.placeIcon {
+    width: 20px;
+    height: 34px;
+    margin: 4px;
+}
+.hotelIcon {
+    width: 24px;
+    height: 24px;
+}
+#resultsTable {
+    border-collapse: collapse;
+    width: 240px;
+}
+#rating {
+    font-size: 13px;
+    font-family: Arial Unicode MS;
+}
+.iw_table_row {
+    height: 18px;
+}
+.iw_attribute_name {
+    font-weight: bold;
+    text-align: right;
+}
+.iw_table_icon {
+    text-align: right;
+}
+
+.multi-select-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+
+}
+
+.multi-select-menu {
+    position: absolute;
+    left: 0;
+    top: 0.8em;
+    float: left;
+    min-width: 100%;
+    background: #fff;
+    margin: 1em 0;
+    padding: 0.4em 0;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.multi-select-menu input {
+    margin-right: 0.3em;
+    vertical-align: 0.1em;
+}
+
+.multi-select-button {
+    display: inline-block;
+    font-size: 0.875em;
+    padding: 0.2em 0.6em;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: -0.5em;
+    background: none;
+    border-bottom: 2px solid #bebed2;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+.multi-select-button:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.4em 0.4em 0 0.4em;
+    border-color: #999 transparent transparent transparent;
+    margin-left: 0.4em;
+    vertical-align: 0.1em;
+}
+
+.multi-select-container--open .multi-select-menu {
+    display: block;
+    z-index: 10;
+    display: flex;
+    width: 100%;
+}
+
+.multi-select-container--open .multi-select-button:after {
+    border-width: 0 0.4em 0.4em 0.4em;
+    border-color: transparent transparent #999 transparent;
+}
+
+.multi-select-menuitems {
+    display: flex;
+    flex-direction: column;
+}
+
+.multi-select-menuitem {
+    margin-left: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.speaker_filtered {
+  border: 1px solid rgba(75, 75, 82, 0.5);
+  border-radius: 5px;
+}
+
+.speakers_checked {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 30px;
+}
+
+.speaker_checked{
+  width: 40%;
+}
+
+.speaker_checked-photo {
+  width: 40px;
+  height: 40px;
+  margin: auto 10px;
+}
+
+.speaker_checked-name {
+  margin: 0 10px;
+  line-height: 30px;
+}
+
+.speaker_available.row {
+  margin: 10px 20px;
+  justify-content: space-between;
+}
+
+.speaker_available-title {
+  font-family: "Muller Bold";
+}
+
+.job-speaker-open .button-purple.fill {
+  background-color: transparent;
+}
+
+.job-speaker-open .button-purple{
+  border-color: #c0c0c0;
+}
+
+.job-speaker-open .button-purple:hover,
+.job-speaker-open .button-purple:active {
+  border-color: #ffd539;
+}
+
+.job-speaker-open .fill {
+  color: #000000!important;
+}
+
+.job-speaker-open .multi-button::after {
+  color: #c0c0c0;
+}
+
+.job-speaker-open .button-purple .multi-menu li.selected,
+.job-speaker-open .button-purple .multi-menu li.selected:hover,
+.job-speaker-open .button-purple .multi-menu li.controls {
+  background-color: #ffd539;
+}
+
+#map {
+    height: 425px;
+    width: 100%;
+}
+
+.controls {
+    background-color: #fff;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    height: 29px;
+    margin-left: 17px;
+    margin-top: 10px;
+    outline: none;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 50%;
+}
+
+.controls:focus {
+    border-color: #4d90fe;
+}
+.title {
+    font-weight: bold;
+}
+#infowindow-content {
+    display: none;
+}
+#map #infowindow-content {
+    display: inline;
 }

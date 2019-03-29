@@ -62,7 +62,8 @@ body {
   font-family: "Muller Regular";
 }
 
-hr {
+.yellow-separator,
+.footer-title-divider{
   max-width: 72px;
   border-width: 3px;
   border-color: #ffd800;
@@ -160,10 +161,6 @@ img::-moz-selection {
   text-align: center;
 }
 
-.fa-star {
-  margin: 0 3px;
-  font-size: 16px;
-}
 .yellow {
   color: #ffd800;
 }
@@ -203,7 +200,8 @@ img::-moz-selection {
   color: #000;
 }
 
-.btn-join {
+.event-join .btn-join,
+.button .btn-join{
   background-color: #ffd800;
   border-color: #ffd800;
   font-size: 20px;
@@ -211,6 +209,7 @@ img::-moz-selection {
   line-height: 55px;
   padding: 0 4em;
   font-family: "Muller Bold";
+  border-radius: 300px;
   font-weight: inherit;
   color: #000;
 }
@@ -315,13 +314,15 @@ img::-moz-selection {
 }
 
 #mainNav {
-  padding-top: 13px;
+  padding: 0;
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
   background-color: #ffffff;
   font-family: "Muller Regular";
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 
 #mainNav.navbar-light .navbar-nav .nav-link {
@@ -416,6 +417,10 @@ img::-moz-selection {
   transform: rotate(-135deg);
 }
 
+#navbarResponsive .navbar-expand-lg .navbar-collapse {
+  justify-content: space-between;
+}
+
 .navbar-logo {
   justify-content: flex-end;
   display: flex;
@@ -429,6 +434,12 @@ img::-moz-selection {
   margin: 5px 0;
 }
 
+.container-navbar{
+  min-height: 120px;
+  display: flex!important;
+  align-items: baseline!important;
+}
+
 .container-navbar,
 .contactsNavbar {
   display: flex;
@@ -437,8 +448,10 @@ img::-moz-selection {
 
 .contactsItems {
   display: flex;
-  flex-direction: column;
   font-size: 0.85rem;
+  width: 60%;
+  justify-content: flex-end;
+  margin-top: 10px;
 }
 
 .dropdown-menu .fa {
@@ -446,7 +459,12 @@ img::-moz-selection {
   margin-right: 10px;
 }
 
+.dropdown-menu.show {
+  width: 12em;
+}
+
 .contactsItem {
+  margin: 0 5px;
   font-size: 1em;
   color: #000000;
   text-decoration: none;
@@ -458,7 +476,12 @@ img::-moz-selection {
 }
 
 .dropdown-toggle::after {
-  display: none;
+  display: none!important;
+}
+
+.dropdown-toggle img {
+  width: 60px;
+  height: 60px;
 }
 
 .dropdown-menu {
@@ -471,6 +494,9 @@ img::-moz-selection {
   font-size: 0.7em;
   margin-top: 5px;
   margin-bottom: 0;
+}
+p:before{
+  margin: 0;
 }
 
 #task {
@@ -494,6 +520,13 @@ img::-moz-selection {
   height: 93%;
   background-color: #f1f1f1;
   color: #848484;
+  border-radius: 50%;
+  margin: 0;
+}
+
+#task .task-title {
+  color: white;
+  font-family: "Muller ExtraBold";
 }
 
 .event {
@@ -511,6 +544,7 @@ img::-moz-selection {
   font-weight: normal;
   color: #fff;
   border-radius: 300px;
+  margin: 0 20px;
 }
 
 .event-category:hover {
@@ -602,6 +636,46 @@ img::-moz-selection {
   width: 86%;
 }
 
+.progress-star,
+#comment .progress-star{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.progress-star-item,
+#comment .progress-star-item{
+  width: 100%;
+  height: 100%;
+  vertical-align: super;
+}
+
+.progress{
+   width: 50%;
+   position: relative;
+   height: 90%;
+   margin: auto 0px;
+   border: 3px solid #2a2a2a;
+ }
+
+#people .progress,
+#recent_meeting .progress{
+  border: 2px solid #ffffff;
+  height: 20px;
+}
+
+#comment .progress{
+  width: 70%;
+  height: 20px;
+  position: relative;
+}
+
+#task .progress{
+  width: 9rem;
+  height: 1.5rem;
+  position: relative;
+}
+
 .speaker-name-link {
   text-decoration: none;
   color: #0a0a0a;
@@ -651,10 +725,12 @@ img::-moz-selection {
   margin: auto auto auto 0;
 }
 
-#comment .owl-carousel .owl-item img {
+#comment .owl-carousel .owl-item .profile-photo {
   width: 50px;
   height: 50px;
 }
+
+#comment .owl-carousel .owl-item
 
 .comment-wrapper {
   margin: auto;
@@ -872,6 +948,10 @@ img::-moz-selection {
   margin-top: 20px;
 }
 
+.owl-carousel .owl-stage {
+  margin: 0 auto;
+}
+
 #guests .owl-prev {
   top: 15%;
   left: -20px;
@@ -900,10 +980,13 @@ img::-moz-selection {
 }
 
 .btn-add-guest {
-  padding: 0 70px;
+  padding: 0.75em 3em;
   background-color: #fff;
   margin: 45px auto 0 auto;
   display: block;
+  border: none;
+  border-radius: 300px;
+  font-family: "Muller Bold";
 }
 
 .btn-add-guest:hover {
@@ -962,9 +1045,10 @@ img::-moz-selection {
 .place-description-section {
   margin: 50px auto 0 auto;
   width: auto;
+  text-align: center;
 }
 
-.btn-join-meetup {
+.button .btn-join-meetup {
   padding: 0 68px;
   font-size: 14px;
 }
@@ -1062,8 +1146,7 @@ img::-moz-selection {
   border-top: 1px solid transparent;
   border-bottom: 1px solid #575757;
   background-color: transparent;
-  width: 230px;
-  max-width: 100%;
+  width: 100%;
   color: #fff;
 }
 
@@ -1121,18 +1204,18 @@ img::-moz-selection {
 }
 
 #tab-title .nav-tabs li>a{
-  color: #000000;
+  color: #c0c0c0;
   font-size: 1.2em;
 }
 
-#tab-title .nav-tabs .show{
+#tab-title .nav-tabs .active{
   position: relative;
   color: #000000;
   font-family: "Muller ExtraBold";
   text-decoration: none;
 }
 
-#tab-title .nav-tabs > li > a.show:after {
+#tab-title .nav-tabs > li > a.active:after {
   position: absolute;
   content: "";
   left: 0;
@@ -1314,10 +1397,10 @@ img::-moz-selection {
     margin: auto;
   }
 
-  .place-info-wrapper {
+  #place .place-info-wrapper {
     width: 710px;
     max-width: 710px;
-    margin: auto;
+    margin: 0 auto;
   }
 
   .footer-quick-links-wrapper,
@@ -1334,6 +1417,16 @@ img::-moz-selection {
     z-index: 1030;
     position: relative;
   }
+
+  #task .event-img {
+    height: 350px;
+  }
+
+  #task .event-img img{
+    margin-top: 50px;
+    width: 280px;
+    height: 280px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1347,7 +1440,7 @@ img::-moz-selection {
   }
 
   .event-item {
-    margin-top: -200px;
+    margin-top: -300px;
   }
 
   .footer-quick-links-wrapper {
@@ -1362,7 +1455,7 @@ img::-moz-selection {
     padding-left: 70px;
   }
 
-  .place-info-wrapper {
+  #place .place-info-wrapper {
     width: 1000px;
     max-width: 1000px;
   }
@@ -1396,9 +1489,23 @@ img::-moz-selection {
     width: 86%;
   }
 
+  #people .progress {
+    height: 19px;
+  }
+
   #comment .owl-item-inner {
     width: 100%;
     margin: auto;
+  }
+
+  #task .event-img {
+    height: 400px;
+  }
+
+  #task .event-img img{
+    margin-top: 100px;
+    width: 320px;
+    height: 320px;
   }
 }
 
@@ -1408,8 +1515,30 @@ img::-moz-selection {
     max-width: 1000px;
   }
 
+  .contactsNavbar {
+    width: 370px;
+    height: 100px;
+  }
+
   #contact {
-    padding: 50px 0 70px 0;
+    padding: 10px 0 20px 0;
+  }
+  .fa-star {
+    margin: 0 2px;
+    font-size: 18px;
+  }
+  .event-desc .progress {
+    height: 18px;
+  }
+
+  #task .event-img {
+    height: 450px;
+  }
+
+  #task .event-img img{
+    margin-top: 100px;
+    width: 350px;
+    height: 350px;
   }
 }
 
@@ -1430,6 +1559,10 @@ img::-moz-selection {
     padding: 0;
   }
 
+  .progress {
+    margin: 0 auto;
+  }
+
   section {
     padding: 20px 0;
   }
@@ -1440,6 +1573,24 @@ img::-moz-selection {
 
   #task .container {
     padding-top: 50px;
+  }
+
+  .event-join.btn-join {
+    padding: 0 2em;
+  }
+
+  #task .event-img {
+    height: 400px;
+  }
+
+  #task .event-img img{
+    margin-top: 100px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .event-join .btn-join {
+    padding: 0 2em;
   }
 
   #comment .star {
@@ -1483,9 +1634,6 @@ img::-moz-selection {
 }
 
 @media only screen and (max-width: 321px) {
-  .btn-join{
-    padding: 0 2em;
-  }
 
   #people .owl-carousel .owl-item img.rounded-circle{
     width: 80px;
@@ -1680,3 +1828,116 @@ img::-moz-selection {
   display:none;
 }
 
+#login-btn {
+  font-weight: 400;
+  padding: 0.5em 2em;
+  border-radius: 300px;
+  background: none;
+  border: 2px solid black;
+  outline: none;
+}
+
+#login-form {
+  border-radius: 5px;
+  border: none;
+  background: #fff;
+  position: fixed;
+  top: 35%!important;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -260px;
+  display: none;
+  opacity: 0;
+  padding: 20px 0px 0 0;
+  z-index: 1000;
+  max-height: 65%;
+  overflow-y: auto;
+
+}
+#login-form #modal_close {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: block;
+}
+
+#overlay-login {
+  z-index: 999;
+  position:fixed;
+  background-color:#000;
+  opacity:0.8;
+  -moz-opacity:0.8;
+  filter:alpha(opacity=80);
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  cursor:pointer;
+  display:none;
+}
+
+.hide-content {
+  display: none!important;
+}
+
+.butt {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  font-size: 1.1rem;
+  border-radius: 300px;
+  text-transform: uppercase;
+  outline: none!important;
+    cursor: pointer;
+}
+
+.butt:active {
+    border: 2px solid #c9a700;
+}
+
+.create-meeting-butt {
+  background-color: #ffd800;
+  border:  2px solid #ffd800;
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 2em;
+  font-family: "Muller Bold";
+  font-weight: inherit;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+}
+.create-meeting-butt:hover{
+  text-decoration: none;
+  color: #000;
+}
+
+.cost-from_to {
+  margin: 0;
+  line-height: 2em;
+}
+
+.your-class {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.your-class div {
+  overflow: hidden;
+}
+
+.your-class img {
+  margin: 0 auto;
+}
+
+.place-img {
+  height: 310px;
+  width: 535px;
+}

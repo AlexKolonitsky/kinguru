@@ -54,14 +54,17 @@
 
 .btn-free {
   background-color: #ffffff;
-  border: 1px solid #e0e0e0 !important;
+  border: 1px solid #e0e0e0;
   font-size: 0.8em;
   height: 30px;
   line-height: 32px;
-  padding: 0 1.5em;
+  padding: 0em 0.5em;
   font-family: "Muller Bold";
   color: #000;
-  margin: 10px 25px;
+  margin: 0px 25px;
+  text-align: center;
+  border-radius: 300px;
+  cursor: default;
 }
 
 .btn-search {
@@ -69,11 +72,11 @@
   border-color: #ffd800;
   font-size: 18px;
   height: 40px;
-  line-height: 45px;
   padding: 0 2em;
   font-family: "Muller Bold";
   font-weight: inherit;
   color: #000;
+  outline: none;
 }
 
 .more {
@@ -84,19 +87,19 @@
   font-size: 1.2em;
 }
 
-.fa-heart {
+.fa.fa-heart {
   font-size: 2em;
-  margin: 10px 25px;
+  margin: 0px 25px;
   color: #e0e0e0;
   cursor: pointer;
 }
 
-.like {
+.fa.fa-heart.like {
   background: #ffffff;
   color: #fb0512;
 }
 
-.unlike {
+.fa.fa-heart.unlike {
   background: #ffffff;
   color: #e0e0e0;
 }
@@ -122,13 +125,15 @@ label {
   border-bottom: 1px solid #ffffff;
 }
 
-.form-control:focus {
+#meet.form-control,
+#subject.form-control {
   background: transparent;
   color: #ffffff;
   cursor: pointer;
   text-decoration: none;
   border: none;
   border-bottom: 1px solid #ffffff;
+  outline: none;
 }
 
 option {
@@ -180,7 +185,10 @@ option {
 .task-box img {
   max-width: 100%;
   max-height: 188px;
-  background-color: #ffffff;
+}
+
+.task-box .progress-star-item {
+  vertical-align: super;
 }
 
 .task-box .task-box-inner {
@@ -191,6 +199,7 @@ option {
 
 .task-box .task-box-inner .task-box-inner_desc {
   padding: 25px;
+  height: 80%;
 }
 
 .task-box .task-box-inner > p {
@@ -380,7 +389,11 @@ option {
   color: #fff;
 }
 
-.page-link {
+#paginations {
+  background: #fff;
+}
+
+#paginations .page-link {
   padding: 10px 15px;
   border-radius: 50%;
   margin: 0 10px;
@@ -390,27 +403,16 @@ option {
   outline: none;
 }
 
-.page-link:hover,
-.page-link:active,
-.page-link:focus{
+#paginations .page-link:hover,
+#paginations .page-link:active,
+#paginations .page-link:focus{
   color: #000000;
   background-color: #ffea00;
   border: none;
   outline: none;
 }
 
-.page-item:first-child .page-link,
-.page-item:last-child .page-link,
-.page-item:first-child .page-link:hover,
-.page-item:last-child .page-link:hover,
-.page-item:first-child .page-link:active,
-.page-item:last-child .page-link:active{
-  font-size: 1em;
-  color: #909090;
-  background: none;
-  outline: none;
-  cursor: pointer;
-}
+
 
 @media (min-width: 768px) {
   header.masthead p {
@@ -450,4 +452,14 @@ option {
   .search-button-wrapper {
     margin: 0;
   }
+}
+
+.reset {
+  margin: 0!important;
+  background-color: #ffd800;
+  padding: .375rem .75rem;
+}
+
+.reset-img {
+  width: 14px;
 }

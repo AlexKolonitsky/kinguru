@@ -1,0 +1,200 @@
+(function ($) {
+  "use strict";
+  $('#agree').click(function () {
+    if ($('#continue').is(':disabled')) {
+      $('#continue').prop('disabled', false);
+      return;
+    }
+    ;
+    $('#continue').prop('disabled', true);
+  });
+
+  $('#open-sing-up').click(function () {
+    event.preventDefault();
+    $('#login-content').addClass('hide-content');
+    $('#open-sign-up').removeClass('hide-content');
+  });
+  $('#open-log-in').click(function () {
+    event.preventDefault();
+    $('#login-content').removeClass('hide-content');
+    $('#open-sign-up').addClass('hide-content');
+  });
+  $('#forgot-pass').click(function () {
+    event.preventDefault();
+    $('#login-content').addClass('hide-content');
+    $('#open-reset-pass').removeClass('hide-content');
+  });
+  $('.back-sign_in').click(function () {
+    event.preventDefault();
+    $('#login-content').removeClass('hide-content');
+    $('#open-reset-pass').addClass('hide-content');
+  });
+
+  function checkPasswordMatch() {
+    var password = $("#pass").val();
+    var confirmPassword = $("#passch").val();
+
+    if (password != confirmPassword)
+      $("#divCheckPasswordMatch").html("<p class='pass match'>Passwords match</p>");
+    else
+      $("#divCheckPasswordMatch").html("<p class='pass not_match'>Passwords don't match</p>");
+  };
+
+  $(document).ready(function () {
+    $("#pass, #passch").keyup(checkPasswordMatch);
+  });
+
+  $('#modal_close').click(function () {
+    event.preventDefault();
+    $('#error-login').empty();
+    $('#email-login').val('');
+    $('#passw-login').val('');
+  });
+})(jQuery);
+
+function getUser(token) {
+  $.ajax({
+    url: `${urlBack}/user/current`,
+    headers: {
+      'Authorization': token,
+    },
+    type: 'get',
+    dataType: 'json',
+    contentType: "application/json; charset=utf-8",
+    success: function (data) {
+      showHeaderContent(data.user);
+    },
+  });
+};
+
+window.addEventListener("load", function () {
+  let token = localStorage.getItem('Token');
+  if (token) {
+    console.log('login work');
+    token = `Bearer ${token}`;
+    getUser(token);
+    return;
+  }
+  $('#login-block').removeClass('hide-content');
+});
+
+$('#continue').click(function () {
+  event.preventDefault();
+  $("#error-sugn-up").empty();
+  elementsValidation = ['email', 's-name', 'name', 'pass-sugn-up', 'passch', 'birthday-sign-up'];
+  elementsValidation.forEach(component => {
+    document.getElementById(`${component}`).value.length < 1 ? $(`#${component}`).addClass('validation-input') : $(`#${component}`).removeClass('validation-input');
+  })
+  $.ajax({
+    url: `${urlBack}/user/register`,
+    type: 'post',
+    dataType: 'json',
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(fillFormSingUp()),
+    success: function () {
+        console.log('click');
+        $('#modal_close').show().click();
+    },
+    error: function (jqXHR) {
+      if (jqXHR.status === 401) {
+        $("#error-sugn-up").html("<p class='pass not_match'>The user with email has already been registered</p>");
+      } else if (jqXHR.status === 400) {
+        $("#error-sugn-up").html("<p class='pass not_match'>Fill all field</p>");
+      }
+    }
+
+  });
+});
+
+$('#login-post').click(function () {
+  event.preventDefault();
+  $.ajax({
+    url: `${urlBack}/user/login`,
+    type: 'post',
+    dataType: 'json',
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(fillFormLogIn()),
+    success: function (data) {
+      saveToken(data.token);
+      showHeaderContent(data.user);
+      $('#login-block').addClass('hide-content');
+    },
+    error: function (jqXHR) {
+      if (jqXHR.status === 401) {
+        $('#error-login').empty();
+        $('#error-login').html("<p class='pass not_match error-login'>Please confirm your email to login</p>");
+      } else if (jqXHR.status === 400) {
+        $('#error-login').empty();
+        $('#error-login').html("<p class='pass not_match error-login'>Incorrect email or password</p>");
+      }
+    }
+  });
+});
+
+
+function fillFormSingUp(postData) {
+
+  postData = {
+    firstname: document.getElementById('name').value,
+    lastname: document.getElementById('s-name').value,
+    email: document.getElementById('email').value,
+    country: document.getElementById('country').value,
+    city: document.getElementById('city').value,
+    phone: document.getElementById('phone').value,
+    password: document.getElementById('pass-sugn-up').value,
+    birthday: document.getElementById('birthday-sign-up').value,
+    link: location.hostname === 'localhost' || 's3-eu-west-1.amazonaws.com' ? `${location.origin}/kinguru/frontend/confirmation.html`: `${location.origin}/confirmation.html`,
+  };
+  return postData;
+};
+
+function fillFormLogIn(postData) {
+  postData = {
+    email: document.getElementById('email-login').value,
+    password: document.getElementById('passw-login').value,
+  };
+  return postData;
+};
+
+function saveToken(token) {
+  $('#modal_close').click();
+  localStorage.setItem('Token', token);
+  // console.log(localStorage.getItem('Token'));
+};
+
+function showHeaderContent(user) {
+  const userContent =
+    `<div class="col-lg-4 col-md-2 col-2 d-lg-inline-block d-none user-content">` +
+    `<div class="dropdown">` +
+    `<a href="#" class="dropdown-toggle" data-toggle="dropdown">` +
+    `<img class="img-fluid rounded-circle" src="${user.coverSource}" alt="profile photo"/>` +
+    `</a>` +
+    `<div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">` +
+    `<a class="dropdown-item" href="user_admin.html"` +
+    `><i class="fa fa-user-circle"></i> My profile</a>` +
+    `<a class="dropdown-item" href="#"` +
+    `><i class="fa fa-envelope"></i> Message</a>` +
+    `<a class="dropdown-item" href=""` +
+    `><i class="fa fa-cog"></i> Another action</a>` +
+    `<div class="dropdown-divider"></div>` +
+    `<button id="logOut" class="dropdown-item"` +
+    `><i class="fa fa-sign-out"></i> Logout</button>` +
+    `</div>` +
+    `<div class="d-md-none d-lg-inline-block d-none">` +
+    `<p class="user-name">${user.firstname} ${user.lastname}</p>` +
+    `</div>` +
+    `</div>` +
+    `</div>`;
+  $('#login-block').after(userContent);
+  $('#login-block').addClass('hide-content');
+
+  $('#logOut').click(function () {
+    $('.user-content').remove();
+    $('#login-block').removeClass('hide-content');
+    localStorage.setItem('Token', '');
+    if ($('form').is('#change-pass-form')) {
+      window.location.href = "index.html";
+    }
+  });
+};
+

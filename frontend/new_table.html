@@ -42,7 +42,6 @@
     property="og:description"
     content="Сообщество людей, открытых для встреч и знакомств"
   />
-  <title>KINGURU - для тех кто ценит общение!</title>
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
   <link
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -51,6 +50,10 @@
     crossorigin="anonymous"
   />
   <link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.min.css"/>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+
+  <link rel="stylesheet" href="vendor/bootstrap-slider/bootstrap-slider.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
   <link
     rel="stylesheet"
     type="text/css"
@@ -61,13 +64,95 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css"
   />
   <link href="css/user_admin.css" rel="stylesheet"/>
+  <link href="css/rating.css" rel="stylesheet"/>
   <link href="css/main.css" rel="stylesheet"/>
   <link href="css/new_table.css" rel="stylesheet"/>
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="vendor/bootstrap-multi-/dist/css/BsMultiSelect.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
 </head>
 
 <body id="page-top">
 
-<div id="header"></div>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="contactsItems mx-auto">
+    <a class="contactsItem" href="tel:375296561757">+375 29 656 17 57</a>
+    <a class="contactsItem" href="mailto:info@kinguru.info">info@kinguru.info</a>
+  </div>
+  <div class="container container-navbar row mx-auto">
+    <div class="navbar-logo col-lg-3 col-md-12 col-sm-12 col-12">
+      <a
+        class="navbar-brand col-md-pull-left"
+        href="index.html"
+      ><img
+        class="d-md-inline-block d-lg-inline-block d-none"
+        src="img/logo_header.svg"
+        width="80"
+        height="73"
+        alt="Kinguru"/><img
+        src="img/logo_footer_text.svg"
+        width="105"
+        height="24"
+        alt="Kinguru text"/></a>
+      <button
+        class="navbar-toggler navbar-toggler-right col-md-1 col-2 text-center"
+        id="burger-menu-button"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <div id="nav-icon1">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse col-lg-5 col-md-12 mx-md-auto text-center col-sm-7 col-11"
+         id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link js-scroll-trigger"
+            id="feature_events"
+            href="all_meetup.html">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#people">Speakers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="https://docs.google.com/forms/d/e/1FAIpQLScEwQeZYW8cEvk6y0U6FzQlibcY_z-SM2FrsUZbiecdmPHf2Q/viewform">Venues</a>
+        </li>
+      </ul>
+      <hr class="gray-separator">
+    </div>
+    <div class="collapse navbar-collapse contactsNavbar col-lg-4 col-sm-11 mx-md-auto my-md-2 text-center">
+      <div class="row sotial" id="search">
+        <i class="fa fa-search my-auto"></i>
+      </div>
+      <div id="login-block" class="">
+        <button id="login-btn"
+                class="btn js-scroll-trigger d-md-none d-lg-block ">Login
+        </button>
+      </div>
+      <div>
+        <a class="butt create-meeting-butt" href="new_table.html">create an event</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="login-form">
+    <span id="modal_close">X</span>
+    <div id="login-content"></div>
+    <div class="hide-content" id="open-sign-up"></div>
+    <div class="hide-content" id="open-reset-pass"></div>
+  </div>
+  <div id="overlay-login"></div>
+</nav>
 
 <section id="tabs">
   <div class="container">
@@ -100,34 +185,43 @@
       </div>
       <div class="col-lg-9 col-md-8 col-12 table_content">
         <div class="row">
-          <h1>Start a new table</h1>
-          <div class="col-md-9 well">
-            <legend id="table_about" class="">About meeting</legend>
+          <h1 class="table-item-title">Start a new table</h1>
+          <div class="col-md-12 well">
+            <legend id="table_about" class="table-item-subtitle">About meeting</legend>
             <div class="row">
               <p type="Title of the meeting?" class="col-lg-8 col-12">
-                <input class="input_field" name="title_meeting" type="text" required/>
+                <input id="titleMeetup" class="input_field" name="title_meeting" type="text" required/>
+              </p>
+              <p class="col-lg-4 col-0">
+              </p>
+            </div>
+            <div class="row">
+              <p type="Link event" class="col-lg-8 col-12">
+                <input id="urlEvent" class="input_field" name="url_meeting" type="text" required/>
               </p>
               <p class="col-lg-4 col-0">
               </p>
             </div>
             <div class="row">
               <p type="What's it about?" class="col-lg-8 col-12">
-                <input class="input_field" name="about" type="text" required/>
+                <textarea id="descriptionMeetup" rows="5" class="meeting-desc" name="about" type="text" required></textarea>
               </p>
               <p class="col-lg-4 col-0">
               </p>
             </div>
             <div class="row">
               <p type="Tags" class="col-lg-8 col-12">
-                <input class="input_field" name="tags" type="text" required/>
+                <select name="states" id="tugsMeetup" class="form-control" multiple="multiple"
+                        style="display: none;"></select>
               </p>
               <p class="col-lg-4 col-0">
               </p>
             </div>
             <div class="row">
-              <p type="Meeting poster?" class="col-lg-8 col-12">
+              <p type="Meeting poster?" class="col-lg-6 col-12">
                 <input name="myFile" type="file" id="file" class="input_file">
-                <label class="load_poster col-12" for="file">
+                <label class="load_poster" for="file">
+                  <img id="image" class="load_poster-img">
                   <span class="add_poster">
                     <i class="fa fa-image"></i>
                     <br>
@@ -135,13 +229,13 @@
                   </span>
                 </label>
               </p>
-              <p class="col-lg-4 col-0">
+              <p class="col-lg-6 col-0">
               </p>
             </div>
-
           </div>
+
           <div class="col-md-12 well">
-            <legend id="table_speakers" class="">Speakers</legend>
+            <legend id="table_speakers" class="table-item-subtitle">Speakers</legend>
             <div class="checkbox-label">
               <p class="">With speaker?</p>
               <input class="input-switch input_field" id="switch2" type="checkbox" name="switch" checked="checked"/>
@@ -153,22 +247,11 @@
             </div>
             <div class="radio-speaker">
               <div class="radio-content">
-                <input class="speakers bike" type="checkbox" name="vehicle1" value="Bike" id="vehicle1">
-                <label class="label-speaker" for="vehicle1">Choose a speaker</label>
-                <div class="row bike-open">
-                  <p type="Start typing the name" class="col-lg-8 col-12">
-                    <input class="input_field" name="about" type="text" required/>
-                  </p>
-                  <p class="col-lg-4 col-0">
-                  </p>
-                </div>
-              </div>
-              <div class="radio-content">
-                <input class="speakers" type="checkbox" name="vehicle2" value="Car" id="vehicle2">
+                <input class="speakers" type="checkbox" name="vehicle2" id="vehicle2">
                 <label class="label-speaker" for="vehicle2">I will be the speaker</label>
               </div>
               <div class="radio-content">
-                <input class="speakers boat" type="checkbox" name="vehicle3" value="Boat" id="vehicle3">
+                <input class="speakers boat" type="checkbox" name="vehicle3" id="vehicle3">
                 <label class="label-speaker" for="vehicle3">Add a new speaker</label>
                 <div class="boat-open">
                   <div class="row">
@@ -201,118 +284,293 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-md-12 well">
-            <legend id="table_guests" class="">Guests</legend>
-            <div class="row radio-toolbar-1">
-              <p class="col-lg-3 col-12">Who's invited?</p>
-              <div class="col-lg-4 col-12 my-auto">
-                <input type="radio" id="radio1" name="radios-one" value="all" checked/>
-                <label for="radio1" class="text-center pointer">Open for everyone</label>
-              </div>
-              <div class="col-lg-4 col-12 my-auto">
-                <input type="radio" id="radio2" name="radios-one" value="false"/>
-                <label for="radio2" class="text-center pointer">Just my guests</label>
-              </div>
-            </div>
-            <div class="row radio-toolbar-2">
-              <p class="col-lg-3 col-2">Size</p>
-              <div class="col-lg-2 col-3 my-auto">
-                <input type="radio" id="radio3" name="radios-two" value="all" checked/>
-                <label for="radio3" class="text-center">1-8</label>
-              </div>
-              <div class="col-lg-2 col-3 my-auto">
-                <input type="radio" id="radio4" name="radios-two" value="false"/>
-                <label for="radio4" class="text-center pointer">8-16</label>
-              </div>
-              <div class="col-lg-2 col-4 my-auto">
-                <input type="radio" id="radio5" name="radios-two" value="all"/>
-                <label for="radio5" class="text-center pointer">16-24</label>
-              </div>
-              <div class="col-lg-2 col-8 my-auto size-more">
-                <input class="radio-more" type="radio" id="radio6" name="radios-two" value="false" data-class="js-a"/>
-                <label for="radio6" class="text-center more pointer">more</label>
-                <p type="Guest number" class="guest-num">
-                  <input type="number" min="25" class="input_field guest-number js-a" disabled>
-                </p>
-              </div>
-            </div>
-            <div class="row invite">
-              <p class="col-lg-3 col-2">Invite</p>
-              <div class="col-lg-2 col-2 my-auto invite_guest">
-                <a href="#">
-                  <img src="img/speaker-1.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none" alt="">
-                  <p class="invite_guest-name">Alex Mix</p>
-                </a>
-              </div>
-              <div class="col-lg-2 col-2 my-auto invite_guest">
-                <a href="#">
-                  <img src="img/speaker-2.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none" alt="">
-                  <p class="invite_guest-name">Fedor Hi</p>
-                </a>
-              </div>
-              <div class="col-lg-2 col-2 my-auto invite_guest">
-                <a href="#">
-                  <img src="img/speaker-3.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none" alt="">
-                  <p class="invite_guest-name">Olivian Rock</p>
-                </a>
-              </div>
-              <div class="col-lg-2 col-2 invite_guest">
-                <div class="dropdown">
-                  <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                  </a>
-                  <div class="dropdown-menu add_guest" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">
-                      <div class="row">
-                      <div class="col-2  my-auto">
-                        <i class="fa fa-search"></i>
-                      </div>
-                      <div class="col-10">
-                        <input class="input_field" type="search" placeholder="Find">
-                      </div>
-                      </div>
-                    </a>
-                    <a class="dropdown-item" href="#">item</a>
-                    <a class="dropdown-item" href="#">item</a>
+              <div class="radio-content row">
+                <input class="speakers bike" type="checkbox" name="vehicle1" value="Bike" id="vehicle1">
+                <label class="label-speaker choose_speaker" for="vehicle1">Choose a speaker</label>
+                <div class="bike-open">
+                  <div class="container">
+                    <select name="states" id="speakerMeetup" class="form-control" multiple="multiple"
+                            style="display: none;"></select>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+              <!--<div class="bike-open">-->
+                <!--<div class="choose_deliver">-->
+                  <!--<p>or choose one</p>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting speaker_setting_fixed-height">-->
+                  <!--<input class="speakers city-speaker" type="checkbox" id="setting_1" checked>-->
+                  <!--<label class="label-speaker col-4" for="setting_1">City</label>-->
+                  <!--<div class="city-speaker-open col-8">-->
+                    <!--<input id="speakerCity" class=" input_field" type="text" name="mySpeaker">-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting speaker_setting_fixed-height">-->
+                  <!--<input class="speakers industry-speaker" type="checkbox" id="setting_2" checked>-->
+                  <!--<label class="label-speaker col-4" for="setting_2">Industry</label>-->
+                  <!--<div class="industry-speaker-open col-8">-->
+                    <!--<select name="states" id="speakerIndustry" class="form-control" multiple="multiple"-->
+                            <!--style="display: none;"></select>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting speaker_setting_fixed-height">-->
+                  <!--<input class="speakers job-speaker" type="checkbox" id="setting_3" checked>-->
+                  <!--<label class="label-speaker col-4" for="setting_3">Job title</label>-->
+                  <!--<div class="job-speaker-open col-8">-->
+                      <!--<select name="states" id="speakerJobTitle" class="form-control" multiple="multiple"-->
+                              <!--style="display: none;"></select>-->
+                  <!--</div>-->
+
+                <!--</div>-->
+                <!--<div class="row speaker_setting">-->
+                  <!--<input class="speakers rate-speaker" type="checkbox" id="setting_4" checked>-->
+                  <!--<label class="label-speaker col-12" for="setting_4">Rate</label>-->
+                  <!--<div class="reviewStars-input rate-speaker-open reviewStars_new_table">-->
+                    <!--<input class="star-4" id="rate-place_star-4" type="radio" name="reviewStars"/>-->
+                    <!--<label title="gorgeous" for="rate-place_star-4"></label>-->
+
+                    <!--<input class="star-3" id="rate-place_star-3" type="radio" name="reviewStars"/>-->
+                    <!--<label title="good" for="rate-place_star-3"></label>-->
+
+                    <!--<input class="star-2" id="rate-place_star-2" type="radio" name="reviewStars"/>-->
+                    <!--<label title="regular" for="rate-place_star-2"></label>-->
+
+                    <!--<input class="star-1" id="rate-place_star-1" type="radio" name="reviewStars"/>-->
+                    <!--<label title="poor" for="rate-place_star-1"></label>-->
+
+                    <!--<input class="star-0" id="rate-place_star-0" type="radio" name="reviewStars"/>-->
+                    <!--<label title="bad" for="rate-place_star-0"></label>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting speaker_setting_fixed-height">-->
+                  <!--<input class="speakers cost-speaker" type="checkbox" id="setting_5" checked>-->
+                  <!--<label class="label-speaker col-4" for="setting_5">Cost per hour</label>-->
+                  <!--<div class="col-8 cost-speaker-open">-->
+                    <!--<label class="cost-from_to" for="cost_from">from</label>-->
+                    <!--<input class="input_field cost-from_to" id="cost_from" type="text" name="mySpeaker">-->
+                    <!--<p class="cost-from_to">$</p>-->
+                    <!--<label class="cost-from_to" for="cost_to">to</label>-->
+                    <!--<input class="input_field cost-from_to" id="cost_to" type="text" name="mySpeaker">-->
+                    <!--<p class="cost-from_to">$</p>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting speaker_setting_fixed-height">-->
+                  <!--<input class="speakers expertise-speaker" type="checkbox" id="setting_6" checked>-->
+                  <!--<label class="label-speaker col-4" for="setting_6">Expertise</label>-->
+                  <!--<div class="expertise-speaker-open col-8">-->
+                    <!--<select name="states" id="speakerExpertise" class="form-control" multiple="multiple"-->
+                            <!--style="display: none;"></select>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting">-->
+                  <!--<input class="speakers age-speaker" type="checkbox" id="setting_7" checked>-->
+                  <!--<label class="label-speaker col-12" for="setting_7">Age</label>-->
+                  <!--<div class="age-speaker-open">-->
+                    <!--<b id="years-start_speaker">16</b>-->
+                    <!--<input type="text" id="years-slider_speaker" class="duration-slider" value="" data-slider-min="16"-->
+                           <!--data-slider-max="100" data-slider-step="1" data-slider-value="[16,100]"/>-->
+                    <!--<b id="years-end_speaker">100</b>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting">-->
+                  <!--<input class="speakers gender-speaker" type="checkbox" id="setting_8" checked>-->
+                  <!--<label class="label-speaker col-12" for="setting_8">Gender</label>-->
+                  <!--<div id="speakerGender" class="row check-toolbar-3 gender-speaker-open">-->
+                    <!--<div class="my-auto">-->
+                      <!--<input type="checkbox" id="radio7" value="male">-->
+                      <!--<label for="radio7" class="text-center pointer">Male</label>-->
+                    <!--</div>-->
+                    <!--<div class="my-auto">-->
+                      <!--<input type="checkbox" id="radio8" value="female">-->
+                      <!--<label for="radio8" class="text-center pointer">Female</label>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting">-->
+                  <!--<input class="speakers lang-speaker" type="checkbox" id="setting_9" checked>-->
+                  <!--<label class="label-speaker col-12" for="setting_9">Language</label>-->
+                  <!--<div id="languageSpeakers" class="row check-toolbar-1 lang-speaker-open"></div>-->
+                <!--</div>-->
+                <!--<div class="col-md-12 well submit list-speaker">-->
+                  <!--<button class="btn-join butt sett-btn" id="searchSpeakers">Search speakers</button>-->
+                <!--</div>-->
+                <!--<div class="speaker_filtered">-->
+                  <!--<div id="speakersListFilter" class="speakers_checked check-toolbar-2">-->
+
+                  <!--</div>-->
+                  <!--<div class="speaker_available row">-->
+                    <!--<p class="speaker_available-title">The speaker will be available after confirming</p>-->
+                    <!--<p>-->
+                    <!--<div class="speaker_available-number">6</div>-->
+                    <!--speakers</p>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<div class="col-md-12 well" >-->
+            <!--<legend id="table_guests" class="table-item-subtitle">Guests</legend>-->
+            <!--<div class="row radio-toolbar-1">-->
+              <!--<p class="col-lg-2 col-12 guest-title">Who's invited?</p>-->
+              <!--<div class="my-auto">-->
+                <!--<input type="radio" id="radio1" name="radios-one" value="all" checked/>-->
+                <!--<label for="radio1" class="text-center pointer">Open to everyone</label>-->
+              <!--</div>-->
+              <!--<div class="my-auto">-->
+                <!--<input type="radio" id="radio2" name="radios-one" value="false"/>-->
+                <!--<label for="radio2" class="text-center pointer">Just my guests</label>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row radio-toolbar-2">-->
+              <!--<p class="col-lg-2 col-2 guest-title">Size</p>-->
+              <!--<div class="guest-number-rate my-auto">-->
+                <!--<input type="radio" id="radio3" name="radios-two" value="all" checked/>-->
+                <!--<label for="radio3" class="text-center">1-8</label>-->
+              <!--</div>-->
+              <!--<div class="guest-number-rate my-auto">-->
+                <!--<input type="radio" id="radio4" name="radios-two" value="false"/>-->
+                <!--<label for="radio4" class="text-center pointer">8-16</label>-->
+              <!--</div>-->
+              <!--<div class="guest-number-rate my-auto">-->
+                <!--<input type="radio" id="radio5" name="radios-two" value="all"/>-->
+                <!--<label for="radio5" class="text-center pointer">16-24</label>-->
+              <!--</div>-->
+              <!--<div class="guest-number-rate my-auto size-more">-->
+                <!--<input class="radio-more" type="radio" id="radio6" name="radios-two" value="false" data-class="js-a"/>-->
+                <!--<label for="radio6" class="text-center more pointer">more</label>-->
+                <!--<p type="Guest number" class="guest-num">-->
+                  <!--<input type="number" min="25" class="input_field guest-number js-a" disabled>-->
+                <!--</p>-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="invited-by_guest">-->
+              <!--<div class="checkbox-label event-pay">-->
+                <!--<p class="">Invited people by mail</p>-->
+                <!--<input class="input-switch input_field invited-by" id="invited-by" type="checkbox" name="switch"-->
+                       <!--checked="checked"/>-->
+                <!--<label class="invited-switch" for="invited-by">-->
+                  <!--<span class="switch-label off">No</span>-->
+                  <!--<span class="switch-label on">Yes</span>-->
+                  <!--<span class="grip"></span>-->
+                <!--</label>-->
+              <!--</div>-->
+              <!--<div class="invited-by-open col-lg-8 col-12">-->
+                <!--<div class="row speaker_setting speaker_setting_fixed-height">-->
+                  <!--<input class="speakers job-guest" type="checkbox" id="setting_guest_1" checked>-->
+                  <!--<label class="label-speaker col-4" for="setting_guest_1">Job title</label>-->
+                  <!--<div class="job-guest-open multiSelect-field col-8">-->
+                    <!--<select name="states" id="guestJobTitle" class="form-control" multiple="multiple"-->
+                            <!--style="display: none;"></select>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting speaker_setting_fixed-height">-->
+                  <!--<input class="speakers expertise-guest" type="checkbox" id="setting_guest_6" checked>-->
+                  <!--<label class="label-speaker col-4" for="setting_guest_6">Expertise</label>-->
+                  <!--<div class="expertise-guest-open col-8">-->
+                    <!--<select name="states" id="guestExpertise" class="form-control" multiple="multiple"-->
+                            <!--style="display: none;"></select>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting speaker_setting_fixed-height">-->
+                  <!--<input class="speakers interest-guest" type="checkbox" id="setting_guest_2" checked>-->
+                  <!--<label class="label-speaker col-4" for="setting_guest_2">Interests</label>-->
+                  <!--<div class="interest-guest-open col-8">-->
+                    <!--<select name="states" id="guestInterest" class="form-control" multiple="multiple"-->
+                            <!--style="display: none;"></select>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting">-->
+                  <!--<input class="speakers age-guest" type="checkbox" id="setting_guest_3" checked>-->
+                  <!--<label class="label-speaker col-12" for="setting_guest_3">Age</label>-->
+                  <!--<div class="age-guest-open">-->
+                    <!--<b id="years-start_guest">16</b>-->
+                    <!--<input type="text" id="years-slider_guest" class="duration-slider" value="" data-slider-min="16"-->
+                           <!--data-slider-max="100" data-slider-step="1" data-slider-value="[16,100]"/>-->
+                    <!--<b id="years-end_guest">100</b>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row speaker_setting">-->
+                  <!--<input class="speakers gender-guest" type="checkbox" id="setting_guest_4" checked>-->
+                  <!--<label class="label-speaker col-12" for="setting_guest_4">Gender</label>-->
+                  <!--<div class="row check-toolbar-5 gender-guest-open">-->
+                    <!--<div class="my-auto">-->
+                      <!--<input type="checkbox" id="radio10" name="radios-fifth" value="male" checked/>-->
+                      <!--<label for="radio10" class="text-center pointer">Male</label>-->
+                    <!--</div>-->
+                    <!--<div class="my-auto">-->
+                      <!--<input type="checkbox" id="radio11" name="radios-fifth" value="female"/>-->
+                      <!--<label for="radio11" class="text-center pointer">Female</label>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="row speaker_setting speaker_setting_fixed-height">-->
+                  <!--<input class="speakers city-guest" type="checkbox" id="setting_guest_7" checked>-->
+                  <!--<label class="label-speaker col-4" for="setting_guest_7">City</label>-->
+                  <!--<div class="city-guest-open col-8">-->
+                    <!--<input class=" input_field" type="text" name="mySpeaker">-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-md-12 well submit list-speaker">-->
+                  <!--<button class="btn-join butt sett-btn">Search guests</button>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="row invite">-->
+              <!--<p class="col-lg-2 col-2 guest-title">Invite</p>-->
+              <!--<div class="col-lg-2 col-2 my-auto invite_guest">-->
+                <!--<a href="#">-->
+                  <!--<img src="img/speaker-1.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none"-->
+                       <!--alt="">-->
+                  <!--<p class="invite_guest-name">Alex Mix</p>-->
+                <!--</a>-->
+              <!--</div>-->
+              <!--<div class="col-lg-2 col-2 my-auto invite_guest">-->
+                <!--<a href="#">-->
+                  <!--<img src="img/speaker-2.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none"-->
+                       <!--alt="">-->
+                  <!--<p class="invite_guest-name">Fedor Hi</p>-->
+                <!--</a>-->
+              <!--</div>-->
+              <!--<div class="col-lg-2 col-2 my-auto invite_guest">-->
+                <!--<a href="#">-->
+                  <!--<img src="img/speaker-3.jpg" class="invite_guest-photo img-fluid rounded-circle px-lg-3 px-none"-->
+                       <!--alt="">-->
+                  <!--<p class="invite_guest-name">Olivian Rock</p>-->
+                <!--</a>-->
+              <!--</div>-->
+              <!--<div class="col-lg-2 col-2 invite_guest">-->
+                <!--<div class="dropdown">-->
+                  <!--<a class="dropdown-toggle" href="#" data-toggle="dropdown">-->
+                    <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+                  <!--</a>-->
+                  <!--<div class="dropdown-menu add_guest" aria-labelledby="dropdownMenuButton">-->
+                    <!--<a class="dropdown-item">-->
+                      <!--<div class="row">-->
+                        <!--<div class="col-1">-->
+                          <!--<i class="fa fa-search"></i>-->
+                        <!--</div>-->
+                        <!--<div class="col-9">-->
+                          <!--<input class="input_field" type="search" placeholder="Find">-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</a>-->
+                    <!--<a class="dropdown-item" href="#">item</a>-->
+                    <!--<a class="dropdown-item" href="#">item</a>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
 
           <div class="col-md-12 well">
-            <legend id="table_date" class="">Date and time</legend>
+            <legend id="table_date" class="table-item-subtitle">Date and time</legend>
             <div class="row">
-              <p type="Date" class="col-lg-8 col-12">
-              <div class="fallbackDatePicker row">
-                <div class="col-3">
-                  <select id="day" class="select_field" name="day">
-                  </select>
-                </div>
-                <div class="col-5">
-                  <select id="month" class="select_field" name="month">
-                    <option selected>January</option>
-                    <option>February</option>
-                    <option>March</option>
-                    <option>April</option>
-                    <option>May</option>
-                    <option>June</option>
-                    <option>July</option>
-                    <option>August</option>
-                    <option>September</option>
-                    <option>October</option>
-                    <option>November</option>
-                    <option>December</option>
-                  </select>
-                </div>
-                <div class="col-4">
-                  <select id="year" class="select_field" name="year">
-                  </select>
-                </div>
-              </div>
+              <p type="Date" class="col-12">
+                <input class="input_field col-lg-6 col-12" name="expertise" id="dateMeetup" type="date" value=""/>
               </p>
               <p class="col-lg-4 col-0">
               </p>
@@ -320,40 +578,50 @@
             <div class="row">
               <div id="time-table" class="col-lg-8 col-12 row">
                 <p type="Hour start" class="col-6">
-                  <input type="text" class="time start text-center input_field">
+                  <input id="startHour" type="text" class="time start text-center input_field">
                 </p>
                 <p type="Hour end" class="col-6">
-                  <input type="text" class="time end text-center input_field">
+                  <input id="endHour" type="text" class="time end text-center input_field">
                 </p>
               </div>
               <p class="col-lg-4 col-0">
               </p>
             </div>
             <div class="row">
-              <p type="Country" class="col-4">
-                <input type="text" class="input_field">
+              <p type="Country" class="col-4" id="controls">
+                <input id="countryMeetup" type="text" class="input_field">
               </p>
               <p type="City" class="col-4">
-                <input type="text" class="input_field">
+                <input id="cityMeetup" type="text" class="input_field">
               </p>
               <p type="Metro" class="col-4">
-                <select id="metro" class="select_field" name="metro">
-                </select>
+                <input id="metroMeetup" type="text" class="input_field">
               </p>
             </div>
             <div class="row">
-              <p type="Choose a place" class="col-lg-7 col-12">
-                <input id="pac-input" type="text" class="input_field controls"/>
+              <p type="Choose a place" class="col-lg-7 col-12" id="locationField">
+                <input id="placeMeetup" type="text" class="input_field">
               </p>
               <p class="col-lg-5 col-0">
               </p>
             </div>
-            <div id="map" style="width:100%;height:400px;"></div>
+            <div style="display: none">
+              <input id="pac-input"
+                     class="controls"
+                     type="text"
+                     placeholder="Enter a location">
+            </div>
+            <div id="map"></div>
+            <div id="infowindow-content">
+              <span id="place-name" class="title"></span><br>
+              <strong>Place ID</strong>: <span id="place-id"></span><br>
+              <span id="place-address"></span>
+            </div>
           </div>
           <div class="col-md-12 well">
-            <legend id="table_cost" class="">Cost</legend>
+            <legend id="table_cost" class="table-item-subtitle">Cost</legend>
             <div class="cost-content">
-              <div class="checkbox-label col-7">
+              <div class="checkbox-label event-pay">
                 <p class="">The event is paid</p>
                 <input class="input-switch input_field" id="switch1" type="checkbox" name="switch" checked="checked"/>
                 <label class="switch1" for="switch1">
@@ -363,18 +631,18 @@
                 </label>
               </div>
               <div class="row price-open">
-                <p type="Price" class="col-lg-5">
+                <p type="Price" class="col-lg-5 guest-title">
                   <input class="input_field" name="about" type="text" required/>
-                <p class="prise-value">$</p>
+                <p class="prise-value guest-title">$</p>
                 </p>
                 <p class="col-lg-4 col-0">
                 </p>
               </div>
             </div>
           </div>
-            <div class="col-md-12 well submit">
-              <button class="btn-join btn sett-btn">submit</button>
-            </div>
+          <div class="col-md-12 well submit">
+            <button id="createMeetup" class="btn-join butt sett-btn">submit</button>
+          </div>
         </div>
       </div>
     </div>
@@ -384,18 +652,36 @@
 <footer id="footer"></footer>
 
 
+<script src="js/google_map.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChz9A5Nog5rcMGOY580pq6prfiL-gk7ok&libraries=places&callback=initMap"
+  async defer></script>
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
 <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.js"></script>
+<script src="js/routing.js"></script>
 <script src="js/main.js"></script>
-<script src="js/user_admin.js "></script>
+<script src="js/rating.js"></script>
+<script src="vendor/bootstrap-slider/bootstrap-slider.min.js"></script>
 <script src="js/new_table.js "></script>
-<script src="js/data.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXFqmqsAuHyK-GCF5HDrMqu5WULRpFN-8&callback=initMap" type="text/javascript"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+<script src="vendor/bootstrap-multi-/dist/js/BsMultiSelect.js"></script>
+
+<script src="js/multiSetting.js" defer></script>
+
 </body>
 </html>

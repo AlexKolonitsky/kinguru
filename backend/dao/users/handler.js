@@ -60,7 +60,7 @@ class UsersDao {
   createUser(userInfo, link) {
     return Users.findOne({
       where: {
-        email: userInfo.email
+        email
       }
     })
       .then(user => {
