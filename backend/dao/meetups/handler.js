@@ -168,7 +168,7 @@ class MeetupDao {
       })
     ])
       .then(response => {
-        let meetup = response[zeroIndex][zeroIndex];
+        let responseMeetup = response[zeroIndex][zeroIndex];
         let tagIds = _.map(response[firstIndex], 'id');
         let speakerIds = _.map(response[secondIndex], 'id');
         let guestIds = _.map(response[thirdIndex], 'id');
@@ -177,7 +177,7 @@ class MeetupDao {
         speakerIds.forEach(speakerId => {
           promises.push(MeetupsSpeakers.findOrCreate({
             where: {
-              meetupId: meetup.id,
+              meetupId: responseMeetup.id,
               speakerId: speakerId
             }
           }))
@@ -186,7 +186,7 @@ class MeetupDao {
         tagIds.forEach(tagId => {
           promises.push(MeetupsTags.findOrCreate({
             where: {
-              meetupId: meetup.id,
+              meetupId: responseMeetup.id,
               tagId: tagId
             }
           }))
@@ -195,7 +195,7 @@ class MeetupDao {
         guestIds.forEach(guestId => {
           promises.push(MeetupsGuests.findOrCreate({
             where: {
-              meetupId: meetup.id,
+              meetupId: responseMeetup.id,
               guestId: guestId
             }
           }))
