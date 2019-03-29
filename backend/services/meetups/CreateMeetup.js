@@ -54,7 +54,6 @@ class CreateMeetup extends RequestHandlers {
       .then(data => {
         filter.coverSource = data.Location;
         filter.coverKey = data.key;
-        console.log(filter);
         return MeetupsDaoHandler.createMeetup(filter)
       })
   }

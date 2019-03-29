@@ -212,10 +212,10 @@ class MeetupDao {
                 }
               })
                 .then(() => {
-                  return this.getCurrentMeetup(meetup.id);
+                  return this.getCurrentMeetup(responseMeetup.id);
                 })
             }
-            return this.getCurrentMeetup(meetup.id);
+            return this.getCurrentMeetup(responseMeetup.id);
           })
       })
   }
