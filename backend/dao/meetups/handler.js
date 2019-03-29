@@ -66,7 +66,9 @@ class MeetupDao {
             }],
         })
           .then(filteredMeetups => {
-            filteredMeetups = filteredMeetups.filter(meetup => meetup.isOpen);
+            filteredMeetups = filteredMeetups
+              .reverse()
+              .filter(meetup => meetup.isOpen);
             if (filteredMeetups.length === 0) {
               return Promise.reject(utils.responseError(404, `Meetups not found`))
             }
