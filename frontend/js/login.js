@@ -52,6 +52,8 @@
   });
 })(jQuery);
 
+let userId = '';
+
 function getUser(token) {
   $.ajax({
     url: `${urlBack}/user/current`,
@@ -63,6 +65,7 @@ function getUser(token) {
     contentType: "application/json; charset=utf-8",
     success: function (data) {
       showHeaderContent(data.user);
+        userId = data.user.id;
     },
   });
 };
@@ -84,7 +87,7 @@ $('#continue').click(function () {
   elementsValidation = ['email', 's-name', 'name', 'pass-sugn-up', 'passch', 'birthday-sign-up'];
   elementsValidation.forEach(component => {
     document.getElementById(`${component}`).value.length < 1 ? $(`#${component}`).addClass('validation-input') : $(`#${component}`).removeClass('validation-input');
-  })
+  });
   $.ajax({
     url: `${urlBack}/user/register`,
     type: 'post',
@@ -93,7 +96,7 @@ $('#continue').click(function () {
     data: JSON.stringify(fillFormSingUp()),
     success: function () {
         console.log('click');
-        $('#modal_close').show().click();
+        // $('#modal_close').show().click();
     },
     error: function (jqXHR) {
       if (jqXHR.status === 401) {
@@ -143,7 +146,7 @@ function fillFormSingUp(postData) {
     phone: document.getElementById('phone').value,
     password: document.getElementById('pass-sugn-up').value,
     birthday: document.getElementById('birthday-sign-up').value,
-    link: location.hostname === 'localhost' || 's3-eu-west-1.amazonaws.com' ? `${location.origin}/kinguru/frontend/confirmation.html`: `${location.origin}/confirmation.html`,
+    link: location.hostname === 'localhost' ? `${location.origin}/kinguru/frontend/confirmation.html`: `${location.origin}/confirmation.html`,
   };
   return postData;
 };

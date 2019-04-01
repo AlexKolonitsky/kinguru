@@ -164,15 +164,6 @@ $(document).ready(function () {
     $('#years-end_guest').text(range[0].value.split(',')[1]);
   });
 });
-// $(function () {
-//   $('.time').timepicker({
-//     dynamic: false,
-//     dropdown: true,
-//     scrollbar: true,
-//     format: 'HH:mm'
-//   });
-// });
-
 
 function getAllSpeakers(object) {
   $.ajax({
@@ -183,7 +174,21 @@ function getAllSpeakers(object) {
     data: JSON.stringify(object),
     success: function (jsondata) {
       viewSpeakerFilter(jsondata);
-      console.log(jsondata.length);
+      $('.speaker_filtered').removeClass('hide-content');
+
+    }
+  });
+}
+function getAllguest() {
+  $.ajax({
+    url: `${urlBack}/guests`,
+    method: 'post',
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(),
+    success: function (jsondata) {
+      console.log(jsondata);
+      viewGuestsFilter(jsondata);
 
     }
   });
@@ -246,19 +251,38 @@ $('#searchSpeakers').click(function () {
       return parseInt(x.split(`${jobTitleSelector}`)[1], 10);
     });
   }
+  if($('#radio7').is(":checked")) {
+    filter.gender = $('#radio7').val();
+  }
+  if($('#radio8').is(":checked")) {
+    filter.gender = $('#radio8').val();
+  }
+  if($('#radio7').is(":checked") && $('#radio8').is(":checked")) {
+    filter.gender = `${$('#radio7').val()}, ${$('#radio8').val()}`;
+  }
 
   getAllSpeakers(filter);
 });
 
-$('#dateMeetup').click( function () {
-  console.log($('#dateMeetup').val());
-})
+$('#searchGuests').click(function () {
+  event.preventDefault();
+  $.ajax({
+    url: `${urlBack}/guests`,
+    method: 'post',
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(),
+    success: function (jsondata) {
+      console.log(jsondata);
+
+    }
+  });
+});
 
 window.addEventListener("load", function () {
   let language = function (jsondata) {allLanguages(jsondata);};
-  let tags = function (jsondata) {tagsMeetup(jsondata.tags);};
-  let jobTitle = function (jsondata) {speakerJobTitle(jsondata);};
   filterGet(`languages`, language);
+  getAllguest();
 });
 
 function filterGet (url, success) {
@@ -303,6 +327,7 @@ function speakerJobTitle(titles = []) {
   });
 
   $(`#${jobTitleSelector}`).append(jobTitle);
+  $('#guestJobTitle').append(jobTitle);
 }
 
 function tagsMeetup(allTagsFilter = []) {
@@ -323,6 +348,7 @@ function industrySpeaker(industrys = []) {
     industryList += countFilter;
   });
   $(`#${industrySelector}`).append(industryList);
+  $('#guestInterest').append(industryList);
 };
 function expertiseSpeaker(expertises = []) {
   let expertiseList = ``;
@@ -332,10 +358,12 @@ function expertiseSpeaker(expertises = []) {
     expertiseList += countFilter;
   });
   $(`#${expertiseSelector}`).append(expertiseList);
+  $('#guestExpertise').append(expertiseList);
 };
 
 function viewSpeakerFilter(speakers) {
   $('#speakersListFilter').empty();
+  $('#speakerCountSearch').empty();
   let speakerList = ``;
   speakers.forEach(speaker => {
     let speakerContent =
@@ -348,7 +376,29 @@ function viewSpeakerFilter(speakers) {
       `</div>`;
     speakerList += speakerContent;
   });
+  let speakerCount = `${speakers.length}`;
   $('#speakersListFilter').append(speakerList);
+  $('#speakerCountSearch').append(speakerCount);
+}
+
+function viewGuestsFilter(guests) {
+  $('#guestListFilter').empty();
+  $('#guestCountSearch').empty();
+  let guestList = ``;
+  guests.forEach(guest => {
+    let guestContent =
+      `<div class="speaker_checked my-auto">` +
+      `<input class="speakers" type="checkbox" id="speaker${guest.id}">` +
+      `<label class="label-speaker_checked row" for="speaker${guest.id}">` +
+      `<img class="speaker_checked-photo rounded-circle" src="${guest.coverSource}">` +
+      `<p class="speaker_checked-name">${guest.firstname} ${guest.lastname}</p>` +
+      `</label>` +
+      `</div>`;
+    guestList += guestContent;
+  });
+  let guestCount = `${guests.length}`;
+  $('#guestListFilter').append(guestList);
+  $('#guestCountSearch').append(guestCount);
 }
 
 function readURL(input) {
@@ -367,10 +417,18 @@ $("#file").change(function(){
 });
 $('#startHour').click(function () {
   console.log(document.getElementById('startHour').value);
-})
+});
 $('#createMeetup').click(function () {
   event.preventDefault();
+  console.log(userId);
   let fd = new FormData();
+  let speakerShearch = $(`#${speakerSelector}`).val().map(function (x) {
+    return parseInt(x.split(`${speakerSelector}`)[1], 10);});
+  let speakerId = $(`#vehicle2`).is(":checked");
+  if(speakerId){
+    userId;
+    return userId;
+  };
 
   fd.append( 'image', $('#file')[0].files[0]);
   fd.append( 'title', document.getElementById('titleMeetup').value);
@@ -383,8 +441,7 @@ $('#createMeetup').click(function () {
   fd.append('city', document.getElementById('cityMeetup').value);
   fd.append('place', document.getElementById('placeMeetup').value);
   fd.append('socialLink', document.getElementById('urlEvent').value);
-  fd.append('speakers', $(`#${speakerSelector}`).val().map(function (x) {
-    return parseInt(x.split(`${speakerSelector}`)[1], 10);}));
+  fd.append('speakers', `${speakerShearch}, ${speakerId || ''}`);
 
   $.ajax({
     url: `${urlBack}/new/meetup`,
@@ -399,4 +456,4 @@ $('#createMeetup').click(function () {
     }
   });
 
-})
+});
