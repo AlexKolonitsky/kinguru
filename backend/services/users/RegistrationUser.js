@@ -51,7 +51,7 @@ class RegisterUser extends RequestHandlers {
     return UsersDaoHandler.createUser(request.body)
       .then(() => {
         console.log('User successfully registration');
-        return Promise.resolve('Ok');
+        return 'Ok';
       })
       .catch((err) => {
         if (err.code === ERRORS_CODE.DUPLICATE) {
