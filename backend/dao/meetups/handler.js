@@ -18,6 +18,23 @@ const attributes = {
   tag: ['id', 'name']
 };
 
+const meetupAssociates = [
+  {
+    model: Users, as: 'speakers', attributes: attributes.user,
+    through: {attributes: []}
+  },
+  {
+    model: Users, as: 'guests', attributes: attributes.user,
+    through: {attributes: []}
+  },
+  {
+    model: Tags, as: 'tags', attributes: attributes.tag,
+    through: {attributes: []}
+  },
+  {
+    model: Locations, as: 'location'
+  }
+];
 
 /**
  * @description dashboard all meetups and search
@@ -51,19 +68,7 @@ class MeetupDao {
             ]
           },
           attributes: attributes.meetup,
-          include: [
-            {
-              model: Users, as: 'speakers', attributes: attributes.user,
-              through: {attributes: []}
-            },
-            {
-              model: Users, as: 'guests', attributes: attributes.user,
-              through: {attributes: []}
-            },
-            {
-              model: Tags, as: 'tags', attributes: attributes.tag,
-              through: {attributes: []}
-            }],
+          include: meetupAssociates
         })
           .then(filteredMeetups => {
             filteredMeetups = filteredMeetups
@@ -96,23 +101,7 @@ class MeetupDao {
         id: meetupId
       },
       attributes: attributes.meetup,
-      include: [
-        {
-          model: Users, as: 'speakers', attributes: attributes.user,
-          through: {attributes: []}
-        },
-        {
-          model: Users, as: 'guests', attributes: attributes.user,
-          through: {attributes: []}
-        },
-        {
-          model: Tags, as: 'tags', attributes: attributes.tag,
-          through: {attributes: []}
-        },
-        {
-          model: Locations, as: 'location'
-        }
-      ],
+      include: meetupAssociates,
     })
       .then(meetup => {
         if (!meetup) {
