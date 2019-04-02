@@ -278,7 +278,6 @@ class UsersDao {
             message: `User not authorized`
           });
         }
-        console.log(user);
         return this.getUserInfoResponse(user);
       })
       .catch(err => {
