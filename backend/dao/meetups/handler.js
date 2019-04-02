@@ -109,6 +109,9 @@ class MeetupDao {
           model: Tags, as: 'tags', attributes: attributes.tag,
           through: {attributes: []}
         },
+        {
+          model: Locations, as: 'location'
+        }
       ],
     })
       .then(meetup => {
@@ -118,19 +121,7 @@ class MeetupDao {
             message: `Meetup with such id ${meetupId} not found`
           })
         }
-        if (!meetup.locationId) {
-          return meetup;
-        }
-        return Locations.findOne({
-          where: {
-            id: meetup.locationId
-          }
-        })
-          .then(location => {
-            meetup = meetup.dataValues;
-            meetup.location = location.dataValues;
-            return meetup;
-          })
+        return meetup;
       })
   }
 

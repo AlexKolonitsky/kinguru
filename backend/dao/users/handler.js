@@ -39,7 +39,10 @@ const userAssociates = [
   {
     model: Industries, as: 'industries', attributes: ['id', 'name'],
     through: {attributes: []}
-  },];
+  },
+  {
+    model: Locations, as: 'userLocation'
+  }];
 
 class UsersDao {
 
@@ -119,7 +122,7 @@ class UsersDao {
       })
   }
 
-  getSpeakersByAssociations(roles = [1,2,3], associationTable) {
+  getSpeakersByAssociations(roles = [1, 2, 3], associationTable) {
     const filter = {role: roles};
     if (associationTable) {
       filter.id = _.uniq(_.map(associationTable, 'userId'));
@@ -275,23 +278,8 @@ class UsersDao {
             message: `User not authorized`
           });
         }
-        if (!user.locationId) {
-          return this.getUserInfoResponse(user);
-        }
-        return Locations.findOne({
-          where: {
-            id: user.locationId
-          },
-          attributes: ['country', 'state', 'city', 'address', 'metro', 'phone', 'zipCode', 'place']
-        })
-          .then(location => {
-            if (!location) {
-              return this.getUserInfoResponse(user);
-            }
-            user = user.dataValues;
-            user.location = location.dataValues;
-            return this.getUserInfoResponse(user);
-          })
+        console.log(user);
+        return this.getUserInfoResponse(user);
       })
       .catch(err => {
         if (err.code === ERRORS_CODE.NOT_FOUND) {

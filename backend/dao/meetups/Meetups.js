@@ -86,7 +86,12 @@ module.exports = (sequelize, DataTypes) => {
       as: 'tags',
       through: models.MeetupsTags,
       foreignKey: 'meetupId',
-    })
+    });
+
+    Meetups.belongsTo(models.Locations, {
+      as: 'location',
+      foreignKey: 'locationId',
+    });
 
   };
 

@@ -160,6 +160,11 @@ module.exports = (sequelize, DataTypes) => {
       through: models.UsersIndustries,
       foreignKey: 'userId',
     });
+
+    Users.belongsTo(models.Locations, {
+      as: 'userLocation',
+      foreignKey: 'locationId',
+    });
   };
 
 
