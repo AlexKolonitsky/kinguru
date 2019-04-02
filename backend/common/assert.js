@@ -34,7 +34,7 @@ function _assertJwt(req, res, next) {
   const token = getToken(req);
   const user = token ? utils.getUserByToken(token) : null;
   if (!token || (!user || !user.user)) {
-    return res.status(403).end('User not authorized');
+    return res.status(401).end('User not authorized');
   }
   return true;
 }

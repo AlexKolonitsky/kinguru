@@ -15,7 +15,7 @@ class SubscriptionsDao {
       .then(([user, created]) => {
           if (!created) {
             return Promise.reject({
-              code: 403,
+              code: 4,
               message: `User with email: ${email} already signed`
             })
           }
