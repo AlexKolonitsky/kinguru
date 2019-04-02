@@ -266,6 +266,17 @@ $('#searchSpeakers').click(function () {
 
 $('#searchGuests').click(function () {
   event.preventDefault();
+
+  // $('#radio6').val($('#guestValNumber').val());
+  // console.log($('input[name=radios-two]:checked').val());
+
+  let values = new Array();
+  $.each($("input[name='name=guestName[]']:checked"), function() {
+    values.push($(this).val());
+    console.log(values.push($(this).val()));
+  });
+
+
   $.ajax({
     url: `${urlBack}/guests`,
     method: 'post',
@@ -388,7 +399,7 @@ function viewGuestsFilter(guests) {
   guests.forEach(guest => {
     let guestContent =
       `<div class="speaker_checked my-auto">` +
-      `<input class="speakers" type="checkbox" id="speaker${guest.id}">` +
+      `<input name="guestName" class="speakers" type="checkbox" id="speaker${guest.id}" value="speaker${guest.id}">` +
       `<label class="label-speaker_checked row" for="speaker${guest.id}">` +
       `<img class="speaker_checked-photo rounded-circle" src="${guest.coverSource}">` +
       `<p class="speaker_checked-name">${guest.firstname} ${guest.lastname}</p>` +
@@ -442,6 +453,7 @@ $('#createMeetup').click(function () {
   fd.append('place', document.getElementById('placeMeetup').value);
   fd.append('socialLink', document.getElementById('urlEvent').value);
   fd.append('speakers', `${speakerShearch}, ${speakerId || ''}`);
+  fd.append('isOpen', $('input[name=radios-one]:checked').val());
 
   $.ajax({
     url: `${urlBack}/new/meetup`,
