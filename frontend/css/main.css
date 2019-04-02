@@ -1617,29 +1617,6 @@ p:before{
   background-color: #ffd800;
 }
 
-.hide-content {
-  display: none!important;
-}
-
-.butt {
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  border: 2px solid transparent;
-  font-size: 1.1rem;
-  border-radius: 300px;
-  text-transform: uppercase;
-  outline: none!important;
-    cursor: pointer;
-}
-
-.butt:active {
-    border: 2px solid #c9a700;
-}
-
-
 .cost-from_to {
   margin: 0;
   line-height: 2em;
