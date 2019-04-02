@@ -381,7 +381,10 @@ function viewSpeakerFilter(speakers) {
       `<div class="speaker_checked my-auto">` +
       `<input class="speakers" type="checkbox" id="speaker${speaker.id}">` +
       `<label class="label-speaker_checked row" for="speaker${speaker.id}">` +
-      `<img class="speaker_checked-photo rounded-circle" src="${speaker.coverSource}">` +
+      `<div class="speaker_checked-photo">` +
+      `<img class="speaker_checked-photo rounded-circle" alt="" src="${speaker.coverSource}">` +
+      `<img class="speaker_checked-photo_default rounded-circle" alt="" src="img/default-user-image.png">` +
+      `</div>` +
       `<p class="speaker_checked-name">${speaker.firstname} ${speaker.lastname}</p>` +
       `</label>` +
       `</div>`;
@@ -390,6 +393,10 @@ function viewSpeakerFilter(speakers) {
   let speakerCount = `${speakers.length}`;
   $('#speakersListFilter').append(speakerList);
   $('#speakerCountSearch').append(speakerCount);
+
+  $(".speaker_checked").change(function(){
+    $('#speakerCountChecked').text($('#speakersListFilter input:checked').length);
+  });
 }
 
 function viewGuestsFilter(guests) {
@@ -401,7 +408,10 @@ function viewGuestsFilter(guests) {
       `<div class="speaker_checked my-auto">` +
       `<input name="guestName" class="speakers" type="checkbox" id="speaker${guest.id}" value="speaker${guest.id}">` +
       `<label class="label-speaker_checked row" for="speaker${guest.id}">` +
-      `<img class="speaker_checked-photo rounded-circle" src="${guest.coverSource}">` +
+      `<div class="speaker_checked-photo">` +
+      `<img class="speaker_checked-photo_load rounded-circle" alt="" src="${guest.coverSource}">` +
+      `<img class="speaker_checked-photo_default rounded-circle" alt="" src="img/default-user-image.png">` +
+      `</div>` +
       `<p class="speaker_checked-name">${guest.firstname} ${guest.lastname}</p>` +
       `</label>` +
       `</div>`;
@@ -410,7 +420,12 @@ function viewGuestsFilter(guests) {
   let guestCount = `${guests.length}`;
   $('#guestListFilter').append(guestList);
   $('#guestCountSearch').append(guestCount);
+
+  $(".speaker_checked").change(function(){
+    $('#guestCountChecked').text($('#guestListFilter input:checked').length);
+  });
 }
+
 
 function readURL(input) {
   if (input.files && input.files[0]) {
