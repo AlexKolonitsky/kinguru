@@ -73,9 +73,22 @@ function isIncludeValue(currentValue, possibleValues) {
   }
 }
 
+/**
+ * @function fieldExist - verify if field exists; value, that incomes as 0 - should be valid
+ * @param {string} key
+ * @param {*} value
+ * @returns {string|undefined} - string means error, undefined - field exists
+ */
+
+function validateRole(accessRole, userRole) {
+  if (userRole < accessRole) {
+    return `User did not assert the required permissions`;
+  }
+}
+
+
 module.exports = {
   fieldExist,
   validateEmail,
-  validatePositiveNumber,
-  isIncludeValue,
+  validateRole,
 };
