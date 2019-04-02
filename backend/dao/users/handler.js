@@ -66,7 +66,7 @@ class UsersDao {
       .then(user => {
         if (!user) {
           const email = userInfo.email;
-          const html = 'Hello, ' + email + '! Thank you for registering! To set up your account and start an event, confirm your email address, please, and click the button below.' +
+          const html = 'Hello, ' + userInfo.firstname + '! Thank you for registering! To set up your account and start an event, confirm your email address, please, and click the button below.' +
             `<br/><br/><a href="${link}?email=${utils.getJwtToken(email).split(' ')[1]}">Registration confirmation</a>`;
           return nodemailer.sendMail(
             null,

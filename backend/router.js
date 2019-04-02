@@ -98,6 +98,14 @@ router.get('/wordkeys', (req, res, next) => wordkeys.GetAllWordKeys.process(req,
 const languages = require('./services/languages/index');
 router.get('/languages', (req, res, next) => languages.GetAllLanguages.process(req, res, next));
 
+/**
+ * @description Subscriptions endpoints
+ */
+
+const subscriptions = require('./services/subscriptions/index');
+router.get('/subscribe/:email', (req, res, next) => subscriptions.Subscribe.process(req, res, next));
+
+
 
 /**
  * @description Images endpoints
