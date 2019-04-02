@@ -13,6 +13,7 @@ $.ajax({
   contentType: "application/json; charset=utf-8",
   success: function (jsondata) {
     speakerJobTitle(jsondata);
+    guestJobTitle(jsondata);
   }
 });
 
@@ -33,6 +34,7 @@ $.ajax({
   contentType: "application/json; charset=utf-8",
   success: function (jsondata) {
     industrySpeaker(jsondata);
+    industryGuest(jsondata);
   }
 });
 
@@ -43,6 +45,7 @@ $.ajax({
   contentType: "application/json; charset=utf-8",
   success: function (jsondata) {
     expertiseSpeaker(jsondata);
+    expertiseGuest(jsondata);
   }
 });
 
@@ -187,7 +190,6 @@ function getAllguest() {
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(),
     success: function (jsondata) {
-      console.log(jsondata);
       viewGuestsFilter(jsondata);
 
     }
@@ -206,7 +208,11 @@ $.ajax({
 
 
 $('#searchSpeakers').click(function () {
-  const languages = [1, 2, 3, 4];
+  let languages = [];
+  $("input[name='radios-forth[]']:checked").each(function () {
+    languages.push($(this).val());
+    languages = languages.map(Number);
+  });
 
   // let speaker = $('#speakerMeetup').val();
   // let chooseSpeaker = speaker.map(function (x) {
@@ -216,10 +222,7 @@ $('#searchSpeakers').click(function () {
   // console.log(chooseSpeaker);
 
   const filter = {
-    // gender: $('#radio7').is(":checked")? $('#radio7').val(): '',
-    languages: languages.filter(languageId => {
-      return $(`#languageSpeakers${languageId}`).is(":checked");
-    }),
+    languages: languages,
   };
   if (document.getElementById('cost_from').value) {
     filter.costFrom = document.getElementById('cost_from').value
@@ -266,34 +269,68 @@ $('#searchSpeakers').click(function () {
 
 $('#searchGuests').click(function () {
   event.preventDefault();
+  $('#guestListFilter').empty();
+  $('#guestCountSearch').empty();
 
-  // $('#radio6').val($('#guestValNumber').val());
-  // console.log($('input[name=radios-two]:checked').val());
+  const filter = {};
+  if ($(`#guestJobTitle`).val()) {
+    filter.jobTitles = $(`#guestJobTitle`).val().map(function (x) {
+      return parseInt(x.split(`guestJobTitle`)[1], 10);
+    });
+  }
+  if ($(`#guestExpertise`).val()) {
+    filter.expertises = $(`#guestExpertise`).val().map(function (x) {
+      return parseInt(x.split(`guestExpertise`)[1], 10);
+    });
+  }
+  if ($(`#guestInterest`).val()) {
+    filter.industries = $(`#guestInterest`).val().map(function (x) {
+      return parseInt(x.split(`guestInterest`)[1], 10);
+    });
+  }
+  if (document.getElementById('years-slider_guest').value.split(',')[0]) {
+    filter.ageFrom = document.getElementById('years-slider_guest').value.split(',')[0]
+  }
+  if (document.getElementById('years-slider_guest').value.split(',')[1]) {
+    filter.ageTo = document.getElementById('years-slider_guest').value.split(',')[1]
+  }
 
-  let values = new Array();
-  $.each($("input[name='name=guestName[]']:checked"), function() {
-    values.push($(this).val());
-    console.log(values.push($(this).val()));
-  });
+  if($('#radio10').is(":checked")) {
+    filter.gender = $('#radio10').val();
+  }
+  if($('#radio11').is(":checked")) {
+    filter.gender = $('#radio11').val();
+  }
+  if($('#radio10').is(":checked") && $('#radio11').is(":checked")) {
+    filter.gender = `${$('#radio10').val()}, ${$('#radio11').val()}`;
+  }
 
+  // let guest = [];
+  // $("input[name='guestName[]']:checked").each(function () {
+  //   guest.push($(this).val().split('speaker')[1]);
+  //   guest = guest.map(Number);
+  // });
 
   $.ajax({
     url: `${urlBack}/guests`,
     method: 'post',
     dataType: "json",
     contentType: "application/json; charset=utf-8",
-    data: JSON.stringify(),
+    data: JSON.stringify(filter),
     success: function (jsondata) {
-      console.log(jsondata);
-
+      viewGuestsFilter(jsondata);
     }
   });
 });
 
 window.addEventListener("load", function () {
   let language = function (jsondata) {allLanguages(jsondata);};
+  let token = localStorage.getItem('Token');
   filterGet(`languages`, language);
   getAllguest();
+  if(token){
+    $('#createMeetup').removeAttr('disabled');
+  }
 });
 
 function filterGet (url, success) {
@@ -311,7 +348,7 @@ function allLanguages(langs = []) {
   langs.forEach(lang => {
     let langList =
       ` <div class="my-auto">` +
-      ` <input type="checkbox" id="languageSpeakers${lang.id}" name="radios-forth" value="${lang.id}"/>` +
+      ` <input type="checkbox" id="languageSpeakers${lang.id}" name="radios-forth[]" value="${lang.id}"/>` +
       ` <label for="languageSpeakers${lang.id}" class="text-center pointer">${lang.name}</label>` +
       ` </div>`;
     langName += langList;
@@ -338,8 +375,16 @@ function speakerJobTitle(titles = []) {
   });
 
   $(`#${jobTitleSelector}`).append(jobTitle);
+}
+function guestJobTitle(titles = []) {
+  let jobTitle = ``;
+  titles.forEach(title => {
+    let titleList = `<option value="#guestJobTitle${title.id}">${title.name}</option>`
+    jobTitle += titleList;
+  });
   $('#guestJobTitle').append(jobTitle);
 }
+
 
 function tagsMeetup(allTagsFilter = []) {
   let tagsList = ``;
@@ -349,7 +394,7 @@ function tagsMeetup(allTagsFilter = []) {
     tagsList += countFilter;
   });
   $(`#${tagSelector}`).append(tagsList);
-};
+}
 
 function industrySpeaker(industrys = []) {
   let industryList = ``;
@@ -359,8 +404,17 @@ function industrySpeaker(industrys = []) {
     industryList += countFilter;
   });
   $(`#${industrySelector}`).append(industryList);
+}
+function industryGuest(guests = []) {
+  let industryList = ``;
+  guests.forEach(industry => {
+    let countFilter =
+      `<option value="#guestInterest${industry.id}">${industry.name}</option>`;
+    industryList += countFilter;
+  });
   $('#guestInterest').append(industryList);
-};
+}
+
 function expertiseSpeaker(expertises = []) {
   let expertiseList = ``;
   expertises.forEach(expertise => {
@@ -369,8 +423,18 @@ function expertiseSpeaker(expertises = []) {
     expertiseList += countFilter;
   });
   $(`#${expertiseSelector}`).append(expertiseList);
-  $('#guestExpertise').append(expertiseList);
 };
+
+function expertiseGuest(guests = []) {
+  let expertiseList = ``;
+  guests.forEach(guest => {
+    let countFilter =
+      `<option value="#guestExpertise${guest.id}">${guest.name}</option>`;
+    expertiseList += countFilter;
+  });
+  $('#guestExpertise').append(expertiseList);
+}
+
 
 function viewSpeakerFilter(speakers) {
   $('#speakersListFilter').empty();
@@ -406,7 +470,7 @@ function viewGuestsFilter(guests) {
   guests.forEach(guest => {
     let guestContent =
       `<div class="speaker_checked my-auto">` +
-      `<input name="guestName" class="speakers" type="checkbox" id="speaker${guest.id}" value="speaker${guest.id}">` +
+      `<input name="guestName[]" class="speakers" type="checkbox" id="speaker${guest.id}" value="speaker${guest.id}">` +
       `<label class="label-speaker_checked row" for="speaker${guest.id}">` +
       `<div class="speaker_checked-photo">` +
       `<img class="speaker_checked-photo_load rounded-circle" alt="" src="${guest.coverSource}">` +
@@ -448,6 +512,7 @@ $('#createMeetup').click(function () {
   event.preventDefault();
   console.log(userId);
   let fd = new FormData();
+  let guests = [];
   let speakerShearch = $(`#${speakerSelector}`).val().map(function (x) {
     return parseInt(x.split(`${speakerSelector}`)[1], 10);});
   let speakerId = $(`#vehicle2`).is(":checked");
@@ -455,6 +520,11 @@ $('#createMeetup').click(function () {
     userId;
     return userId;
   };
+  $("input[name='guestName[]']:checked").each(function () {
+    guests.push($(this).val().split('speaker')[1]);
+    guests = guests.map(Number);
+  });
+  $('#radio6').val($('#guestValNumber').val());
 
   fd.append( 'image', $('#file')[0].files[0]);
   fd.append( 'title', document.getElementById('titleMeetup').value);
@@ -469,6 +539,9 @@ $('#createMeetup').click(function () {
   fd.append('socialLink', document.getElementById('urlEvent').value);
   fd.append('speakers', `${speakerShearch}, ${speakerId || ''}`);
   fd.append('isOpen', $('input[name=radios-one]:checked').val());
+  fd.append('guests', guests);
+  fd.append('maxGuestsCount', $('input[name=radios-two]:checked').val());
+  fd.append('cost', $('#costMeetup').val());
 
   $.ajax({
     url: `${urlBack}/new/meetup`,
@@ -482,5 +555,4 @@ $('#createMeetup').click(function () {
     success: function(data){
     }
   });
-
 });

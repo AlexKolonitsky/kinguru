@@ -273,6 +273,7 @@ p.cost-from_to {
 
 #guestListFilter .label-speaker_checked {
   flex-wrap: nowrap;
+    cursor: pointer;
 }
 
 .choose_deliver {
@@ -747,7 +748,7 @@ table {
   flex-wrap: wrap;
   justify-content: flex-start;
   height: 330px;
-  overflow: scroll;
+  overflow-x: auto;
   padding: 20px 30px;
 }
 

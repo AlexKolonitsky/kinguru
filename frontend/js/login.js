@@ -79,6 +79,7 @@ window.addEventListener("load", function () {
     return;
   }
   $('#login-block').removeClass('hide-content');
+  $('#notAuthorization').html("<p class='pass not_match'>For create event you can authorization</p>");
 });
 
 $('#continue').click(function () {
@@ -121,6 +122,8 @@ $('#login-post').click(function () {
       saveToken(data.token);
       showHeaderContent(data.user);
       $('#login-block').addClass('hide-content');
+      $('#createMeetup').removeAttr('disabled');
+      $('#notAuthorization').empty();
     },
     error: function (jqXHR) {
       if (jqXHR.status === 401) {
@@ -194,6 +197,8 @@ function showHeaderContent(user) {
   $('#logOut').click(function () {
     $('.user-content').remove();
     $('#login-block').removeClass('hide-content');
+    $('#createMeetup').attr('disabled', true);
+    $('#notAuthorization').html("<p class='pass not_match'>For create event you can authorization</p>");
     localStorage.setItem('Token', '');
     if ($('form').is('#change-pass-form')) {
       window.location.href = "index.html";

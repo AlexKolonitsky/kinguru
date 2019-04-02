@@ -158,7 +158,7 @@ function showAllMeetups(allMeetups) {
       `<span>${fromModelToView(meetup.startDate)}</span>` +
       `</p>` +
       `<p>` +
-      `<i class="fa fa-map-marker"></i>${meetup.city}` +
+      `<i class="fa fa-map-marker"></i>${meetup.location ? meetup.location.city : '' }` +
       `</p>` +
       `</div>` +
       `</div>` +

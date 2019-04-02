@@ -608,7 +608,7 @@
               </div>
               <div class="row price-open">
                 <p type="Price" class="col-lg-5 guest-title">
-                  <input class="input_field" name="about" type="text" required/>
+                  <input id="costMeetup" class="input_field" name="about" type="number" min="0" value="" required/>
                 <p class="prise-value guest-title">$</p>
                 </p>
                 <p class="col-lg-4 col-0">
@@ -617,7 +617,8 @@
             </div>
           </div>
           <div class="col-md-12 well submit">
-            <button id="createMeetup" class="btn-join butt sett-btn">submit</button>
+            <button id="createMeetup" class="btn-join butt sett-btn" disabled>submit</button>
+            <div id="notAuthorization"></div>
           </div>
         </div>
       </div>
