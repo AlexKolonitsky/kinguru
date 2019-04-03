@@ -50,7 +50,7 @@ gulp.task('copy', function () {
     './js/*',
     '!./js/environmentDev.js',
     '!./js/environmentProd.js',
-    './css/*',
+    './css/*',  // delete after scss
     './vendor/**/*',
 
   ], { base: './'})
