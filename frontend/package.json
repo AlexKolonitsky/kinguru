@@ -30,6 +30,7 @@
     "gulp-imagemin": "^2.3.0",
     "gulp-minify-css": "^1.2.1",
     "gulp-path": "^2.0.2",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sftp": "^0.1.5",
     "gulp-w3c-css": "^0.1.2",

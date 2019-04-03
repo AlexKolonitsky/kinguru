@@ -4,6 +4,7 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var htmlmin = require('gulp-htmlmin');
+var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 
 
@@ -47,6 +48,8 @@ gulp.task('copy', function () {
     './fonts/*',
     './img/*',
     './js/*',
+    '!./js/environmentDev.js',
+    '!./js/environmentProd.js',
     './css/*',
     './vendor/**/*',
 
@@ -57,6 +60,22 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('./build/'));
 });
 
+gulp.task('environment-dev', function () {
+  return gulp.src('./js/environmentDev.js')
+    .pipe(rename('environment.js'))
+    .pipe(gulp.dest('./build/js/'));
+});
+
+gulp.task('environment-prod', function () {
+  return gulp.src('./js/environmentProd.js')
+    .pipe(rename('environment.js'))
+    .pipe(gulp.dest('./build/js'));
+});
+
 gulp.task('default', function () {
-  return runSequence('clean', 'scss-css', 'copy', 'min-css', 'min-html');
+  return runSequence('clean', 'scss-css', 'copy', 'environment-dev', 'min-css', 'min-html');
+});
+
+gulp.task('prod', function () {
+  return runSequence('clean', 'scss-css', 'copy', 'environment-prod', 'min-css', 'min-html');
 });
