@@ -173,7 +173,7 @@ function showHeaderContent(user) {
     `<div class="col-lg-4 col-md-2 col-2 d-lg-inline-block d-none user-content">` +
     `<div class="dropdown">` +
     `<a href="#" class="dropdown-toggle" data-toggle="dropdown">` +
-    `<img class="img-fluid rounded-circle" src="${user.coverSource}" alt="profile photo"/>` +
+    `<img class="img-fluid rounded-circle" src="${user.coverSource ? user.coverSource : 'img/default-user-image.png'}" alt="profile photo"/>` +
     `</a>` +
     `<div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">` +
     `<a class="dropdown-item" href="user_admin.html"` +

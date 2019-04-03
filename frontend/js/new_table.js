@@ -446,8 +446,7 @@ function viewSpeakerFilter(speakers) {
       `<input class="speakers" type="checkbox" id="speaker${speaker.id}">` +
       `<label class="label-speaker_checked row" for="speaker${speaker.id}">` +
       `<div class="speaker_checked-photo">` +
-      `<img class="speaker_checked-photo rounded-circle" alt="" src="${speaker.coverSource}">` +
-      `<img class="speaker_checked-photo_default rounded-circle" alt="" src="img/default-user-image.png">` +
+      `<img class="speaker_checked-photo rounded-circle" alt="" src="${speaker.coverSource ? speaker.coverSource : 'img/default-user-image.png'}">` +
       `</div>` +
       `<p class="speaker_checked-name">${speaker.firstname} ${speaker.lastname}</p>` +
       `</label>` +
@@ -473,8 +472,7 @@ function viewGuestsFilter(guests) {
       `<input name="guestName[]" class="speakers" type="checkbox" id="speaker${guest.id}" value="speaker${guest.id}">` +
       `<label class="label-speaker_checked row" for="speaker${guest.id}">` +
       `<div class="speaker_checked-photo">` +
-      `<img class="speaker_checked-photo_load rounded-circle" alt="" src="${guest.coverSource}">` +
-      `<img class="speaker_checked-photo_default rounded-circle" alt="" src="img/default-user-image.png">` +
+      `<img class="speaker_checked-photo_load rounded-circle" alt="" src="${guest.coverSource ? guest.coverSource : 'img/default-user-image.png'}">` +
       `</div>` +
       `<p class="speaker_checked-name">${guest.firstname} ${guest.lastname}</p>` +
       `</label>` +
