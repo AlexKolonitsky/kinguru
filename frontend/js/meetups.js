@@ -62,7 +62,7 @@ function showRecentMeetups(recentMeetups) {
       `       title="${meetup.title}"` +
       `       ><img` +
       `         class="img mx-auto d-block"` +
-      `         src="${meetup.coverSource}"` +
+      `         src="${meetup.coverSource ? meetup.coverSource : 'img/default-user-image.png'}"` +
       `         alt="reportage"` +
       `     /></a>` +
       `     <div class="task-box-inner">` +
@@ -81,13 +81,13 @@ function showRecentMeetups(recentMeetups) {
     });
     meetupContent +=
       `           <p>` +
-      `             <span><i class="fa fa-user"></i>${meetup.guestsCount}</span>` +
+      `             <span><i class="fa fa-user"></i>${meetup.guestsCount || ''}</span>` +
       `           </p>` +
       `           <p>` +
       `             <span><i class="fa fa-commenting"></i>3 reviews</span>` +
       `           </p>` +
       `           <p>` +
-      `             <i class="fa fa-map-marker"></i> ${meetup.city}` +
+      `             <i class="fa fa-map-marker"></i> ${meetup.city ? meetup.city : ''}` +
       `           </p>` +
       `         </div>` +
       `       </div>` +
@@ -129,7 +129,7 @@ function showAllMeetups(allMeetups) {
       `class="task-box_poster"` +
       `title="${meetup.title}">` +
       `<img class="img mx-auto d-block"` +
-      `src="${meetup.coverSource}"` +
+      `src="${meetup.coverSource ? meetup.coverSource : 'img/default-user-image.png'}"` +
       `alt="reportage"` +
       `/></a>` +
       `<div class="task-box-inner">` +
