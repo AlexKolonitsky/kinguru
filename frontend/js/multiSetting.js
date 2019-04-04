@@ -22,6 +22,18 @@ setTimeout(function () {
     selectedPanelFocusBoxShadow: 'transparent',
     selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)'
   });
+  jQuery('#guestInterest').bsMultiSelect({
+    selectedPanelFocusBoxShadow: 'transparent',
+    selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)'
+  });
+  jQuery('#guestJobTitle').bsMultiSelect({
+    selectedPanelFocusBoxShadow: 'transparent',
+    selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)'
+  });
+  jQuery('#guestExpertise').bsMultiSelect({
+    selectedPanelFocusBoxShadow: 'transparent',
+    selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)'
+  });
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36251023-1']);
