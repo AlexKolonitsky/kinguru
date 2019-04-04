@@ -293,25 +293,23 @@ header.masthead p>span {
     fill:none;
 }
 
-#task {
+#task_index {
     background: url('../img/parallax-pen.png') no-repeat center center;
     background-attachment: fixed;
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
 	-o-background-size: contain;
     background-size: contain;
+  background-color: #fff;
 
 }
 
-#task .timeplace {
+#task_index .timeplace {
 	font-size: 12px;
 	font-family: "Muller Regular";
 }
 
-#task .row {
-
-}
-	#task .row > [class*='col-'] {
+	#task_index .row > [class*='col-'] {
 
 	}
 
@@ -1078,7 +1076,7 @@ footer {
 	header.masthead {
 	  background-attachment: scroll, scroll;
 	}
-	#invite, #work, #task, #photos, #people, #contact {
+	#invite, #work, #task_index, #photos, #people, #contact {
 	  background-attachment: scroll;
 	}
 }

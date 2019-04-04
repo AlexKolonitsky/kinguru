@@ -311,10 +311,6 @@ img::-moz-selection {
   font-size: 1.4em;
 }
 
-
-
-
-
 .gray-separator {
   max-width: 100%;
   border-width: 1px;
@@ -328,26 +324,6 @@ img::-moz-selection {
   margin-right: 10px;
 }
 
-.dropdown-toggle::after {
-  display: none!important;
-}
-
-.dropdown-toggle img {
-  width: 60px;
-  height: 60px;
-}
-
-.dropdown-menu {
-  right: 0;
-  left: auto;
-}
-
-.user-name {
-  font-family: "Muller Bold";
-  font-size: 0.7em;
-  margin-top: 5px;
-  margin-bottom: 0;
-}
 p:before{
   margin: 0;
 }

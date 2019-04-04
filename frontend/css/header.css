@@ -29,6 +29,11 @@
   margin-top: 10px;
 }
 
+.dropdown-menu {
+  right: auto;
+  left: auto;
+}
+
 .dropdown-menu .fa {
   color: rgb(95, 112, 135);
   margin-right: 10px;
@@ -36,6 +41,20 @@
 
 .dropdown-menu.show {
   width: 12em;
+}
+
+.dropdown-toggle img{
+  width: 60px;
+  height: 60px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.user-name {
+  font-size: 0.7em;
+  font-family: "Muller Bold";
 }
 
 .contactsItem {
