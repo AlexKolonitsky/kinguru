@@ -80,23 +80,6 @@ img::selection {
   background: transparent;
 }
 
-img::-moz-selection {
-  color: #fff;
-  background: transparent;
-}
-
-.fa.fa-plus,
-.fa.fa-minus {
-  border: 3px solid #ffd800;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  width: 39px;
-  height: 39px;
-  line-height: 35px;
-  text-align: center;
-}
-
 .fa-star {
   margin: 0 3px;
   font-size: 16px;
@@ -181,60 +164,6 @@ img::-moz-selection {
   color: #fff;
 }
 
-.fa-search {
-  font-size: 1.2em;
-}
-
-.fa-map-marker,
-.fa-envelope-o,
-.fa-mobile,
-.fa-globe{
-  font-family: "FontAwesome";
-  margin-right: 14px;
-  font-size: 1.5em;
-  color: #ffd800;
-}
-
-.fa.fa-heart {
-  font-size: 2em;
-  margin: 10px 25px;
-  color: #e0e0e0;
-  cursor: pointer;
-}
-
-.fa.like {
-  background: #ffffff;
-  color: #fb0512;
-}
-
-.fa.unlike {
-  background: #ffffff;
-  color: #e0e0e0;
-}
-
-#task .fa-mobile {
-  font-size: 2em;
-  margin-left: 4px;
-  margin-right: 20px;
-}
-
-#task .fa-globe {
-  margin-right: 20px;
-}
-
-.fa-facebook-f,
-.fa-linkedin,
-.fa-instagram {
-  margin-top: 10px;
-  margin-right: 10px;
-  color: #4e555b;
-  font-size: 1.2em;
-}
-
-.speaker-contact a {
-  color: #ffffff;
-}
-
 .section-title {
   margin-bottom: 25px;
   color: #0a0a0a;
@@ -249,13 +178,7 @@ img::-moz-selection {
   margin: 42px auto;
 }
 
-.stripe-path {
-  stroke-width: 3px;
-  stroke: #ffd800;
-  fill: none;
-}
-
-.about-meetups {
+.comment-text{
   display: inline-block;
   text-overflow: ellipsis;
   word-wrap: break-word;
@@ -263,90 +186,17 @@ img::-moz-selection {
   min-height: 5.8em;
   line-height: 1.5em;
   font-family: "Muller Regular";
-}
-
-.comment-text {
-  display: inline-block;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  overflow: hidden;
-  max-height: 5.8em;
-  line-height: 1.5em;
-  font-family: "Muller Regular";
-}
-
-.comment-text,
-.comment-time {
   font-size: 0.7em;
 }
 
 .comment-time {
   margin: 0;
+  font-size: 0.7em;
 }
 
 .color-gray {
   color: #4e555b;
   font-size: 1.4em;
-}
-
-#speaker-profile {
-  background: url("../img/parallax-6-dark.png") repeat center center,
-    url("../img/main-dark.png") no-repeat center 0;
-  background-attachment: fixed, scroll;
-  -webkit-background-size: contain, cover;
-  -moz-background-size: contain, cover;
-  -o-background-size: contain, cover;
-  background-size: contain, cover;
-  overflow-x: hidden;
-}
-
-#speaker-profile .container {
-  padding-top: 7rem;
-  padding-bottom: 0;
-}
-
-#speaker-profile .dots-button {
-  width: 93%;
-  height: 93%;
-  background-color: #f1f1f1;
-  color: #848484;
-}
-
-.speaker {
-  color: #ffffff;
-}
-
-.meetups-number,
-.speaktime-number {
-  margin: 0;
-  font-size: 3em;
-  font-weight: bold;
-}
-
-.speaker-interest,
-.speaker-lang{
-  margin: 20px 10px;
-}
-
-.speaker-category {
-  background-color: transparent;
-  border: 1px solid #fff;
-  font-size: 16px;
-  height: 40px;
-  line-height: 20px;
-  padding: 0.6em 1.5em;
-  font-family: "Muller Regular";
-  font-weight: normal;
-  color: #fff;
-  border-radius: 300px;
-}
-
-.speaker-category:hover {
-  color: #fff;
-}
-
-.speaker-cost {
-  margin: 20px 0px;
 }
 
 .svg-calendar,
@@ -362,183 +212,6 @@ img::-moz-selection {
   position: absolute;
   border: 0 solid black;
 }
-
-.task-box {
-  position: relative;
-  margin: 0 auto;
-  color: rgb(95, 112, 135);
-  display: flex;
-  flex-direction: column;
-
-  height: 100%;
-  max-width: 305px;
-}
-.task-box img {
-  max-width: 100%;
-  max-height: 188px;
-  background-color: #ffffff;
-}
-
-.task-box .task-box-inner {
-  background-color: #fff;
-  height: 100%;
-  box-shadow: 0 21px 46px 0 rgba(0, 0, 0, 0.07);
-}
-
-.task-box .task-box-inner .task-box-inner_desc {
-  padding: 25px;
-}
-
-.task-box .task-box-inner > p {
-  margin-bottom: 0;
-}
-
-.task-box .task-box-inner > a[role="button"] {
-  display: inline-block;
-  font-size: 13px;
-  color: #0a0a0a;
-  font-family: "Muller Bold";
-  text-transform: uppercase;
-  border-radius: 50px;
-  padding-left: 25px;
-  position: absolute;
-  right: -15px;
-  bottom: 8px;
-}
-.task-box .task-box-inner > a[aria-expanded="true"] {
-  display: none;
-}
-.task-box .task-box-inner > a[role="button"]:hover {
-  background-color: #ffd800;
-}
-.task-box .task-box-inner > a[role="button"]:hover .fa {
-  background-color: #fff;
-}
-.task-box .task-box-inner .card.card-body {
-  border: none;
-  padding: 0;
-}
-.task-box .task-box-inner .card.card-body p {
-  font-family: "Muller Regular";
-  font-size: 0.8em;
-  color: #000000;
-}
-.task-box .task-box-inner .card.card-body .fa:not(.fa-times) {
-  color: #e0e0e0;
-}
-.task-box .task-box-inner .card.card-body .fa.fa-users,
-.fa-search {
-  margin-right: 10px;
-}
-.task-box .task-box-inner .card.card-body .fa.fa-map-marker,
-.task-box .task-box-inner .card.card-body .fa.fa-microphone,
-.task-box .task-box-inner .card.card-body .fa.fa-user {
-  margin-left: 2px;
-  margin-right: 17px;
-}
-.task-box .task-box-inner .card.card-body .fa.fa-commenting {
-  margin-left: 2px;
-  margin-right: 13px;
-}
-
-.task-box .task-box-caption-content .task-box-inner {
-  border: none;
-}
-
-.task-box .task-box-inner .card.card-body a[role="button"] {
-  position: absolute;
-  bottom: 0;
-  right: -58px;
-}
-
-.task-box .join {
-  display: inline-block;
-  margin: 0 auto;
-  width: 194px;
-  height: 43px;
-  line-height: 43px;
-  font-size: 13px;
-  color: #0a0a0a;
-  font-family: "Muller Bold";
-  text-transform: uppercase;
-  border-radius: 50px;
-  text-align: center;
-  background-color: #ffd800;
-}
-.task-box .join:hover {
-  background-color: #ffd800;
-}
-
-.task-box .task-box-caption {
-  position: absolute;
-  bottom: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  opacity: 0;
-  color: #fff;
-  background-color: #2a8eff;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  transition: all 0.2s;
-  -webkit-box-shadow: 0 13px 21px 0 rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 0 13px 21px 0 rgba(0, 0, 0, 0.06);
-  box-shadow: 0 13px 21px 0 rgba(0, 0, 0, 0.06);
-}
-
-.task-box .task-box-caption .task-box-caption-content {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translateY(-50%);
-  text-align: center;
-}
-.task-box-caption:after {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  content: "\f105";
-  font-family: "FontAwesome";
-  font-size: 32px;
-}
-
-.task-box .task-box-caption .task-box-caption-content .project-category,
-.task-box .task-box-caption .task-box-caption-content .project-name {
-  padding: 0 15px;
-  font-family: "Muller Regular";
-}
-
-.task-box .task-box-caption .task-box-caption-content .project-category {
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.task-box .task-box-caption .task-box-caption-content .project-name {
-  font-size: 18px;
-}
-
-.task-box:hover .task-box-caption {
-  opacity: 1;
-}
-
-.task-box:focus {
-  outline: none;
-}
-
-.btn-free {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  font-size: 0.8em;
-  height: 30px;
-  line-height: 32px;
-  padding: 0 1.5em;
-  font-family: "Muller Bold";
-  color: #000;
-  margin: 10px 25px;
-}
-
 .page-link {
   padding: 10px 15px;
   border-radius: 50%;
