@@ -119,7 +119,7 @@ function userInformation(information) {
     ` <span class="grip"></span>`+
     ` </label>`+
     ` </div>`+
-    `    <p type="Gender*" class="col-lg-8 col-12">` +
+    `    <p type="Gender" class="col-lg-8 col-12">` +
     `    <select id="gender-user" class="select_field">` +
     `    <option hidden selected value>${information.gender}</option>` +
     `  <option value="Male">Male</option>` +
@@ -144,7 +144,7 @@ function userInformation(information) {
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
-    `    <p type="Country*" class="col-lg-8 col-12">` +
+    `    <p type="Country" class="col-lg-8 col-12">` +
     `    <input id="country-user" class="input_field" name='country' type="text" value="${information.location.country || ''}" required/>` +
     `  </p>` +
     `  <p type="City" class="col-lg-4 col-12">` +
@@ -160,7 +160,7 @@ function userInformation(information) {
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
-    `    <p type="Birthday*" class="col-lg-8 col-12">` +
+    `    <p type="Birthday" class="col-lg-8 col-12">` +
     `    <input class="input_field" name="expertise" id="birthday-user" type="date" value="${year+'-' + month + '-'+dt}"/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
@@ -174,7 +174,7 @@ function userInformation(information) {
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
-    `    <p type="Email" class="col-lg-8 col-12">` +
+    `    <p type="Email*" class="col-lg-8 col-12">` +
     `    <input id="email-user" name="email" class="input_field" type="email" value="${information.email || ''}" disabled/>` +
     `  </p>` +
     `  <p class="col-lg-4 col-0">` +
@@ -208,7 +208,7 @@ function userInformation(information) {
     ` </div>`+
     ` </div>`+
     `    <div class="row">` +
-    `    <p type="About me" class="col-12">` +
+    `    <p type="About me*" class="col-12">` +
     `    <textarea placeholder="About me" rows="5" wrap="off">${information.description || ''}</textarea>` +
     `    </p>` +
     `    </div>` +
@@ -216,7 +216,7 @@ function userInformation(information) {
     `    <div class="col-md-9 well">` +
     `    <legend id="pers_interest" class="">Competenies and interests</legend>` +
     `  <div class="row">` +
-    `    <p type="Industry" class="col-lg-8 col-12">` +
+    `    <p type="Industry*" class="col-lg-8 col-12">` +
     `    <input class="input_field" name="occupation" type="text"/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
@@ -230,7 +230,7 @@ function userInformation(information) {
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
-    `    <p type="Job title" class="col-lg-8 col-12">` +
+    `    <p type="Job title*" class="col-lg-8 col-12">` +
     `    <input class="input_field" name="jobTitle" type="text" value=""/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +

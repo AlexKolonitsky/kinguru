@@ -33,6 +33,11 @@ function initMap() {
   autocomplete.addListener('place_changed', function() {
     infowindow.close();
     var place = autocomplete.getPlace();
+    const placeSplit = place.formatted_address.split(',').reverse();
+    console.log(place);
+    $('#countryMeetup').val(placeSplit[0]);
+    $('#cityMeetup').val(placeSplit[1]);
+    $('#placeMeetup').val(placeSplit.slice(2, 3, 4));
 
     if (!place.place_id) {
       return;

@@ -513,11 +513,15 @@ $('#createMeetup').click(function () {
   let guests = [];
   let speakerShearch = $(`#${speakerSelector}`).val().map(function (x) {
     return parseInt(x.split(`${speakerSelector}`)[1], 10);});
-  let speakerId = $(`#vehicle2`).is(":checked");
-  if(speakerId){
-    userId;
-    return userId;
-  };
+  let speakerId = $(`#vehicle2`).is(":checked")? userId: '';
+  let speakerEvent = [];
+  if (speakerShearch) {
+    speakerEvent.push(speakerShearch)
+  }
+  if (speakerId) {
+    speakerEvent.push(speakerId)
+  }
+  console.log(speakerEvent);
   $("input[name='guestName[]']:checked").each(function () {
     guests.push($(this).val().split('speaker')[1]);
     guests = guests.map(Number);
@@ -535,7 +539,7 @@ $('#createMeetup').click(function () {
   fd.append('city', document.getElementById('cityMeetup').value);
   fd.append('place', document.getElementById('placeMeetup').value);
   fd.append('socialLink', document.getElementById('urlEvent').value);
-  fd.append('speakers', `${speakerShearch}, ${speakerId || ''}`);
+  fd.append('speakers', ``);
   fd.append('isOpen', $('input[name=radios-one]:checked').val());
   fd.append('guests', guests);
   fd.append('maxGuestsCount', $('input[name=radios-two]:checked').val());

@@ -84,11 +84,11 @@ window.addEventListener("load", function () {
 
 $('#continue').click(function () {
   event.preventDefault();
-  $("#error-sugn-up").empty();
-  elementsValidation = ['email', 's-name', 'name', 'pass-sugn-up', 'passch', 'birthday-sign-up'];
-  elementsValidation.forEach(component => {
-    document.getElementById(`${component}`).value.length < 1 ? $(`#${component}`).addClass('validation-input') : $(`#${component}`).removeClass('validation-input');
-  });
+  // $("#error-sugn-up").empty();
+  // elementsValidation = ['email', 's-name', 'name', 'pass-sugn-up', 'passch', 'birthday-sign-up'];
+  // elementsValidation.forEach(component => {
+  //   document.getElementById(`${component}`).value.length < 1 ? $(`#${component}`).addClass('validation-input') : $(`#${component}`).removeClass('validation-input');
+  // });
   $.ajax({
     url: `${urlBack}/user/register`,
     type: 'post',
