@@ -527,19 +527,6 @@ p:before{
 }
 
 
-#comment {
-  background: #2a2a2a url(../img/parallax-6-dark.png) repeat center center;
-  background-attachment: fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  color: #fff;
-  font-family: "Muller Light";
-  padding: 40px 0 40px 0;
-  z-index: 1;
-}
-
 #comment .owl-item {
   padding: 0 36px;
   overflow: hidden;
@@ -562,8 +549,6 @@ p:before{
   width: 50px;
   height: 50px;
 }
-
-#comment .owl-carousel .owl-item
 
 .comment-wrapper {
   margin: auto;

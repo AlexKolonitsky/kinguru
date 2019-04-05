@@ -68,6 +68,7 @@ function allEvent(events) {
       eventContent += `${speaker.firstname} ${speaker.lastname}`
     });
     eventContent += `</p>` +
+      `    <p class="empty-block_grow"></p>` +
       `    <a class="join" href="${event.socialLink ? event.socialLink : ''}">join</a>` +
       `      <a data-toggle="collapse" href="#collapseevent${event.id}" role="button" aria-expanded="true"` +
       `    aria-controls="collapseevent${event.id}">` +
