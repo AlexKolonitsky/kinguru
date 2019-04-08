@@ -14,6 +14,19 @@ function initMap() {
 
   autocomplete.bindTo('bounds', map);
 
+  var myLatLng = [{lat: 40.738380, lng: -73.983070}];
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+
   // Specify just the place data fields that you need.
   autocomplete.setFields(['place_id', 'geometry', 'name', 'formatted_address']);
 

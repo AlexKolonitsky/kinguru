@@ -198,7 +198,7 @@ function showHeaderContent(user) {
     $('.user-content').remove();
     $('#login-block').removeClass('hide-content');
     $('#createMeetup').attr('disabled', true);
-    $('#notAuthorization').html("<p class='pass not_match'>For create event you can authorization</p>");
+    $('#notAuthorization').html("<p class='pass not_match'>To create an event you have to be authorized</p>");
     localStorage.setItem('Token', '');
     if ($('form').is('#change-pass-form')) {
       window.location.href = "index.html";
