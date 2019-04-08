@@ -43,11 +43,13 @@ class ResetPassword extends RequestHandlers {
    */
 
   methodAction(request) {
-    const link = '127.0.0.1:3010';
-    return UsersDaoHandler.sendEmailForResetPassword(request.body, link)
+    return UsersDaoHandler.sendEmailForResetPassword(request.body, request.body.link)
       .then(() => {
         console.log('User successfully registration');
-        return 'Ok';
+        return Promise.resolve({
+          code: 200,
+          message: 'Ok',
+        });
       })
       .catch((err) => {
         if (err.code === ERRORS_CODE.DUPLICATE) {

@@ -115,7 +115,6 @@ class UsersDao {
       }
     })
       .then(user => {
-        console.log(user);
         if (user) {
           const email = userInfo.email;
           const html = 'Hello, ' + userInfo.firstname + '! For recovery password click the button below.' +
