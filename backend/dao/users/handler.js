@@ -108,6 +108,46 @@ class UsersDao {
       })
   }
 
+  sendEmailForResetPassword(userInfo, link) {
+    return Users.findOne({
+      where: {
+        email: userInfo.email
+      }
+    })
+      .then(user => {
+        console.log(user);
+        if (user) {
+          const email = userInfo.email;
+          const html = 'Hello, ' + userInfo.firstname + '! For recovery password click the button below.' +
+            `<br/><br/><a href="${link}?email=${utils.getJwtToken(email).split(' ')[1]}">Recovery password</a>`;
+          return nodemailer.sendMail(
+            null,
+            email,
+            'KINGURU recovery password',
+            null,
+            html,
+          ).then(() => {
+            return true;
+          })
+            .catch(sendError => {
+              return Promise.reject(sendError)
+            });
+        }
+        return Promise.reject({code: ERRORS_CODE.NOT_FOUND});
+      });
+  }
+
+  setNewPassword(email, password) {
+    return Users.findOne({
+      where: {
+        email: email
+      }
+    })
+      .then(user => {
+        return user.update({password: password})
+      })
+  }
+
   calculateAge(birthday) {
     const ageDifMs = Date.now() - birthday.getTime();
     const ageDate = new Date(ageDifMs);

@@ -9,7 +9,8 @@ const ConfirmEmail = require('./ConfirmEmail');
 const CreateSpeaker = require('./CreateSpeaker');
 const GetSpeakers = require('./GetSpeakers');
 const GetGuests = require('./GetGuests');
-
+const ResetPassword = require('./ResetPassword');
+const SetNewPassword = require('./SetNewPassword');
 /**
  * @type {{
  * RegistrationUser: RegistrationUser,
@@ -21,6 +22,8 @@ module.exports = {
   RegistrationUser: new RegistrationUser(),
   LoginUser: new LoginUser(),
   GetCurrentUser: new GetCurrentUser(),
+  ResetPassword: new ResetPassword(),
+  SetNewPassword: new SetNewPassword(),
   UpdateUser: new UpdateUser(),
   ChangePassword: new ChangePassword(),
   ConfirmEmail: new ConfirmEmail(),
