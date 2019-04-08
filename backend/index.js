@@ -24,7 +24,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 app.use(router);
 
 app.use((err, req, res, next) => {
