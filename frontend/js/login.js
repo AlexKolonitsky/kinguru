@@ -97,7 +97,7 @@ $('#continue').click(function () {
     data: JSON.stringify(fillFormSingUp()),
     success: function () {
         console.log('click');
-        // $('#modal_close').show().click();
+        $('#modal_close').click();
     },
     error: function (jqXHR) {
       if (jqXHR.status === 401) {
@@ -149,7 +149,7 @@ function fillFormSingUp(postData) {
     phone: document.getElementById('phone').value,
     password: document.getElementById('pass-sugn-up').value,
     birthday: document.getElementById('birthday-sign-up').value,
-    link: location.hostname === 'localhost' ? `${location.origin}/kinguru/frontend/confirmation.html`: `${location.origin}/confirmation.html`,
+    link: location.hostname === 'localhost' ? `${location.origin}/kinguru/frontend/build/confirmation.html`: `${location.origin}/build/confirmation.html`,
   };
   return postData;
 };
@@ -206,3 +206,28 @@ function showHeaderContent(user) {
   });
 };
 
+$('#reset').click(function () {
+  event.preventDefault();
+  $.ajax({
+    url: `${urlBack}/user/reset-password`,
+    type: 'post',
+    dataType: 'json',
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(
+        {
+            email: $('#emailReset').val(),
+            link: location.origin
+          }),
+    success: function () {
+      console.log('click');
+    },
+    error: function (jqXHR) {
+      if (jqXHR.status === 401) {
+        // $("#error-sugn-up").html("<p class='pass not_match'>The user with email has already been registered</p>");
+      } else if (jqXHR.status === 400) {
+        // $("#error-sugn-up").html("<p class='pass not_match'>Fill all field</p>");
+      }
+    }
+
+  });
+})
