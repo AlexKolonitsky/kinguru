@@ -625,6 +625,7 @@ input::-webkit-inner-spin-button {
   background-color: #ffd539;
 }
 
+
 .sign_up_form {
   width: 500px;
   margin: 10px 0 0 0;
@@ -633,6 +634,16 @@ input::-webkit-inner-spin-button {
   padding: 10px 70px 20px;
   border-radius: 3px;
   font-family: "Muller Regular";
+  &.confirm_form {
+    width: 400px;
+    text-align: center;
+    .login-form-items {
+      text-align: left;
+    }
+    .login-btn {
+      padding: 0.8em 4em;
+    }
+  }
   .action-btn{
     background: #ffd800;
     border: 0 none;
