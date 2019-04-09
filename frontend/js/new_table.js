@@ -558,3 +558,17 @@ $('#createMeetup').click(function () {
     }
   });
 });
+$('#startHour').timepicker({
+  timeFormat: 'H:mm',
+  interval: 30,
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true
+});
+$('#endHour').timepicker({
+  timeFormat: 'H:mm p',
+  interval: 30,
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true
+});

@@ -4,11 +4,34 @@
 // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 function initMap() {
-  var uluru = {lat: 40.738380, lng: -73.983070};
+
+  function placeEvent(content, lat, lng, location) {
+      let infoPlace = new google.maps.InfoWindow({
+          content: content
+      });
+      let place = new google.maps.Marker({
+          position: {lat: lat, lng: lng},
+          map: map,
+          location: location,
+      });
+      place.addListener('click', function() {
+          infoPlace.open(map, place);
+        $('#countryMeetup').empty();
+        $('#cityMeetup').empty();
+        $('#placeMeetup').empty();
+        const cafeLocation = place.location.split(',');
+        $('#countryMeetup').val(cafeLocation[0]);
+        $('#cityMeetup').val(cafeLocation[1]);
+        $('#placeMeetup').val(cafeLocation[2]);
+        map.setZoom(15);
+      });
+  }
+
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru
-  });
+    zoom: 8,
+    center: {lat: 40.738380, lng: -73.983070}
+
+});
 
   var input = document.getElementById('pac-input');
 
@@ -16,7 +39,7 @@ function initMap() {
 
   autocomplete.bindTo('bounds', map);
 
-  var contentPlace1 = '<div id="content">'+
+  var contentPlace1 = '<div id="content" style="max-width: 300px;">'+
       '<div id="siteNotice">'+
       '</div>'+
       '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
@@ -37,18 +60,15 @@ function initMap() {
       '</div>'+
       '</div>';
 
-  var infoPlace1 = new google.maps.InfoWindow({
-    content: contentPlace1
-  });
+    placeEvent(contentPlace1, 40.738380, -73.983070, 'USA, NY, 293 3rd Ave BlueBell Cafe');
+    placeEvent('', 40.738800, -73.983833, 'USA, NY, 158 E 23rd St The Globe');
+    placeEvent('', 40.73955, -73.982230, 'USA, NY, 158 E 23rd St The Globe');
+    placeEvent('', 40.694580, -73.982990, 'USA, NY, 327 Gold Street Forno Rosso');
+    placeEvent('', 40.695049, -73.983566, 'USA, NY, 306 Gold Street Pollo d\'Oro');
+    placeEvent('', 40.639530, -73.967529, 'USA, NY, 1108 Cortelyou Road The Farm Cafe');
+    placeEvent('', 40.707481, -74.014671, 'USA, NY, 81 Washington St Westville');
+    placeEvent('', 40.741580, -74.00760, 'USA, NY, 446 W 14th St');
 
-  var place1 = new google.maps.Marker({
-    position: uluru,
-    map: map,
-    title: 'Uluru (Ayers Rock)'
-  });
-  place1.addListener('click', function() {
-    infoPlace1.open(map, place1);
-  });
 
   // Specify just the place data fields that you need.
   autocomplete.setFields(['place_id', 'geometry', 'name', 'formatted_address']);
