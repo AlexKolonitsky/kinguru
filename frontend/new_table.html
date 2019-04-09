@@ -35,7 +35,7 @@
   <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5"/>
   <meta name="msapplication-TileColor" content="#da532c"/>
   <meta name="theme-color" content="#ffffff"/>
-
+  <title>Create an event</title>
   <meta property="og:image" content=""/>
   <meta property="og:title" content="KINGURU - для тех кто ценит общение!"/>
   <meta
@@ -67,7 +67,8 @@
   <link href="css/rating.css" rel="stylesheet"/>
   <link href="css/main.css" rel="stylesheet"/>
   <link href="css/new_table.css" rel="stylesheet"/>
-  <link href="css/header.css" rel="stylesheet"/>
+  <link href="css/styles.min.css" rel="stylesheet"/>
+  <link href="vendor/jquery-timepicker-1.3.5/jquery.timepicker.min.css" rel="stylesheet"/>
   <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="vendor/bootstrap-multi-/dist/css/BsMultiSelect.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
@@ -78,10 +79,6 @@
 <body id="page-top">
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-  <div class="contactsItems mx-auto">
-    <a class="contactsItem" href="tel:375296561757">+375 29 656 17 57</a>
-    <a class="contactsItem" href="mailto:info@kinguru.info">info@kinguru.info</a>
-  </div>
   <div class="container container-navbar row mx-auto">
     <div class="navbar-logo col-lg-3 col-md-12 col-sm-12 col-12">
       <a
@@ -89,7 +86,7 @@
         href="index.html"
       ><img
         class="d-md-inline-block d-lg-inline-block d-none"
-        src="img/logo_header.svg"
+        src="img/headerLogo.ico"
         width="80"
         height="73"
         alt="Kinguru"/><img
@@ -161,11 +158,11 @@
       <div class="col-lg-3 col-md-3 col-12 menu_content" id="menu">
         <div id="wrapper" data-spy="scroll" data-target="#spy" class="">
           <!-- Sidebar -->
-          <div id="sidebar-wrapper" class="fixed d-md-inline-block d-none d-lg-inline-block">
+          <div id="sidebar-wrapper" class="sidebar-new_table fixed d-md-inline-block d-none d-lg-inline-block">
             <nav id="spy">
               <ul class="sidebar-nav nav">
                 <li class="side">
-                  <a href="#table_about" data-scroll="" class="">About meeting</a>
+                  <a href="#table_about" data-scroll="" class="">About event</a>
                 </li>
                 <li class="side">
                   <a href="#table_speakers" data-scroll="" class="">Speakers</a>
@@ -186,11 +183,11 @@
       </div>
       <div class="col-lg-9 col-md-8 col-12 table_content">
         <div class="row">
-          <h1 class="table-item-title">Start a new table</h1>
+          <h1 class="table-item-title">Start a new event</h1>
           <div class="col-md-12 well">
-            <legend id="table_about" class="table-item-subtitle">About meeting</legend>
+            <legend id="table_about" class="table-item-subtitle">About event</legend>
             <div class="row">
-              <p type="Title of the meeting?" class="col-lg-8 col-12">
+              <p type="Title of the event?" class="col-lg-8 col-12">
                 <input id="titleMeetup" class="input_field" name="title_meeting" type="text" required/>
               </p>
               <p class="col-lg-4 col-0">
@@ -219,7 +216,7 @@
               </p>
             </div>
             <div class="row">
-              <p type="Meeting poster?" class="col-lg-6 col-12">
+              <p type="Event poster?" class="col-lg-6 col-12">
                 <input name="myFile" type="file" id="file" class="input_file">
                 <label class="load_poster" for="file">
                   <img id="image" class="load_poster-img">
@@ -297,7 +294,7 @@
               </div>
               <div class="bike-open">
                 <div class="choose_deliver">
-                  <p>or choose one</p>
+                  <p>or choose one by:</p>
                 </div>
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers city-speaker" type="checkbox" id="setting_1" checked>
@@ -459,8 +456,12 @@
                   <span class="switch-label on">Yes</span>
                   <span class="grip"></span>
                 </label>
+                <div class="invited-by-open col-7">
+                  <input class=" input_field" type="text" name="invited-email">
+                </div>
               </div>
-              <div class="invited-by-open col-lg-8 col-12">
+
+              <div class="col-11">
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers job-guest" type="checkbox" id="setting_guest_1" checked>
                   <label class="label-speaker col-4" for="setting_guest_1">Job title</label>
@@ -570,7 +571,7 @@
               <p type="City" class="col-4">
                 <input id="cityMeetup" type="text" class="input_field">
               </p>
-              <p type="Metro" class="col-4">
+              <p type="Subway" class="col-4">
                 <input id="metroMeetup" type="text" class="input_field">
               </p>
             </div>
@@ -641,10 +642,11 @@
 <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.js"></script>
-<script src="js/routing.js"></script>
+<script src="js/environment.js"></script>
 <script src="js/main.js"></script>
 <script src="js/rating.js"></script>
 <script src="vendor/bootstrap-slider/bootstrap-slider.min.js"></script>
+<script src="vendor/jquery-timepicker-1.3.5/jquery.timepicker.min.js"></script>
 <script src="js/new_table.js "></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

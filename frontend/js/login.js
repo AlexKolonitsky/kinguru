@@ -84,11 +84,11 @@ window.addEventListener("load", function () {
 
 $('#continue').click(function () {
   event.preventDefault();
-  $("#error-sugn-up").empty();
-  elementsValidation = ['email', 's-name', 'name', 'pass-sugn-up', 'passch', 'birthday-sign-up'];
-  elementsValidation.forEach(component => {
-    document.getElementById(`${component}`).value.length < 1 ? $(`#${component}`).addClass('validation-input') : $(`#${component}`).removeClass('validation-input');
-  });
+  // $("#error-sugn-up").empty();
+  // elementsValidation = ['email', 's-name', 'name', 'pass-sugn-up', 'passch', 'birthday-sign-up'];
+  // elementsValidation.forEach(component => {
+  //   document.getElementById(`${component}`).value.length < 1 ? $(`#${component}`).addClass('validation-input') : $(`#${component}`).removeClass('validation-input');
+  // });
   $.ajax({
     url: `${urlBack}/user/register`,
     type: 'post',
@@ -198,7 +198,7 @@ function showHeaderContent(user) {
     $('.user-content').remove();
     $('#login-block').removeClass('hide-content');
     $('#createMeetup').attr('disabled', true);
-    $('#notAuthorization').html("<p class='pass not_match'>For create event you can authorization</p>");
+    $('#notAuthorization').html("<p class='pass not_match'>To create an event you have to be authorized</p>");
     localStorage.setItem('Token', '');
     if ($('form').is('#change-pass-form')) {
       window.location.href = "index.html";
