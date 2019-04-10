@@ -229,8 +229,9 @@ $('#reset').click(function () {
       $('#modal_close').click();
     },
     error: function (jqXHR) {
-      if (jqXHR.status === 401) {
-        // $("#error-sugn-up").html("<p class='pass not_match'>The user with email has already been registered</p>");
+      if (jqXHR.status === 404) {
+        console.log(jqXHR.responseText);
+        $("#resetInfo").html("<p class='pass not_match infoMessage'>`${jqXHR.responseText}`</p>");
       } else if (jqXHR.status === 400) {
         $("#resetInfo").html("<p class='pass not_match infoMessage'>Please fill your email</p>");
       } else if(jqXHR === 200) {
