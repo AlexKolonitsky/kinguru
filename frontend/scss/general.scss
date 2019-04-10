@@ -449,10 +449,11 @@ input::-webkit-inner-spin-button {
   }
   .btn-search {
     background-color: #ffd800;
+    margin: 10px;
     padding: 0.4em 2em;
   }
   .reset{
-    margin: 0!important;
+    margin: 10px;
     background-color: #ffd800;
     padding: .375rem .75rem;
     img {
@@ -1660,10 +1661,11 @@ input::-webkit-inner-spin-button {
       color: #dadada;
       font-size: 0.8em;
       margin-right: 20px;
+      margin-left: 10px;
     }
   }
   .radio-toolbar-2.row {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     label {
       padding: 0.5em 1.5em;
     }
@@ -2140,6 +2142,7 @@ input::-webkit-inner-spin-button {
       margin-bottom: 50px;
     }
   }
+
 }
 
 @media only screen and (max-width: 321px) {
