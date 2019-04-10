@@ -625,6 +625,7 @@ input::-webkit-inner-spin-button {
   background-color: #ffd539;
 }
 
+
 .sign_up_form {
   width: 500px;
   margin: 10px 0 0 0;
@@ -633,6 +634,16 @@ input::-webkit-inner-spin-button {
   padding: 10px 70px 20px;
   border-radius: 3px;
   font-family: "Muller Regular";
+  &.confirm_form {
+    width: 400px;
+    text-align: center;
+    .login-form-items {
+      text-align: left;
+    }
+    .login-btn {
+      padding: 0.8em 4em;
+    }
+  }
   .action-btn{
     background: #ffd800;
     border: 0 none;
@@ -932,44 +943,6 @@ input::-webkit-inner-spin-button {
     left: 212px;
   }
 }
-
-//#modal_form {
-//  border-radius: 5px;
-//  border: none;
-//  background: #fff;
-//  position: fixed;
-//  top: 45%;
-//  left: 50%;
-//  margin-top: -200px;
-//  margin-left: -260px;
-//  display: none;
-//  opacity: 0;
-//  z-index: 5;
-//  padding: 20px 10px;
-//  #modal_close {
-//    width: 21px;
-//    height: 21px;
-//    position: absolute;
-//    top: 10px;
-//    right: 10px;
-//    cursor: pointer;
-//    display: block;
-//  }
-//}
-//#overlay {
-//  z-index:3;
-//  position:fixed;
-//  background-color:#000;
-//  opacity:0.8;
-//  -moz-opacity:0.8;
-//  filter:alpha(opacity=80);
-//  width:100%;
-//  height:100%;
-//  top:0;
-//  left:0;
-//  cursor:pointer;
-//  display:none;
-//}
 
 #speaker-profile {
   background: url("../img/parallax-6-dark.png") repeat center center,
@@ -1603,7 +1576,6 @@ input::-webkit-inner-spin-button {
     }
     .age-guest-open,
     .age-speaker-open{
-      margin: 20px;
       width: 100%;
     }
     #years-start_speaker,
@@ -1792,8 +1764,6 @@ input::-webkit-inner-spin-button {
     }
   }
 }
-
-
 
 #contact{
   background: #2a2a2a url("../img/parallax-footer.png") no-repeat center center;
