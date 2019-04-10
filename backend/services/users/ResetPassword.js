@@ -53,7 +53,7 @@ class ResetPassword extends RequestHandlers {
       .catch((err) => {
         if (err.code === ERRORS_CODE.DUPLICATE) {
           return Promise.reject({
-            code: 401,
+            code: 404,
             message: `The user with email '${request.body.email}' not found`,
           });
         }
