@@ -1578,13 +1578,16 @@ input::-webkit-inner-spin-button {
     .age-guest-open,
     .age-speaker-open{
       width: 100%;
+      #years-start_speaker,
+      #years-end_speaker,
+      #years-start_guest,
+      #years-end_guest{
+        margin: 0 20px;
+      }
     }
-    #years-start_speaker,
-    #years-end_speaker,
-    #years-start_guest,
-    #years-end_guest{
-      margin: 0 20px;
-    }
+  }
+  .years-start{
+    margin: 0 20px;
   }
   .invite {
     padding: 10px 0;

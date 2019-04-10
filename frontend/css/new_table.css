@@ -34,6 +34,8 @@
 }
 
 
+
+
 #map {
     height: 100%;
 }
@@ -255,6 +257,7 @@ table {
 
 .speaker_available-title {
   font-family: "Muller Bold";
+  margin-right: 20px;
 }
 
 .job-speaker-open .button-purple.fill {

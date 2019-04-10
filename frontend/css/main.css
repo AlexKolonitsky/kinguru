@@ -190,13 +190,13 @@ img::-moz-selection {
 }
 
 .btn-primary:hover {
-  background-color: #ffea00;
+  background-color: #ffd539;
   color: #000;
 }
 
 .btn-primary:active,
 .btn-primary:focus {
-  background-color: #ffea00;
+  background-color: #ffd539;
   color: #000;
 }
 
@@ -237,7 +237,7 @@ img::-moz-selection {
 
 .btn-join:hover,
 .btn-rate:hover {
-  background-color: #ffea00;
+  background-color: #ffd539;
 }
 
 .btn-create-meetup:hover {
@@ -948,7 +948,7 @@ p:before{
 }
 
 #contact .btn:hover {
-  background-color: #ffea00;
+  background-color: #ffd539;
 }
 
 .footer-email-input-wrapper input {

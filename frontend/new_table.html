@@ -286,7 +286,7 @@
                 <input class="speakers bike" type="checkbox" name="vehicle1" value="Bike" id="vehicle1">
                 <label class="label-speaker choose_speaker" for="vehicle1">Choose a speaker</label>
                 <div class="bike-open">
-                  <div class="container">
+                  <div class="">
                     <select name="states" id="speakerMeetup" class="form-control" multiple="multiple"
                             style="display: none;"></select>
                   </div>
@@ -363,8 +363,8 @@
                 <div class="row speaker_setting">
                   <input class="speakers age-speaker" type="checkbox" id="setting_7" checked>
                   <label class="label-speaker col-lg-4 col-12" for="setting_7">Age</label>
-                  <div class="age-speaker-open">
-                    <b id="years-start_speaker col-lg-8 col-12">16</b>
+                  <div class="age-speaker-open col-lg-8 col-12">
+                    <b id="years-start_speaker" class="years-start">16</b>
                     <input type="text" id="years-slider_speaker" class="duration-slider" value="" data-slider-min="16"
                            data-slider-max="100" data-slider-step="1" data-slider-value="[16,100]"/>
                     <b id="years-end_speaker">100</b>
@@ -402,7 +402,7 @@
                       Selected
                     <b id="speakerCountChecked">0</b>
                     out of
-                    <b id="speakerCountSearch"></b>
+                    <b id="speakerCountSearch">0</b>
                     speakers</p>
                   </div>
                 </div>
@@ -525,7 +525,7 @@
             </div>
 
             <div class="row invite">
-              <p class="col-lg-2 col-2 guest-title">Invite</p>
+              <p class="col-lg-6 col-6 guest-title">Invite</p>
               <div class="speaker_filtered">
                 <div id="guestListFilter" class="speakers_checked check-toolbar-2">
 
@@ -536,7 +536,7 @@
                     Selected
                   <b id="guestCountChecked">0</b>
                   out of
-                  <b id="guestCountSearch"></b>
+                  <b id="guestCountSearch">0</b>
                   speakers</p>
                 </div>
               </div>
