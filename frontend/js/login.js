@@ -126,8 +126,7 @@ $('#login-post').click(function () {
     success: function (data) {
       saveToken(data.token);
       showHeaderContent(data.user);
-      $('#login-block').addClass('hide-content');
-      $('#createMeetup').removeAttr('disabled');
+      $('#createMeetup').attr('disabled', false);
       $('#notAuthorization').empty();
     },
     error: function (jqXHR) {
@@ -196,8 +195,9 @@ function showHeaderContent(user) {
     `</div>` +
     `</div>` +
     `</div>`;
-  $('#login-block').after(userContent);
   $('#login-block').addClass('hide-content');
+  $('#login-block').after(userContent);
+
 
   $('#logOut').click(function () {
     $('.user-content').remove();
