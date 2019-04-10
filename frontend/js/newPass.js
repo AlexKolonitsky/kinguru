@@ -1,6 +1,7 @@
 const idUrl = location.href.split('email=')[1];
 
 $('#login-post').click(function () {
+    event.preventDefault();
     $.ajax({
         url: `${urlBack}/${idUrl}`,
         type: 'get',
