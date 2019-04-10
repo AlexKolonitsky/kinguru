@@ -117,7 +117,9 @@ class UsersDao {
       .then(user => {
         if (user) {
           const email = userInfo.email;
-          const html = 'Hello, ' + userInfo.firstname + '! For recovery password click the button below.' +
+          const html = 'Hello, ' + userInfo.firstname + '! You recently requested to reset your password.' +
+            '<br/>' +
+            'If you didn’t request a password reset, please, reply to let us know.' +
             `<br/><br/><a href="${link}?email=${utils.getJwtToken(email).split(' ')[1]}">Recovery password</a>`;
           return nodemailer.sendMail(
             null,
@@ -132,7 +134,7 @@ class UsersDao {
               return Promise.reject(sendError)
             });
         }
-        return Promise.reject({code: ERRORS_CODE.NOT_FOUND});
+        return Promise.reject({code: ERRORS_CODE.DUPLICATE});
       });
   }
 

@@ -45,7 +45,6 @@ class ResetPassword extends RequestHandlers {
   methodAction(request) {
     return UsersDaoHandler.sendEmailForResetPassword(request.body, request.body.link)
       .then(() => {
-        console.log('User successfully registration');
         return Promise.resolve({
           code: 200,
           message: 'Ok',
@@ -55,7 +54,7 @@ class ResetPassword extends RequestHandlers {
         if (err.code === ERRORS_CODE.DUPLICATE) {
           return Promise.reject({
             code: 401,
-            message: `The user with email '${request.body.email}' has already been registered`,
+            message: `The user with email '${request.body.email}' not found`,
           });
         }
         return Promise.reject(err);
