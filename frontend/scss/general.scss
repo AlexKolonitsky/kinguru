@@ -187,6 +187,7 @@ input::-webkit-inner-spin-button {
   border: none;
   border-radius: 300px;
   font-family: "Muller Regular";
+  margin: 10px;
 }
 
 .btn-rate {
@@ -201,7 +202,6 @@ input::-webkit-inner-spin-button {
 }
 
 .sett-btn {
-  padding: 0.3em 4em;
   background-color: #ffd539;
 }
 
@@ -1494,10 +1494,6 @@ input::-webkit-inner-spin-button {
     padding: 2px 5px;
     font-size: 1.2em;
   }
-  .reviewStars_new_table{
-    width: 60%;
-    text-align: left;
-  }
   .checkbox-label {
     display: flex;
     align-items: center;
@@ -1605,7 +1601,6 @@ input::-webkit-inner-spin-button {
       margin-right: 20px;
     }
     .price-open {
-      margin-left: 50px;
       .prise-value {
         padding-top: 40px;
         font-weight: bold;
@@ -1779,6 +1774,7 @@ input::-webkit-inner-spin-button {
   color: #fff;
   font-family: "Muller Light";
   padding: 18px 0 25px 0;
+  z-index:2;
   a {
     color: #909090;
     font-size: 14px;
@@ -1868,6 +1864,19 @@ input::-webkit-inner-spin-button {
   #contact {
     padding: 50px 0 70px 0;
   }
+  #wrapper #sidebar-wrapper.sidebar-new_table{
+    width: 200px;
+  }
+  .sett-btn {
+    padding: 0.3em 4em;
+  }
+  .reviewStars_new_table{
+    width: 60%;
+    text-align: left;
+  }
+  .price-open {
+    margin-left: 50px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1906,6 +1915,18 @@ input::-webkit-inner-spin-button {
   #sidebar-wrapper {
     top: 220px;
   }
+  .table_content{
+    .radio-toolbar-2.row {
+      flex-wrap: nowrap;
+    }
+    .checkbox-label {
+      flex-wrap: nowrap;
+    }
+    .radio-toolbar-1,
+    .radio-toolbar-2{
+      padding: 0px;
+    }
+  }
 }
 
 @media (min-width: 768px) {
@@ -1937,10 +1958,18 @@ input::-webkit-inner-spin-button {
       justify-content: flex-end;
     }
   }
+  .reviewStars_new_table{
+    width: 100%;
+    text-align: left;
+  }
 
   .sidebar-nav li {
     padding-left: 15px;
     width: 100%;
+  }
+
+  #costMeetup {
+    padding: 5px;
   }
 
   #search_event {
@@ -1981,6 +2010,27 @@ input::-webkit-inner-spin-button {
         margin-top: 0;
       }
     }
+  }
+  #wrapper #sidebar-wrapper {
+    width: 150px;
+  }
+  .sett-btn {
+    padding: 0.3em 2em;
+  }
+  .table_content{
+    .radio-toolbar-2.row {
+      flex-wrap: wrap;
+    }
+    .radio-toolbar-1,
+    .radio-toolbar-2{
+      padding: 15px;
+    }
+    .checkbox-label {
+      flex-wrap: wrap;
+    }
+  }
+  .price-open {
+    margin-left: 0px;
   }
 }
 

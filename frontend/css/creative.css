@@ -1026,6 +1026,7 @@ footer {
 	  line-height: 80px;
 	  color: #000;  
 	  padding: 0;
+    margin: 10px;
 	}
 
 	#people .owl-carousel .owl-dots {
