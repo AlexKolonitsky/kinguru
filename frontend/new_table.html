@@ -129,10 +129,10 @@
       <hr class="gray-separator">
     </div>
     <div class="collapse navbar-collapse contactsNavbar col-lg-4 col-sm-11 mx-md-auto my-md-2 text-center">
-      <div class="row sotial" id="search">
+      <div class="sotial" id="search">
         <i class="fa fa-search my-auto"></i>
       </div>
-      <div id="login-block" class="">
+      <div id="login-block" class="hide-content">
         <button id="login-btn"
                 class="btn js-scroll-trigger d-md-none d-lg-block ">Login
         </button>
@@ -345,10 +345,10 @@
                   <label class="label-speaker col-4" for="setting_5">Cost per hour</label>
                   <div class="col-8 cost-speaker-open">
                     <label class="cost-from_to" for="cost_from">from</label>
-                    <input class="input_field cost-from_to" id="cost_from" type="text" name="mySpeaker">
+                    <input class="input_field cost-from_to" id="cost_from" type="number" name="mySpeaker">
                     <p class="cost-from_to">$</p>
                     <label class="cost-from_to" for="cost_to">to</label>
-                    <input class="input_field cost-from_to" id="cost_to" type="text" name="mySpeaker">
+                    <input class="input_field cost-from_to" id="cost_to" type="number" name="mySpeaker">
                     <p class="cost-from_to">$</p>
                   </div>
                 </div>
@@ -362,9 +362,9 @@
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers age-speaker" type="checkbox" id="setting_7" checked>
-                  <label class="label-speaker col-12" for="setting_7">Age</label>
+                  <label class="label-speaker col-lg-4 col-12" for="setting_7">Age</label>
                   <div class="age-speaker-open">
-                    <b id="years-start_speaker">16</b>
+                    <b id="years-start_speaker col-lg-8 col-12">16</b>
                     <input type="text" id="years-slider_speaker" class="duration-slider" value="" data-slider-min="16"
                            data-slider-max="100" data-slider-step="1" data-slider-value="[16,100]"/>
                     <b id="years-end_speaker">100</b>
@@ -488,8 +488,8 @@
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers age-guest" type="checkbox" id="setting_guest_3" checked>
-                  <label class="label-speaker col-12" for="setting_guest_3">Age</label>
-                  <div class="age-guest-open">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_guest_3">Age</label>
+                  <div class="age-guest-open col-lg-8 col-12">
                     <b id="years-start_guest">16</b>
                     <input type="text" id="years-slider_guest" class="duration-slider" value="" data-slider-min="16"
                            data-slider-max="100" data-slider-step="1" data-slider-value="[16,100]"/>
