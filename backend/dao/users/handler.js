@@ -41,7 +41,7 @@ const userAssociates = [
     through: {attributes: []}
   },
   {
-    model: Locations, as: 'userLocation'
+    model: Locations, as: 'location'
   }];
 
 class UsersDao {
@@ -91,6 +91,7 @@ class UsersDao {
                 }
               })
                 .then(location => {
+                  console.log(location[0].id);
                   userInfo.locationId = location[0].id;
                   return Users.create(this.getUserObject(userInfo))
                 });
