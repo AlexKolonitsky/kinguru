@@ -126,6 +126,7 @@ $('#login-post').click(function () {
     success: function (data) {
       saveToken(data.token);
       showHeaderContent(data.user);
+      $('#login-block').addClass('hide-content');
       $('#createMeetup').attr('disabled', false);
       $('#notAuthorization').empty();
     },

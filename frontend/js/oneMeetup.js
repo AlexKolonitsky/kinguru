@@ -241,7 +241,7 @@ function meetup(metap) {
     `<h2 class="section-title section-title-left">${metap.location.place ? metap.location.place : ''}</h2>` +
     `  <p class="place-description"><i class="fa fa-map-marker"></i>${metap.location.address ? metap.location.address : ''}, ${metap.location.city ? metap.location.city : ''}</p>` +
     `    <p class="place-description">` +
-    `    <a href="tel:+13472234410"><i class="fa fa-mobile"></i>${metap.location ? metap.location.phone : ''}</a>` +
+    `    <a href="tel:+13472234410"><i class="fa fa-mobile"></i>${metap.location.phone ? metap.location.phone : ''}</a>` +
     `  </p>`;
 
   $('.meetup').append(meetupContent);
