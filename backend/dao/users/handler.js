@@ -92,10 +92,11 @@ class UsersDao {
               })
                 .then(location => {
                   userInfo.locationId = location[0].id;
-                  Users.create(this.getUserObject(userInfo))
+                  return Users.create(this.getUserObject(userInfo))
                 });
+            } else {
+              return Users.create(this.getUserObject(userInfo));
             }
-            return Users.create(this.getUserObject(userInfo));
             //==================================================
           })
             .catch(sendError => {
