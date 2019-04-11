@@ -97,7 +97,7 @@ input[type="checkbox"] {
     transition: color ease .3s;
   }
   &:checked + label:before {
-    color: #ffd539;
+    color: #ffd800;
   }
 }
 
@@ -145,7 +145,7 @@ input[type="checkbox"] {
     }
   }
   &:checked + label {
-    background-color: #ffd539;
+    background-color: #ffd800;
     color: #ffffff;
     span.grip {
       left: 71px;
@@ -181,9 +181,10 @@ input::-webkit-inner-spin-button {
   outline: none!important;
   cursor: pointer;
   font-family: "Muller Bold";
+  padding: 0.5em 2.5em;
   color: #000;
   &:active {
-    border: 2px solid #c9a700;
+    border: 2px solid #ffd800;
   }
   &:hover {
     text-decoration: none;
@@ -200,6 +201,13 @@ input::-webkit-inner-spin-button {
   margin: 10px;
 }
 
+.btn-primary {
+  font-size: 20px;
+  height: 60px;
+  line-height: 65px;
+  padding: 0 2em;
+}
+
 .btn-rate {
   background-color: #ffffff;
   border-color: #ffffff;
@@ -207,12 +215,27 @@ input::-webkit-inner-spin-button {
   line-height: 55px;
   padding: 0 2em;
   &:hover {
-    background-color: #ffd539;
+    background-color: #ffd800;
+    border-color: #000;
   }
 }
 
+.event-join .btn-join,
+.button .btn-join{
+  background-color: #ffd800;
+  border-color: #ffd800;
+  font-size: 20px;
+  height: 50px;
+  line-height: 55px;
+  padding: 0 4em;
+  font-family: "Muller Bold";
+  border-radius: 300px;
+  font-weight: inherit;
+  color: #000;
+}
+
 .sett-btn {
-  background-color: #ffd539;
+  background-color: #ffd800;
 }
 
 //navigation
@@ -627,7 +650,7 @@ input::-webkit-inner-spin-button {
     &:active,
     &:focus{
       color: #000000;
-      background-color: #ffd539;
+      background-color: #ffd800;
       border: none;
       outline: none;
     }
@@ -636,7 +659,15 @@ input::-webkit-inner-spin-button {
 
 .create-meetup-section {
   padding: 80px 0 50px;
-  background-color: #ffd539;
+  background-color: #ffd800;
+  .btn-create-meetup {
+    background-color: #fff;
+    line-height: 35px;
+    &:hover {
+      background-color: #ffd800;
+      border-color: #000;
+    }
+  }
 }
 
 
@@ -767,7 +798,7 @@ input::-webkit-inner-spin-button {
   .fa-long-arrow-left {
     margin-right: 10px;
     font-size: 1em;
-    color: #ffd539;
+    color: #ffd800;
   }
   #open-log-in,
   #open-sing-up,
@@ -1287,6 +1318,7 @@ input::-webkit-inner-spin-button {
 }
 
 #tab-title {
+  padding: 20px 0;
   padding-top: 150px;
 }
 
@@ -1395,7 +1427,7 @@ input::-webkit-inner-spin-button {
   }
   .sett-btn {
     width: 275px;
-    background-color: #ffd539;
+    background-color: #ffd800;
     padding: 0.5em 1.5em;
   }
 }
@@ -1456,7 +1488,7 @@ input::-webkit-inner-spin-button {
     padding: 0;
     &:hover,
     &:active {
-      background-color: #ffd539;
+      background-color: #ffd800;
       color: #ffffff;
       padding: 0;
     }
@@ -1596,7 +1628,7 @@ input::-webkit-inner-spin-button {
       .slider-track {
         height: 5px;
         .slider-selection{
-          background-image: linear-gradient(to bottom,#ffd539 0,#ffd539 100%);
+          background-image: linear-gradient(to bottom,#ffd800 0,#ffd800 100%);
         }
       }
       .slider-handle {
@@ -1687,7 +1719,7 @@ input::-webkit-inner-spin-button {
       }
       &:hover,
       &:active{
-        border-color: #ffd539;
+        border-color: #ffd800;
       }
     }
     .multi-button::after {
@@ -1697,7 +1729,7 @@ input::-webkit-inner-spin-button {
     .multi-menu li.controls{
       &,
       &:hover {
-        background-color: #ffd539;
+        background-color: #ffd800;
       }
     }
   }
@@ -1735,8 +1767,8 @@ input::-webkit-inner-spin-button {
   .radio-toolbar-2 input[type="radio"]:checked + label,
   .radio-toolbar-1 input[type="radio"]:checked + label,
   .check-toolbar-1 input[type="checkbox"]:checked + label{
-    background-color: #ffd539;
-    border: 1px solid #ffd539;
+    background-color: #ffd800;
+    border: 1px solid #ffd800;
     color: #000000;
   }
   .pointer {
@@ -1754,7 +1786,7 @@ input::-webkit-inner-spin-button {
       }
       .guest-number {
         display: flex!important;
-        border-color: #ffd539;
+        border-color: #ffd800;
         &:disabled {
           border-color: #dadada;
         }
@@ -1792,7 +1824,7 @@ input::-webkit-inner-spin-button {
   text-overflow: ellipsis;
   width: 50%;
   &:focus {
-    border-color: #ffd539;
+    border-color: #ffd800;
   }
 }
 
@@ -2086,9 +2118,6 @@ input::-webkit-inner-spin-button {
   #wrapper #sidebar-wrapper.sidebar-new_table{
     width: 200px;
   }
-  .sett-btn {
-    padding: 0.3em 4em;
-  }
   .reviewStars_new_table{
     width: 60%;
     text-align: left;
@@ -2236,9 +2265,6 @@ input::-webkit-inner-spin-button {
   #wrapper #sidebar-wrapper {
     width: 150px;
   }
-  .sett-btn {
-    padding: 0.3em 2em;
-  }
   .table_content{
     .radio-toolbar-2.row {
       flex-wrap: wrap;
@@ -2253,9 +2279,6 @@ input::-webkit-inner-spin-button {
   }
   .price-open {
     margin-left: 0px;
-  }
-  .sett-btn {
-    padding: 0.5em 2.5em;
   }
   .table_content{
     .bike-open {
