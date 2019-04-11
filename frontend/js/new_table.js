@@ -547,7 +547,7 @@ $('#createMeetup').click(function () {
     contentType: false,
     type: 'POST',
     success: function(data){
-      window.location.href = "index.html";
+      window.location.href = "all_meetup.html";
     }
   });
 });

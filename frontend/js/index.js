@@ -16,7 +16,7 @@ $.ajax({
   contentType: "application/json; charset=utf-8",
   data: JSON.stringify(
     {
-      isReсent: true
+      isRecent: true
     }
   ),
   success: function (object) {
