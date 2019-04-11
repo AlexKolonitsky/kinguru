@@ -43,7 +43,7 @@ const meetupAssociates = [
 
 class MeetupDao {
 
-  getAllMeetups(limit = 12, offset = 0, tags = [], cities = [], isRecent = false) {
+  getAllMeetups(limit = 12, isRecent = false, offset = 0, tags = [], cities = []) {
 
     return Promise.all([
       MeetupsTags.findAll({
