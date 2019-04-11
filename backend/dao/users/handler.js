@@ -55,6 +55,7 @@ class UsersDao {
       phone: userInfo.phone,
       faked: userInfo.faked,
       role: userInfo.role,
+      locationId: userInfo.locationId || null,
       coverSource: userInfo.coverSource,
       coverKey: userInfo.coverKey
     }
