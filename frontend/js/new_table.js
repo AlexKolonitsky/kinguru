@@ -526,7 +526,7 @@ $('#createMeetup').click(function () {
   fd.append( 'country', document.getElementById('countryMeetup').value);
   fd.append('city', document.getElementById('cityMeetup').value);
   fd.append('place', document.getElementById('placeMeetup').value);
-  fd.append('socialLink', document.getElementById('urlEvent').value);
+  // fd.append('socialLink', document.getElementById('urlEvent').value);
   fd.append('speakers', ``);
   fd.append('isOpen', $('input[name=radios-one]:checked').val());
   fd.append('guests', guests);
