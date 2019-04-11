@@ -78,7 +78,24 @@ class UsersDao {
             null,
             html,
           ).then(() => {
+            //==================================================
+            // Copied bad code, it's not my fault
+            //==================================================
+            if (userInfo.country || userInfo.city || userInfo.place) {
+              return Locations.findOrCreate({
+                where: {
+                  country: userInfo.country,
+                  city: userInfo.city,
+                  place: userInfo.place
+                }
+              })
+                .then(location => {
+                  userInfo.locationId = location[0].id;
+                  Users.create(this.getUserObject(userInfo))
+                });
+            }
             return Users.create(this.getUserObject(userInfo));
+            //==================================================
           })
             .catch(sendError => {
               return Promise.reject(sendError)
