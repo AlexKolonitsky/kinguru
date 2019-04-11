@@ -113,6 +113,10 @@ p:before{
   font-family: "Muller ExtraBold";
 }
 
+#task .star {
+  margin-left:20px;
+}
+
 .event {
   color: #ffffff;
 }
@@ -167,14 +171,18 @@ p:before{
 
 #people .owl-prev {
   top: 19%;
-  left: -25px;
+  left: -35px;
   outline: none;
 }
 
 #people .owl-next {
   top: 19%;
-  right: -20px;
+  right: -30px;
   outline: none;
+}
+
+#comment h2{
+  color: #ffffff;
 }
 
 #people .owl-prev i,
@@ -258,6 +266,10 @@ p:before{
   width: 9rem;
   height: 1.5rem;
   position: relative;
+}
+
+#task h2 {
+  color: #ffffff;
 }
 
 .speaker-name-link {
@@ -983,7 +995,7 @@ p:before{
   }
 
   .event-item {
-    margin-top: -300px;
+    margin-top: -250px;
   }
 
   .footer-quick-links-wrapper {
