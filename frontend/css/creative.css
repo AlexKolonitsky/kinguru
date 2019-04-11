@@ -300,6 +300,7 @@ header.masthead p>span {
 	-moz-background-size: contain;
 	-o-background-size: contain;
     background-size: contain;
+  background-color: #fff;
 
 }
 
