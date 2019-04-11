@@ -73,7 +73,6 @@ function getUser(token) {
 window.addEventListener("load", function () {
   let token = localStorage.getItem('Token');
   if (token) {
-    console.log('login work');
     token = `Bearer ${token}`;
     getUser(token);
     return;
@@ -97,8 +96,6 @@ $('#continue').click(function () {
     data: JSON.stringify(fillFormSingUp()),
     success: function (text) {
       if (text.status === 200) {
-        console.log(text);
-        console.log('click');
         $('#modal_close').click();
       }
     },
@@ -169,7 +166,6 @@ function fillFormLogIn(postData) {
 function saveToken(token) {
   $('#modal_close').click();
   localStorage.setItem('Token', token);
-  // console.log(localStorage.getItem('Token'));
 };
 
 function showHeaderContent(user) {
@@ -225,12 +221,10 @@ $('#reset').click(function () {
           link: location.hostname === 'localhost' ? `${location.origin}/kinguru/frontend/build/newPass.html`: `${location.origin}/newPass.html`,
         }),
     success: function () {
-      console.log('click');
       $('#modal_close').click();
     },
     error: function (jqXHR) {
       if (jqXHR.status === 404) {
-        console.log(jqXHR.responseText);
         $("#resetInfo").html("<p class='pass not_match infoMessage'>`${jqXHR.responseText}`</p>");
       } else if (jqXHR.status === 400) {
         $("#resetInfo").html("<p class='pass not_match infoMessage'>Please fill your email</p>");

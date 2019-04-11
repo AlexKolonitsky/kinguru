@@ -586,6 +586,7 @@ header.masthead p>span {
 	-moz-background-size: contain;
 	-o-background-size: contain;
     background-size: contain;
+  background-color: #fff;
     position: relative;
     z-index: 9;
 }

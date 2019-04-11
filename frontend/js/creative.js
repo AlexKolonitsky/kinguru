@@ -102,7 +102,6 @@
        var h_block = $(this).height();
        if(h_block > mh) {
           mh = h_block;
-          console.log(mh);
        }
    });
 
@@ -110,7 +109,6 @@
    
   let boxes = $(".task-box").not($(this).parents(".task-box"));
   let parentBox = $(this).parents(".task-box");
-//console.log(boxes,parentBox);
   parentBox.attr("aria-expanded", "true").css("height", "auto");
     boxes.each(function () {
     var $this = $(this);
@@ -126,7 +124,6 @@
   let parentBox = $( this ).parents(".task-box");
   parentBox.attr("aria-expanded", "false").height(mh);
   let boxes = $(".task-box").not($(this).parents(".task-box"));
-  //console.log(boxes,parentBox);
       boxes.each(function () {
       if($(this).height()>mh) {
         $(this).css("height", "auto");

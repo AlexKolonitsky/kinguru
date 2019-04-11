@@ -214,13 +214,6 @@ $('#searchSpeakers').click(function () {
     languages = languages.map(Number);
   });
 
-  // let speaker = $('#speakerMeetup').val();
-  // let chooseSpeaker = speaker.map(function (x) {
-  //   return parseInt(x, 10);
-  // });
-  //
-  // console.log(chooseSpeaker);
-
   const filter = {
     languages: languages,
   };
