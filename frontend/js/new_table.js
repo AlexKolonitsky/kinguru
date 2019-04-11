@@ -559,7 +559,7 @@ $('#startHour').timepicker({
   scrollbar: true
 });
 $('#endHour').timepicker({
-  timeFormat: 'H:mm p',
+  timeFormat: 'H:mm',
   interval: 30,
   dynamic: false,
   dropdown: true,

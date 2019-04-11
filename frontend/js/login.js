@@ -72,7 +72,7 @@ function getUser(token) {
 
 window.addEventListener("load", function () {
   let token = localStorage.getItem('Token');
-  if (token) {
+  if (token !== '' && null) {
     token = `Bearer ${token}`;
     getUser(token);
     return;
