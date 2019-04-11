@@ -293,7 +293,6 @@ function userInformation(information) {
         $('#image').attr('src', e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
-      console.log(reader);
     }
   }
   $("#file").change(function(){
@@ -311,7 +310,6 @@ function changePass(data) {
 };
 
 function successChgangePass() {
-  console.log('pass ok');
   $("#change-pass-form")[0].reset();
   $('.confirm-pass').remove();
   $('.error-old-pass').remove();
