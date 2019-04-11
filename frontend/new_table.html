@@ -194,13 +194,6 @@
               </p>
             </div>
             <div class="row">
-              <p type="Link event" class="col-lg-8 col-12">
-                <input id="urlEvent" class="input_field" name="url_meeting" type="text" required/>
-              </p>
-              <p class="col-lg-4 col-0">
-              </p>
-            </div>
-            <div class="row">
               <p type="What's it about?" class="col-lg-8 col-12">
                 <textarea id="descriptionMeetup" rows="5" class="meeting-desc" name="about" type="text" required></textarea>
               </p>
@@ -216,14 +209,14 @@
               </p>
             </div>
             <div class="row">
-              <p type="Event poster?" class="col-lg-6 col-12">
+              <p type="Event image?" class="col-lg-6 col-12">
                 <input name="myFile" type="file" id="file" class="input_file">
                 <label class="load_poster" for="file">
                   <img id="image" class="load_poster-img">
                   <span class="add_poster">
                     <i class="fa fa-image"></i>
                     <br>
-                    Add poster
+                    Add image
                   </span>
                 </label>
               </p>
@@ -245,11 +238,11 @@
             </div>
             <div class="radio-speaker">
               <div class="radio-content">
-                <input class="speakers" type="checkbox" name="vehicle2" id="vehicle2">
+                <input class="speakers speaker_disabled" type="checkbox" name="vehicle2" id="vehicle2">
                 <label class="label-speaker" for="vehicle2">I will be the speaker</label>
               </div>
               <div class="radio-content">
-                <input class="speakers boat" type="checkbox" name="vehicle3" id="vehicle3">
+                <input class="speakers speaker_disabled boat" type="checkbox" name="vehicle3" id="vehicle3">
                 <label class="label-speaker" for="vehicle3">Add a new speaker</label>
                 <div class="boat-open">
                   <div class="row">
@@ -283,7 +276,7 @@
                 </div>
               </div>
               <div class="radio-content row">
-                <input class="speakers bike" type="checkbox" name="vehicle1" value="Bike" id="vehicle1">
+                <input class="speakers bike speaker_disabled" type="checkbox" name="vehicle1" value="Bike" id="vehicle1">
                 <label class="label-speaker choose_speaker" for="vehicle1">Choose a speaker</label>
                 <div class="bike-open">
                   <div class="">
@@ -571,7 +564,7 @@
               <p type="City" class="col-4">
                 <input id="cityMeetup" type="text" class="input_field">
               </p>
-              <p type="Subway" class="col-4">
+              <p type="Borough" class="col-4">
                 <input id="metroMeetup" type="text" class="input_field">
               </p>
             </div>

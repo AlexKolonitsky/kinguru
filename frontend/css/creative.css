@@ -777,14 +777,14 @@ header.masthead p>span {
 #people .owl-prev {
   position: absolute;
   top: 40%;
-  left: -45px;
+  left: -25px;
   outline: none;
 }
 
 #people .owl-next {
   position: absolute;
   top: 40%;
-  right: -40px;
+  right: -20px;
   outline: none;
 }
 

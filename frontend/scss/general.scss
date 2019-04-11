@@ -55,7 +55,7 @@ body {
 .input_field,
 .select_field{
   width:100%;
-  padding: 0.5em 2.5em 0 1em;
+  padding: 0.5em 1em 0 1em;
   box-sizing:border-box;
   background:none;
   outline:none;
@@ -157,6 +157,10 @@ input[type="checkbox"] {
       }
     }
   }
+}
+
+.butt:disabled {
+  background-color: #c0c0c0;
 }
 
 input::-webkit-outer-spin-button,
@@ -748,16 +752,6 @@ input::-webkit-inner-spin-button {
   }
   .validation-input {
     border-bottom:1px solid red!important;
-  }
-  .pass{
-    margin: 0;
-    font-size: 13px;
-  }
-  .not_match {
-    color: red;
-  }
-  .match {
-    color: green;
   }
   .accept_terms + label:before {
     margin: -5px 15px 0 0;
@@ -1592,6 +1586,10 @@ input::-webkit-inner-spin-button {
     overflow-y: auto;
     cursor: pointer;
   }
+  #startHour .ui-timepicker-standard .ui-corner-all .ui-state-hover{
+    background-color: #ffd800;
+    border-color: #ffd800;
+  }
   .speakers {
     display: none;
     & + label:before {
@@ -1804,6 +1802,12 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: center;
     margin: 40px 0;
+  }
+
+  #notAuthorization {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
   }
 }
 
@@ -2495,5 +2499,17 @@ img{
   &::-moz-selection {
     color: #fff;
     background: transparent;
+  }
+}
+
+.pass{
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 13px;
+  .not_match {
+    color: red;
+  }
+  .match {
+    color: green;
   }
 }
