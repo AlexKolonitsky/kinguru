@@ -72,13 +72,16 @@ function getUser(token) {
 
 window.addEventListener("load", function () {
   let token = localStorage.getItem('Token');
-  if (token !== '' || null) {
+  console.log(token);
+  if (token) {
+      console.log('work');
     token = `Bearer ${token}`;
     getUser(token);
-    return;
+  } else {
+    console.log('not work');
+    $('#login-block').removeClass('hide-content');
+    $('#notAuthorization').html("<p class='pass not_match'>For create event you can authorization</p>");
   }
-  $('#login-block').removeClass('hide-content');
-  $('#notAuthorization').html("<p class='pass not_match'>For create event you can authorization</p>");
 });
 
 $('#continue').click(function () {
@@ -191,8 +194,8 @@ function showHeaderContent(user) {
     `</div>` +
     `</div>` +
     `</div>`;
-  $('#login-block').addClass('hide-content');
   $('#login-block').after(userContent);
+  // $('#login-block').addClass('hide-content');
 
 
   $('#logOut').click(function () {

@@ -324,6 +324,10 @@ window.addEventListener("load", function () {
   if(token){
     $('#createMeetup').removeAttr('disabled');
   }
+
+  if($('#costMeetup').val() === '') {
+    $('#costMeetup').val(0);
+  }
 });
 
 function filterGet (url, success) {
