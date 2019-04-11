@@ -547,7 +547,7 @@ $('#createMeetup').click(function () {
   });
 });
 $('#startHour').timepicker({
-  timeFormat: 'H:mm p',
+  timeFormat: 'H:mm',
   interval: 30,
   dynamic: false,
   dropdown: true,
