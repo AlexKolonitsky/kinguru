@@ -521,8 +521,8 @@ $('#createMeetup').click(function () {
   fd.append( 'description', document.getElementById('descriptionMeetup').value);
   fd.append('tags',  $(`#${tagSelector}`).val().map(function (x) {
     return parseInt(x.split(`${tagSelector}`)[1], 10);}));
-  fd.append( 'startDate', `${document.getElementById('dateMeetup').value}T${document.getElementById('startHour').value}:25.000Z`);
-  fd.append( 'endDate', `${document.getElementById('dateMeetup').value}T${document.getElementById('endHour').value}:25.000Z`);
+  fd.append( 'startDate', `${document.getElementById('dateMeetup').value} ${document.getElementById('startHour').value}:00`);
+  fd.append( 'endDate', `${document.getElementById('dateMeetup').value} ${document.getElementById('endHour').value}:00`);
   fd.append( 'country', document.getElementById('countryMeetup').value);
   fd.append('city', document.getElementById('cityMeetup').value);
   fd.append('place', document.getElementById('placeMeetup').value);
