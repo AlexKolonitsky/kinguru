@@ -145,7 +145,7 @@ class UsersDao {
       }
     })
       .then(user => {
-        return user.update({password: password})
+        return user.update({password: utils.hashPassword(password)});
       })
   }
 
@@ -168,7 +168,6 @@ class UsersDao {
     if (associationTable) {
       filter.id = _.uniq(_.map(associationTable, 'userId'));
     }
-    console.log(roles);
     return Users.findAll({
       where: filter,
       attributes: defaultUserAttributes
