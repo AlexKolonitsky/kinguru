@@ -167,13 +167,13 @@ p:before{
 
 #people .owl-prev {
   top: 19%;
-  left: -55px;
+  left: -25px;
   outline: none;
 }
 
 #people .owl-next {
   top: 19%;
-  right: -50px;
+  right: -20px;
   outline: none;
 }
 

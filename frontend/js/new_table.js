@@ -127,14 +127,14 @@ $(function () {
   });
 
   $('.switch2').click(function () {
-    var isDisabled = $('.speakers').is(':disabled');
+    var isDisabled = $('.speaker_disabled').is(':disabled');
     if (isDisabled) {
       $('.label-speaker').removeClass('disable-radio');
-      $('.speakers').prop('disabled', false);
+      $('.speaker_disabled').prop('disabled', false);
       return;
     }
     $('.label-speaker').addClass('disable-radio');
-    $('.speakers').prop('disabled', true);
+    $('.speaker_disabled').prop('disabled', true);
   });
 
   $(":radio").on("click", function () {
@@ -490,18 +490,14 @@ function readURL(input) {
       $('#image').attr('src', e.target.result);
     };
     reader.readAsDataURL(input.files[0]);
-    console.log(reader);
   }
 }
 $("#file").change(function(){
   readURL(this);
 });
-$('#startHour').click(function () {
-  console.log(document.getElementById('startHour').value);
-});
+
 $('#createMeetup').click(function () {
   event.preventDefault();
-  console.log(userId);
   let fd = new FormData();
   let guests = [];
   let speakerShearch = $(`#${speakerSelector}`).val().map(function (x) {
@@ -514,7 +510,6 @@ $('#createMeetup').click(function () {
   if (speakerId) {
     speakerEvent.push(speakerId)
   }
-  console.log(speakerEvent);
   $("input[name='guestName[]']:checked").each(function () {
     guests.push($(this).val().split('speaker')[1]);
     guests = guests.map(Number);
@@ -552,7 +547,7 @@ $('#createMeetup').click(function () {
   });
 });
 $('#startHour').timepicker({
-  timeFormat: 'H:mm',
+  timeFormat: 'H:mm p',
   interval: 30,
   dynamic: false,
   dropdown: true,
