@@ -129,12 +129,12 @@
       <hr class="gray-separator">
     </div>
     <div class="collapse navbar-collapse contactsNavbar col-lg-4 col-sm-11 mx-md-auto my-md-2 text-center">
-      <div class="row sotial" id="search">
+      <div class="sotial" id="search">
         <i class="fa fa-search my-auto"></i>
       </div>
-      <div id="login-block" class="">
+      <div id="login-block" class="hide-content">
         <button id="login-btn"
-                class="btn js-scroll-trigger d-md-none d-lg-block ">Login
+                class="btn js-scroll-trigger d-md-block d-lg-block ">Login
         </button>
       </div>
       <div>
@@ -181,7 +181,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-9 col-md-8 col-12 table_content">
+      <div class="col-lg-9 col-md-8 col-11 table_content">
         <div class="row">
           <h1 class="table-item-title">Start a new event</h1>
           <div class="col-md-12 well">
@@ -189,13 +189,6 @@
             <div class="row">
               <p type="Title of the event?" class="col-lg-8 col-12">
                 <input id="titleMeetup" class="input_field" name="title_meeting" type="text" required/>
-              </p>
-              <p class="col-lg-4 col-0">
-              </p>
-            </div>
-            <div class="row">
-              <p type="Link event" class="col-lg-8 col-12">
-                <input id="urlEvent" class="input_field" name="url_meeting" type="text" required/>
               </p>
               <p class="col-lg-4 col-0">
               </p>
@@ -216,14 +209,14 @@
               </p>
             </div>
             <div class="row">
-              <p type="Event poster?" class="col-lg-6 col-12">
+              <p type="Event image?" class="col-lg-6 col-12">
                 <input name="myFile" type="file" id="file" class="input_file">
                 <label class="load_poster" for="file">
                   <img id="image" class="load_poster-img">
                   <span class="add_poster">
                     <i class="fa fa-image"></i>
                     <br>
-                    Add poster
+                    Add image
                   </span>
                 </label>
               </p>
@@ -245,11 +238,11 @@
             </div>
             <div class="radio-speaker">
               <div class="radio-content">
-                <input class="speakers" type="checkbox" name="vehicle2" id="vehicle2">
+                <input class="speakers speaker_disabled" type="checkbox" name="vehicle2" id="vehicle2">
                 <label class="label-speaker" for="vehicle2">I will be the speaker</label>
               </div>
               <div class="radio-content">
-                <input class="speakers boat" type="checkbox" name="vehicle3" id="vehicle3">
+                <input class="speakers speaker_disabled boat" type="checkbox" name="vehicle3" id="vehicle3">
                 <label class="label-speaker" for="vehicle3">Add a new speaker</label>
                 <div class="boat-open">
                   <div class="row">
@@ -283,12 +276,14 @@
                 </div>
               </div>
               <div class="radio-content row">
-                <input class="speakers bike" type="checkbox" name="vehicle1" value="Bike" id="vehicle1">
+                <input class="speakers bike speaker_disabled" type="checkbox" name="vehicle1" value="Bike" id="vehicle1">
                 <label class="label-speaker choose_speaker" for="vehicle1">Choose a speaker</label>
                 <div class="bike-open">
-                  <div class="container">
+                  <div class="">
                     <select name="states" id="speakerMeetup" class="form-control" multiple="multiple"
-                            style="display: none;"></select>
+                            style="display: none;">
+                      <option class="select_placeholder" hidden> enter email</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -298,23 +293,23 @@
                 </div>
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers city-speaker" type="checkbox" id="setting_1" checked>
-                  <label class="label-speaker col-4" for="setting_1">City</label>
-                  <div class="city-speaker-open col-8">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_1">City</label>
+                  <div class="city-speaker-open col-lg-8 col-12">
                     <input id="speakerCity" class=" input_field" type="text" name="mySpeaker">
                   </div>
                 </div>
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers industry-speaker" type="checkbox" id="setting_2" checked>
-                  <label class="label-speaker col-4" for="setting_2">Industry</label>
-                  <div class="industry-speaker-open col-8">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_2">Industry</label>
+                  <div class="industry-speaker-open col-lg-8 col-12">
                     <select name="states" id="speakerIndustry" class="form-control" multiple="multiple"
                             style="display: none;"></select>
                   </div>
                 </div>
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers job-speaker" type="checkbox" id="setting_3" checked>
-                  <label class="label-speaker col-4" for="setting_3">Job title</label>
-                  <div class="job-speaker-open col-8">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_3">Job title</label>
+                  <div class="job-speaker-open col-lg-8 col-12">
                       <select name="states" id="speakerJobTitle" class="form-control" multiple="multiple"
                               style="display: none;"></select>
                   </div>
@@ -342,29 +337,29 @@
                 </div>
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers cost-speaker" type="checkbox" id="setting_5" checked>
-                  <label class="label-speaker col-4" for="setting_5">Cost per hour</label>
-                  <div class="col-8 cost-speaker-open">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_5">Cost per hour</label>
+                  <div class="col-lg-8 col-12 cost-speaker-open">
                     <label class="cost-from_to" for="cost_from">from</label>
-                    <input class="input_field cost-from_to" id="cost_from" type="text" name="mySpeaker">
+                    <input class="input_field cost-from_to" id="cost_from" type="number" name="mySpeaker">
                     <p class="cost-from_to">$</p>
                     <label class="cost-from_to" for="cost_to">to</label>
-                    <input class="input_field cost-from_to" id="cost_to" type="text" name="mySpeaker">
+                    <input class="input_field cost-from_to" id="cost_to" type="number" name="mySpeaker">
                     <p class="cost-from_to">$</p>
                   </div>
                 </div>
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers expertise-speaker" type="checkbox" id="setting_6" checked>
-                  <label class="label-speaker col-4" for="setting_6">Expertise</label>
-                  <div class="expertise-speaker-open col-8">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_6">Expertise</label>
+                  <div class="expertise-speaker-open col-lg-8 col-12">
                     <select name="states" id="speakerExpertise" class="form-control" multiple="multiple"
                             style="display: none;"></select>
                   </div>
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers age-speaker" type="checkbox" id="setting_7" checked>
-                  <label class="label-speaker col-12" for="setting_7">Age</label>
-                  <div class="age-speaker-open">
-                    <b id="years-start_speaker">16</b>
+                  <label class="label-speaker col-lg-4 col-12" for="setting_7">Age</label>
+                  <div class="age-speaker-open col-lg-8 col-12">
+                    <b id="years-start_speaker" class="years-start">16</b>
                     <input type="text" id="years-slider_speaker" class="duration-slider" value="" data-slider-min="16"
                            data-slider-max="100" data-slider-step="1" data-slider-value="[16,100]"/>
                     <b id="years-end_speaker">100</b>
@@ -402,7 +397,7 @@
                       Selected
                     <b id="speakerCountChecked">0</b>
                     out of
-                    <b id="speakerCountSearch"></b>
+                    <b id="speakerCountSearch">0</b>
                     speakers</p>
                   </div>
                 </div>
@@ -447,8 +442,8 @@
             </div>
 
             <div class="invited-by_guest">
-              <div class="checkbox-label event-pay">
-                <p class="">Invited people by mail</p>
+              <div class="checkbox-label event-pay row">
+                <p class="col-lg-2 col-4">Invited people by mail</p>
                 <input class="input-switch input_field invited-by" id="invited-by" type="checkbox" name="switch"
                        checked="checked"/>
                 <label class="invited-switch" for="invited-by">
@@ -456,40 +451,40 @@
                   <span class="switch-label on">Yes</span>
                   <span class="grip"></span>
                 </label>
-                <div class="invited-by-open col-7">
+                <div class="invited-by-open col-lg-7 col-md-12 col-12">
+                  <p class="invited-email_placeholder display_block">Enter e-mail or name of the speaker</p>
                   <input class=" input_field" type="text" name="invited-email">
                 </div>
               </div>
-
-              <div class="col-11">
+              <div class="col-12">
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers job-guest" type="checkbox" id="setting_guest_1" checked>
-                  <label class="label-speaker col-4" for="setting_guest_1">Job title</label>
-                  <div class="job-guest-open multiSelect-field col-8">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_guest_1">Job title</label>
+                  <div class="job-guest-open multiSelect-field col-lg-8 col-12">
                     <select name="states" id="guestJobTitle" class="form-control" multiple="multiple"
                             style="display: none;"></select>
                   </div>
                 </div>
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers expertise-guest" type="checkbox" id="setting_guest_6" checked>
-                  <label class="label-speaker col-4" for="setting_guest_6">Expertise</label>
-                  <div class="expertise-guest-open col-8">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_guest_6">Expertise</label>
+                  <div class="expertise-guest-open col-lg-8 col-12">
                     <select name="states" id="guestExpertise" class="form-control" multiple="multiple"
                             style="display: none;"></select>
                   </div>
                 </div>
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers interest-guest" type="checkbox" id="setting_guest_2" checked>
-                  <label class="label-speaker col-4" for="setting_guest_2">Interests</label>
-                  <div class="interest-guest-open col-8">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_guest_2">Interests</label>
+                  <div class="interest-guest-open col-lg-8 col-12">
                     <select name="states" id="guestInterest" class="form-control" multiple="multiple"
                             style="display: none;"></select>
                   </div>
                 </div>
                 <div class="row speaker_setting">
                   <input class="speakers age-guest" type="checkbox" id="setting_guest_3" checked>
-                  <label class="label-speaker col-12" for="setting_guest_3">Age</label>
-                  <div class="age-guest-open">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_guest_3">Age</label>
+                  <div class="age-guest-open col-lg-8 col-12">
                     <b id="years-start_guest">16</b>
                     <input type="text" id="years-slider_guest" class="duration-slider" value="" data-slider-min="16"
                            data-slider-max="100" data-slider-step="1" data-slider-value="[16,100]"/>
@@ -513,8 +508,8 @@
 
                 <div class="row speaker_setting speaker_setting_fixed-height">
                   <input class="speakers city-guest" type="checkbox" id="setting_guest_7" checked>
-                  <label class="label-speaker col-4" for="setting_guest_7">City</label>
-                  <div class="city-guest-open col-8">
+                  <label class="label-speaker col-lg-4 col-12" for="setting_guest_7">City</label>
+                  <div class="city-guest-open col-lg-8 col-12">
                     <input class=" input_field" type="text" name="mySpeaker">
                   </div>
                 </div>
@@ -525,7 +520,7 @@
             </div>
 
             <div class="row invite">
-              <p class="col-lg-2 col-2 guest-title">Invite</p>
+              <p class="col-lg-6 col-6 guest-title">Invite</p>
               <div class="speaker_filtered">
                 <div id="guestListFilter" class="speakers_checked check-toolbar-2">
 
@@ -536,7 +531,7 @@
                     Selected
                   <b id="guestCountChecked">0</b>
                   out of
-                  <b id="guestCountSearch"></b>
+                  <b id="guestCountSearch">0</b>
                   speakers</p>
                 </div>
               </div>
@@ -571,7 +566,7 @@
               <p type="City" class="col-4">
                 <input id="cityMeetup" type="text" class="input_field">
               </p>
-              <p type="Subway" class="col-4">
+              <p type="Borough" class="col-4">
                 <input id="metroMeetup" type="text" class="input_field">
               </p>
             </div>
@@ -597,8 +592,8 @@
           </div>
           <div class="col-md-12 well">
             <legend id="table_cost" class="table-item-subtitle">Cost</legend>
-            <div class="cost-content">
-              <div class="checkbox-label event-pay">
+            <div class="cost-content row">
+              <div class="checkbox-label event-pay col-lg-6 col-md-7">
                 <p class="">The event is paid</p>
                 <input class="input-switch input_field" id="switch1" type="checkbox" name="switch" checked="checked"/>
                 <label class="switch1" for="switch1">
@@ -607,10 +602,10 @@
                   <span class="grip"></span>
                 </label>
               </div>
-              <div class="row price-open">
-                <p type="Price" class="col-lg-5 guest-title">
+              <div class="row price-open col-lg-6 col-md-4">
+                <p type="Price" class="col-lg-5 col-8 guest-title">
                   <input id="costMeetup" class="input_field" name="about" type="number" min="0" value="" required/>
-                <p class="prise-value guest-title">$</p>
+                <p class="prise-value guest-title col-4">$</p>
                 </p>
                 <p class="col-lg-4 col-0">
                 </p>

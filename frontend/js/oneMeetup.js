@@ -120,36 +120,17 @@ function meetup(metap) {
     `    </div>` +
     `    <div class="row mx-1 my-3">` +
     `    <div class="event-place col-lg-6 col-sm-6 col-12">` +
-    `    <p class="mt-3">` +
+    `    <p class="">` +
     `    <i class="fa fa-map-marker"></i>${metap.location ? metap.location.place : ''}, ${metap.location ? metap.location.address : ''}, ${metap.location ? metap.location.city : ''}` +
     `    </p>` +
     `    </div>` +
     `    <div class="event-guests col-lg-6 col-sm-6 col-12">` +
     `    <div class="row">` +
     `    <div class="col-lg-3 col-3 col-sm-3">` +
-    `    <a target="_blank"` +
+    `    <a class="event-guests_facebook-link" target="_blank"` +
     `  title="facebook"` +
-    `  href="https://www.facebook.com/egor.tsyganok/posts/1738825119569755">` +
-    `    <img class="img mx-auto d-block img-fluid rounded-circle"` +
-    `  src="img/event-7.jpg"` +
-    `  alt=""/>` +
-    `    </a>` +
-    `    </div>` +
-    `    <div class="col-lg-3 col-3 col-sm-3">` +
-    `    <a target="_blank"` +
-    `  title="facebook"` +
-    `  href="https://www.facebook.com/egor.tsyganok/posts/1738825119569755">` +
-    `    <img class="img mx-auto d-block img-fluid rounded-circle"` +
-    ` src="img/event-7.jpg"` +
-    `  alt=""` +
-    `    />` +
-    `    </a>` +
-    `    </div>` +
-    `    <div class="col-lg-3 col-3 col-sm-3">` +
-    `    <a target="_blank"` +
-    `  title="facebook"` +
-    `  href="https://www.facebook.com/egor.tsyganok/posts/1738825119569755">` +
-    `    <img class="img mx-auto d-block img-fluid rounded-circle"` +
+    `  href="#">` +
+    `    <img class="event-guests_profile-photo img mx-auto d-block img-fluid rounded-circle"` +
     `  src="img/event-7.jpg"` +
     `  alt=""/>` +
     `    </a>` +
@@ -166,7 +147,7 @@ function meetup(metap) {
     `    <a href="#" class="btn-join btn">Join</a>` +
     `    </div>` +
     `    <div class="event-cost col-lg-6 col-sm-6 col-4">` +
-    `    <p class="mt-2">` +
+    `    <p class="">` +
     `    <svg class="svg-price"` +
     `xmlns="http://www.w3.org/2000/svg"` +
     `  viewBox="0 0 22 22"` +
@@ -184,7 +165,8 @@ function meetup(metap) {
     `  clip-rule="evenodd"` +
     `  fill="#6e6e6e"/>` +
     `    </svg>` +
-    `  FREE` +
+    `  <p class="event-price">` +
+    `  </p>` +
     `  </p>` +
     `  </div>` +
     `  </div>` +
@@ -203,7 +185,7 @@ function meetup(metap) {
     `  target="_blank"` +
     `  title="facebook"` +
     `  href="https://www.facebook.com/egor.tsyganok/posts/1738825119569755"` +
-    `    ><i class="fa fa-microphone color-gray"></i>John Alien` +
+    `    ><i class="fa fa-microphone color-gray"></i><p class="speaker-name-link_task_microphone"></p>` +
     `    </a>` +
     `    </p>` +
     `    </div>` +
@@ -219,7 +201,7 @@ function meetup(metap) {
     `target="_blank"` +
     `  title="facebook"` +
     `  href="https://www.facebook.com/egor.tsyganok/posts/1738825119569755"` +
-    `    ><i class="fa fa-microphone color-gray"></i>John Alien` +
+    `    ><i class="fa fa-microphone color-gray"></i><p class="speaker-name-link_task_microphone"></p>` +
     `    </a>` +
     `    </p>` +
     `    </div>` +
@@ -228,20 +210,16 @@ function meetup(metap) {
     `    More` +
     `    <i class="fa fa-plus more-button-icon" aria-hidden="true"></i>` +
     `    </a>` +
-    `    <a class="hide" role="button" aria-expanded="true">` +
-    `    Less` +
-    `    <i class="fa fa-minus more-button-icon" aria-hidden="true"></i>` +
-    `    </a>` +
     `    </div>` +
     `    </div>` +
     `    </div>` +
     `    </div>`;
 
   let meetingPlace =
-    `<h2 class="section-title section-title-left">${metap.location ? metap.location.place : ''}</h2>` +
-    `  <p class="place-description"><i class="fa fa-map-marker"></i>${metap.location ? metap.location.address : ''}, ${metap.location ? metap.location.city : ''}</p>` +
+    `<h2 class="section-title section-title-left">${metap.location.place ? metap.location.place : ''}</h2>` +
+    `  <p class="place-description"><i class="fa fa-map-marker"></i>${metap.location.address ? metap.location.address : ''}, ${metap.location.city ? metap.location.city : ''}</p>` +
     `    <p class="place-description">` +
-    `    <a href="tel:+13472234410"><i class="fa fa-mobile"></i>${metap.location ? metap.location.phone : ''}</a>` +
+    `    <a href="tel:+13472234410"><i class="fa fa-mobile"></i>${metap.location.phone ? metap.location.phone : ''}</a>` +
     `  </p>`;
 
   $('.meetup').append(meetupContent);

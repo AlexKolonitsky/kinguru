@@ -15,7 +15,7 @@ window.addEventListener("load", function () {
   let enitionState = isEnitionState(true);
   let enitionRecent = isEnitionState(false);
   let allMeetup = {limit: 12, offset: 0};
-  let allRecentMeetup = {limit: 3, isResent: true};
+  let allRecentMeetup = {limit: 3, isRecent: true};
   postAllMeetup(allMeetup, enitionState);
   postAllMeetup(allRecentMeetup, enitionRecent);
 });
@@ -29,7 +29,6 @@ function isEnitionState(isState) {
       removePagination;
       showAllMeetups(jsondata.filteredMeetups);
       paginationPage(jsondata.meetupsCount);
-      console.log(jsondata);
     };
     return a;
   } else {
@@ -87,7 +86,7 @@ function showRecentMeetups(recentMeetups) {
       `             <span><i class="fa fa-commenting"></i>3 reviews</span>` +
       `           </p>` +
       `           <p>` +
-      `             <i class="fa fa-map-marker"></i> ${meetup.city ? meetup.city : ''}` +
+      `             <i class="fa fa-map-marker"></i> ${event.location ? event.location.country && event.location.city && event.location.place : ''}` +
       `           </p>` +
       `         </div>` +
       `       </div>` +
@@ -158,7 +157,7 @@ function showAllMeetups(allMeetups) {
       `<span>${fromModelToView(meetup.startDate)}</span>` +
       `</p>` +
       `<p>` +
-      `<i class="fa fa-map-marker"></i>${meetup.location ? meetup.location.city : '' }` +
+      `<i class="fa fa-map-marker"></i>${event.location ? event.location.country && event.location.city && event.location.place : ''}` +
       `</p>` +
       `</div>` +
       `</div>` +
@@ -225,7 +224,6 @@ $(".reset").on('click', function () {
 
 function paginationPage(allList) {
   allList = Math.ceil(allList / 12);
-  console.log(allList);
   let currentIndex = 0;
   let li = null;
   const pagination = $(`.pagination`);
@@ -243,7 +241,6 @@ function paginationPage(allList) {
     li = $(`<li class="page-item item-number"><a href="#task" class="page-link">${i + 1}</a></li>`);
     li.click(() => {
       currentIndex = i;
-      console.log(currentIndex);
     });
     pagination.append(li);
   }
