@@ -378,15 +378,15 @@ class UsersDao {
 
   setLocation(location, locationBeforeUpdated) {
     return {
-      country: location.country || locationBeforeUpdated.country,
-      state: location.state || locationBeforeUpdated.state,
-      city: location.city || locationBeforeUpdated.city,
-      zipCode: location.zipCode || locationBeforeUpdated.zipCode,
-      address: location.address || locationBeforeUpdated.address,
-      metro: location.metro || locationBeforeUpdated.metro,
-      place: location.place || locationBeforeUpdated.place,
-      email: location.email || locationBeforeUpdated.email,
-      phone: location.phone || locationBeforeUpdated.phone,
+      country: location.country || locationBeforeUpdated && locationBeforeUpdated.country,
+      state: location.state || locationBeforeUpdated && locationBeforeUpdated.state,
+      city: location.city || locationBeforeUpdated && locationBeforeUpdated.city,
+      zipCode: location.zipCode || locationBeforeUpdated && locationBeforeUpdated.zipCode,
+      address: location.address || locationBeforeUpdated && locationBeforeUpdated.address,
+      metro: location.metro || locationBeforeUpdated && locationBeforeUpdated.metro,
+      place: location.place || locationBeforeUpdated && locationBeforeUpdated.place,
+      email: location.email || locationBeforeUpdated && locationBeforeUpdated.email,
+      phone: location.phone || locationBeforeUpdated && locationBeforeUpdated.phone,
     }
   }
 
@@ -465,9 +465,6 @@ class UsersDao {
   }
 
   updateUserLocation(idLocation, newlocationInfo) {
-    if (newlocationInfo) {
-      return Promise.resolve(null);
-    }
     if (idLocation) {
       return Locations.findOne({
         where: {
