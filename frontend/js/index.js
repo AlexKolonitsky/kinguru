@@ -62,7 +62,7 @@ function allEvent(events) {
       `      <div class="collapse" id="collapseevent${event.id}">` +
       `      <div class="card card-body">` +
       `      <p><i class="fa fa-users" aria-hidden="true"></i>${event.maxGuestsCount ? event.maxGuestsCount : '0'} people</p>` +
-      `    <p><i class="fa fa-map-marker" aria-hidden="true"></i><span>${event.location ? event.location.country && event.location.city && event.location.place : '' }</span></p>` +
+      `    <p><i class="fa fa-map-marker" aria-hidden="true"></i><span>${event.location ? event.location.country && event.location.city && event.location.place : ''}</span></p>` +
       `    <p><i class="fa fa-commenting" aria-hidden="true"></i>`;
     event.speakers.forEach(speaker => {
       eventContent += `${speaker.firstname} ${speaker.lastname}`
@@ -105,7 +105,7 @@ function allPastEvent(events) {
       `      <div class="collapse" id="collapseevent${event.id}">` +
       `      <div class="card card-body">` +
       `      <p><i class="fa fa-users" aria-hidden="true"></i>${event.maxGuestsCount ? event.maxGuestsCount : '0'} people</p>` +
-      `    <p><i class="fa fa-map-marker" aria-hidden="true"></i><span>${event.location ? event.location.address && event.location.city && event.location.place : '' }</span></p>` +
+      `    <p><i class="fa fa-map-marker" aria-hidden="true"></i><span>${event.location ? event.location.country && event.location.city && event.location.place : ''}</span></p>` +
       `    <p><i class="fa fa-commenting" aria-hidden="true"></i>`;
     event.speakers.forEach(speaker => {
       eventContent += `${speaker.firstname} ${speaker.lastname}`

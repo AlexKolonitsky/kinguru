@@ -86,7 +86,7 @@ function showRecentMeetups(recentMeetups) {
       `             <span><i class="fa fa-commenting"></i>3 reviews</span>` +
       `           </p>` +
       `           <p>` +
-      `             <i class="fa fa-map-marker"></i> ${meetup.city ? meetup.city : ''}` +
+      `             <i class="fa fa-map-marker"></i> ${event.location ? event.location.country && event.location.city && event.location.place : ''}` +
       `           </p>` +
       `         </div>` +
       `       </div>` +
@@ -157,7 +157,7 @@ function showAllMeetups(allMeetups) {
       `<span>${fromModelToView(meetup.startDate)}</span>` +
       `</p>` +
       `<p>` +
-      `<i class="fa fa-map-marker"></i>${meetup.location ? meetup.location.city : '' }` +
+      `<i class="fa fa-map-marker"></i>${event.location ? event.location.country && event.location.city && event.location.place : ''}` +
       `</p>` +
       `</div>` +
       `</div>` +
