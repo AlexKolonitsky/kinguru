@@ -80,7 +80,7 @@ window.addEventListener("load", function () {
   } else {
     console.log('not work');
     $('#login-block').removeClass('hide-content');
-    $('#notAuthorization').html("<p class='pass not_match'>For create event you can <a href='#' id='create-event_authorization'>authorization</a></p>");
+    $('#notAuthorization').html("<p class='pass not_match'>For create event you can <a href='#' id='create-event_authorization'>authorize</a></p>");
   }
 });
 
