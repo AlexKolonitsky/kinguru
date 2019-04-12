@@ -210,6 +210,7 @@ input::-webkit-inner-spin-button {
   height: 60px;
   line-height: 65px;
   padding: 0 2em;
+  margin: 10px;
 }
 
 .btn-rate {
@@ -1763,6 +1764,7 @@ input::-webkit-inner-spin-button {
   .submit {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin: 40px 0;
   }
 
