@@ -36,7 +36,7 @@
   text-overflow: ellipsis;
   word-wrap: break-word;
   overflow: hidden;
-  mix-height: 5.8em;
+  max-height: 5.8em;
   line-height: 1.5em;
   font-family: "Muller Regular";
 }
@@ -116,6 +116,16 @@ p:before{
 #task .star {
   margin-left:20px;
 }
+
+#task .event-cost {
+  display: flex;
+  align-items: center;
+}
+
+#task .event-cost p {
+  margin: 0;
+}
+
 
 .event {
   color: #ffffff;
@@ -280,6 +290,10 @@ p:before{
 .speaker-name-link_task {
   text-decoration: none;
   color: #ffffff;
+}
+
+.speaker-name-link_task_microphone{
+  margin: 0;
 }
 
 .speaker-name-link_task:hover,
