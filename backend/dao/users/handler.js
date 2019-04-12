@@ -392,9 +392,8 @@ class UsersDao {
 
   updateUser(newUserInfo, token) {
     const userBeforeUpdated = utils.getUserByToken(token).user;
-    return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo, userBeforeUpdated.location))
+    return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo, userBeforeUpdated.userLocation))
       .then(location => {
-        console.log(userBeforeUpdated.email);
         return Users.findOne({
           where: {
             email: userBeforeUpdated.email
