@@ -526,7 +526,9 @@ $('#createMeetup').click(function () {
   });
   $('#radio6').val($('#guestValNumber').val());
 
-  fd.append( 'image', $('#file')[0].files[0]);
+  if ($('#file')[0].files[0]) {
+    fd.append( 'image', $('#file')[0].files[0]);
+  }
   fd.append( 'title', document.getElementById('titleMeetup').value);
   fd.append( 'description', document.getElementById('descriptionMeetup').value);
   fd.append('tags',  $(`#${tagSelector}`).val().map(function (x) {
