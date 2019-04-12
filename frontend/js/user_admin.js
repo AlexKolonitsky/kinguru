@@ -74,8 +74,8 @@ $('.change-pass').click(function () {
 
 
 function userInformation(information) {
-  if (!information.location) {
-    information.location = {
+  if (!information.userLocation) {
+    information.userLocation = {
       country: '',
       city: '',
       address: '',
@@ -145,18 +145,18 @@ function userInformation(information) {
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Country" class="col-lg-8 col-12">` +
-    `    <input id="country-user" class="input_field" name='country' type="text" value="${information.location.country || ''}" required/>` +
+    `    <input id="country-user" class="input_field" name='country' type="text" value="${information.userLocation.country || ''}" required/>` +
     `  </p>` +
     `  <p type="City" class="col-lg-4 col-12">` +
-    `    <input id="city" class="input_field" name='city' type="text" value="${information.location.city || ''}"/>` +
+    `    <input id="city" class="input_field" name='city' type="text" value="${information.userLocation.city || ''}"/>` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Address" class="col-lg-8 col-12">` +
-    `    <input id="addresUser" class="input_field" name='address' type="text" value="${information.location.address || ''}"/>` +
+    `    <input id="addresUser" class="input_field" name='address' type="text" value="${information.userLocation.address || ''}"/>` +
     `    </p>` +
     `    <p type="Zip code" class="col-lg-4 col-12">` +
-    `    <input id="zipCode" class="input_field" name='z-code' type="number" value="${information.location.zipCode || ''}"/>` +
+    `    <input id="zipCode" class="input_field" name='z-code' type="number" value="${information.userLocation.zipCode || ''}"/>` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
@@ -184,7 +184,7 @@ function userInformation(information) {
     `  <p type="Cost per hour" class="col-12"></p>`+
     `  <div class="col-8 row">`+
     `  <label class="cost-from_to-set" for="costFromUser">cost</label>`+
-    `  <input class="input_field cost-from_to-set" id="costFromUser" type="text" name="mySpeaker">`+
+    `  <input class="input_field cost-from_to-set" id="costFromUser" type="text" name="mySpeaker" value="${information.cost}">`+
     ` <p class="cost-from_to">$</p>`+
     ` </div>`+
     `    </div>` +
@@ -215,35 +215,35 @@ function userInformation(information) {
     `    <legend id="pers_interest" class="">Competenies and interests</legend>` +
     `  <div class="row">` +
     `    <p type="Industry*" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="occupation" type="text"/>` +
+      `    <select name="states" id="industryUser" class="form-control" multiple="multiple" style="display: none;"></select>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Company" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="company" type="text" value="${information.company || ''}"/>` +
+    `    <input id="company" class="input_field" name="company" type="text" value="${information.company || ''}"/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Job title*" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="jobTitle" type="text" value=""/>` +
+    `    <select name="states" id="userJobTitle" class="form-control" multiple="multiple" style="display: none;"></select>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Expertise" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="expertise" type="search"/>` +
+      `    <select name="states" id="userExpertise" class="form-control" multiple="multiple" style="display: none;"></select>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Interest" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="interest" type="search"/>` +
+      `    <select name="states" id="userInterest" class="form-control" multiple="multiple" style="display: none;"></select>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
@@ -296,7 +296,75 @@ function userInformation(information) {
   $("#file").change(function(){
     readURL(this);
   });
-};
+
+    $.ajax({
+        url: `${urlBack}/job/titles`,
+        method: 'GET',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (jsondata) {
+            jobTitleUser(jsondata);
+        }
+    });
+
+    $.ajax({
+        url: `${urlBack}/industries`,
+        method: 'GET',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (jsondata) {
+            industryUser(jsondata);
+            interestUser(jsondata);
+        }
+    });
+
+    $.ajax({
+        url: `${urlBack}/wordkeys`,
+        method: 'GET',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (jsondata) {
+            expertiseUser(jsondata);
+        }
+    });
+    
+    function jobTitleUser(titles) {
+        let jobTitle = ``;
+        titles.forEach(title => {
+            let titleList = `<option value="userJobTitle${title.id}">${title.name}</option>`
+            jobTitle += titleList;
+        });
+
+        $('#userJobTitle').append(jobTitle);
+    }
+    function industryUser(industrys = []) {
+        let industryList = ``;
+        industrys.forEach(industry => {
+            let countFilter =
+                `<option value="industryUser${industry.id}">${industry.name}</option>`;
+            industryList += countFilter;
+        });
+        $('#industryUser').append(industryList);
+    }
+    function interestUser(industrys = []) {
+        let industryList = ``;
+        industrys.forEach(industry => {
+            let countFilter =
+                `<option value="userInterest${industry.id}">${industry.name}</option>`;
+            industryList += countFilter;
+        });
+        $('#userInterest').append(industryList);
+    }
+    function expertiseUser(expertises = []) {
+        let expertiseList = ``;
+        expertises.forEach(expertise => {
+            let countFilter =
+                `<option value="userExpertise${expertise.id}">${expertise.name}</option>`;
+            expertiseList += countFilter;
+        });
+        $('#userExpertise').append(expertiseList);
+    }
+}
 
 function changePass(data) {
   data = {
@@ -318,13 +386,13 @@ $('#update-account').click(function () {
   let fd = new FormData();
 
   fd.append( 'image', $('#file')[0].files[0]);
-  fd.append( 'firstname', document.getElementById('first-name').value);
+  fd.append( 'firstname', $('#first-name').val());
   fd.append( 'gender', $('#gender-user option:selected').text());
-  fd.append( 'lastname', document.getElementById('last-name').value);
-  fd.append( 'country', document.getElementById('country-user').value);
-  fd.append( 'birthday', document.getElementById('birthday-user').value);
-  fd.append( 'phone', document.getElementById('phone-user').value);
-  fd.append('email', document.getElementById('email-user').value);
+  fd.append( 'lastname', $('#last-name').val());
+  fd.append( 'country', $('#country-user').val());
+  fd.append( 'birthday', $('#birthday-user').val());
+  fd.append( 'phone', $('#phone-user').val());
+  fd.append('email', $('#email-user').val());
   fd.append('city', $('#city').val());
   fd.append('description', $('#descriptionUser').val());
   fd.append('cost', $('#costFromUser').val());
@@ -334,6 +402,7 @@ $('#update-account').click(function () {
   fd.append('instagramLink', $('#instagramLink').val());
   fd.append('address', $('#addresUser').val());
   fd.append('zipCode', $('#zipCode').val());
+  fd.append('company', $('#company').val());
 
   $.ajax({
     url: `${urlBack}/user/update`,
