@@ -144,6 +144,12 @@ $(function () {
     });
   });
 
+  $(".invited-by-open").click(function(){
+    var placeholder =  $('.invited-email_placeholder');
+    if (placeholder.hasClass('display_block')){
+      placeholder.removeClass('display_block').addClass('display_none');
+    }
+  });
 });
 
 $(document).ready(function () {
