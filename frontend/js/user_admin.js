@@ -148,15 +148,15 @@ function userInformation(information) {
     `    <input id="country-user" class="input_field" name='country' type="text" value="${information.location.country || ''}" required/>` +
     `  </p>` +
     `  <p type="City" class="col-lg-4 col-12">` +
-    `    <input class="input_field" name='city' type="text" value="${information.location.city || ''}"/>` +
+    `    <input id="city" class="input_field" name='city' type="text" value="${information.location.city || ''}"/>` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Address" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name='address' type="text" value="${information.location.address || ''}"/>` +
+    `    <input id="addresUser" class="input_field" name='address' type="text" value="${information.location.address || ''}"/>` +
     `    </p>` +
     `    <p type="Zip code" class="col-lg-4 col-12">` +
-    `    <input class="input_field" name='z-code' type="number" value="${information.location.zipCode || ''}"/>` +
+    `    <input id="zipCode" class="input_field" name='z-code' type="number" value="${information.location.zipCode || ''}"/>` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
@@ -183,10 +183,8 @@ function userInformation(information) {
     `  <div class="row">`+
     `  <p type="Cost per hour" class="col-12"></p>`+
     `  <div class="col-8 row">`+
-    `  <label class="cost-from_to-set" for="cost_from">from</label>`+
-    `  <input class="input_field cost-from_to-set" id="cost_from" type="text" name="mySpeaker">`+
-    `  <label class="cost-from_to-set" for="cost_to">to</label>`+
-    `  <input class="input_field cost-from_to-set" id="cost_to" type="text" name="mySpeaker">`+
+    `  <label class="cost-from_to-set" for="costFromUser">cost</label>`+
+    `  <input class="input_field cost-from_to-set" id="costFromUser" type="text" name="mySpeaker">`+
     ` <p class="cost-from_to">$</p>`+
     ` </div>`+
     `    </div>` +
@@ -209,7 +207,7 @@ function userInformation(information) {
     ` </div>`+
     `    <div class="row">` +
     `    <p type="About me*" class="col-12">` +
-    `    <textarea placeholder="About me" rows="5" wrap="off">${information.description || ''}</textarea>` +
+    `    <textarea id="descriptionUser" placeholder="About me" rows="5" wrap="off">${information.description || ''}</textarea>` +
     `    </p>` +
     `    </div>` +
     `    </div>` +
@@ -255,28 +253,28 @@ function userInformation(information) {
     `    <legend id="pers_connection" class="">Social connection</legend>` +
     `  <div class="row">` +
     `    <p type="Linked in" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="linked" type="text"/>` +
+    `    <input id="linkedinLink" class="input_field" name="linked" type="text" value="${information.linkedinLink || ''}"/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Facebook" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="facebook" type="text" value="${information.facebookLink || ''}"/>` +
+    `    <input id="facebookLink" class="input_field" name="facebook" type="text" value="${information.facebookLink || ''}"/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Instagram" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="insta" type="text" value="${information.instagramLink || ''}"/>` +
+    `    <input id="instagramLink" class="input_field" name="insta" type="text" value="${information.instagramLink || ''}"/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Website" class="col-lg-8 col-12">` +
-    `    <input class="input_field" name="website" type="text" value="${information.website || ''}"/>` +
+    `    <input id="website" class="input_field" name="website" type="text" value="${information.website || ''}"/>` +
     `    </p>` +
     `    <p class="col-lg-4 col-0">` +
     `    </p>` +
@@ -327,7 +325,15 @@ $('#update-account').click(function () {
   fd.append( 'birthday', document.getElementById('birthday-user').value);
   fd.append( 'phone', document.getElementById('phone-user').value);
   fd.append('email', document.getElementById('email-user').value);
-
+  fd.append('city', $('#city').val());
+  fd.append('description', $('#descriptionUser').val());
+  fd.append('cost', $('#costFromUser').val());
+  fd.append('website', $('#website').val());
+  fd.append('linkedinLink', $('#linkedinLink').val());
+  fd.append('facebookLink', $('#facebookLink').val());
+  fd.append('instagramLink', $('#instagramLink').val());
+  fd.append('address', $('#addresUser').val());
+  fd.append('zipCode', $('#zipCode').val());
 
   $.ajax({
     url: `${urlBack}/user/update`,
