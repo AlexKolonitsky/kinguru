@@ -47,6 +47,7 @@ html {
 
 body {
   font-family: "Muller Regular";
+  background: transparent!important;
 }
 
 // general
@@ -398,10 +399,7 @@ input::-webkit-inner-spin-button {
     border: none;
     background: #fff;
     position: fixed;
-    top: 35%!important;
-    left: 50%;
-    margin-top: -200px;
-    margin-left: -260px;
+    top: 20%!important;
     display: none;
     opacity: 0;
     padding: 20px 0px 0 0;
@@ -445,7 +443,9 @@ input::-webkit-inner-spin-button {
   }
   .create-meeting-butt {
     background-color: #ffd800;
-    padding: 0.4em 2em;
+    padding: 0.4em 1em;
+    margin: 5px;
+    word-spacing: 5px;
   }
   .form-title{
     color: #000;
@@ -1574,6 +1574,20 @@ input::-webkit-inner-spin-button {
   .cost-speaker-open {
     display: flex;
   }
+  .invited-by-open{
+    position: relative;
+    .invited-email_placeholder {
+      position: absolute;
+      color: #c0c0c0;
+      margin: 0;
+      &.display_none {
+        display: none;
+      }
+      &.display_block {
+        display: block;
+      }
+    }
+  }
   .ui-timepicker-am,
   .ui-timepicker-pm{
     list-style-type: none;
@@ -1644,12 +1658,12 @@ input::-webkit-inner-spin-button {
       #years-end_speaker,
       #years-start_guest,
       #years-end_guest{
-        margin: 0 20px;
+        margin: 0 10px;
       }
     }
   }
   .years-start{
-    margin: 0 20px;
+    margin: 0 10px;
   }
   .invite {
     padding: 10px 0;
@@ -1764,6 +1778,7 @@ input::-webkit-inner-spin-button {
   .submit {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     margin: 40px 0;
   }
@@ -2335,6 +2350,12 @@ input::-webkit-inner-spin-button {
     .navbar-nav > li.nav-item > a.nav-link.active:after {
       left: 42%;
     }
+    #login-form {
+      .sign_up_form{
+        width: 320px;
+        padding: 10px 30px 20px;
+      }
+    }
   }
   #speaker-profile{
     .container {
@@ -2387,7 +2408,7 @@ input::-webkit-inner-spin-button {
   }
 }
 
-@media only screen and (max-width: 321px) {
+@media only screen and (max-width: 330px) {
   #comment {
     .speaker-name-link {
       font-size: 0.8em;
@@ -2396,6 +2417,11 @@ input::-webkit-inner-spin-button {
   #mainNav {
     .navbar-nav > li.nav-item > a.nav-link.active:after{
       left: 40%;
+    }
+    .container-navbar{
+      .contactsNavbar{
+        flex-direction: column;
+      }
     }
   }
 }
@@ -2470,12 +2496,23 @@ img{
   margin-bottom: 0;
   font-size: 13px;
   line-height: 13px;
-  .not_match {
-    color: red;
+  &.not_match {
+    color: #FF0000;
   }
-  .match {
-    color: green;
+  &.match {
+    color: #00ff00;
   }
+  #create-event_authorization{
+      color: #000;
+  }
+}
+
+.gray-separator {
+  max-width: 100%;
+  border-width: 1px;
+  color: #e0e0e0;
+  border-color: #e0e0e0;
+  margin: 5px 0;
 }
 
 .radio-toolbar-1,
