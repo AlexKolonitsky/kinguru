@@ -41,7 +41,7 @@ const userAssociates = [
     through: {attributes: []}
   },
   {
-    model: Locations, as: 'userLocation'
+    model: Locations, as: 'Location'
   }];
 
 class UsersDao {
@@ -55,7 +55,7 @@ class UsersDao {
       phone: userInfo.phone,
       faked: userInfo.faked,
       role: userInfo.role,
-      userLocation: userInfo.userLocation || null,
+      locationId: userInfo.locationId || null,
       coverSource: userInfo.coverSource,
       coverKey: userInfo.coverKey
     }
@@ -91,8 +91,7 @@ class UsersDao {
                 }
               })
                 .then(location => {
-                  console.log(location[0].id);
-                  userInfo.userLocation = location[0].id;
+                  userInfo.locationId = location[0].id;
                   return Users.create(this.getUserObject(userInfo))
                 });
             } else {
