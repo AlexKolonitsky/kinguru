@@ -37,8 +37,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/creative.css" rel="stylesheet">
-  <!--<link href="css/main.css" rel="stylesheet"/>-->
-  <link href="css/header.css" rel="stylesheet"/>
+  <link href="css/styles.min.css" rel="stylesheet"/>
 
 </head>
 
@@ -46,10 +45,7 @@
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-  <div class="contactsItems mx-auto">
-    <a class="contactsItem" href="tel:375296561757">+375 29 656 17 57</a>
-    <a class="contactsItem" href="mailto:info@kinguru.info">info@kinguru.info</a>
-  </div>
+
   <div class="container container-navbar row mx-auto">
     <div class="navbar-logo col-lg-3 col-md-12 col-sm-12 col-12">
       <a
@@ -57,7 +53,7 @@
         href="index.html"
       ><img
         class="d-md-inline-block d-lg-inline-block d-none"
-        src="img/logo_header.svg"
+        src="img/headerLogo.ico"
         width="80"
         height="73"
         alt="Kinguru"/><img
@@ -137,7 +133,7 @@
       <div class="mx-auto">
         <p>...but nowhere to say it. Kinguru is here to help you organize personal and professional events, and grow your own community - stress free.</p>
         <a class="btn btn-primary js-scroll-trigger" target="_blank"
-           href="https://docs.google.com/forms/d/e/1FAIpQLScEwQeZYW8cEvk6y0U6FzQlibcY_z-SM2FrsUZbiecdmPHf2Q/viewform">Create
+           href="new_table.html">Create
           an event</a>
         <a class="btn btn-primary js-scroll-trigger" href="#events">i want to be a guest!</a>
       </div>
@@ -156,10 +152,10 @@
     <!--</form>-->
     <!--</div>-->
     <div class="row">
-      <div class="col-lg-4 col-sm-6 col-12 mb-5">
+      <div class="col-lg-4 col-sm-6 col-12 mb-5" id="createYourEvent">
         <div class="task-box" aria-expanded="false">
           <a id="create-event"
-             href="https://docs.google.com/forms/d/e/1FAIpQLSfr_jPpmzXgwnihgPwiRLqJpHZaxYQaCrrjKZnd11JWSJv6qA/viewform"
+             href="new_table.html"
              target="_blank" title="Отдел продаж с нуля до результата!"><i class="fa fa-plus"
                                                                            aria-hidden="true"></i></a>
           <div class="task-box-inner">
@@ -174,7 +170,7 @@
             <div class="collapse" id="collapseevent-1">
               <div class="card card-body">
                 <a class="join" target="_blank"
-                   href="https://docs.google.com/forms/d/e/1FAIpQLSfr_jPpmzXgwnihgPwiRLqJpHZaxYQaCrrjKZnd11JWSJv6qA/viewform">Create
+                   href="new_table.html">Create
                   an event</a>
                 <a data-toggle="collapse" href="#collapseevent-1" role="button" aria-expanded="true"
                    aria-controls="collapseevent-1"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -260,7 +256,7 @@
     <h2>Past events</h2>
     <img src="img/zigzag.svg" class="stripe" width="142px"
          height="20px" alt="stripe">
-    <div class="row">
+    <div class="row" id="pastEvent">
 
       <div class="col-lg-4 col-sm-6 col-12 mb-5">
         <div class="task-box" aria-expanded="false">
@@ -544,10 +540,10 @@
     <div class="row">
       <div class="col-sm-7">
         <div class="mx-auto text-center">
-          <h2>Let us invite you to the desired table.</h2>
+          <h2>Let us invite you to the desired event.</h2>
           <img src="img/zigzag.svg" class="stripe" width="142px"
                height="20px" alt="stripe">
-          <p class="mb-5">Please, leave your contacts — and we will send you an invitation to the meeting that interests
+          <p class="mb-5">Please, leave your contacts — and we will send you an invitation to the event that interests
             you</p>
         </div>
       </div>
@@ -940,8 +936,9 @@
 <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
 <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
-<script src="js/routing.js"></script>
+<script src="js/environment.js"></script>
 <script src="js/main.js"></script>
+<script src="js/index.js"></script>
 
 <!-- Custom scripts for this template -->
 <script src="js/creative.js"></script>

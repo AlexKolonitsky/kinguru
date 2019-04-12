@@ -44,17 +44,12 @@
   <link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.min.css"/>
   <link href="css/all_meetup.css" rel="stylesheet"/>
   <link href="css/main.css" rel="stylesheet"/>
-  <link href="css/header.css" rel="stylesheet"/>
   <link href="css/styles.min.css" rel="stylesheet"/>
 </head>
 
 <body id="page-top">
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-  <div class="contactsItems mx-auto">
-    <a class="contactsItem" href="tel:375296561757">+375 29 656 17 57</a>
-    <a class="contactsItem" href="mailto:info@kinguru.info">info@kinguru.info</a>
-  </div>
   <div class="container container-navbar row mx-auto">
     <div class="navbar-logo col-lg-3 col-md-12 col-sm-12 col-12">
       <a
@@ -62,7 +57,7 @@
         href="index.html"
       ><img
         class="d-md-inline-block d-lg-inline-block d-none"
-        src="img/logo_header.svg"
+        src="img/headerLogo.ico"
         width="80"
         height="73"
         alt="Kinguru"/><img
@@ -128,17 +123,14 @@
   <div id="overlay-login"></div>
 </nav>
 
-<section id="task">
+<section id="search_event">
   <div class="container">
     <div class="task-title">
-      <h2>All Meetups</h2>
+      <h2>All Events</h2>
       <img src="img/zigzag.svg" class="stripe" width="90px"
            height="10px" alt="stripe">
     </div>
     <div class="form-group row">
-      <label class="control-label col-lg-3" for="meet"
-      >Find meetings in your city:
-      </label>
       <div class="col-lg-3">
         <select id="meet" class="form-control filter-location">
           <option hidden selected value>City</option>
@@ -151,7 +143,7 @@
       </div>
       <div class="text-center search-button-wrapper">
         <button class="butt reset">
-          <img class="reset-img" src="img/reset.png">
+          <img src="img/reset.png" alt="">
         </button>
         <button href="#" class="butt btn-search">Search</button>
       </div>
@@ -177,7 +169,7 @@
 
 <section id="recent_meeting">
   <div class="container">
-    <h2>Recent meeting</h2>
+    <h2>Recent events</h2>
     <img src="img/zigzag.svg" class="stripe" width="90px"
          height="10px" alt="stripe">
 
@@ -203,7 +195,7 @@
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
-<script src="js/routing.js"></script>
+<script src="js/environment.js"></script>
 <script src="js/meetups.js"></script>
 <script src="js/main.js"></script>
 

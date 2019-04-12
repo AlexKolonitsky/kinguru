@@ -32,7 +32,7 @@ class GetAllMeetups extends RequestHandlers {
       limit = parseInt(limit);
     }
 
-    return MeetupsDaoHandler.getAllMeetups(limit, offset, tags, cities, isRecent)
+    return MeetupsDaoHandler.getAllMeetups(limit, isRecent, offset, tags, cities)
   }
 
 

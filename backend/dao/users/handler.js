@@ -55,6 +55,7 @@ class UsersDao {
       phone: userInfo.phone,
       faked: userInfo.faked,
       role: userInfo.role,
+      locationId: userInfo.locationId || null,
       coverSource: userInfo.coverSource,
       coverKey: userInfo.coverKey
     }
@@ -78,7 +79,25 @@ class UsersDao {
             null,
             html,
           ).then(() => {
-            return Users.create(this.getUserObject(userInfo));
+            //==================================================
+            // Copied bad code, it's not my fault
+            //==================================================
+            if (userInfo.country || userInfo.city || userInfo.place) {
+              return Locations.findOrCreate({
+                where: {
+                  country: userInfo.country,
+                  city: userInfo.city,
+                  place: userInfo.place
+                }
+              })
+                .then(location => {
+                  userInfo.locationId = location[0].id;
+                  return Users.create(this.getUserObject(userInfo))
+                });
+            } else {
+              return Users.create(this.getUserObject(userInfo));
+            }
+            //==================================================
           })
             .catch(sendError => {
               return Promise.reject(sendError)
@@ -108,6 +127,47 @@ class UsersDao {
       })
   }
 
+  sendEmailForResetPassword(userInfo, link) {
+    return Users.findOne({
+      where: {
+        email: userInfo.email
+      }
+    })
+      .then(user => {
+        if (user) {
+          const email = userInfo.email;
+          const html = 'Hello, ' + userInfo.firstname + '! You recently requested to reset your password.' +
+            '<br/>' +
+            'If you didn’t request a password reset, please, reply to let us know.' +
+            `<br/><br/><a href="${link}?email=${utils.getJwtToken(email).split(' ')[1]}">Recovery password</a>`;
+          return nodemailer.sendMail(
+            null,
+            email,
+            'KINGURU recovery password',
+            null,
+            html,
+          ).then(() => {
+            return true;
+          })
+            .catch(sendError => {
+              return Promise.reject(sendError)
+            });
+        }
+        return Promise.reject({code: ERRORS_CODE.DUPLICATE});
+      });
+  }
+
+  setNewPassword(email, password) {
+    return Users.findOne({
+      where: {
+        email: email
+      }
+    })
+      .then(user => {
+        return user.update({password: utils.hashPassword(password)});
+      })
+  }
+
   calculateAge(birthday) {
     const ageDifMs = Date.now() - birthday.getTime();
     const ageDate = new Date(ageDifMs);
@@ -127,7 +187,6 @@ class UsersDao {
     if (associationTable) {
       filter.id = _.uniq(_.map(associationTable, 'userId'));
     }
-    console.log(roles);
     return Users.findAll({
       where: filter,
       attributes: defaultUserAttributes
@@ -333,9 +392,8 @@ class UsersDao {
 
   updateUser(newUserInfo, token) {
     const userBeforeUpdated = utils.getUserByToken(token).user;
-    return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo, userBeforeUpdated.location))
+    return this.updateUserLocation(userBeforeUpdated.locationId, this.setLocation(newUserInfo, userBeforeUpdated.userLocation))
       .then(location => {
-        console.log(userBeforeUpdated.email);
         return Users.findOne({
           where: {
             email: userBeforeUpdated.email

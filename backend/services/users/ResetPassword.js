@@ -16,10 +16,10 @@ const {
  * @extends RequestHandlers
  */
 
-class RegisterUser extends RequestHandlers {
+class ResetPassword extends RequestHandlers {
 
   /**
-   * @function validate - validate email for existence and regexp email format, password and username for existence
+   * @function validate - validate email for existence and regexp email format
    * @public
    * @override
    * @param {Object} request
@@ -27,13 +27,8 @@ class RegisterUser extends RequestHandlers {
    */
 
   validate(request) {
-
     return _.flatten([
       validator.validateEmail(request.body.email),
-      validator.fieldExist('password', request.body.password),
-      validator.fieldExist('firstname', request.body.firstname),
-      validator.fieldExist('lastname', request.body.lastname),
-      validator.fieldExist('link', request.body.link),
     ]);
   }
 
@@ -48,16 +43,18 @@ class RegisterUser extends RequestHandlers {
    */
 
   methodAction(request) {
-    return UsersDaoHandler.createUser(request.body, request.body.link)
+    return UsersDaoHandler.sendEmailForResetPassword(request.body, request.body.link)
       .then(() => {
-        console.log('User successfully registration');
-        return 'Ok';
+        return Promise.resolve({
+          code: 200,
+          message: 'Ok',
+        });
       })
       .catch((err) => {
         if (err.code === ERRORS_CODE.DUPLICATE) {
           return Promise.reject({
-            code: 401,
-            message: `The user with email '${request.body.email}' has already been registered`,
+            code: 404,
+            message: `The user with email '${request.body.email}' not found`,
           });
         }
         return Promise.reject(err);
@@ -65,4 +62,4 @@ class RegisterUser extends RequestHandlers {
   }
 }
 
-module.exports = RegisterUser;
+module.exports = ResetPassword;

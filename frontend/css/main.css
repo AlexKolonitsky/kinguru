@@ -275,6 +275,10 @@ img::-moz-selection {
   fill: none;
 }
 
+.about-event {
+  width: 100%;
+}
+
 .about-meetups,
 .comment-text {
   display: inline-block;
@@ -311,10 +315,6 @@ img::-moz-selection {
   font-size: 1.4em;
 }
 
-
-
-
-
 .gray-separator {
   max-width: 100%;
   border-width: 1px;
@@ -328,26 +328,6 @@ img::-moz-selection {
   margin-right: 10px;
 }
 
-.dropdown-toggle::after {
-  display: none!important;
-}
-
-.dropdown-toggle img {
-  width: 60px;
-  height: 60px;
-}
-
-.dropdown-menu {
-  right: 0;
-  left: auto;
-}
-
-.user-name {
-  font-family: "Muller Bold";
-  font-size: 0.7em;
-  margin-top: 5px;
-  margin-bottom: 0;
-}
 p:before{
   margin: 0;
 }
@@ -547,19 +527,6 @@ p:before{
 }
 
 
-#comment {
-  background: #2a2a2a url(../img/parallax-6-dark.png) repeat center center;
-  background-attachment: fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  color: #fff;
-  font-family: "Muller Light";
-  padding: 40px 0 40px 0;
-  z-index: 1;
-}
-
 #comment .owl-item {
   padding: 0 36px;
   overflow: hidden;
@@ -582,8 +549,6 @@ p:before{
   width: 50px;
   height: 50px;
 }
-
-#comment .owl-carousel .owl-item
 
 .comment-wrapper {
   margin: auto;
@@ -990,7 +955,6 @@ p:before{
 
 .footer-email-input-wrapper input {
   display: block;
-  margin: 15px auto;
 }
 
 #contact input {
@@ -1616,29 +1580,6 @@ p:before{
 #progressbar li.active:after {
   background-color: #ffd800;
 }
-
-.hide-content {
-  display: none!important;
-}
-
-.butt {
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  border: 2px solid transparent;
-  font-size: 1.1rem;
-  border-radius: 300px;
-  text-transform: uppercase;
-  outline: none!important;
-    cursor: pointer;
-}
-
-.butt:active {
-    border: 2px solid #c9a700;
-}
-
 
 .cost-from_to {
   margin: 0;

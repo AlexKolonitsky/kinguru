@@ -5,12 +5,12 @@ const { UsersDaoHandler } = require('./../../dao/handlers');
 const utils = require('../../common/securityAssert');
 
 
-class ConfirmEmail extends RequestHandlers {
+class SetNewPassword extends RequestHandlers {
 
   methodAction(request) {
-    return UsersDaoHandler.confirmEmail(utils.getUserByToken(request.params.id).user);
+    return UsersDaoHandler.setNewPassword(utils.getUserByToken(request.params.id).user, request.body.password);
   }
 
 }
 
-module.exports = ConfirmEmail;
+module.exports = SetNewPassword;

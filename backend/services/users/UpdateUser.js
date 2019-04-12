@@ -40,7 +40,8 @@ class UpdateUser extends RequestHandler {
       return this.s3.upload(Date.now() + '-' + file.originalname, file.buffer, file.mimetype)
         .then(data => {
           userRequest.coverSource = data.Location;
-          userRequest.coverKey = data.key;
+          // TODO: hardcode... fix
+          userRequest.coverKey = 2; // data.key;
           return UsersDaoHandler.updateUser(userRequest, assert.getToken(request))
             .then(userInfo => {
               return this.s3.deleteObject(userInfo.oldFileKey)

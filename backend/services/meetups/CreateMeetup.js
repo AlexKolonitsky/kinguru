@@ -33,7 +33,7 @@ class CreateMeetup extends RequestHandlers {
   validate(request) {
     return [
       validator.fieldExist('title', request.body.title),
-      validator.validateRole(2, utils.getUserByToken(assert.getToken(request)).user.role)
+      validator.validateRole(1, utils.getUserByToken(assert.getToken(request)).user.role)
       // validator.fieldExist('image', request.file),
     ];
   }
