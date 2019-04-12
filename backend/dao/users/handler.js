@@ -41,7 +41,7 @@ const userAssociates = [
     through: {attributes: []}
   },
   {
-    model: Locations, as: 'Location'
+    model: Locations, as: 'userLocation'
   }];
 
 class UsersDao {
