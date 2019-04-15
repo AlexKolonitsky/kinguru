@@ -1,11 +1,24 @@
-FROM dmitryshevkun/base:base_1804_npm
+FROM ubuntu:16.04
 
-run mkdir -p /app
-WORKDIR /app
-COPY ./backend/* /app/
+sudo apt-get update
 
-run npm i
+#Node version 8
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - 
+sudo apt-get install -y nodejs
+sudo apt-get install -y git
 
-EXPOSE 3010
+#install mysql locally - optional
+sudo apt update
+sudo apt install -y mysql-server
+sudo mysql_secure_installation
 
-CMD ["npm","start"]
+git clone https://github.com/AlexKolonitsky/kinguru.git
+
+cd kinguru/
+
+#add .env file
+
+cd backend/
+
+sudo npm i
+sudo node run.sh
