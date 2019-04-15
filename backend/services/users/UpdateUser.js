@@ -35,13 +35,12 @@ class UpdateUser extends RequestHandler {
     userRequest.languages = userRequest.languages ? userRequest.languages.split(',').map(language => parseInt(language, 10)) : null;
     userRequest.jobTitles = userRequest.jobTitles ? userRequest.jobTitles.split(',').map(jobTitle => parseInt(jobTitle, 10)) : null;
     userRequest.keywords = userRequest.keywords ? userRequest.keywords.split(',').map(keyword => parseInt(keyword, 10)) : null;
+    userRequest.expertise = userRequest.expertise ? userRequest.expertise.split(',').map(keyword => parseInt(keyword, 10)) : null;
     const file = request.file;
     if (file) {
       return this.s3.upload(Date.now() + '-' + file.originalname, file.buffer, file.mimetype)
         .then(data => {
           userRequest.coverSource = data.Location;
-          // TODO: hardcode... fix
-          userRequest.coverKey = 2; // data.key;
           return UsersDaoHandler.updateUser(userRequest, assert.getToken(request))
             .then(userInfo => {
               return this.s3.deleteObject(userInfo.oldFileKey)

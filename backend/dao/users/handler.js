@@ -16,7 +16,7 @@ const utils = require('./../../common/securityAssert');
 const nodemailer = require('./../../common/nodemailer');
 const Sequelize = require('sequelize');
 
-const {Users, Locations, Languages, UsersLanguages, WordKeys, UsersKeywords, JobTitles, UsersJobTitles, Industries, UsersIndustries} = require('./../index');
+const {Users, Locations, Languages, UsersLanguages, WordKeys, UsersKeywords, JobTitles, UsersJobTitles, Industries, UsersIndustries, UsersExpertise} = require('./../index');
 const defaultUserAttributes = [
   'id', 'firstname', 'lastname', 'email', 'description', 'birthday', 'gender', 'phone',
   'locationId', 'cost', 'company', 'website', 'linkedinLink', 'facebookLink', 'instagramLink',
@@ -34,6 +34,10 @@ const userAssociates = [
   },
   {
     model: JobTitles, as: 'jobtitles', attributes: ['id', 'name'],
+    through: {attributes: []}
+  },
+  {
+    model: UsersExpertise, as: 'usersExpertise', attributes: ['id', 'name'],
     through: {attributes: []}
   },
   {
@@ -79,9 +83,6 @@ class UsersDao {
             null,
             html,
           ).then(() => {
-            //==================================================
-            // Copied bad code, it's not my fault
-            //==================================================
             if (userInfo.country || userInfo.city || userInfo.place) {
               return Locations.findOrCreate({
                 where: {
@@ -431,6 +432,9 @@ class UsersDao {
                 if (newUserInfo.industries && newUserInfo.industries.length) {
                   associatedPromises.push(this.updateUserAssociated(UsersIndustries, newUserInfo.industries, user.id, 'industryId'))
                 }
+                if (newUserInfo.expertise && newUserInfo.expertise.length) {
+                  associatedPromises.push(this.updateUserAssociated(UsersExpertise, newUserInfo.expertise, user.id, 'wordId'))
+                }
                 if (associatedPromises.length) {
                   return Promise.all(associatedPromises)
                     .then(() => {
@@ -450,16 +454,20 @@ class UsersDao {
       }
     })
       .then(response => {
-        const removedUsersLanguages = response.filter(item => !associatedArray.includes(item[field]));
+        const removedUsersLanguages = response.filter(item => !associatedArray.includes(item.dataValues[field]));
         const destroyPromises = [];
         removedUsersLanguages.forEach(item => destroyPromises.push(item.destroy()));
         return Promise.all(destroyPromises)
           .then(() => {
-            const filter = {userId: userId};
-            filter[field] = associatedArray;
-            return associatedModel.findOrCreate({
-              where: filter
-            })
+            const  associatedModelPromises = new Array(associatedArray.length);
+            associatedArray.forEach(item => {
+              const filter = {userId: userId};
+              filter[field] = [item];
+              associatedModelPromises.push(associatedModel.findOrCreate({
+                where: filter
+              }));
+            });
+            return Promise.all(associatedModelPromises);
           })
       });
   }
