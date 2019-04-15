@@ -12,11 +12,18 @@ sudo apt update
 sudo apt install -y mysql-server
 sudo mysql_secure_installation
 
+# install yarn for the frontend
+sudo npm i -g gulp
+
+$clonning repo
 git clone https://github.com/AlexKolonitsky/kinguru.git
 
+cd kinguru/frontend
+sudo npm install
+gulp
+
 cd kinguru/backend/
-
 #add .env file with credantials setuped
+sudo npm install
 
-sudo npm i
 sudo node run.sh
