@@ -364,6 +364,8 @@ function userInformation(information) {
         });
         $('#userExpertise').append(expertiseList);
     }
+
+
 }
 
 function changePass(data) {
@@ -389,6 +391,14 @@ $('#update-account').click(function () {
     }
   fd.append( 'firstname', $('#first-name').val());
   fd.append( 'gender', $('#gender-user option:selected').text());
+  fd.append('industries,',  $(`#industryUser`).val().map(function (x) {
+        return parseInt(x.split(`industryUser`)[1], 10);}));
+  fd.append('jobTitles,',  $(`#userJobTitle`).val().map(function (x) {
+        return parseInt(x.split(`userJobTitle`)[1], 10);}));
+  fd.append('expertise,',  $(`#userExpertise`).val().map(function (x) {
+        return parseInt(x.split(`userExpertise`)[1], 10);}));
+  fd.append('keywords,',  $(`#userInterest`).val().map(function (x) {
+        return parseInt(x.split(`userInterest`)[1], 10);}));
   fd.append( 'lastname', $('#last-name').val());
   fd.append( 'country', $('#country-user').val());
   fd.append( 'birthday', $('#birthday-user').val());
