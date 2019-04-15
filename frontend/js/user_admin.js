@@ -384,8 +384,9 @@ function successChgangePass() {
 
 $('#update-account').click(function () {
   let fd = new FormData();
-
-  fd.append( 'image', $('#file')[0].files[0]);
+    if($('#file')[0].files[0] !== undefined) {
+    fd.append( 'image', $('#file')[0].files[0]);
+    }
   fd.append( 'firstname', $('#first-name').val());
   fd.append( 'gender', $('#gender-user option:selected').text());
   fd.append( 'lastname', $('#last-name').val());

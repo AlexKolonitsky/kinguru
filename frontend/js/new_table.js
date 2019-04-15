@@ -526,6 +526,8 @@ $('#createMeetup').click(function () {
   });
   $('#radio6').val($('#guestValNumber').val());
 
+
+
   if ($('#file')[0].files[0] !== undefined) {
     fd.append( 'image', $('#file')[0].files[0]);
   }
