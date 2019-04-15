@@ -395,8 +395,8 @@ $('#update-account').click(function () {
         return parseInt(x.split(`industryUser`)[1], 10);}));
   fd.append('jobTitles',  $(`#userJobTitle`).val().map(function (x) {
         return parseInt(x.split(`userJobTitle`)[1], 10);}));
-  fd.append('expertise',  $(`#userExpertise`).val().map(function (x) {
-        return parseInt(x.split(`userExpertise`)[1], 10);}));
+  // fd.append('expertise',  $(`#userExpertise`).val().map(function (x) {
+  //       return parseInt(x.split(`userExpertise`)[1], 10);}));
   fd.append('keywords',  $(`#userInterest`).val().map(function (x) {
         return parseInt(x.split(`userInterest`)[1], 10);}));
   fd.append( 'lastname', $('#last-name').val());
