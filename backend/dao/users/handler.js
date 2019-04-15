@@ -37,10 +37,6 @@ const userAssociates = [
     through: {attributes: []}
   },
   {
-    model: UsersExpertise, as: 'usersExpertise', attributes: ['id', 'name'],
-    through: {attributes: []}
-  },
-  {
     model: Industries, as: 'industries', attributes: ['id', 'name'],
     through: {attributes: []}
   },
