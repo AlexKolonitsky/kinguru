@@ -247,7 +247,8 @@ class UsersDao {
           this.getUsersByAssociated(UsersLanguages, filter.languages, {languageId: filter.languages}, speakerRole),
           this.getUsersByAssociated(UsersKeywords, filter.expertises, {wordId: filter.expertises}, speakerRole),
           this.getUsersByAssociated(UsersJobTitles, filter.jobTitles, {jobtitleId: filter.jobTitles}, speakerRole),
-          this.getUsersByAssociated(UsersIndustries, filter.industries, {industryId: filter.industries}, speakerRole)
+          this.getUsersByAssociated(UsersIndustries, filter.industries, {industryId: filter.industries}, speakerRole),
+          this.getUsersByAssociated(UsersExpertise, filter.expertises, {wordId: filter.expertises}, speakerRole),
         ])
           .then(response => {
             const filteredSpeakers = _.intersectionBy(
