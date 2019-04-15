@@ -14,11 +14,9 @@ sudo mysql_secure_installation
 
 git clone https://github.com/AlexKolonitsky/kinguru.git
 
-cd kinguru/
+cd kinguru/backend/
 
-#add .env file
-
-cd backend/
+#add .env file with credantials setuped
 
 sudo npm i
 sudo node run.sh
