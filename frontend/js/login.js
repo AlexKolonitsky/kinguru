@@ -78,11 +78,14 @@ window.addEventListener("load", function () {
     token = `Bearer ${token}`;
     getUser(token);
   } else {
-    console.log('not work');
     $('#login-block').removeClass('hide-content');
     $('#notAuthorization').html("<p class='pass not_match'>For create event you can <a href='#' id='create-event_authorization'>authorize</a></p>");
   }
 });
+
+window.onbeforeunload = function() {
+  localStorage.setItem('Token', '');
+};
 
 $('#continue').click(function () {
   event.preventDefault();
