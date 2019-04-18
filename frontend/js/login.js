@@ -75,7 +75,6 @@ function getUser(token) {
 };
 
 $( document ).ready(function() {
-  window.onload = function () {
     let token = localStorage.getItem('Token');
     if (token) {
       token = `Bearer ${token}`;
@@ -84,7 +83,6 @@ $( document ).ready(function() {
       $('#login-block').removeClass('hide-content');
       $('#notAuthorization').html("<p class='pass not_match'>For create event you can <a href='#' id='create-event_authorization'>authorize</a></p>");
     }
-  }
 });
 
 
