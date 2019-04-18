@@ -69,6 +69,7 @@ function getUser(token) {
     },
     error: function () {
       localStorage.setItem('Token', '');
+      $('#login-block').removeClass('hide-content');
     }
   });
 };
