@@ -67,6 +67,9 @@ function getUser(token) {
       showHeaderContent(data.user);
         userId = data.user.id;
     },
+    error: function () {
+      localStorage.setItem('Token', '');
+    }
   });
 };
 
@@ -83,9 +86,6 @@ window.addEventListener("load", function () {
   }
 });
 
-window.onbeforeunload = function() {
-  localStorage.setItem('Token', '');
-};
 
 $('#continue').click(function () {
   event.preventDefault();
