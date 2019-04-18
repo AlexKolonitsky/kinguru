@@ -68,7 +68,7 @@ function getUser(token) {
         userId = data.user.id;
     },
     error: function () {
-      localStorage.setItem('Token', '');
+      localStorage.removeItem('Token');
       $('#login-block').removeClass('hide-content');
     }
   });
@@ -77,9 +77,7 @@ function getUser(token) {
 $( document ).ready(function() {
   window.onload = function () {
     let token = localStorage.getItem('Token');
-    console.log(token);
     if (token) {
-      console.log('work');
       token = `Bearer ${token}`;
       getUser(token);
     } else {
@@ -211,7 +209,7 @@ function showHeaderContent(user) {
     $('#login-block').removeClass('hide-content');
     $('#createMeetup').attr('disabled', true);
     $('#notAuthorization').html("<p class='pass not_match'>To create an event you have to be authorized</p>");
-    localStorage.setItem('Token', '');
+    localStorage.removeItem('Token');
     if ($('form').is('#change-pass-form')) {
       window.location.href = "index.html";
     }
