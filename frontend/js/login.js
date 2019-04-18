@@ -74,18 +74,21 @@ function getUser(token) {
   });
 };
 
-window.addEventListener("load", function () {
-  let token = localStorage.getItem('Token');
-  console.log(token);
-  if (token) {
+$( document ).ready(function() {
+  window.addEventListener("load", function () {
+    let token = localStorage.getItem('Token');
+    console.log(token);
+    if (token) {
       console.log('work');
-    token = `Bearer ${token}`;
-    getUser(token);
-  } else {
-    $('#login-block').removeClass('hide-content');
-    $('#notAuthorization').html("<p class='pass not_match'>For create event you can <a href='#' id='create-event_authorization'>authorize</a></p>");
-  }
+      token = `Bearer ${token}`;
+      getUser(token);
+    } else {
+      $('#login-block').removeClass('hide-content');
+      $('#notAuthorization').html("<p class='pass not_match'>For create event you can <a href='#' id='create-event_authorization'>authorize</a></p>");
+    }
+  });
 });
+
 
 
 $('#continue').click(function () {
