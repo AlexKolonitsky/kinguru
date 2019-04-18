@@ -44,7 +44,9 @@ function getJwtToken(userInfo) {
 }
 
 function getUserByToken(token) {
-  return jwt.verify(token, SECURITY.JWT_SECRET);
+  return jwt.verify(token, SECURITY.JWT_SECRET, (error, user) => {
+    return user;
+  });
 }
 
 /**
