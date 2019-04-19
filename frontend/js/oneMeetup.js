@@ -35,7 +35,7 @@ function meetup(metap) {
     `    <h2 class="task-title text-left ml-3">${metap.title ? metap.title : ''}</h2>` +
     `  </div>` +
     `  <div class="event row">` +
-    `    <div class="event-img col-lg-5 col-sm-6 col-12">` +
+    `    <div class="event-img col-lg-5 col-sm-5 col-12">` +
     `    <div class="col-lg-11 col-sm-11 col-12">` +
     `    <img class="img mx-auto d-block img-fluid rounded-circle mt-lg-5"` +
     `  src="${metap.coverSource ? metap.coverSource : 'img/default-user-image.png'}"` +
@@ -43,7 +43,7 @@ function meetup(metap) {
     `    </div>` +
     `    <div class="col-lg-1 col-sm-1 col-12"></div>` +
     `    </div>` +
-    `    <div class="event-desc col-lg-7 col-sm-6 col-12">` +
+    `    <div class="event-desc col-lg-7 col-sm-7 col-12">` +
     `    <div class="row event-categories my-3"></div>` +
     `    <div class="d-lg-none d-md-inline-block d-inline-block col-12">` +
     `    <h2 class="text-left ml-3 text-left">${metap.title ? metap.title : ''}</h2>` +
