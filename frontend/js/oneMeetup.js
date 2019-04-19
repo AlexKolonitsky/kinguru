@@ -56,31 +56,13 @@ function meetup(metap) {
       `    </div>`
   });
   meetupContent +=
-    `    </div>` +
-    `    </div>` +
-    `    <div class="col-lg-5 col-md-1"></div>` +
-    `    <div class="col-lg-7 col-md-11 event-item">` +
+    `    <div class="event-item">` +
     `    <div class="row mx-1 my-3">` +
     `    <div class="event-date col-lg-6 col-sm-6 col-12">` +
-    `    <p>` +
-    `    <svg class="svg-calendar"` +
-    `  viewBox="0 0 22 22"` +
-    `  width="1em"` +
-    `  height="1em">` +
-    `    <g id="calendar_1_">` +
-    `    <path class="st0"` +
-    `  d="M20.167 2.063h-2.98V.687a.687.687 0 1 0-1.375` +
-    `  0v1.375h-4.124V.688a.687.687 0 1 0-1.376 0v1.375H6.189V.687a.687.687 0 1 0-1.375 0v1.375h-2.98C.822` +
-    `  2.063 0 2.882 0 3.896v16.271C0 21.18.82 22 1.834 22h18.333C21.18 22 22 21.18 22 20.166V3.896c0-1.013-.82-1.833-1.833-1.833zm.458` +
-    `  18.103a.459.459 0 0 1-.458.459H1.834a.459.459 0 0 1-.459-.459V3.896c0-.253.206-.458.459-.458h2.978v1.375a.687.687 0 1 0` +
-    `  1.375 0V3.438h4.125v1.374a.687.687 0 1 0 1.376 0V3.438h4.124v1.376a.687.687 0 1 0 1.376 0V3.438h2.98c.251 0 .457.205.457.457v16.271z"` +
-    `  fill="#ffd800"/>` +
-    `    <path` +
-    `class="st0" d="M4.813 8.25h2.75v2.063h-2.75zM4.813 11.688h2.75v2.063h-2.75zM4.813 15.125h2.75v2.063h-2.75zM9.625 15.125h2.75v2.063h-2.75zM9.625` +
-    `  11.688h2.75v2.063h-2.75zM9.625 8.25h2.75v2.063h-2.75zM14.438 15.125h2.75v2.063h-2.75zM14.438 11.688h2.75v2.063h-2.75zM14.438 8.25h2.75v2.063h-2.75z"` +
-    `  fill="#ffd800"/>` +
-    `    </g>` +
-    `    </svg>` +
+    `    <p class="event-icon">` +
+    `    <img class="event-icon-svg"` +
+    `    src="img/calendar.svg"` +
+    `    alt="calendar">` +
     `  ${fromModelToView(metap.startDate || '')}` +
     `  </p>` +
     `  </div>` +
@@ -100,19 +82,10 @@ function meetup(metap) {
     `  </div>` +
     `  <div class="row mx-1 my-3">` +
     `    <div class="event-time col-lg-6 col-sm-6 col-12">` +
-    `    <p>` +
-    `    <svg class="svg-time" xmlns="http://www.w3.org/2000/svg"` +
-    `  viewBox="0 0 21 21"` +
-    `  width="1em"` +
-    `  height="1em">` +
-    `    <path d="M21.002 10.514c0-5.81-4.705-10.516-10.488-10.516A10.513 10.513 0 0 0-.002 10.514c0` +
-    `  5.783 4.705 10.488 10.516 10.488 5.783 0 10.488-4.705 10.488-10.488zm-1.615 0a8.868 8.868 0 0` +
-    `  1-8.873 8.873c-4.932 0-8.9-3.969-8.9-8.873a8.88 8.88 0 0 1 8.9-8.9c4.904 0 8.873 3.968 8.873 8.9zm-2.438` +
-    `  0c0-.453-.34-.822-.794-.822h-4.847V4.845c0-.454-.369-.794-.822-.794a.792.792 0 0 0-.794.794v5.67c0` +
-    `  .424.369.793.794.793h5.67a.792.792 0 0 0 .793-.794z"` +
-    `  fill="#ffd800"` +
-    `    />` +
-    `    </svg>` +
+    `  <p class="event-icon">` +
+    `    <img class="event-icon-svg"` +
+    `    src="img/time.svg"` +
+    `    alt="time">` +
     `  14:00` +
     `  </p>` +
     `  </div>` +
@@ -120,8 +93,11 @@ function meetup(metap) {
     `    </div>` +
     `    <div class="row mx-1 my-3">` +
     `    <div class="event-place col-lg-6 col-sm-6 col-12">` +
-    `    <p class="">` +
-    `    <i class="fa fa-map-marker"></i>${metap.location ? metap.location.place : ''}, ${metap.location ? metap.location.address : ''}, ${metap.location ? metap.location.city : ''}` +
+    `    <p class="event-icon">` +
+    `    <img class="event-icon-svg"` +
+    `    src="img/location.svg"` +
+    `    alt="location">` +
+    `    ${metap.location ? metap.location.place : ''}, ${metap.location ? metap.location.address : ''}, ${metap.location ? metap.location.city : ''}` +
     `    </p>` +
     `    </div>` +
     `    <div class="event-guests col-lg-6 col-sm-6 col-12">` +
@@ -147,70 +123,38 @@ function meetup(metap) {
     `    <a href="#" class="btn-join btn">Join</a>` +
     `    </div>` +
     `    <div class="event-cost col-lg-6 col-sm-6 col-4">` +
-    `    <p class="">` +
-    `    <svg class="svg-price"` +
-    `xmlns="http://www.w3.org/2000/svg"` +
-    `  viewBox="0 0 22 22"` +
-    `  width="1.1em"` +
-    `  height="1.1em">` +
-    `    <path d="M11 0c6.065 0 11 4.935 11 11s-4.935 11-11 11S0 17.065 0 11 4.935 0 11 0zm0` +
-    `  20.645c5.318 0 9.645-4.327 9.645-9.645S16.318 1.355 11 1.355 1.355 5.682 1.355 11 5.682` +
-    `  20.645 11 20.645zm.678-3.133v1.346h-1.356v-1.346h-.22a3.375 3.375 0 0 1-3.37-3.37v-.23h1.355v.23c0` +
-    `  1.11.904 2.015 2.015 2.015h1.796a2.017 2.017 0 0 0 2.015-2.015v-.45a2.017 2.017 0 0` +
-    `  0-2.015-2.014h-1.796a3.375 3.375 0 0 1-3.37-3.37v-.45a3.375 3.375 0 0 1` +
-    `  3.37-3.37h.22V3.142h1.356v1.346h.22a3.375 3.375 0 0 1 3.37 3.37v.23h-1.355v-.23a2.017 2.017 0 0` +
-    `  0-2.015-2.015h-1.796a2.017 2.017 0 0 0-2.015 2.015v.45c0 1.11.904 2.014 2.015 2.014h1.796a3.375 3.375 0` +
-    `  0 1 3.37 3.37v.45a3.375 3.375 0 0 1-3.37 3.37h-.22z"` +
-    `  fill-rule="evenodd"` +
-    `  clip-rule="evenodd"` +
-    `  fill="#6e6e6e"/>` +
-    `    </svg>` +
+    `    <p class="event-icon">` +
+    `    <img class="event-icon-svg"` +
+    `    src="img/price.svg"` +
+    `    alt="price">` +
     `  <p class="event-price">` +
     `  </p>` +
     `  </p>` +
     `  </div>` +
     `  </div>` +
     `  </div>` +
-    `  <div class="row my-5 about-event">` +
-    `    <div class="col-lg-9 ml-md-4 col-md-11 col-sm-10 col-11 mx-auto">` +
-    `    <div class="row">` +
-    `    <div class="col-md-9 col-7">` +
-    `    <h4>About event` +
-    `  <hr class="yellow-separator">` +
-    `    </h4>` +
-    `    </div>` +
-    `    <div class="col-md-3 col-5 d-lg-none d-md-inline-block">` +
-    `    <p>` +
-    `    <a class="speaker-name-link_task"` +
-    `  target="_blank"` +
-    `  title="facebook"` +
-    `  href="https://www.facebook.com/egor.tsyganok/posts/1738825119569755"` +
-    `    ><i class="fa fa-microphone color-gray"></i><p class="speaker-name-link_task_microphone"></p>` +
-    `    </a>` +
-    `    </p>` +
-    `    </div>` +
-    `    </div>` +
-    `    <p class="about-meetups text-justify">${metap.description || ''}` +
-    `  <span class="hide">` +
-    `  </span>` +
-    `  </p>` +
     `  </div>` +
-    `  <div class="col-lg-2 d-lg-inline-block d-md-none d-none col-sm-2 col-11 mx-auto">` +
-    `    <p>` +
-    `    <a class="speaker-name-link_task"` +
-    `target="_blank"` +
-    `  title="facebook"` +
-    `  href="https://www.facebook.com/egor.tsyganok/posts/1738825119569755"` +
-    `    ><i class="fa fa-microphone color-gray"></i><p class="speaker-name-link_task_microphone"></p>` +
-    `    </a>` +
-    `    </p>` +
+    `  <div class="row my-5 about-event">` +
+    `    <div class="col-11 mx-auto">` +
+    `      <div class="row about-event-title">` +
+    `       <div class="col-md-9 col-7">` +
+    `         <h4>About event` +
+    `          <hr class="yellow-separator">` +
+    `         </h4>` +
+    `       </div>` +
+    `       <div class="col-md-3 col-5 row">` +
+    `         <i class="fa fa-microphone color-gray"></i>` +
+    `          <a class="speaker-name-link_task"` +
+    `                     target="_blank"` +
+    `                     title="facebook"` +
+    `                      href="https://www.facebook.com/egor.tsyganok/posts/1738825119569755"` +
+    `             ><p class="speaker-name-link_task_microphone"></p>` +
+    `          </a>` +
+    `      </div>` +
     `    </div>` +
-    `    <div class="col-11 text-right">` +
-    `    <a class="show" role="button" aria-expanded="true">` +
-    `    More` +
-    `    <i class="fa fa-plus more-button-icon" aria-hidden="true"></i>` +
-    `    </a>` +
-    `    </div>` +
+    `     <span class="about-meetups more">${metap.description || ''}` +
+    `      </span>` +
+    `  </div>` +
     `    </div>` +
     `    </div>` +
     `    </div>`;
