@@ -15,7 +15,7 @@ window.addEventListener("load", function () {
   let enitionState = isEnitionState(true);
   let enitionRecent = isEnitionState(false);
   let allMeetup = {limit: 12, offset: 0};
-  let allRecentMeetup = {limit: 3, isRecent: true};
+  let allRecentMeetup = {limit: 12, isRecent: true};
   postAllMeetup(allMeetup, enitionState);
   postAllMeetup(allRecentMeetup, enitionRecent);
 });
@@ -56,7 +56,7 @@ function showRecentMeetups(recentMeetups) {
     let meetupContent = `<div class="col-lg-4 col-sm-6 col-12 mb-5 child-recent">` +
       `<div class="task-box" aria-expanded="false">` +
       `     <a` +
-      `       href="2_meetup.html" ` +
+      `       href="2_meetup.html?meetupId=${meetup.id}" ` +
       `       class="task-box_poster" ` +
       `       title="${meetup.title}"` +
       `       ><img` +

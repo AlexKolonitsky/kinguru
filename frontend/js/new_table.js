@@ -558,6 +558,9 @@ $('#createMeetup').click(function () {
     type: 'POST',
     success: function(data){
       window.location.href = "all_meetup.html";
+    },
+    error: function () {
+      $("#notAuthorization").html("<p class='pass not_match'>Fill in all field point *</p>");
     }
   });
 });

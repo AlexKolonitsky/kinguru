@@ -99,7 +99,7 @@ function userInformation(information) {
     `    <div class="col-md-9 well" id="user-info-content">` +
     `    <legend id="pers_info" class="">Personal information</legend>` +
     `  <input name="myFile" type="file" id="file" class="input_file">` +
-    `    <label class="load_file" for="file"><img src="${information.coverSource}" id="image" class="img-fluid rounded-circle mx-auto"></label>` +
+    `    <label class="load_file" for="file"><img src="${information.coverSource ? information.coverSource : 'img/default-user-image.png'}" id="image" class="img-fluid rounded-circle mx-auto"></label>` +
     `    <div class="row">` +
     ` <div class="checkbox-label col-lg-8 col-12">`+
     `  <p class="">I want to be a speaker</p>` +
@@ -131,14 +131,14 @@ function userInformation(information) {
     `    </div>` +
     `    <div class="row">` +
     `    <p type="First name*" class="col-lg-8 col-12">` +
-    `    <input id="first-name" class="input_field" name="fname" type="text" value="${information.firstname}" required/>` +
+    `    <input id="first-name" class="input_field" name="fname" type="text" value="${information.firstname || ''}" required/>` +
     `  </p>` +
     `  <p class="col-lg-4 col-0">` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
     `    <p type="Last name*" class="col-lg-8 col-12">` +
-    `    <input id="last-name" class="input_field" name="lname" type="text" value="${information.lastname}" required/>` +
+    `    <input id="last-name" class="input_field" name="lname" type="text" value="${information.lastname || ''}" required/>` +
     `  </p>` +
     `  <p class="col-lg-4 col-0">` +
     `    </p>` +
@@ -184,7 +184,7 @@ function userInformation(information) {
     `  <p type="Cost per hour" class="col-12"></p>`+
     `  <div class="col-8 row">`+
     `  <label class="cost-from_to-set" for="costFromUser">cost</label>`+
-    `  <input class="input_field cost-from_to-set" id="costFromUser" type="text" name="mySpeaker" value="${information.cost}">`+
+    `  <input class="input_field cost-from_to-set" id="costFromUser" type="text" name="mySpeaker" value="${information.cost || ''}">`+
     ` <p class="cost-from_to">$</p>`+
     ` </div>`+
     `    </div>` +
@@ -391,14 +391,14 @@ $('#update-account').click(function () {
     }
   fd.append( 'firstname', $('#first-name').val());
   fd.append( 'gender', $('#gender-user option:selected').text());
-  fd.append('industries',  $(`#industryUser`).val().map(function (x) {
-        return parseInt(x.split(`industryUser`)[1], 10);}));
-  fd.append('jobTitles',  $(`#userJobTitle`).val().map(function (x) {
-        return parseInt(x.split(`userJobTitle`)[1], 10);}));
+  // fd.append('industries',  $(`#industryUser`).val().map(function (x) {
+  //       return parseInt(x.split(`industryUser`)[1], 10);}));
+  // fd.append('jobTitles',  $(`#userJobTitle`).val().map(function (x) {
+  //       return parseInt(x.split(`userJobTitle`)[1], 10);}));
   // fd.append('expertise',  $(`#userExpertise`).val().map(function (x) {
   //       return parseInt(x.split(`userExpertise`)[1], 10);}));
-  fd.append('keywords',  $(`#userInterest`).val().map(function (x) {
-        return parseInt(x.split(`userInterest`)[1], 10);}));
+  // fd.append('keywords',  $(`#userInterest`).val().map(function (x) {
+  //       return parseInt(x.split(`userInterest`)[1], 10);}));
   fd.append( 'lastname', $('#last-name').val());
   fd.append( 'country', $('#country-user').val());
   fd.append( 'birthday', $('#birthday-user').val());

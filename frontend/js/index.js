@@ -47,7 +47,7 @@ function allEvent(events) {
     let eventContent =
       `  <div class="col-lg-4 col-sm-6 col-12 mb-5">` +
       `      <div class="task-box" aria-expanded="false">` +
-      `      <a href="${event.socialLink ? event.socialLink : ''}" target="_blank"` +
+      `      <a href="1_meetup.html?meetupId=${event.id}"` +
       `  class="task-box_poster" title="${event.title}">` +
       `      <img class="img mx-auto d-block" src="${event.coverSource ? event.coverSource : 'img/default-user-image.png'}" alt="reportage">` +
       `      </a>` +
@@ -90,7 +90,7 @@ function allPastEvent(events) {
     let eventContent =
       `  <div class="col-lg-4 col-sm-6 col-12 mb-5">` +
       `      <div class="task-box" aria-expanded="false">` +
-      `      <a href="${event.socialLink ? event.socialLink : ''}" target="_blank"` +
+      `      <a href="2_meetup.html?meetupId=${event.id}"` +
       `  class="task-box_poster" title="${event.title}">` +
       `      <img class="img mx-auto d-block" src="${event.coverSource ? event.coverSource : 'img/default-user-image.png'}" alt="reportage">` +
       `      </a>` +
