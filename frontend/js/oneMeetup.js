@@ -37,7 +37,7 @@ function meetup(metap) {
     `  <div class="event row">` +
     `    <div class="event-img col-lg-5 col-sm-5 col-12">` +
     `    <div class="col-lg-11 col-sm-11 col-12">` +
-    `    <img class="img mx-auto d-block img-fluid rounded-circle mt-lg-5"` +
+    `    <img class="img mx-auto d-block img-fluid rounded-circle mt-lg-5 normal-img"` +
     `  src="${metap.coverSource ? metap.coverSource : 'img/default-user-image.png'}"` +
     `  alt=""/>` +
     `    </div>` +
@@ -97,7 +97,7 @@ function meetup(metap) {
     `    <img class="event-icon-svg"` +
     `    src="img/location.svg"` +
     `    alt="location">` +
-    `    ${metap.location ? metap.location.place : ''}, ${metap.location ? metap.location.address : ''}, ${metap.location ? metap.location.city : ''}` +
+    `    ${metap.location !== null ? metap.location.place : ''} ${metap.location !== null ? metap.location.address : ''} ${metap.location !== null ? metap.location.city : ''}` +
     `    </p>` +
     `    </div>` +
     `    <div class="event-guests col-lg-6 col-sm-6 col-12">` +
@@ -159,37 +159,37 @@ function meetup(metap) {
     `    </div>` +
     `    </div>`;
 
-  let meetingPlace =
-    `<h2 class="section-title section-title-left">${metap.location.place ? metap.location.place : ''}</h2>` +
-    `  <p class="place-description"><i class="fa fa-map-marker"></i>${metap.location.address ? metap.location.address : ''}, ${metap.location.city ? metap.location.city : ''}</p>` +
-    `    <p class="place-description">` +
-    `    <a href="tel:+13472234410"><i class="fa fa-mobile"></i>${metap.location.phone ? metap.location.phone : ''}</a>` +
-    `  </p>`;
+  // let meetingPlace =
+  //   `<h2 class="section-title section-title-left">${metap.location.place ? metap.location.place : ''}</h2>` +
+  //   `  <p class="place-description"><i class="fa fa-map-marker"></i>${metap.location.address ? metap.location.address : ''}, ${metap.location.city ? metap.location.city : ''}</p>` +
+  //   `    <p class="place-description">` +
+  //   `    <a href="tel:+13472234410"><i class="fa fa-mobile"></i>${metap.location.phone ? metap.location.phone : ''}</a>` +
+  //   `  </p>`;
 
   $('.meetup').append(meetupContent);
 
-  $.ajax({
-    url: `${urlBack}/images/location/${metap.locationId}`,
-    method: 'GET',
-    dataType: "json",
-    contentType: "application/json; charset=utf-8",
-    success: function (jsondata) {
-      $('.place-info').append(meetingPlace);
-      placeImage(jsondata);
-    }
+  // $.ajax({
+  //   url: `${urlBack}/images/location/${metap.locationId}`,
+  //   method: 'GET',
+  //   dataType: "json",
+  //   contentType: "application/json; charset=utf-8",
+  //   success: function (jsondata) {
+  //     $('.place-info').append(meetingPlace);
+  //     placeImage(jsondata);
+  //   }
+  //
+  // });
 
-  });
-
-  function placeImage(content) {
-    let imgList = ``;
-
-    content.forEach(img => {
-      const imgContent =
-        ` <div><img class="place-img" src="${img.coverSource}" alt="${img.coverKey}"/></div>`;
-
-      imgList += imgContent;
-    })
-    $('#imgContent').append(imgList);
+  // function placeImage(content) {
+  //   let imgList = ``;
+  //
+  //   content.forEach(img => {
+  //     const imgContent =
+  //       ` <div><img class="place-img" src="${img.coverSource}" alt="${img.coverKey}"/></div>`;
+  //
+  //     imgList += imgContent;
+  //   });
+  //   $('#imgContent').append(imgList);
 
 
   }

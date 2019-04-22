@@ -524,6 +524,7 @@ input::-webkit-inner-spin-button {
   .img {
     width: 100%;
     height: 210px;
+    object-fit: cover;
   }
   & > a{
     background: rgba(95, 112, 135, 0.2);
@@ -2565,4 +2566,8 @@ img{
   height: 39px;
   line-height: 35px;
   text-align: center;
+}
+
+.normal-img {
+  object-fit: cover;
 }
