@@ -362,8 +362,8 @@ function allLanguages(langs = []) {
 
 function allSpeakers(speakers = []) {
   if (speakers.length == 0) {
-    let speakersName = `<option value="no-speaker">Speakers not found</option>`;
-    $(`#${speakerSelector}`).append(speakersName);
+    $('.replace-content').empty();
+    $('.replace-content').html('<input id="speaker-event" class="input_field" value="Speaker not Found" disabled/>');
   } else {
     let speakersName = ``;
     speakers.forEach(speaker => {
