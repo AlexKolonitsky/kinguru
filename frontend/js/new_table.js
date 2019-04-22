@@ -361,13 +361,18 @@ function allLanguages(langs = []) {
 }
 
 function allSpeakers(speakers = []) {
-  let speakersName = ``;
-  speakers.forEach(speaker => {
-    let speakerList = `<option value="${speakerSelector}${speaker.id}">${speaker.lastname} ${speaker.firstname}</option>`
-    speakersName += speakerList;
-  });
+  if (speakers.length == 0) {
+    let speakersName = `<option value="no-speaker">Speakers not found</option>`;
+    $(`#${speakerSelector}`).append(speakersName);
+  } else {
+    let speakersName = ``;
+    speakers.forEach(speaker => {
+      let speakerList = `<option value="${speakerSelector}${speaker.id}">${speaker.lastname} ${speaker.firstname}</option>`
+      speakersName += speakerList;
+    });
+    $(`#${speakerSelector}`).append(speakersName);
+  }
 
-  $(`#${speakerSelector}`).append(speakersName);
 }
 
 function speakerJobTitle(titles = []) {
