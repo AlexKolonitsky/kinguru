@@ -13,11 +13,11 @@ setTimeout(function () {
     selectedPanelFocusBoxShadow: '0 0 0 0 transparent',
     selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)'
   });
-  jQuery('#speakerMeetup').bsMultiSelect({
-    selectedPanelFocusBoxShadow: '0 0 0 0 transparent',
-    selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
-    selectedPanelClass: 'speaker-filtr-meetups form-control',
-  });
+  // jQuery('#speakerMeetup').bsMultiSelect({
+  //   selectedPanelFocusBoxShadow: '0 0 0 0 transparent',
+  //   selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)',
+  //   selectedPanelClass: 'speaker-filtr-meetups form-control',
+  // });
   jQuery('#speakerJobTitle').bsMultiSelect({
     selectedPanelFocusBoxShadow: 'transparent',
     selectedPanelFocusBorderBottomColor: '0 0 0 .1rem rgba(255, 213, 57, 0.25)'
