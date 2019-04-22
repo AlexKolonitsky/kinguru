@@ -927,6 +927,7 @@ input::-webkit-inner-spin-button {
 
 .reviewStars-input {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: center;
   width: 80%;
   overflow: hidden;
