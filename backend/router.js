@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const upload = multer();
+const upload = multer('./images/');
 
 /**
  * @description Users endpoints
