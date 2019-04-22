@@ -188,7 +188,7 @@ p:before{
 }
 
 .event-item {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .event-icon {
@@ -198,7 +198,7 @@ p:before{
 .event-icon-svg {
   width: 17px;
   height: 17px;
-  margin-right: 15px;
+  margin-right: 25px;
 }
 
 .event-category:hover {

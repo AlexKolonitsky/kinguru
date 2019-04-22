@@ -134,6 +134,7 @@ function meetup(metap) {
     `  </div>` +
     `  </div>` +
     `  </div>` +
+    `  </div>` +
     `  <div class="row my-5 about-event">` +
     `    <div class="col-11 mx-auto">` +
     `      <div class="row about-event-title">` +
