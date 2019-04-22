@@ -363,7 +363,7 @@ function allLanguages(langs = []) {
 function allSpeakers(speakers = []) {
   if (speakers.length == 0) {
     $('.replace-content').empty();
-    $('.replace-content').html('<input id="speaker-event" class="input_field" value="Speaker not Found" disabled/>');
+    $('.replace-content').html('<input id="speaker-event" class="input_field" value="No speakers available." disabled/>');
   } else {
     let speakersName = ``;
     speakers.forEach(speaker => {
