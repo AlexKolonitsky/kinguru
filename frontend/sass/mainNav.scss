@@ -1,0 +1,318 @@
+#mainNav {
+  padding: 0;
+  border-bottom: 1px solid rgba(33, 37, 41, 0.1);
+  background-color: #ffffff;
+  font-family: "Muller Regular";
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  .contactsItems {
+    display: flex;
+    font-size: 0.85rem;
+    width: 60%;
+    justify-content: flex-end;
+    margin-top: 10px;
+    .contactsItem {
+      margin: 0 5px;
+      color: #000000;
+      text-decoration: none;
+      text-align: right;
+    }
+  }
+  .container-navbar{
+    min-height: 120px;
+    .contactsNavbar {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .dropdown-menu{
+    right: auto;
+    left: auto;
+    .fa {
+      color: rgb(95, 112, 135);
+      margin-right: 10px;
+    }
+    &.show {
+      width: 12em;
+    }
+  }
+  .dropdown-toggle {
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    &::after {
+      display: none;
+    }
+  }
+  .user-name {
+    font-size: 0.7em;
+    font-family: "Muller Bold";
+    margin: 0;
+  }
+  .navbar-nav > li.nav-item > a.nav-link{
+    color: #000000;
+    padding: 0.5rem 1rem;
+    &.active {
+      position: relative;
+      &::after {
+        position: absolute;
+        content: "";
+        left: 46%;
+        bottom: 0;
+        width: 57px;
+        height: 6px;
+        background-color: #ffd800;
+      }
+    }
+  }
+  &.navbar-light .navbar-toggler {
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+  }
+  #nav-icon1{
+    padding: 0;
+    margin: 0;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    & span {
+      display: block;
+      position: absolute;
+      height: 5px;
+      width: 100%;
+      background: #000000;
+      border-radius: 5px;
+      opacity: 1;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: 0.25s ease-in-out;
+      -moz-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out;
+      transition: 0.25s ease-in-out;
+      &:nth-child(1){
+        top: 0;
+      }
+      &:nth-child(2){
+        top: 9px;
+      }
+      &:nth-child(3){
+        top: 18px;
+      }
+    }
+    &.open span:nth-child(1){
+      top: 9px;
+      -webkit-transform: rotate(135deg);
+      -moz-transform: rotate(135deg);
+      -o-transform: rotate(135deg);
+      transform: rotate(135deg);
+    }
+    &.open span:nth-child(2){
+      opacity: 0;
+      left: -60px;
+    }
+    &.open span:nth-child(3){
+      top: 9px;
+      -webkit-transform: rotate(-135deg);
+      -moz-transform: rotate(-135deg);
+      -o-transform: rotate(-135deg);
+      transform: rotate(-135deg);
+    }
+  }
+  .navbar-logo {
+    justify-content: flex-end;
+    display: flex;
+  }
+  .fa-search {
+    font-size: 1.2em;
+    margin-right: 10px;
+  }
+  #navbarResponsive .navbar-expand-lg .navbar-collapse {
+    justify-content: space-between;
+  }
+  #login-form {
+    border-radius: 5px;
+    border: none;
+    background: #fff;
+    position: fixed;
+    top: 20%!important;
+    display: none;
+    opacity: 0;
+    padding: 20px 0px 0 0;
+    z-index: 1000;
+    max-height: 65%;
+    overflow-y: auto;
+    #modal_close {
+      width: 21px;
+      height: 21px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      display: block;
+    }
+  }
+  #overlay-login {
+    z-index: 999;
+    position:fixed;
+    background-color:#000;
+    opacity:0.8;
+    -moz-opacity:0.8;
+    filter:alpha(opacity=80);
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    cursor:pointer;
+    display:none;
+  }
+  #login-btn {
+    font-weight: 400;
+    padding: 0.5em 2em;
+    border-radius: 300px;
+    background: none;
+    border: 2px solid black;
+    outline: none;
+  }
+  .hide-content {
+    display: none!important;
+  }
+  .create-meeting-butt {
+    background-color: #ffd800;
+    padding: 0.4em 1em;
+    margin: 5px;
+    word-spacing: 5px;
+  }
+  .form-title{
+    color: #000;
+  }
+}
+
+@media (min-width: 1200px) {
+  #mainNav {
+    .container {
+      .contactsNavbar {
+        width: 370px;
+        height: 100px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  #mainNav{
+    .container {
+      max-width: 900px;
+    }
+    .container-navbar,
+    .contactsNavbar {
+      justify-content: space-around;
+    }
+    .navbar-nav > li.nav-item > a.nav-link.active:after {
+      left: 16px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #mainNav {
+    border-color: transparent;
+    background-color: #ffffff;
+    padding-right: 0 !important;
+    .navbar-nav > li.nav-item > a.nav-link {
+      padding: 0.5rem 1rem;
+      font-size: 15px;
+      &.active:after {
+        right: -10px;
+      }
+      &:not(.active):hover{
+        text-decoration: underline;
+      }
+    }
+    &.navbar-light .navbar-nav .nav-link{
+      &,
+      &:focus,
+      &:hover {
+        color: #000;
+      }
+    }
+    #navbarResponsive .navbar-collapse {
+      justify-content: flex-end;
+    }
+  }
+}
+
+@media (min-width: 431px) and (max-width: 767px) {
+  #mainNav{
+    .navbar-nav > li.nav-item > a.nav-link.active:after {
+      left: 40%;
+    }
+    .navbar {
+      padding: 5px;
+      .row {
+        justify-content: space-between;
+      }
+      &-logo img {
+        width: 40%;
+        height: auto;
+      }
+    }
+    .navbar-collapse {
+      margin: 0 auto;
+    }
+    .navbar-brand img {
+      height: auto;
+      &:first-child {
+        width: 50px;
+        margin-right: 10px;
+      }
+      &:last-child {
+        width: 80px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  #mainNav {
+    .navbar {
+      padding: 0;
+      &-logo img {
+        width: 40%;
+        height: auto;
+      }
+    }
+    .navbar-nav > li.nav-item > a.nav-link.active:after {
+      left: 42%;
+    }
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  #mainNav {
+    .navbar-nav > li.nav-item > a.nav-link.active:after{
+      left: 40%;
+    }
+    .container-navbar{
+      .contactsNavbar{
+        flex-direction: column;
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+#speaker-profile {
+  background: url("../img/parallax-6-dark.png") repeat center center,
+  url("../img/main-dark.png") no-repeat center 0;
+  background-attachment: fixed, scroll;
+  background-size: contain, cover;
+  overflow-x: hidden;
+  h2 {
+    color: #fff;
+  }
+  ::selection {
+    color: #fff;
+    background: #212529;
+    text-shadow: none;
+  }
+  img::selection {
+    color: #fff;
+    background: transparent;
+  }
+  & > a[aria-expanded="true"] {
+    display: none;
+  }
+  a[role="button"]:hover {
+    background-color: #ffd800;
+    color: #000;
+  }
+  a[role="button"]:hover .fa {
+    background-color: #fff;
+    color: #000;
+  }
+  .more-button-icon {
+    margin-left: 15px;
+  }
+  .container {
+    padding-top: 10rem;
+    padding-bottom: 0;
+  }
+  .dots-button {
+    width: 93%;
+    height: 93%;
+    background-color: #f1f1f1;
+    color: #848484;
+  }
+  .speaker {
+    color: #ffffff;
+    .progress {
+      height: 20px;
+    }
+    &-cost {
+      margin: 20px 0px;
+    }
+    &-interest{
+      margin: 20px 10px;
+      .speaker-category {
+        background-color: transparent;
+        border: 1px solid #fff;
+        font-size: 16px;
+        height: 40px;
+        line-height: 20px;
+        padding: 0.6em 1.5em;
+        font-family: "Muller Regular";
+        font-weight: normal;
+        color: #fff;
+        border-radius: 300px;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+    &-lang{
+      margin: 20px 10px;
+    }
+    &-contact {
+      a:hover {
+        color: #000000;
+        text-decoration: underline;
+      }
+    }
+    .meetups-number,
+    .speaktime-number {
+      margin: 0;
+      font-size: 3em;
+      font-weight: bold;
+    }
+    .speaker-level {
+      display: flex;
+      align-items: center;
+      max-width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      color: #fff;
+      background-color: #FF1493;
+      text-transform: uppercase;
+      #speaker-status {
+        margin: 0;
+        font-family: "Muller ExtraBold";
+        font-size: 1em;
+      }
+    }
+    &-contact a {
+      color: #ffffff;
+    }
+    .about-event {
+      width: 100%;
+      .about-meetups {
+        display: inline-block;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow: hidden;
+        min-height: 5.8em;
+        line-height: 1.5em;
+        font-family: "Muller Regular";
+      }
+      .fa.fa-plus,
+      .fa.fa-minus {
+        border: 3px solid #ffd800;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        width: 39px;
+        height: 39px;
+        line-height: 35px;
+        text-align: center;
+      }
+    }
+    .fa-map-marker,
+    .fa-envelope-o,
+    .fa-mobile,
+    .fa-globe{
+      font-family: "FontAwesome";
+      margin-right: 14px;
+      font-size: 1.5em;
+      color: #ffd800;
+    }
+    .fa-mobile {
+      font-size: 2em;
+      margin-left: 4px;
+      margin-right: 20px;
+    }
+    .fa-globe {
+      margin-right: 20px;
+    }
+    .fa-facebook-f,
+    .fa-linkedin,
+    .fa-instagram {
+      margin-top: 10px;
+      margin-right: 10px;
+      color: #4e555b;
+      font-size: 1.2em;
+    }
+  }
+}
+
+@media only screen and (max-device-width: 1200px) {
+  #speaker-profile {
+    background-attachment: scroll, scroll;
+  }
+}
+
+@media (min-width: 768px) {
+  #speaker-profile {
+    min-height: 450px;
+    padding-top: 0;
+    padding-bottom: 0;
+    h2 {
+      font-size: 35px;
+    }
+    .container {
+      position: relative;
+      padding-top: 12rem;
+      padding-bottom: 83px;
+      z-index: 999;
+    }
+  }
+}
+
+@media (min-width: 431px) and (max-width: 767px) {
+  #speaker-profile {
+    padding-bottom: 50px;
+    .speaker .speaker-interest .speaker-category{
+      padding: 0.8em 1.5em;
+    }
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  #speaker-profile{
+    .container {
+      padding-top: 50px;
+    }
+    .fa-map-marker,
+    .fa-envelope-o,
+    .fa-mobile,
+    .fa-globe{
+      font-size: 1em;
+    }
+    .fa-mobile {
+      font-size: 1.5em;
+      margin-left: 2px;
+      margin-right: 20px;
+    }
+    .speaker-contact p{
+      font-size: 0.8em;
+    }
+  }
+}

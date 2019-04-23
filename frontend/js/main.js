@@ -92,7 +92,8 @@
     });
   });
 
-  $(document).ready(function () {
+
+ $(document).ready(function () {
     $(".image").click(function () {
       var img = $(this);
       var src = img.attr('src');
@@ -102,12 +103,12 @@
         "<div class='sldr'>" +
         "<img src ='" + src + "' class='popup_img' />" +
         "</div>" +
-        "<div class='prv_b'>" +
-        "<i class='fa fa-angle-left' aria-hidden='true'>" + "</i>" +
-        "</div>" +
-        "<div class='nxt_b'>" +
-        "<i class='fa fa-angle-right' aria-hidden='true'>" + "</i>" +
-        "</div>" +
+        // "<div class='prv_b'>" +
+        // "<i class='fa fa-angle-left' aria-hidden='true'>" + "</i>" +
+        // "</div>" +
+        // "<div class='nxt_b'>" +
+        // "<i class='fa fa-angle-right' aria-hidden='true'>" + "</i>" +
+        // "</div>" +
         "</div>" +
         "</div>");
       $(".popup").fadeIn(200);
@@ -119,6 +120,7 @@
       });
     });
   });
+
 
   $("#people-carousel").owlCarousel({
     loop: true,

@@ -1,0 +1,92 @@
+#all_meetups{
+  background: #ffffff url("../img/parallax-6.png") repeat center center;
+  background-attachment: fixed;
+  background-size: contain;
+}
+
+#search_event {
+  background: url("../img/parallax-6-dark.png") repeat center center,
+  url("../img/main-dark.png") no-repeat center 0;
+  background-attachment: fixed, scroll;
+  background-size: contain, cover;
+  overflow-x: hidden;
+  h2 {
+    color: #ffffff;
+  }
+  .task-title {
+    margin: 80px auto;
+  }
+  .stripe {
+    margin-top: 20px;
+  }
+  .form-group {
+    display: flex;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    label {
+      margin: auto 0;
+    }
+    #meet.form-control,
+    #subject.form-control {
+      background: transparent;
+      color: #ffffff;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      border-bottom: 1px solid #ffffff;
+      outline: none;
+      option {
+        color: #ffffff;
+        background: #2c2c2c;
+      }
+    }
+  }
+  .btn-search {
+    background-color: #ffd800;
+    margin: 10px;
+    padding: 0.4em 2em;
+  }
+  .reset{
+    margin: 10px;
+    background-color: #ffd800;
+    padding: .375rem .75rem;
+    img {
+      width: 14px;
+    }
+  }
+}
+
+#recent_meeting {
+  background: #f5f5f5 url("../img/parallax-6.png") repeat center center;
+  background-attachment: fixed;
+  background-size: contain;
+  h2 {
+    color: #000000;
+  }
+  .stripe {
+    margin-top: 20px;
+  }
+  .progress {
+    border: 2px solid #ffffff;
+    height: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  #search_event{
+    .search-button-wrapper {
+      margin: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #search_event {
+    margin-top: 0;
+    padding-top: 10rem;
+    p {
+      color: #ffffff;
+    }
+  }
+}
