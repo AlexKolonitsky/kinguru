@@ -35,7 +35,7 @@ function meetup(metap) {
     `    <h2 class="task-title text-left ml-3">${metap.title ? metap.title : ''}</h2>` +
     `  </div>` +
     `  <div class="event row">` +
-    `    <div class="event-img col-lg-5 col-sm-5 col-12">` +
+    `    <div class="event-img col-lg-5 col-sm-12 col-12">` +
     `    <div class="col-lg-11 col-sm-11 col-12">` +
     `    <img class="img mx-auto d-block img-fluid rounded-circle mt-lg-5 normal-img"` +
     `  src="${metap.coverSource ? metap.coverSource : 'img/default-user-image.png'}"` +
@@ -43,7 +43,7 @@ function meetup(metap) {
     `    </div>` +
     `    <div class="col-lg-1 col-sm-1 col-12"></div>` +
     `    </div>` +
-    `    <div class="event-desc col-lg-7 col-sm-7 col-12">` +
+    `    <div class="event-desc col-lg-7 col-sm-12 col-12">` +
     `    <div class="row event-categories my-3"></div>` +
     `    <div class="d-lg-none d-md-inline-block d-inline-block col-12">` +
     `    <h2 class="text-left ml-3 text-left">${metap.title ? metap.title : ''}</h2>` +
@@ -57,7 +57,7 @@ function meetup(metap) {
   });
   meetupContent +=
     `    <div class="event-item">` +
-    `    <div class="row mx-1 my-3">` +
+    `    <div class="row mx-1 my-4">` +
     `    <div class="event-date col-lg-6 col-sm-6 col-12">` +
     `    <p class="event-icon">` +
     `    <img class="event-icon-svg"` +
@@ -80,7 +80,7 @@ function meetup(metap) {
     `    </p>` +
     `  </div>` +
     `  </div>` +
-    `  <div class="row mx-1 my-3">` +
+    `  <div class="row mx-1 my-4">` +
     `    <div class="event-time col-lg-6 col-sm-6 col-12">` +
     `  <p class="event-icon">` +
     `    <img class="event-icon-svg"` +
@@ -91,7 +91,7 @@ function meetup(metap) {
     `  </div>` +
     `  <div class="empty col-lg-6 col-sm-6 col-12"></div>` +
     `    </div>` +
-    `    <div class="row mx-1 my-3">` +
+    `    <div class="row mx-1 my-4">` +
     `    <div class="event-place col-lg-6 col-sm-6 col-12">` +
     `    <p class="event-icon">` +
     `    <img class="event-icon-svg"` +
