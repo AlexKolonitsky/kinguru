@@ -28,7 +28,7 @@ $.ajax({
 });
 
 function meetup(metap) {
-  let data = new Date(`${metap.startDate}`);
+  let hourEvent = new Date(`${metap.startDate}`);
   let meetupContent =
     `<div class="row">` +
     `<div class="col-lg-5 col-md-6 col-12"></div>` +
@@ -86,8 +86,7 @@ function meetup(metap) {
     `  <p class="event-icon">` +
     `    <img class="event-icon-svg"` +
     `    src="img/time.svg"` +
-    `    alt="time">${date.getHours()}:${date.getMinutes()}` +
-    `  </p>` +
+    `    alt="time">${hourEvent.getHours()}:${hourEvent.getMinutes()}</p>` +
     `  </div>` +
     `  <div class="empty col-lg-6 col-sm-6 col-12"></div>` +
     `    </div>` +
