@@ -38,7 +38,7 @@ class UpdateUser extends RequestHandler {
     userRequest.keywords = userRequest.keywords ? userRequest.keywords.split(',').map(keyword => parseInt(keyword, 10)) : null;
     userRequest.expertise = userRequest.expertise ? userRequest.expertise.split(',').map(keyword => parseInt(keyword, 10)) : null;
     const file = request.file;
-    if (file) {
+    if (file.path) {
       return this.s3.upload(Date.now() + '-' + file.originalname, file.buffer, file.mimetype)
         .then(data => {
           userRequest.coverSource = data.Location;
@@ -46,6 +46,11 @@ class UpdateUser extends RequestHandler {
             .then(userInfo => {
               return this.s3.deleteObject(userInfo.oldFileKey)
                 .then(() => {
+                  return {
+                    user: userInfo.user,
+                    token: userInfo.token
+                  }
+                }, () => {
                   return {
                     user: userInfo.user,
                     token: userInfo.token
