@@ -120,7 +120,7 @@ function meetup(metap) {
     `  </div>` +
     `  <div class="row mx-1 my-4">` +
     `    <div class="event-join col-lg-6 col-sm-6 col-8">` +
-    `    <a href="#" class="btn-join btn">Join</a>` +
+    `    <a href="${metap.socialLink ? metap.socialLink : '#'}" class="btn-join btn">Join</a>` +
     `    </div>` +
     `    <div class="event-cost col-lg-6 col-sm-6 col-4">` +
     `    <p class="event-icon">` +
