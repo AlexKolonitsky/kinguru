@@ -60,6 +60,12 @@ class UpdateUser extends RequestHandler {
         })
     }
     return UsersDaoHandler.updateUser(userRequest, assert.getToken(request))
+      .then(userInfo => {
+            return {
+              user: userInfo.user,
+              token: userInfo.token
+            }
+          })
   }
 }
 
