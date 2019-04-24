@@ -202,6 +202,7 @@ function userInformation(information) {
       `   <div class="my-auto speaker-lang">`+
       `    <input type="checkbox" id="check3" name="radios-forth" value="all"/>`+
       `    <label for="check3" class="text-center pointer">Cn</label>`+
+      `</div>`+
     `   <div class="my-auto speaker-lang">`+
     `    <input type="checkbox" id="check4" name="radios-forth" value="all"/>`+
     `    <label for="check4" class="text-center pointer">Bel</label>`+
