@@ -397,6 +397,7 @@ $('#update-account').click(function () {
         languages.push($(this).val());
         languages = languages.map(Number);
     });
+    console.log(languages);
     if($('#file')[0].files[0] !== undefined) {
     fd.append( 'image', $('#file')[0].files[0]);
     }

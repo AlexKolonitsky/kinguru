@@ -34,7 +34,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sftp": "^0.1.5",
     "gulp-w3c-css": "^0.1.2",
-    "gulp-wrap": "^0.11.0",
+    "gulp-wrap": "^0.15.0",
     "run-sequence": "^2.2.1"
   },
   "devDependencies": {
