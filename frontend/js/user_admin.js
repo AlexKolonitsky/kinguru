@@ -192,19 +192,19 @@ function userInformation(information) {
     ` <p type="Language" class="col-12"></p>`+
     ` <div class="col-8 row check-toolbar-1">`+
     `   <div class="my-auto speaker-lang">`+
-    `     <input type="checkbox" id="check1" name="radios-forth" value="all"/>`+
+    `     <input type="checkbox" id="check1" name="lang-user" value="all"/>`+
     `     <label for="check1" class="text-center pointer">En</label>`+
     `   </div>`+
     `   <div class="my-auto speaker-lang">`+
-    `     <input type="checkbox" id="check2" name="radios-forth" value="all"/>`+
+    `     <input type="checkbox" id="check2" name="lang-user" value="all"/>`+
     `     <label for="check2" class="text-center pointer">Rus</label>`+
     `   </div>`+
       `   <div class="my-auto speaker-lang">`+
-      `    <input type="checkbox" id="check3" name="radios-forth" value="all"/>`+
+      `    <input type="checkbox" id="check3" name="lang-user" value="all"/>`+
       `    <label for="check3" class="text-center pointer">Cn</label>`+
       `</div>`+
     `   <div class="my-auto speaker-lang">`+
-    `    <input type="checkbox" id="check4" name="radios-forth" value="all"/>`+
+    `    <input type="checkbox" id="check4" name="lang-user" value="all"/>`+
     `    <label for="check4" class="text-center pointer">Bel</label>`+
     ` </div>`+
     ` </div>`+
@@ -393,7 +393,7 @@ function successChgangePass() {
 $('#update-account').click(function () {
   let fd = new FormData();
     let languages = [];
-    $("input[name='radios-forth[]']:checked").each(function () {
+    $("input[name='lang-user[]']:checked").each(function () {
         languages.push($(this).val());
         languages = languages.map(Number);
     });
