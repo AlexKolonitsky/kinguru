@@ -58,7 +58,7 @@ class UsersDao {
       locationId: userInfo.locationId || null,
       coverSource: userInfo.coverSource,
       coverKey: userInfo.coverKey,
-      birthday: userInfo.birthday || '1970-01-01'
+      birthday: userInfo.birthday || null
     }
   }
 
