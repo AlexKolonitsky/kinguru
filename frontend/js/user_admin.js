@@ -391,6 +391,7 @@ function successChgangePass() {
 };
 
 $('#update-account').click(function () {
+    event.preventDefault();
   let fd = new FormData();
     let languages = [];
    if ($('#check1').is(':checked')) {
