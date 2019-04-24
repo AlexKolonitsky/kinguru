@@ -58,7 +58,7 @@
   });
 
   $(document).ready(function() {
-    var showChar = 500;
+    var showChar = 200;
     var ellipsestext = "...";
     var moretext = "MORE";
     var lesstext = "LESS";
