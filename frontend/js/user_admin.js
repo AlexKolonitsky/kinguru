@@ -192,16 +192,19 @@ function userInformation(information) {
     ` <p type="Language" class="col-12"></p>`+
     ` <div class="col-8 row check-toolbar-1">`+
     `   <div class="my-auto speaker-lang">`+
-    `     <input type="checkbox" id="check1" name="radios-forth" value="all" checked/>`+
+    `     <input type="checkbox" id="check1" name="radios-forth" value="all"/>`+
     `     <label for="check1" class="text-center pointer">En</label>`+
     `   </div>`+
     `   <div class="my-auto speaker-lang">`+
     `     <input type="checkbox" id="check2" name="radios-forth" value="all"/>`+
     `     <label for="check2" class="text-center pointer">Rus</label>`+
     `   </div>`+
+      `   <div class="my-auto speaker-lang">`+
+      `    <input type="checkbox" id="check3" name="radios-forth" value="all"/>`+
+      `    <label for="check3" class="text-center pointer">Cn</label>`+
     `   <div class="my-auto speaker-lang">`+
-    `    <input type="checkbox" id="check3" name="radios-forth" value="all"/>`+
-    `    <label for="check3" class="text-center pointer">Bel</label>`+
+    `    <input type="checkbox" id="check4" name="radios-forth" value="all"/>`+
+    `    <label for="check4" class="text-center pointer">Bel</label>`+
     ` </div>`+
     ` </div>`+
     ` </div>`+
@@ -364,7 +367,9 @@ function userInformation(information) {
         });
         $('#userExpertise').append(expertiseList);
     }
-
+    information.languages.forEach(lang => {
+        $(`#check${lang.id}`).is(':checked');
+    })
 
 }
 
@@ -386,6 +391,11 @@ function successChgangePass() {
 
 $('#update-account').click(function () {
   let fd = new FormData();
+    let languages = [];
+    $("input[name='radios-forth[]']:checked").each(function () {
+        languages.push($(this).val());
+        languages = languages.map(Number);
+    });
     if($('#file')[0].files[0] !== undefined) {
     fd.append( 'image', $('#file')[0].files[0]);
     }
@@ -414,6 +424,7 @@ $('#update-account').click(function () {
   fd.append('address', $('#addresUser').val());
   fd.append('zipCode', $('#zipCode').val());
   fd.append('company', $('#company').val());
+  fd.append('languages', languages);
 
   $.ajax({
     url: `${urlBack}/user/update`,
