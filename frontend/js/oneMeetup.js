@@ -86,7 +86,7 @@ function meetup(metap) {
     `  <p class="event-icon">` +
     `    <img class="event-icon-svg"` +
     `    src="img/time.svg"` +
-    `    alt="time">${hourEvent.getHours()}:${hourEvent.getMinutes()}</p>` +
+    `    alt="time">${hourEvent.getUTCHours()}:${hourEvent.getUTCMinutes() === 0 ? '00' : hourEvent.getUTCMinutes()}</p>` +
     `  </div>` +
     `  <div class="empty col-lg-6 col-sm-6 col-12"></div>` +
     `    </div>` +

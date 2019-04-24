@@ -148,7 +148,7 @@ function userInformation(information) {
     `    <input id="country-user" class="input_field" name='country' type="text" value="${information.userLocation.country || ''}" required/>` +
     `  </p>` +
     `  <p type="City" class="col-lg-4 col-12">` +
-    `    <input id="city" class="input_field" name='city' type="text" value="${information.userLocation.city || ''}"/>` +
+    `    <input id="cityUser" class="input_field" name='city' type="text" value="${information.userLocation.city || ''}"/>` +
     `    </p>` +
     `    </div>` +
     `    <div class="row">` +
@@ -404,7 +404,7 @@ $('#update-account').click(function () {
   fd.append( 'birthday', $('#birthday-user').val());
   fd.append( 'phone', $('#phone-user').val());
   fd.append('email', $('#email-user').val());
-  fd.append('city', $('#city').val());
+  fd.append('city', $('#cityUser').val());
   fd.append('description', $('#descriptionUser').val());
   fd.append('cost', $('#costFromUser').val());
   fd.append('website', $('#website').val());
