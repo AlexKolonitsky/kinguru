@@ -426,7 +426,7 @@ $('#update-account').click(function () {
   fd.append('address', $('#addresUser').val());
   fd.append('zipCode', $('#zipCode').val());
   fd.append('company', $('#company').val());
-  fd.append('languages', languages);
+  fd.append('languages', `${languages}`);
 
   $.ajax({
     url: `${urlBack}/user/update`,
