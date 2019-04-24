@@ -393,10 +393,19 @@ function successChgangePass() {
 $('#update-account').click(function () {
   let fd = new FormData();
     let languages = [];
-    $("input[name='lang-user[]']:checked").each(function () {
-        languages.push($(this).val());
-        languages = languages.map(Number);
-    });
+   if ($('#check1').is(':checked')) {
+       languages.pop($('#check1').val());
+   }
+    if ($('#check2').is(':checked')) {
+        languages.pop($('#check2').val());
+    }
+    if ($('#check3').is(':checked')) {
+        languages.pop($('#check3').val());
+    }
+    if ($('#check4').is(':checked')) {
+        languages.pop($('#check4').val());
+    }
+
     console.log(languages);
     if($('#file')[0].files[0] !== undefined) {
     fd.append( 'image', $('#file')[0].files[0]);
