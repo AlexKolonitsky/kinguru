@@ -395,16 +395,16 @@ $('#update-account').click(function () {
   let fd = new FormData();
     let languages = [];
    if ($('#check1').is(':checked')) {
-       languages.pop($('#check1').val());
+       languages.push($('#check1').val());
    }
     if ($('#check2').is(':checked')) {
-        languages.pop($('#check2').val());
+        languages.push($('#check2').val());
     }
     if ($('#check3').is(':checked')) {
-        languages.pop($('#check3').val());
+        languages.push($('#check3').val());
     }
     if ($('#check4').is(':checked')) {
-        languages.pop($('#check4').val());
+        languages.push($('#check4').val());
     }
 
     console.log(languages);
