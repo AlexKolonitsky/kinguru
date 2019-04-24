@@ -428,6 +428,8 @@ $('#update-account').click(function () {
       $('#personal-info').empty();
       userInformation(data.user);
       $("#success-save-user").html("<p class='pass match'>Save success</p>");
+      localStorage.removeItem('Token');
+      localStorage.setItem('Token', data.token);
     }
   });
 });
