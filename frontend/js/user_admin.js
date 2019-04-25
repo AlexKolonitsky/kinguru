@@ -369,7 +369,7 @@ function userInformation(information) {
         $('#userExpertise').append(expertiseList);
     }
     information.languages.forEach(lang => {
-        $(`#check${lang.id}`).is(':checked');
+        $(`#check${lang.id}`).click();
     })
 
 }
