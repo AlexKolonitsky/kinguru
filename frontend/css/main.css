@@ -278,7 +278,8 @@ p:before{
 }
 
 #people .owl-carousel .owl-item img.rounded-circle {
-  width: auto;
+  width: 122px;
+  height: 122px;
   position: absolute;
   left: 0;
   top: 25px;

@@ -676,7 +676,7 @@ header.masthead p>span {
     background-size: contain;
 }
 	#speakers .speaker-wrapper {
-		padding: 0 34px;
+		padding: 10px 34px;
 	}
 		#speakers .speaker {
 			min-height: 438px;
@@ -688,6 +688,7 @@ header.masthead p>span {
 			}
 			#speakers .speaker .rounded-circle {
 				margin-bottom: 42px;
+                object-fit: cover;
 			}
 .speaker-wrapper .speaker .card.card-body {
 	border: none;
