@@ -38,6 +38,6 @@
     "run-sequence": "^2.2.1"
   },
   "devDependencies": {
-    "gulp": "^4.0.1"
+    "gulp": "^3.9.1"
   }
 }
