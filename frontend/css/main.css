@@ -264,7 +264,7 @@ p:before{
 #people .owl-item-inner {
   padding: 50px 0 75px 100px;
   box-shadow: 0 5px 49px 0 rgba(0, 0, 0, 0.04);
-  min-height: 200px;
+  min-height: 225px;
   background-color: #fff;
 }
 
@@ -283,6 +283,7 @@ p:before{
   position: absolute;
   left: 0;
   top: 25px;
+  object-fit: cover;
 }
 
 #people .owl-carousel .owl-item p {
